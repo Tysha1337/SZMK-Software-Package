@@ -26,6 +26,7 @@ namespace SZMK.BotLogger.Views
         private OperationsBots Operationsbots;
         private OperationsServer Operationsserver;
         private Server Server;
+        private BotTelegram telegram;
 
         public Main()
         {
@@ -136,10 +137,10 @@ namespace SZMK.BotLogger.Views
                 Operationsbots = new OperationsBots();
                 Operationsserver = new OperationsServer();
                 Server = new Server();
-                Server.Start();
+                telegram = new BotTelegram();
 
-                ExempleClientForServer exemple = new ExempleClientForServer();
-                exemple.SendAndRead();
+                Server.Start();
+                telegram.StartAsync();
 
                 LoadProducts();
             }
