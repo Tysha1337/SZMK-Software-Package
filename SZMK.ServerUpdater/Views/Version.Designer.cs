@@ -33,23 +33,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.Added_LB = new System.Windows.Forms.ListBox();
-            this.Deleted_LB = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.Added_Add_B = new System.Windows.Forms.Button();
-            this.Deleted_Add_B = new System.Windows.Forms.Button();
-            this.Version_TB = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.Added_Change_B = new System.Windows.Forms.Button();
             this.Added_Delete_B = new System.Windows.Forms.Button();
+            this.Deleted_LB = new System.Windows.Forms.ListBox();
+            this.Deleted_Add_B = new System.Windows.Forms.Button();
             this.Deleted_Change_B = new System.Windows.Forms.Button();
             this.Deleted_Delete_B = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SelectProgram_B = new System.Windows.Forms.Button();
             this.Path_TB = new System.Windows.Forms.TextBox();
-            this.ChangeParametrs_B = new System.Windows.Forms.Button();
             this.Save_B = new System.Windows.Forms.Button();
             this.Cancel_B = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DateRelease_DTP = new System.Windows.Forms.DateTimePicker();
+            this.Version_TB = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,13 +57,12 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.73286F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.26714F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.Added_LB, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.Version_TB, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.Added_Add_B, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.Added_Change_B, 2, 5);
@@ -76,14 +74,14 @@
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.SelectProgram_B, 2, 12);
             this.tableLayoutPanel1.Controls.Add(this.Path_TB, 0, 12);
-            this.tableLayoutPanel1.Controls.Add(this.ChangeParametrs_B, 0, 13);
-            this.tableLayoutPanel1.Controls.Add(this.Save_B, 0, 14);
-            this.tableLayoutPanel1.Controls.Add(this.Cancel_B, 0, 15);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.Save_B, 0, 13);
+            this.tableLayoutPanel1.Controls.Add(this.Cancel_B, 0, 14);
+            this.tableLayoutPanel1.Controls.Add(this.DateRelease_DTP, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.Version_TB, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 17;
+            this.tableLayoutPanel1.RowCount = 16;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -95,13 +93,13 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(532, 661);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(532, 638);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -162,23 +160,6 @@
             this.label4.Text = "Добавленное";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Tan;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tableLayoutPanel1.SetColumnSpan(this.label5, 3);
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label5.Location = new System.Drawing.Point(5, 287);
-            this.label5.Margin = new System.Windows.Forms.Padding(5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(522, 35);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Удаленное";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Added_LB
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.Added_LB, 2);
@@ -188,20 +169,25 @@
             this.Added_LB.Margin = new System.Windows.Forms.Padding(5);
             this.Added_LB.Name = "Added_LB";
             this.tableLayoutPanel1.SetRowSpan(this.Added_LB, 3);
-            this.Added_LB.Size = new System.Drawing.Size(413, 122);
+            this.Added_LB.Size = new System.Drawing.Size(413, 128);
             this.Added_LB.TabIndex = 7;
             // 
-            // Deleted_LB
+            // label5
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.Deleted_LB, 2);
-            this.Deleted_LB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Deleted_LB.FormattingEnabled = true;
-            this.Deleted_LB.Location = new System.Drawing.Point(5, 332);
-            this.Deleted_LB.Margin = new System.Windows.Forms.Padding(5);
-            this.Deleted_LB.Name = "Deleted_LB";
-            this.tableLayoutPanel1.SetRowSpan(this.Deleted_LB, 3);
-            this.Deleted_LB.Size = new System.Drawing.Size(413, 122);
-            this.Deleted_LB.TabIndex = 8;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Tan;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel1.SetColumnSpan(this.label5, 3);
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label5.Location = new System.Drawing.Point(5, 293);
+            this.label5.Margin = new System.Windows.Forms.Padding(5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(522, 35);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Удаленное";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Added_Add_B
             // 
@@ -212,10 +198,53 @@
             this.Added_Add_B.Location = new System.Drawing.Point(428, 157);
             this.Added_Add_B.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.Added_Add_B.Name = "Added_Add_B";
-            this.Added_Add_B.Size = new System.Drawing.Size(99, 30);
+            this.Added_Add_B.Size = new System.Drawing.Size(99, 32);
             this.Added_Add_B.TabIndex = 9;
             this.Added_Add_B.Text = "Добавить";
             this.Added_Add_B.UseVisualStyleBackColor = false;
+            this.Added_Add_B.Click += new System.EventHandler(this.Added_Add_B_Click);
+            // 
+            // Added_Change_B
+            // 
+            this.Added_Change_B.BackColor = System.Drawing.Color.NavajoWhite;
+            this.Added_Change_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Added_Change_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Added_Change_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.Added_Change_B.Location = new System.Drawing.Point(428, 203);
+            this.Added_Change_B.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.Added_Change_B.Name = "Added_Change_B";
+            this.Added_Change_B.Size = new System.Drawing.Size(99, 32);
+            this.Added_Change_B.TabIndex = 14;
+            this.Added_Change_B.Text = "Изменить";
+            this.Added_Change_B.UseVisualStyleBackColor = false;
+            this.Added_Change_B.Click += new System.EventHandler(this.Added_Change_B_Click);
+            // 
+            // Added_Delete_B
+            // 
+            this.Added_Delete_B.BackColor = System.Drawing.Color.NavajoWhite;
+            this.Added_Delete_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Added_Delete_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Added_Delete_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.Added_Delete_B.Location = new System.Drawing.Point(428, 249);
+            this.Added_Delete_B.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.Added_Delete_B.Name = "Added_Delete_B";
+            this.Added_Delete_B.Size = new System.Drawing.Size(99, 32);
+            this.Added_Delete_B.TabIndex = 15;
+            this.Added_Delete_B.Text = "Удалить";
+            this.Added_Delete_B.UseVisualStyleBackColor = false;
+            this.Added_Delete_B.Click += new System.EventHandler(this.Added_Delete_B_Click);
+            // 
+            // Deleted_LB
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.Deleted_LB, 2);
+            this.Deleted_LB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Deleted_LB.FormattingEnabled = true;
+            this.Deleted_LB.Location = new System.Drawing.Point(5, 338);
+            this.Deleted_LB.Margin = new System.Windows.Forms.Padding(5);
+            this.Deleted_LB.Name = "Deleted_LB";
+            this.tableLayoutPanel1.SetRowSpan(this.Deleted_LB, 3);
+            this.Deleted_LB.Size = new System.Drawing.Size(413, 128);
+            this.Deleted_LB.TabIndex = 8;
             // 
             // Deleted_Add_B
             // 
@@ -223,23 +252,44 @@
             this.Deleted_Add_B.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Deleted_Add_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Deleted_Add_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.Deleted_Add_B.Location = new System.Drawing.Point(428, 334);
+            this.Deleted_Add_B.Location = new System.Drawing.Point(428, 340);
             this.Deleted_Add_B.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.Deleted_Add_B.Name = "Deleted_Add_B";
-            this.Deleted_Add_B.Size = new System.Drawing.Size(99, 30);
+            this.Deleted_Add_B.Size = new System.Drawing.Size(99, 32);
             this.Deleted_Add_B.TabIndex = 10;
             this.Deleted_Add_B.Text = "Добавить";
             this.Deleted_Add_B.UseVisualStyleBackColor = false;
+            this.Deleted_Add_B.Click += new System.EventHandler(this.Deleted_Add_B_Click);
             // 
-            // Version_TB
+            // Deleted_Change_B
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.Version_TB, 2);
-            this.Version_TB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Version_TB.Location = new System.Drawing.Point(135, 50);
-            this.Version_TB.Margin = new System.Windows.Forms.Padding(5);
-            this.Version_TB.Name = "Version_TB";
-            this.Version_TB.Size = new System.Drawing.Size(392, 20);
-            this.Version_TB.TabIndex = 11;
+            this.Deleted_Change_B.BackColor = System.Drawing.Color.NavajoWhite;
+            this.Deleted_Change_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Deleted_Change_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Deleted_Change_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.Deleted_Change_B.Location = new System.Drawing.Point(428, 386);
+            this.Deleted_Change_B.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.Deleted_Change_B.Name = "Deleted_Change_B";
+            this.Deleted_Change_B.Size = new System.Drawing.Size(99, 32);
+            this.Deleted_Change_B.TabIndex = 16;
+            this.Deleted_Change_B.Text = "Изменить";
+            this.Deleted_Change_B.UseVisualStyleBackColor = false;
+            this.Deleted_Change_B.Click += new System.EventHandler(this.Deleted_Change_B_Click);
+            // 
+            // Deleted_Delete_B
+            // 
+            this.Deleted_Delete_B.BackColor = System.Drawing.Color.NavajoWhite;
+            this.Deleted_Delete_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Deleted_Delete_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Deleted_Delete_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.Deleted_Delete_B.Location = new System.Drawing.Point(428, 432);
+            this.Deleted_Delete_B.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.Deleted_Delete_B.Name = "Deleted_Delete_B";
+            this.Deleted_Delete_B.Size = new System.Drawing.Size(99, 32);
+            this.Deleted_Delete_B.TabIndex = 17;
+            this.Deleted_Delete_B.Text = "Удалить";
+            this.Deleted_Delete_B.UseVisualStyleBackColor = false;
+            this.Deleted_Delete_B.Click += new System.EventHandler(this.Deleted_Delete_B_Click);
             // 
             // label6
             // 
@@ -250,7 +300,7 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label6.Location = new System.Drawing.Point(5, 464);
+            this.label6.Location = new System.Drawing.Point(5, 476);
             this.label6.Margin = new System.Windows.Forms.Padding(5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(522, 30);
@@ -258,109 +308,41 @@
             this.label6.Text = "Архив с программой";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Added_Change_B
-            // 
-            this.Added_Change_B.BackColor = System.Drawing.Color.NavajoWhite;
-            this.Added_Change_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Added_Change_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Added_Change_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.Added_Change_B.Location = new System.Drawing.Point(428, 201);
-            this.Added_Change_B.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.Added_Change_B.Name = "Added_Change_B";
-            this.Added_Change_B.Size = new System.Drawing.Size(99, 30);
-            this.Added_Change_B.TabIndex = 14;
-            this.Added_Change_B.Text = "Изменить";
-            this.Added_Change_B.UseVisualStyleBackColor = false;
-            // 
-            // Added_Delete_B
-            // 
-            this.Added_Delete_B.BackColor = System.Drawing.Color.NavajoWhite;
-            this.Added_Delete_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Added_Delete_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Added_Delete_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.Added_Delete_B.Location = new System.Drawing.Point(428, 245);
-            this.Added_Delete_B.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.Added_Delete_B.Name = "Added_Delete_B";
-            this.Added_Delete_B.Size = new System.Drawing.Size(99, 30);
-            this.Added_Delete_B.TabIndex = 15;
-            this.Added_Delete_B.Text = "Удалить";
-            this.Added_Delete_B.UseVisualStyleBackColor = false;
-            // 
-            // Deleted_Change_B
-            // 
-            this.Deleted_Change_B.BackColor = System.Drawing.Color.NavajoWhite;
-            this.Deleted_Change_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Deleted_Change_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Deleted_Change_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.Deleted_Change_B.Location = new System.Drawing.Point(428, 378);
-            this.Deleted_Change_B.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.Deleted_Change_B.Name = "Deleted_Change_B";
-            this.Deleted_Change_B.Size = new System.Drawing.Size(99, 30);
-            this.Deleted_Change_B.TabIndex = 16;
-            this.Deleted_Change_B.Text = "Изменить";
-            this.Deleted_Change_B.UseVisualStyleBackColor = false;
-            // 
-            // Deleted_Delete_B
-            // 
-            this.Deleted_Delete_B.BackColor = System.Drawing.Color.NavajoWhite;
-            this.Deleted_Delete_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Deleted_Delete_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Deleted_Delete_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.Deleted_Delete_B.Location = new System.Drawing.Point(428, 422);
-            this.Deleted_Delete_B.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.Deleted_Delete_B.Name = "Deleted_Delete_B";
-            this.Deleted_Delete_B.Size = new System.Drawing.Size(99, 30);
-            this.Deleted_Delete_B.TabIndex = 17;
-            this.Deleted_Delete_B.Text = "Удалить";
-            this.Deleted_Delete_B.UseVisualStyleBackColor = false;
-            // 
             // SelectProgram_B
             // 
             this.SelectProgram_B.BackColor = System.Drawing.Color.NavajoWhite;
             this.SelectProgram_B.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SelectProgram_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SelectProgram_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.SelectProgram_B.Location = new System.Drawing.Point(428, 504);
+            this.SelectProgram_B.Location = new System.Drawing.Point(428, 516);
             this.SelectProgram_B.Margin = new System.Windows.Forms.Padding(5);
             this.SelectProgram_B.Name = "SelectProgram_B";
             this.SelectProgram_B.Size = new System.Drawing.Size(99, 30);
             this.SelectProgram_B.TabIndex = 18;
             this.SelectProgram_B.Text = "Выбрать";
             this.SelectProgram_B.UseVisualStyleBackColor = false;
+            this.SelectProgram_B.Click += new System.EventHandler(this.SelectProgram_B_Click);
             // 
             // Path_TB
             // 
             this.Path_TB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.Path_TB, 2);
-            this.Path_TB.Location = new System.Drawing.Point(5, 509);
+            this.Path_TB.Location = new System.Drawing.Point(5, 521);
             this.Path_TB.Margin = new System.Windows.Forms.Padding(5);
             this.Path_TB.Name = "Path_TB";
+            this.Path_TB.ReadOnly = true;
             this.Path_TB.Size = new System.Drawing.Size(413, 20);
             this.Path_TB.TabIndex = 19;
-            // 
-            // ChangeParametrs_B
-            // 
-            this.ChangeParametrs_B.BackColor = System.Drawing.Color.NavajoWhite;
-            this.tableLayoutPanel1.SetColumnSpan(this.ChangeParametrs_B, 3);
-            this.ChangeParametrs_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChangeParametrs_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangeParametrs_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.ChangeParametrs_B.Location = new System.Drawing.Point(5, 544);
-            this.ChangeParametrs_B.Margin = new System.Windows.Forms.Padding(5);
-            this.ChangeParametrs_B.Name = "ChangeParametrs_B";
-            this.ChangeParametrs_B.Size = new System.Drawing.Size(522, 30);
-            this.ChangeParametrs_B.TabIndex = 20;
-            this.ChangeParametrs_B.Text = "Настройка параметров";
-            this.ChangeParametrs_B.UseVisualStyleBackColor = false;
             // 
             // Save_B
             // 
             this.Save_B.BackColor = System.Drawing.Color.NavajoWhite;
             this.tableLayoutPanel1.SetColumnSpan(this.Save_B, 3);
+            this.Save_B.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Save_B.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Save_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.Save_B.Location = new System.Drawing.Point(5, 584);
+            this.Save_B.Location = new System.Drawing.Point(5, 556);
             this.Save_B.Margin = new System.Windows.Forms.Padding(5);
             this.Save_B.Name = "Save_B";
             this.Save_B.Size = new System.Drawing.Size(522, 30);
@@ -372,10 +354,11 @@
             // 
             this.Cancel_B.BackColor = System.Drawing.Color.NavajoWhite;
             this.tableLayoutPanel1.SetColumnSpan(this.Cancel_B, 3);
+            this.Cancel_B.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel_B.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Cancel_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancel_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.Cancel_B.Location = new System.Drawing.Point(5, 624);
+            this.Cancel_B.Location = new System.Drawing.Point(5, 596);
             this.Cancel_B.Margin = new System.Windows.Forms.Padding(5, 5, 5, 4);
             this.Cancel_B.Name = "Cancel_B";
             this.Cancel_B.Size = new System.Drawing.Size(522, 31);
@@ -383,22 +366,35 @@
             this.Cancel_B.Text = "Отмена";
             this.Cancel_B.UseVisualStyleBackColor = false;
             // 
-            // dateTimePicker1
+            // DateRelease_DTP
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.dateTimePicker1, 2);
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker1.Location = new System.Drawing.Point(135, 80);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(5);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(392, 20);
-            this.dateTimePicker1.TabIndex = 23;
+            this.tableLayoutPanel1.SetColumnSpan(this.DateRelease_DTP, 2);
+            this.DateRelease_DTP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DateRelease_DTP.Location = new System.Drawing.Point(135, 80);
+            this.DateRelease_DTP.Margin = new System.Windows.Forms.Padding(5);
+            this.DateRelease_DTP.Name = "DateRelease_DTP";
+            this.DateRelease_DTP.Size = new System.Drawing.Size(392, 20);
+            this.DateRelease_DTP.TabIndex = 23;
+            // 
+            // Version_TB
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.Version_TB, 2);
+            this.Version_TB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Version_TB.Location = new System.Drawing.Point(135, 50);
+            this.Version_TB.Margin = new System.Windows.Forms.Padding(5);
+            this.Version_TB.Mask = "0-0-00";
+            this.Version_TB.Name = "Version_TB";
+            this.Version_TB.Size = new System.Drawing.Size(392, 20);
+            this.Version_TB.TabIndex = 24;
             // 
             // Version
             // 
+            this.AcceptButton = this.Save_B;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(532, 661);
+            this.CancelButton = this.Cancel_B;
+            this.ClientSize = new System.Drawing.Size(532, 638);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -406,6 +402,7 @@
             this.Name = "Version";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Работа с версией";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Version_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -419,22 +416,21 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox Added_LB;
-        private System.Windows.Forms.TextBox Version_TB;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Added_Add_B;
         private System.Windows.Forms.Button Added_Change_B;
         private System.Windows.Forms.Button Added_Delete_B;
-        private System.Windows.Forms.ListBox Deleted_LB;
         private System.Windows.Forms.Button Deleted_Add_B;
         private System.Windows.Forms.Button Deleted_Change_B;
         private System.Windows.Forms.Button Deleted_Delete_B;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button SelectProgram_B;
-        private System.Windows.Forms.TextBox Path_TB;
-        private System.Windows.Forms.Button ChangeParametrs_B;
         private System.Windows.Forms.Button Save_B;
         private System.Windows.Forms.Button Cancel_B;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.ListBox Added_LB;
+        public System.Windows.Forms.ListBox Deleted_LB;
+        public System.Windows.Forms.TextBox Path_TB;
+        public System.Windows.Forms.DateTimePicker DateRelease_DTP;
+        public System.Windows.Forms.MaskedTextBox Version_TB;
     }
 }

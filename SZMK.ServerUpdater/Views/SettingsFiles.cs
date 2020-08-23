@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SZMK.ServerUpdater.Views
 {
-    public partial class Parameters : Form
+    public partial class SettingsFiles : Form
     {
-        public Parameters()
+        public SettingsFiles()
         {
             InitializeComponent();
         }
