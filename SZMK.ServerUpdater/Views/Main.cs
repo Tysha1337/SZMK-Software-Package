@@ -12,14 +12,19 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using SZMK.ServerUpdater.Services;
 using SZMK.ServerUpdater.Views.Interfaces;
+using SZMK.ServerUpdater.Views.Settings;
+using SZMK.ServerUpdater.Views.Versions;
 
 namespace SZMK.ServerUpdater.Views
 {
     public partial class Main : Form, IBaseView
     {
-        private OperationsVersions Versions;
+        private OperationsVersions OperationsVersions;
         private OperationsFiles OperationsFiles;
-        private Server Server;
+        private OperationsProducts OperationsProducts;
+        private Services.Server Server;
+
+        private BindingList<string> Products;
 
         public Main()
         {
@@ -30,10 +35,10 @@ namespace SZMK.ServerUpdater.Views
         {
             try
             {
-                Version Dialog = new Version(false);
+                AddOrChange Dialog = new AddOrChange(false);
                 if (Dialog.ShowDialog() == DialogResult.OK)
                 {
-                    if (Versions.Add(Dialog.Version_TB.Text, Dialog.DateRelease_DTP.Value, Dialog.Added_LB.Items.Cast<string>().ToList(), Dialog.Deleted_LB.Items.Cast<string>().ToList(), Dialog.Path_TB.Text, OperationsFiles))
+                    if (OperationsVersions.Add(Product_CB.SelectedItem.ToString(), Dialog.Version_TB.Text, Dialog.Date_TB.Text, Dialog.Added_LB.Items.Cast<string>().ToList(), Dialog.Deleted_LB.Items.Cast<string>().ToList(), Dialog.Path_TB.Text, OperationsFiles))
                     {
                         Versions_DGV.Rows.Add(Dialog.Version_TB.Text);
                         Info("Добавление было успешно произведено");
@@ -52,7 +57,7 @@ namespace SZMK.ServerUpdater.Views
             {
                 if (Versions_DGV.CurrentCell != null)
                 {
-                    Version Dialog = new Version(true);
+                    AddOrChange Dialog = new AddOrChange(true);
 
                     XDocument about = XDocument.Load(@"About\AboutProgram.conf");
 
@@ -60,7 +65,7 @@ namespace SZMK.ServerUpdater.Views
 
                     Dialog.Version_TB.Text = Versions_DGV.CurrentCell.Value.ToString();
 
-                    Dialog.DateRelease_DTP.Value = Convert.ToDateTime(update.Element("Date").Value);
+                    //Dialog.DateRelease_DTP.Value = Convert.ToDateTime(update.Element("Date").Value);
 
                     foreach (var item in update.Element("Added").Elements("Item"))
                     {
@@ -76,9 +81,9 @@ namespace SZMK.ServerUpdater.Views
                     {
                         if (!String.IsNullOrEmpty(Dialog.Path_TB.Text))
                         {
-                            if (Versions.Delete(Versions_DGV.CurrentCell.Value.ToString()))
+                            if (OperationsVersions.Delete(Versions_DGV.CurrentCell.Value.ToString()))
                             {
-                                if (Versions.Add(Dialog.Version_TB.Text, Dialog.DateRelease_DTP.Value, Dialog.Added_LB.Items.Cast<string>().ToList(), Dialog.Deleted_LB.Items.Cast<string>().ToList(), Dialog.Path_TB.Text, OperationsFiles))
+                                if (OperationsVersions.Add(Product_CB.SelectedItem.ToString(), Dialog.Version_TB.Text, Dialog.Date_TB.Text, Dialog.Added_LB.Items.Cast<string>().ToList(), Dialog.Deleted_LB.Items.Cast<string>().ToList(), Dialog.Path_TB.Text, OperationsFiles))
                                 {
                                     Info("Успешное редактирование версии!");
                                 }
@@ -93,11 +98,11 @@ namespace SZMK.ServerUpdater.Views
                             if (update.Element("Version").Value == about.Element("Program").Element("CurretVersion").Value)
                             {
                                 about.Element("Program").Element("CurretVersion").SetValue(Dialog.Version_TB.Text);
-                                about.Element("Program").Element("DateCurret").SetValue(Dialog.DateRelease_DTP.Value.ToShortDateString());
+                                //about.Element("Program").Element("DateCurret").SetValue(Dialog.DateRelease_DTP.Value.ToShortDateString());
                             }
 
                             update.Element("Version").SetValue(Dialog.Version_TB.Text);
-                            update.Element("Date").SetValue(Dialog.DateRelease_DTP.Value.ToShortDateString());
+                            //update.Element("Date").SetValue(Dialog.DateRelease_DTP.Value.ToShortDateString());
 
                             update.Element("Added").Elements().Remove();
                             update.Element("Deleted").Elements().Remove();
@@ -134,7 +139,7 @@ namespace SZMK.ServerUpdater.Views
                 {
                     if (MessageBox.Show("Вы действительно хотите удалить продукт?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                     {
-                        if (Versions.Delete(Versions_DGV.CurrentCell.Value.ToString()))
+                        if (OperationsVersions.Delete(Versions_DGV.CurrentCell.Value.ToString()))
                         {
                             Versions_DGV.Rows.RemoveAt(Versions_DGV.CurrentCell.RowIndex);
                             Info("Удаление прошло успешно");
@@ -166,19 +171,11 @@ namespace SZMK.ServerUpdater.Views
         {
             try
             {
-                Versions = new OperationsVersions();
+                OperationsVersions = new OperationsVersions();
                 OperationsFiles = new OperationsFiles();
+                OperationsProducts = new OperationsProducts();
 
-                Server = new Server(OperationsFiles, Versions);
-
-                List<string> list_versions = Versions.GetVersions();
-
-                foreach (var item in list_versions)
-                {
-                    Versions_DGV.Rows.Add(item);
-                }
-
-                Server.Start();
+                ShowProducts();
             }
             catch (Exception Ex)
             {
@@ -190,7 +187,7 @@ namespace SZMK.ServerUpdater.Views
         {
             try
             {
-                Settings settings = new Settings(OperationsFiles);
+                Settings.Server settings = new Settings.Server(OperationsFiles);
 
                 XDocument doc = XDocument.Load(@"Program\Settings\Connect\connect.conf");
 
@@ -212,6 +209,20 @@ namespace SZMK.ServerUpdater.Views
             {
                 Error(Ex.Message);
             }
+        }
+
+        private void Products_TSM_Click(object sender, EventArgs e)
+        {
+            SettingsProducts products = new SettingsProducts(Products);
+
+            products.Products_LB.DataSource = Products;
+
+            products.Show();
+        }
+        private void ShowProducts()
+        {
+            Products = new BindingList<string>(OperationsProducts.GetProducts());
+            Product_CB.DataSource = Products;
         }
     }
 }

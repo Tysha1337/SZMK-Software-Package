@@ -13,7 +13,7 @@ namespace SZMK.ServerUpdater.Services
 {
     public class OperationsVersions : BaseOperations
     {
-        public bool Add(string Version, DateTime DateRelease, List<string> Added, List<string> Deleted, string Path, OperationsFiles operationsFiles)
+        public bool Add(string Product, string Version, string DateRelease, List<string> Added, List<string> Deleted, string Path, OperationsFiles operationsFiles)
         {
             try
             {
@@ -22,14 +22,14 @@ namespace SZMK.ServerUpdater.Services
                     XDocument about = XDocument.Load(@"About\AboutProgram.conf");
 
                     about.Element("Program").Element("CurretVersion").SetValue(Version);
-                    about.Element("Program").Element("DateCurret").SetValue(DateRelease.ToShortDateString());
+                    about.Element("Program").Element("DateCurret").SetValue(DateRelease);
 
                     XElement update = new XElement("Update");
 
                     XElement version = new XElement("Version", Version);
                     update.Add(version);
 
-                    XElement date = new XElement("Date", DateRelease.ToShortDateString());
+                    XElement date = new XElement("Date", DateRelease);
                     update.Add(date);
 
                     XElement added = new XElement("Added");

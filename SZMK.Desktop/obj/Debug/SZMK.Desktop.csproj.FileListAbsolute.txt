@@ -174,3 +174,4 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.exe
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.pdb
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.csproj.CopyComplete
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.csprojAssemblyReference.cache
