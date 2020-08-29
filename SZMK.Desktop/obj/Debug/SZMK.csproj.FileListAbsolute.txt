@@ -1,0 +1,652 @@
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe.config
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\SZMK.pdb
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.csprojAssemblyReference.cache
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.Properties.Resources.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.GenerateResource.cache
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.exe
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.pdb
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KB_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\Equin.ApplicationFramework.BindingListView.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.CopyComplete
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\Zen.Barcode.Core.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.Load_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\Npgsql.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Memory.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\Npgsql.pdb
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\Npgsql.xml
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.xml
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Memory.xml
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.xml
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.xml
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\EPPlus.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\SimpleTCP.dll
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\bin\Debug\EPPlus.xml
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBScanUnloadSpecific.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBScan_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADAdminstrator_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARArhive_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARChangeOrder_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARDecode_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARReportOrderOfDate_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARSearchParam_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBChangeOrder_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBReportOrderOfDate_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBSearchParam_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADServerMail_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsDataBase_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADInformationMail_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADRegistrationMail_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADRegistrationUser_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSearchParamUsers_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsByteScout_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsMails_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsMobileApp_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsProgram_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARDecodeReport_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPChangeOrder_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPReportOrderOfDate_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPScan_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPSearchParam_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPP_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOChangeOrder_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOReportOrderOfDate_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOScan_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOSearchParam_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDO_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe.config
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\SZMK.pdb
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\EPPlus.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\Equin.ApplicationFramework.BindingListView.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\Npgsql.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\SimpleTCP.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Memory.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\Zen.Barcode.Core.dll
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\EPPlus.xml
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\Npgsql.pdb
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\Npgsql.xml
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.xml
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Memory.xml
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.xml
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.xml
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADAdminstrator_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARArhive_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARChangeOrder_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARDecodeReport_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARDecode_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARSearchParam_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBChangeOrder_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBScanUnloadSpecific.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBScan_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KB_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.Load_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBSearchParam_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADServerMail_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsDataBase_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADInformationMail_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.Autorization_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPChangeOrder_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPScan_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPSearchParam_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPP_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOChangeOrder_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOScan_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOSearchParam_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDO_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.Properties.Resources.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADRegistrationMail_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADRegistrationUser_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSearchParamUsers_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsByteScout_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsMails_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsMobileApp_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsProgram_F.resources
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.GenerateResource.cache
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.CopyComplete
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.exe
+C:\Users\thedr\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.pdb
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe.config
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\SZMK.pdb
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\EPPlus.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\Equin.ApplicationFramework.BindingListView.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\Npgsql.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\SimpleTCP.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Memory.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\Zen.Barcode.Core.dll
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\EPPlus.xml
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\Npgsql.pdb
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\Npgsql.xml
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.xml
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Memory.xml
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.xml
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.xml
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.csprojAssemblyReference.cache
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADAdminstrator_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARArhive_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARChangeOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARDecodeReport_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARDecode_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARReportOrderOfDate_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARSearchParam_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBChangeOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBReportOrderOfDate_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBScanUnloadSpecific.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBScan_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.KB_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.Load_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.KBSearchParam_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADServerMail_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsDataBase_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADInformationMail_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPChangeOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPReportOrderOfDate_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPScan_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPPSearchParam_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.OPP_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOChangeOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOReportOrderOfDate_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOScan_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDOSearchParam_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.PDO_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.Properties.Resources.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADRegistrationMail_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADRegistrationUser_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSearchParamUsers_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsByteScout_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsMails_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsMobileApp_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ADSettingsProgram_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.GenerateResource.cache
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.CopyComplete
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.exe
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.pdb
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.AVTChangePassword_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.AVTAutorization_F.resources
+C:\Users\Unix\Desktop\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARNotDecode_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARNotDecode_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ARRenameOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.AVTChangePassword_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.Chief_PDO_ChangeOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.Chief_PDO_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.Chief_PDO_SearchParam_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.AVTAutorization_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.Chief_PDO_ChangedStatuses_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ALLAboutProgram_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ALLSearchOrderScan_F.resources
+C:\Users\kirill.gubanov\Desktop\Project\SZMK\SZMK\SZMK\obj\Debug\SZMK.ALLFormingReportForAllPosition_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Properties.Resources.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.GenerateResource.cache
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.exe
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe.config
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\SZMK.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\AForge.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\EPPlus.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\Equin.ApplicationFramework.BindingListView.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\Newtonsoft.Json.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\Npgsql.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\SimpleTCP.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Memory.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\Zen.Barcode.Core.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\zxing.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\zxing.presentation.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\AForge.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\EPPlus.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\Newtonsoft.Json.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\Npgsql.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\Npgsql.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Memory.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\zxing.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\zxing.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\zxing.presentation.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\bin\Debug\zxing.presentation.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.CopyComplete
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ALL_AboutProgram_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_Adminstrator_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_Arhive_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_DecodeReport_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_Decode_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_NotDecode_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_RenameOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_SettingConfig_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Autorization.AVT_ChangePassword_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ALL_FormingReportForAllPosition_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_AddData_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_NotAdded_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_SettingConfig_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_NotAdded_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_ScanUnloadSpecific.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ALL_UpdateOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_Scan_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SettingConfig_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SettingWebcam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_ServerMail_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SettingsDataBase_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Autorization.AVT_Autorization_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_Scan_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SettingConfig_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SettingWebcam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_Scan_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SettingConfig_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SettingWebcam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SearchParamUsers_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SettingsByteScout_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SettingsMails_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SettingsMobileApp_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SettingsProgram_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_RegistrationMail_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_RegistrationUser_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_InformationMail_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SettingScannerPort_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SettingScannerPort_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SettingScannerPort_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_CodeSettingScanner_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_CodeSettingScanner_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_CodeSettingScanner_F.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ForLongOperations_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe.config
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\SZMK.pdb
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\AForge.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\EPPlus.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\Equin.ApplicationFramework.BindingListView.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\Npgsql.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\SimpleTCP.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Memory.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\Zen.Barcode.Core.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\zxing.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\zxing.presentation.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\AForge.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\EPPlus.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\Npgsql.pdb
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\Npgsql.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Memory.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\zxing.pdb
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\zxing.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\zxing.presentation.pdb
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\bin\Debug\zxing.presentation.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.csprojAssemblyReference.cache
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_CodeSettingScanner_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SettingScannerPort_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_CodeSettingScanner_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SettingScannerPort_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_CodeSettingScanner_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SettingScannerPort_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ALL_AboutProgram_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_Adminstrator_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_Arhive_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_ChangeOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_DecodeReport_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_Decode_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_DetailedInformationOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_NotDecode_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_RenameOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_ReportOrderOfDate_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_SearchParam_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_SelectedColumnDGV_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_SettingConfig_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Autorization.AVT_ChangePassword_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_DetailedInformationOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_ReportOrderOfDate_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_SelectedColumnDGV_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_ChangeOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_SearchParam_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ALL_FormingReportForAllPosition_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_AddData_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_ChangeOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_DetailedInformationOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_NotAdded_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_ReportOrderOfDate_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_SearchParam_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_SelectedColumnDGV_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_SettingConfig_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_ChangeOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_DetailedInformationOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_NotAdded_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_ReportOrderOfDate_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_ScanUnloadSpecific.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ALL_UpdateOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_Scan_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SelectedColumnDGV_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SettingConfig_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SettingWebcam_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ForLongOperations_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SearchParam_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_ServerMail_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SettingsDataBase_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_InformationMail_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Autorization.AVT_Autorization_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_ChangeOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_DetailedInformationOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_ReportOrderOfDate_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_Scan_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SearchParam_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SelectedColumnDGV_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SettingConfig_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SettingWebcam_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_ChangeOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_DetailedInformationOrder_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_ReportOrderOfDate_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_Scan_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SearchParam_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SelectedColumnDGV_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SettingConfig_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SettingWebcam_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Properties.Resources.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_RegistrationMail_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_RegistrationUser_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SearchParamUsers_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SettingsByteScout_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SettingsMails_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SettingsMobileApp_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SettingsProgram_F.resources
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.GenerateResource.cache
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.CoreCompileInputs.cache
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.CopyComplete
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.exe
+C:\Users\kirill.gubanov\Desktop\Work\SZMK\SZMK\SZMK\obj\Debug\SZMK.pdb
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_CodeSettingScanner_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SettingScannerPort_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_CodeSettingScanner_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SettingScannerPort_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_CodeSettingScanner_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SettingScannerPort_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ALL_AboutProgram_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_Arhive_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_DecodeReport_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_Decode_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_NotDecode_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_RenameOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Arhive.AR_SettingConfig_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Autorization.AVT_ChangePassword_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Chief_PDO.Chief_PDO_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ALL_FormingReportForAllPosition_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_AddData_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_NotAdded_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Design_Engineer.Design_Engineer_SettingConfig_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_NotAdded_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_ScanUnloadSpecific.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ALL_UpdateOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_Scan_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SettingConfig_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SettingWebcam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.ForLongOperations_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Autorization.AVT_Autorization_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_Scan_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SettingConfig_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.OPP.OPP_SettingWebcam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_ChangeOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_DetailedInformationOrder_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_ReportOrderOfDate_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_Scan_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SearchParam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SelectedColumnDGV_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SettingConfig_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.PDO.PDO_SettingWebcam_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Properties.Resources.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_RegistrationUser_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.AD_SearchParamUsers_F.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.GenerateResource.cache
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe.config
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\SZMK.exe
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\SZMK.pdb
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\AForge.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\EPPlus.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\Equin.ApplicationFramework.BindingListView.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\Newtonsoft.Json.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\Npgsql.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\SimpleTCP.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Memory.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\Zen.Barcode.Core.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\zxing.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\zxing.presentation.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\AForge.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\EPPlus.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\Newtonsoft.Json.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\Npgsql.pdb
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\Npgsql.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Buffers.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Memory.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Text.Json.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\System.ValueTuple.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\zxing.pdb
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\zxing.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\zxing.presentation.pdb
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\Debug\zxing.presentation.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.csproj.CopyComplete
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.exe
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.pdb
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\SZMK.exe.config
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\SZMK.exe
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\SZMK.pdb
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\AForge.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\AForge.Video.DirectShow.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\AForge.Video.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\EPPlus.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\Equin.ApplicationFramework.BindingListView.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\Newtonsoft.Json.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\Npgsql.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\SimpleTCP.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Buffers.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Memory.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Numerics.Vectors.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Text.Encodings.Web.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Text.Json.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Threading.Tasks.Extensions.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.ValueTuple.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\Zen.Barcode.Core.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\zxing.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\zxing.presentation.dll
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\AForge.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\AForge.Video.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\AForge.Video.DirectShow.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\EPPlus.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\Newtonsoft.Json.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\Npgsql.pdb
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\Npgsql.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Buffers.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Memory.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Numerics.Vectors.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Text.Encodings.Web.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Text.Json.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.Threading.Tasks.Extensions.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\System.ValueTuple.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\zxing.pdb
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\zxing.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\zxing.presentation.pdb
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\bin\SZMK\zxing.presentation.xml
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.MainSettings.Settings_Updates.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.Main.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.MainSettings.Settings_ServerMail.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.MainSettings.Settings_DataBase.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.MainSettings.Information_Mail.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.MainSettings.Registration_Mail.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.MainSettings.Settings_ByteScout.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.MainSettings.Settings_Mails.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.MainSettings.Settings_Program.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Shared.Settings_MobileApp.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.Admin.PositionSettings.Settings_KB.resources
+C:\Users\thedr\Desktop\Works\SZMK\SZMK\SZMK\obj\Debug\SZMK.Views.KB.KB_SelectedUser_F.resources

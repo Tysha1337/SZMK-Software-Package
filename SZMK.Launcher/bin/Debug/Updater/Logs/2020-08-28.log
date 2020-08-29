@@ -1,0 +1,21 @@
+[2020-08-28 15:18:36.6191] [INFO] Проверка подключения к серверу обновления
+[2020-08-28 15:18:36.6789] [ERROR] System.Exception: Ошибка подключения к серверу обновления
+   в SZMK.LauncherUpdater.Program.Main(String[] args) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 30
+[2020-08-28 15:21:13.4637] [INFO] Проверка подключения к серверу обновления
+[2020-08-28 15:21:13.5375] [ERROR] System.Exception: Ошибка подключения к серверу обновления
+   в SZMK.LauncherUpdater.Program.Main(String[] args) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 30
+[2020-08-28 15:36:38.5123] [INFO] Проверка подключения к серверу обновления
+[2020-08-28 15:36:38.5631] [ERROR] System.Exception: Ошибка подключения к серверу обновления
+   в SZMK.LauncherUpdater.Program.Main(String[] args) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 40
+[2020-08-28 15:47:16.5876] [INFO] Проверка подключения к серверу обновления
+[2020-08-28 15:47:16.6504] [ERROR] System.Exception: Необходимо закрыть все копии SZMK.Launcher перед обновлением ПО ---> System.Exception: Необходимо закрыть все копии SZMK.Launcher перед обновлением ПО
+   в SZMK.LauncherUpdater.Program.CheckedProcess() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 60
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.LauncherUpdater.Program.CheckedProcess() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 66
+   в SZMK.LauncherUpdater.Program.Main(String[] args) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 25
+[2020-08-28 15:47:50.1639] [INFO] Проверка подключения к серверу обновления и выполняемых процессов
+[2020-08-28 15:47:50.2277] [ERROR] System.Exception: Ошибка подключения к серверу обновления
+   в SZMK.LauncherUpdater.Program.Main(String[] args) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 44
+[2020-08-28 15:51:20.6988] [INFO] Проверка подключения к серверу обновления и выполняемых процессов
+[2020-08-28 15:51:20.7726] [ERROR] System.Exception: Ошибка подключения к серверу обновления
+   в SZMK.LauncherUpdater.Program.Main(String[] args) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 52
