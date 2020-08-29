@@ -1,0 +1,953 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC0348E8-5AA2-4CB3-AF3C-4DE28EE9752E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SZMK.Desktop</RootNamespace>
+    <AssemblyName>SZMK.Desktop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\SZMK.Launcher\bin\Debug\Product\SZMK.Desktop\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Значек приложения.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.3.2, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.2\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Equin.ApplicationFramework.BindingListView, Version=1.4.5222.35545, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Equin.ApplicationFramework.BindingListView.1.4.5222.35545\lib\net40-Client\Equin.ApplicationFramework.BindingListView.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=4.1.2.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.1.2\lib\net461\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="SimpleTCP, Version=1.0.24.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleTCP.1.0.24\lib\net45\SimpleTCP.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.6.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Zen.Barcode.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zen.Barcode.Core.2.0.0\lib\net45\Zen.Barcode.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BindingModels\OrdersGetting.cs" />
+    <Compile Include="Services\Scan\BaseScanBlankOrder.cs" />
+    <Compile Include="Services\Scan\BaseScanOrder.cs" />
+    <Compile Include="Services\Scan\ScannerBlankOrder.cs" />
+    <Compile Include="Services\Scan\ScannerOrder.cs" />
+    <Compile Include="Services\Setting\AboutProgram.cs" />
+    <Compile Include="Services\Setting\Position.cs" />
+    <Compile Include="Services\Setting\Program.cs" />
+    <Compile Include="Services\Setting\User.cs" />
+    <Compile Include="Views\Admin\PositionSettings\Settings_KB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\PositionSettings\Settings_KB.Designer.cs">
+      <DependentUpon>Settings_KB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KB\KB_CodeSettingScanner_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_CodeSettingScanner_F.Designer.cs">
+      <DependentUpon>KB_CodeSettingScanner_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KB\KB_SelectedUser_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_SelectedUser_F.Designer.cs">
+      <DependentUpon>KB_SelectedUser_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KB\KB_SettingScannerPort_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_SettingScannerPort_F.Designer.cs">
+      <DependentUpon>KB_SettingScannerPort_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_CodeSettingScanner_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_CodeSettingScanner_F.Designer.cs">
+      <DependentUpon>OPP_CodeSettingScanner_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_SettingScannerPort_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_SettingScannerPort_F.Designer.cs">
+      <DependentUpon>OPP_SettingScannerPort_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_CodeSettingScanner_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_CodeSettingScanner_F.Designer.cs">
+      <DependentUpon>PDO_CodeSettingScanner_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_SettingScannerPort_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_SettingScannerPort_F.Designer.cs">
+      <DependentUpon>PDO_SettingScannerPort_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\ALL_AboutProgram_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\ALL_AboutProgram_F.Designer.cs">
+      <DependentUpon>ALL_AboutProgram_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_Arhive_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_Arhive_F.designer.cs">
+      <DependentUpon>AR_Arhive_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_ChangeOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_ChangeOrder_F.Designer.cs">
+      <DependentUpon>AR_ChangeOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_DecodeReport_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_DecodeReport_F.Designer.cs">
+      <DependentUpon>AR_DecodeReport_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_Decode_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_Decode_F.Designer.cs">
+      <DependentUpon>AR_Decode_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_DetailedInformationOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_DetailedInformationOrder_F.Designer.cs">
+      <DependentUpon>AR_DetailedInformationOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_NotDecode_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_NotDecode_F.Designer.cs">
+      <DependentUpon>AR_NotDecode_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_RenameOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_RenameOrder_F.Designer.cs">
+      <DependentUpon>AR_RenameOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_ReportOrderOfDate_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_ReportOrderOfDate_F.Designer.cs">
+      <DependentUpon>AR_ReportOrderOfDate_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_SearchParam_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_SearchParam_F.Designer.cs">
+      <DependentUpon>AR_SearchParam_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_SelectedColumnDGV_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_SelectedColumnDGV_F.Designer.cs">
+      <DependentUpon>AR_SelectedColumnDGV_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_SettingConfig_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Arhive\AR_SettingConfig_F.Designer.cs">
+      <DependentUpon>AR_SettingConfig_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlankOrderOfOrder.cs" />
+    <Compile Include="BindingModels\BlankOrderScanSession.cs" />
+    <Compile Include="Services\Scan\ByteScout.cs" />
+    <Compile Include="Views\Autorization\AVT_ChangePassword_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Autorization\AVT_ChangePassword_F.Designer.cs">
+      <DependentUpon>AVT_ChangePassword_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_DetailedInformationOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_DetailedInformationOrder_F.Designer.cs">
+      <DependentUpon>Chief_PDO_DetailedInformationOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_ReportOrderOfDate_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_ReportOrderOfDate_F.Designer.cs">
+      <DependentUpon>Chief_PDO_ReportOrderOfDate_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_SelectedColumnDGV_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_SelectedColumnDGV_F.Designer.cs">
+      <DependentUpon>Chief_PDO_SelectedColumnDGV_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_ChangeOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_ChangeOrder_F.Designer.cs">
+      <DependentUpon>Chief_PDO_ChangeOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_F.Designer.cs">
+      <DependentUpon>Chief_PDO_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_SearchParam_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Chief_PDO\Chief_PDO_SearchParam_F.Designer.cs">
+      <DependentUpon>Chief_PDO_SearchParam_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BindingModels\Column.cs" />
+    <Compile Include="BindingModels\DecodeScanSession.cs" />
+    <Compile Include="Views\Shared\ALL_FormingReportForAllPosition_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\ALL_FormingReportForAllPosition_F.Designer.cs">
+      <DependentUpon>ALL_FormingReportForAllPosition_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_AddData_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_AddData_F.Designer.cs">
+      <DependentUpon>Design_Engineer_AddData_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_ChangeOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_ChangeOrder_F.Designer.cs">
+      <DependentUpon>Design_Engineer_ChangeOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_DetailedInformationOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_DetailedInformationOrder_F.Designer.cs">
+      <DependentUpon>Design_Engineer_DetailedInformationOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_NotAdded_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_NotAdded_F.Designer.cs">
+      <DependentUpon>Design_Engineer_NotAdded_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_ReportOrderOfDate_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_ReportOrderOfDate_F.Designer.cs">
+      <DependentUpon>Design_Engineer_ReportOrderOfDate_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_F.Designer.cs">
+      <DependentUpon>Design_Engineer_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_SelectedColumnDGV_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_SelectedColumnDGV_F.Designer.cs">
+      <DependentUpon>Design_Engineer_SelectedColumnDGV_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_SearchParam_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_SearchParam_F.Designer.cs">
+      <DependentUpon>Design_Engineer_SearchParam_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_SettingConfig_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Design_Engineer\Design_Engineer_SettingConfig_F.Designer.cs">
+      <DependentUpon>Design_Engineer_SettingConfig_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Detail.cs" />
+    <Compile Include="BindingModels\DetailSession.cs" />
+    <Compile Include="Views\KB\KB_ChangeOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_ChangeOrder_F.Designer.cs">
+      <DependentUpon>KB_ChangeOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Excel.cs" />
+    <Compile Include="Views\KB\KB_DetailedInformationOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_DetailedInformationOrder_F.Designer.cs">
+      <DependentUpon>KB_DetailedInformationOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KB\KB_NotAdded_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_NotAdded_F.Designer.cs">
+      <DependentUpon>KB_NotAdded_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KB\KB_ReportOrderOfDate_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_ReportOrderOfDate_F.Designer.cs">
+      <DependentUpon>KB_ReportOrderOfDate_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KB\KB_ScanUnloadSpecific.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_ScanUnloadSpecific.designer.cs">
+      <DependentUpon>KB_ScanUnloadSpecific.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\ALL_UpdateOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\ALL_UpdateOrder_F.Designer.cs">
+      <DependentUpon>ALL_UpdateOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KB\KB_Scan_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_Scan_F.designer.cs">
+      <DependentUpon>KB_Scan_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KB\KB_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_F.designer.cs">
+      <DependentUpon>KB_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KB\KB_SelectedColumnDGV_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_SelectedColumnDGV_F.Designer.cs">
+      <DependentUpon>KB_SelectedColumnDGV_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KB\KB_SettingConfig_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_SettingConfig_F.Designer.cs">
+      <DependentUpon>KB_SettingConfig_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KB\KB_SettingWebcam_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_SettingWebcam_F.Designer.cs">
+      <DependentUpon>KB_SettingWebcam_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\ForLongOperations_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\ForLongOperations_F.Designer.cs">
+      <DependentUpon>ForLongOperations_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Interfaces\INotifyProcess.cs" />
+    <Compile Include="Models\MarkSteel.cs" />
+    <Compile Include="Models\Pattern.cs" />
+    <Compile Include="Views\OPP\OPP_ChangeOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_ChangeOrder_F.Designer.cs">
+      <DependentUpon>OPP_ChangeOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_DetailedInformationOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_DetailedInformationOrder_F.Designer.cs">
+      <DependentUpon>OPP_DetailedInformationOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_ReportOrderOfDate_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_ReportOrderOfDate_F.Designer.cs">
+      <DependentUpon>OPP_ReportOrderOfDate_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_Scan_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_Scan_F.Designer.cs">
+      <DependentUpon>OPP_Scan_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_SearchParam_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_SearchParam_F.Designer.cs">
+      <DependentUpon>OPP_SearchParam_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_F.Designer.cs">
+      <DependentUpon>OPP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_SelectedColumnDGV_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_SelectedColumnDGV_F.Designer.cs">
+      <DependentUpon>OPP_SelectedColumnDGV_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_SettingConfig_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_SettingConfig_F.Designer.cs">
+      <DependentUpon>OPP_SettingConfig_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_SettingWebcam_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OPP\OPP_SettingWebcam_F.Designer.cs">
+      <DependentUpon>OPP_SettingWebcam_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Views\PDO\PDO_ChangeOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_ChangeOrder_F.Designer.cs">
+      <DependentUpon>PDO_ChangeOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_DetailedInformationOrder_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_DetailedInformationOrder_F.Designer.cs">
+      <DependentUpon>PDO_DetailedInformationOrder_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_ReportOrderOfDate_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_ReportOrderOfDate_F.Designer.cs">
+      <DependentUpon>PDO_ReportOrderOfDate_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_Scan_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_Scan_F.Designer.cs">
+      <DependentUpon>PDO_Scan_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_SearchParam_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_SearchParam_F.Designer.cs">
+      <DependentUpon>PDO_SearchParam_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_F.Designer.cs">
+      <DependentUpon>PDO_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_SelectedColumnDGV_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_SelectedColumnDGV_F.Designer.cs">
+      <DependentUpon>PDO_SelectedColumnDGV_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_SettingConfig_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_SettingConfig_F.Designer.cs">
+      <DependentUpon>PDO_SettingConfig_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_SettingWebcam_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PDO\PDO_SettingWebcam_F.Designer.cs">
+      <DependentUpon>PDO_SettingWebcam_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile.cs" />
+    <Compile Include="Services\Request.cs" />
+    <Compile Include="Models\BlankOrder.cs" />
+    <Compile Include="Views\KB\KB_SearchParam_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_SearchParam_F.Designer.cs">
+      <DependentUpon>KB_SearchParam_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\RequestLinq.cs" />
+    <Compile Include="Services\Setting\SelectedColumn.cs" />
+    <Compile Include="Services\Scan\ServerMobileAppBlankOrder.cs" />
+    <Compile Include="Models\Specific.cs" />
+    <Compile Include="Models\Status.cs" />
+    <Compile Include="BindingModels\OrderScanSession.cs" />
+    <Compile Include="Services\Setting\ServerMail.cs" />
+    <Compile Include="Views\Admin\MainSettings\Settings_ServerMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\MainSettings\Settings_ServerMail.Designer.cs">
+      <DependentUpon>Settings_ServerMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Scan\ServerMobileAppOrder.cs" />
+    <Compile Include="Views\Admin\MainSettings\Settings_DataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\MainSettings\Settings_DataBase.Designer.cs">
+      <DependentUpon>Settings_DataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\MainSettings\Information_Mail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\MainSettings\Information_Mail.Designer.cs">
+      <DependentUpon>Information_Mail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Autorization\AVT_Autorization_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Autorization\AVT_Autorization_F.Designer.cs">
+      <DependentUpon>AVT_Autorization_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Setting\DataBase.cs" />
+    <Compile Include="Services\Encryption.cs" />
+    <Compile Include="Services\Hash.cs" />
+    <Compile Include="Models\Interfaces\IPositionToUser.cs" />
+    <Compile Include="Services\Log.cs" />
+    <Compile Include="Models\Mail.cs" />
+    <Compile Include="Services\Setting\MobileApplication.cs" />
+    <Compile Include="Services\Setting\Path.cs" />
+    <Compile Include="Models\BasePosition.cs" />
+    <Compile Include="Models\Position.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Admin\MainSettings\Registration_Mail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\MainSettings\Registration_Mail.Designer.cs">
+      <DependentUpon>Registration_Mail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AD_RegistrationUser_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\AD_RegistrationUser_F.Designer.cs">
+      <DependentUpon>AD_RegistrationUser_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AD_SearchParamUsers_F.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\AD_SearchParamUsers_F.Designer.cs">
+      <DependentUpon>AD_SearchParamUsers_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\MainSettings\Settings_ByteScout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\MainSettings\Settings_ByteScout.Designer.cs">
+      <DependentUpon>Settings_ByteScout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\MainSettings\Settings_Mails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\MainSettings\Settings_Mails.Designer.cs">
+      <DependentUpon>Settings_Mails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Settings_MobileApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Settings_MobileApp.Designer.cs">
+      <DependentUpon>Settings_MobileApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\MainSettings\Settings_Program.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\MainSettings\Settings_Program.Designer.cs">
+      <DependentUpon>Settings_Program.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatusOfOrder.cs" />
+    <Compile Include="SystemArgs.cs" />
+    <Compile Include="Services\Template.cs" />
+    <Compile Include="Services\UnLoadSpecific.cs" />
+    <Compile Include="Services\Updates.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Services\Scan\WebcamScanBlankOrder.cs" />
+    <Compile Include="Services\Scan\WebcamScanOrder.cs" />
+    <EmbeddedResource Include="Views\Admin\PositionSettings\Settings_KB.resx">
+      <DependentUpon>Settings_KB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_CodeSettingScanner_F.resx">
+      <DependentUpon>KB_CodeSettingScanner_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_SelectedUser_F.resx">
+      <DependentUpon>KB_SelectedUser_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_SettingScannerPort_F.resx">
+      <DependentUpon>KB_SettingScannerPort_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OPP\OPP_CodeSettingScanner_F.resx">
+      <DependentUpon>OPP_CodeSettingScanner_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OPP\OPP_SettingScannerPort_F.resx">
+      <DependentUpon>OPP_SettingScannerPort_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDO\PDO_CodeSettingScanner_F.resx">
+      <DependentUpon>PDO_CodeSettingScanner_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDO\PDO_SettingScannerPort_F.resx">
+      <DependentUpon>PDO_SettingScannerPort_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\ALL_AboutProgram_F.resx">
+      <DependentUpon>ALL_AboutProgram_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Arhive\AR_Arhive_F.resx">
+      <DependentUpon>AR_Arhive_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Arhive\AR_ChangeOrder_F.resx">
+      <DependentUpon>AR_ChangeOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Arhive\AR_DecodeReport_F.resx">
+      <DependentUpon>AR_DecodeReport_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Arhive\AR_Decode_F.resx">
+      <DependentUpon>AR_Decode_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Arhive\AR_DetailedInformationOrder_F.resx">
+      <DependentUpon>AR_DetailedInformationOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Arhive\AR_NotDecode_F.resx">
+      <DependentUpon>AR_NotDecode_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Arhive\AR_RenameOrder_F.resx">
+      <DependentUpon>AR_RenameOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Arhive\AR_ReportOrderOfDate_F.resx">
+      <DependentUpon>AR_ReportOrderOfDate_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Arhive\AR_SearchParam_F.resx">
+      <DependentUpon>AR_SearchParam_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Arhive\AR_SelectedColumnDGV_F.resx">
+      <DependentUpon>AR_SelectedColumnDGV_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Arhive\AR_SettingConfig_F.resx">
+      <DependentUpon>AR_SettingConfig_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Autorization\AVT_ChangePassword_F.resx">
+      <DependentUpon>AVT_ChangePassword_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Chief_PDO\Chief_PDO_DetailedInformationOrder_F.resx">
+      <DependentUpon>Chief_PDO_DetailedInformationOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Chief_PDO\Chief_PDO_ReportOrderOfDate_F.resx">
+      <DependentUpon>Chief_PDO_ReportOrderOfDate_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Chief_PDO\Chief_PDO_SelectedColumnDGV_F.resx">
+      <DependentUpon>Chief_PDO_SelectedColumnDGV_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Chief_PDO\Chief_PDO_ChangeOrder_F.resx">
+      <DependentUpon>Chief_PDO_ChangeOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Chief_PDO\Chief_PDO_F.resx">
+      <DependentUpon>Chief_PDO_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Chief_PDO\Chief_PDO_SearchParam_F.resx">
+      <DependentUpon>Chief_PDO_SearchParam_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\ALL_FormingReportForAllPosition_F.resx">
+      <DependentUpon>ALL_FormingReportForAllPosition_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Design_Engineer\Design_Engineer_AddData_F.resx">
+      <DependentUpon>Design_Engineer_AddData_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Design_Engineer\Design_Engineer_ChangeOrder_F.resx">
+      <DependentUpon>Design_Engineer_ChangeOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Design_Engineer\Design_Engineer_DetailedInformationOrder_F.resx">
+      <DependentUpon>Design_Engineer_DetailedInformationOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Design_Engineer\Design_Engineer_F.resx">
+      <DependentUpon>Design_Engineer_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Design_Engineer\Design_Engineer_NotAdded_F.resx">
+      <DependentUpon>Design_Engineer_NotAdded_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Design_Engineer\Design_Engineer_ReportOrderOfDate_F.resx">
+      <DependentUpon>Design_Engineer_ReportOrderOfDate_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Design_Engineer\Design_Engineer_SearchParam_F.resx">
+      <DependentUpon>Design_Engineer_SearchParam_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Design_Engineer\Design_Engineer_SelectedColumnDGV_F.resx">
+      <DependentUpon>Design_Engineer_SelectedColumnDGV_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Design_Engineer\Design_Engineer_SettingConfig_F.resx">
+      <DependentUpon>Design_Engineer_SettingConfig_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_ChangeOrder_F.resx">
+      <DependentUpon>KB_ChangeOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_DetailedInformationOrder_F.resx">
+      <DependentUpon>KB_DetailedInformationOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_NotAdded_F.resx">
+      <DependentUpon>KB_NotAdded_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_ReportOrderOfDate_F.resx">
+      <DependentUpon>KB_ReportOrderOfDate_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_ScanUnloadSpecific.resx">
+      <DependentUpon>KB_ScanUnloadSpecific.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\ALL_UpdateOrder_F.resx">
+      <DependentUpon>ALL_UpdateOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_Scan_F.resx">
+      <DependentUpon>KB_Scan_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_F.resx">
+      <DependentUpon>KB_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_SelectedColumnDGV_F.resx">
+      <DependentUpon>KB_SelectedColumnDGV_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_SettingConfig_F.resx">
+      <DependentUpon>KB_SettingConfig_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_SettingWebcam_F.resx">
+      <DependentUpon>KB_SettingWebcam_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\ForLongOperations_F.resx">
+      <DependentUpon>ForLongOperations_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_SearchParam_F.resx">
+      <DependentUpon>KB_SearchParam_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\MainSettings\Settings_ServerMail.resx">
+      <DependentUpon>Settings_ServerMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\MainSettings\Settings_DataBase.resx">
+      <DependentUpon>Settings_DataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\MainSettings\Information_Mail.resx">
+      <DependentUpon>Information_Mail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Autorization\AVT_Autorization_F.resx">
+      <DependentUpon>AVT_Autorization_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OPP\OPP_ChangeOrder_F.resx">
+      <DependentUpon>OPP_ChangeOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OPP\OPP_DetailedInformationOrder_F.resx">
+      <DependentUpon>OPP_DetailedInformationOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OPP\OPP_ReportOrderOfDate_F.resx">
+      <DependentUpon>OPP_ReportOrderOfDate_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OPP\OPP_Scan_F.resx">
+      <DependentUpon>OPP_Scan_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OPP\OPP_SearchParam_F.resx">
+      <DependentUpon>OPP_SearchParam_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OPP\OPP_F.resx">
+      <DependentUpon>OPP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OPP\OPP_SelectedColumnDGV_F.resx">
+      <DependentUpon>OPP_SelectedColumnDGV_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OPP\OPP_SettingConfig_F.resx">
+      <DependentUpon>OPP_SettingConfig_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OPP\OPP_SettingWebcam_F.resx">
+      <DependentUpon>OPP_SettingWebcam_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDO\PDO_ChangeOrder_F.resx">
+      <DependentUpon>PDO_ChangeOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDO\PDO_DetailedInformationOrder_F.resx">
+      <DependentUpon>PDO_DetailedInformationOrder_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDO\PDO_ReportOrderOfDate_F.resx">
+      <DependentUpon>PDO_ReportOrderOfDate_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDO\PDO_Scan_F.resx">
+      <DependentUpon>PDO_Scan_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDO\PDO_SearchParam_F.resx">
+      <DependentUpon>PDO_SearchParam_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDO\PDO_F.resx">
+      <DependentUpon>PDO_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDO\PDO_SelectedColumnDGV_F.resx">
+      <DependentUpon>PDO_SelectedColumnDGV_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDO\PDO_SettingConfig_F.resx">
+      <DependentUpon>PDO_SettingConfig_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PDO\PDO_SettingWebcam_F.resx">
+      <DependentUpon>PDO_SettingWebcam_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\Admin\MainSettings\Registration_Mail.resx">
+      <DependentUpon>Registration_Mail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\AD_RegistrationUser_F.resx">
+      <DependentUpon>AD_RegistrationUser_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\AD_SearchParamUsers_F.resx">
+      <DependentUpon>AD_SearchParamUsers_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\MainSettings\Settings_ByteScout.resx">
+      <DependentUpon>Settings_ByteScout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\MainSettings\Settings_Mails.resx">
+      <DependentUpon>Settings_Mails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Settings_MobileApp.resx">
+      <DependentUpon>Settings_MobileApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\MainSettings\Settings_Program.resx">
+      <DependentUpon>Settings_Program.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-фильтр-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-добавить-строку-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-добавить-свойство-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-переименовывать-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-мусор-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-перезапуск-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-поиск-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-редактировать-мужчину-пользователя-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Авторизация ЛОГО.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOAD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOAD1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Automatic Scanning.png" />
+    <None Include="Resources\Manual Scanning.png" />
+    <None Include="Resources\No Suffix.png" />
+    <None Include="Resources\SerialPort.png" />
+    <Content Include="Значек приложения.ico" />
+    <None Include="Resources\Canceled.png" />
+    <None Include="Resources\239.gif" />
+    <Content Include="Resources\icons8-создать-новый-40.png" />
+    <None Include="Resources\icons8-создать-новый-401.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

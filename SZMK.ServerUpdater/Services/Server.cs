@@ -116,28 +116,37 @@ namespace SZMK.ServerUpdater.Services
 
                 string ClientVersion = reader.ReadString();
 
-                int ClientFilesCount = reader.ReadInt32();
-
-                List<LastUpdateFiles> ClientFiles = new List<LastUpdateFiles>();
-
-                for (int i = 0; i < ClientFilesCount; i++)
-                {
-                    ClientFiles.Add(new LastUpdateFiles { FileName = reader.ReadString(), Hash = reader.ReadString(), NeedUpdate = true });
-                }
-
-                List<FileAndMove> UpdatesFiles = CompareFiles(ClientFiles);
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 {
-                    if (UpdatesFiles.Count != 0)
+                    if (ClientVersion != LastVersion)
                     {
                         writer.Write(true);
+                        
+                        int ClientFilesCount = reader.ReadInt32();
 
-                        writer.Write(UpdatesFiles.Count);
+                        List<LastUpdateFiles> ClientFiles = new List<LastUpdateFiles>();
 
-                        for (int i = 0; i < UpdatesFiles.Count; i++)
+                        for (int i = 0; i < ClientFilesCount; i++)
                         {
-                            writer.Write(UpdatesFiles[i].FileName);
-                            writer.Write(UpdatesFiles[i].Move);
+                            ClientFiles.Add(new LastUpdateFiles { FileName = reader.ReadString(), Hash = reader.ReadString(), NeedUpdate = true });
+                        }
+
+                        List<FileAndMove> UpdatesFiles = CompareFiles(ClientFiles);
+                        if (UpdatesFiles.Count != 0)
+                        {
+                            writer.Write(true);
+
+                            writer.Write(UpdatesFiles.Count);
+
+                            for (int i = 0; i < UpdatesFiles.Count; i++)
+                            {
+                                writer.Write(UpdatesFiles[i].FileName);
+                                writer.Write(UpdatesFiles[i].Move);
+                            }
+                        }
+                        else
+                        {
+                            writer.Write(false);
                         }
                     }
                     else
