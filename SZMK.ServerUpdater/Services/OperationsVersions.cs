@@ -1,6 +1,7 @@
 ﻿using Ionic.Zip;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -13,50 +14,18 @@ namespace SZMK.ServerUpdater.Services
 {
     public class OperationsVersions : BaseOperations
     {
-        public bool Add(string Product, string Version, string DateRelease, List<string> Added, List<string> Deleted, string Path, OperationsFiles operationsFiles)
+        public bool Add(string Product, string Version, string DateRelease, List<string> Added, List<string> Deleted, OperationsFiles operationsFiles)
         {
             try
             {
-                if (Upzip(Path, Version))
+                MoveUpdate(Product, Version);
+
+                if (!File.Exists($@"About\{Product}\AboutProgram.conf"))
                 {
-                    XDocument about = XDocument.Load(@"About\AboutProgram.conf");
-
-                    about.Element("Program").Element("CurretVersion").SetValue(Version);
-                    about.Element("Program").Element("DateCurret").SetValue(DateRelease);
-
-                    XElement update = new XElement("Update");
-
-                    XElement version = new XElement("Version", Version);
-                    update.Add(version);
-
-                    XElement date = new XElement("Date", DateRelease);
-                    update.Add(date);
-
-                    XElement added = new XElement("Added");
-                    for (int i = 0; i < Added.Count; i++)
-                    {
-                        XElement item = new XElement("Item", Added[i]);
-                        added.Add(item);
-                    }
-                    update.Add(added);
-
-                    XElement deleted = new XElement("Deleted");
-
-                    for (int i = 0; i < Deleted.Count; i++)
-                    {
-                        XElement item = new XElement("Item", Deleted[i]);
-                        deleted.Add(item);
-                    }
-                    update.Add(deleted);
-
-                    about.Element("Program").Element("Updates").AddFirst(update);
-
-                    about.Save(@"About\AboutProgram.conf");
-
-                    about.Save(@"Versions\" + Version + @"\Program\AboutProgram.conf");
-
-                    operationsFiles.FormingSettingsUpdate(operationsFiles.GetParametersFiles(Version));
+                    CreateAboutProgramFile(Product);
                 }
+
+                FormingAboutFile(Product, Version, DateRelease, Added, Deleted);
 
                 return true;
             }
@@ -65,19 +34,20 @@ namespace SZMK.ServerUpdater.Services
                 throw new Exception(Ex.Message, Ex);
             }
         }
-        private bool Upzip(string Path, string Version)
+        public bool Upzip(string Path)
         {
             try
             {
-                CheckDirectory();
-
-                Directory.CreateDirectory(@"Versions\" + Version);
+                if (!Directory.Exists("Temp"))
+                {
+                    Directory.CreateDirectory(@"Temp");
+                }
 
                 using (ZipFile zip = ZipFile.Read(Path))
                 {
                     foreach (ZipEntry e in zip)
                     {
-                        e.Extract(@"Versions\" + Version, ExtractExistingFileAction.OverwriteSilently);
+                        e.Extract(@"Temp", ExtractExistingFileAction.OverwriteSilently);
                     }
                 }
 
@@ -88,19 +58,83 @@ namespace SZMK.ServerUpdater.Services
                 throw new Exception(Ex.Message, Ex);
             }
         }
-        private void CheckDirectory()
+        private void MoveUpdate(string Product, string Version)
         {
-            try
+            Directory.Move("Temp", $@"Products\{Product}\{Version}");
+        }
+        private void FormingAboutFile(string Product, string Version, string DateRelease, List<string> Added, List<string> Deleted)
+        {
+            XDocument about = XDocument.Load($@"About\{Product}\AboutProgram.conf");
+
+            about.Element("Program").Element("CurretVersion").SetValue(Version);
+            about.Element("Program").Element("DateCurret").SetValue(DateRelease);
+
+            XElement update = new XElement("Update");
+
+            XElement version = new XElement("Version", Version);
+            update.Add(version);
+
+            XElement date = new XElement("Date", DateRelease);
+            update.Add(date);
+
+            XElement added = new XElement("Added");
+
+            for (int i = 0; i < Added.Count; i++)
             {
-                if (!Directory.Exists("Versions"))
-                {
-                    Directory.CreateDirectory("Versions");
-                }
+                XElement item = new XElement("Item", Added[i]);
+                added.Add(item);
             }
-            catch (Exception Ex)
+            update.Add(added);
+
+            XElement deleted = new XElement("Deleted");
+
+            for (int i = 0; i < Deleted.Count; i++)
             {
-                throw new Exception(Ex.Message, Ex);
+                XElement item = new XElement("Item", Deleted[i]);
+                deleted.Add(item);
             }
+            update.Add(deleted);
+
+            about.Element("Program").Element("Updates").AddFirst(update);
+
+            about.Save($@"About\{Product}\AboutProgram.conf");
+
+            about.Save($@"Products\{Product}\{Version}\AboutProgram.conf");
+        }
+        private void CreateAboutProgramFile(string Product)
+        {
+            if (!Directory.Exists($@"About\{Product}"))
+            {
+                Directory.CreateDirectory($@"About\{Product}");
+            }
+
+            XDocument about = new XDocument();
+            XElement program = new XElement("Program");
+
+            XElement curretversion = new XElement("CurretVersion");
+            program.Add(curretversion);
+
+            XElement datecurret = new XElement("DateCurret");
+            program.Add(datecurret);
+
+            XElement updates = new XElement("Updates");
+            program.Add(updates);
+
+            XElement developers = new XElement("Developers");
+            XElement developer = new XElement("Developer", "Ефимчик Алексей Алексеевич");
+            developers.Add(developer);
+            developer = new XElement("Developer", "Губанов Кирилл Николаевич");
+            developers.Add(developer);
+            program.Add(developers);
+
+            about.Add(program);
+
+            about.Save($@"About\{Product}\AboutProgram.conf");
+        }
+        public string GetTempVersion(string Product)
+        {
+            FileVersionInfo myFileVersionInfo = FileVersionInfo.GetVersionInfo(@"Temp\" + Product + @".exe");
+            return myFileVersionInfo.FileVersion;
         }
         public bool Delete(string Version)
         {

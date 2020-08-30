@@ -35,10 +35,10 @@ namespace SZMK.ServerUpdater.Views
         {
             try
             {
-                AddOrChange Dialog = new AddOrChange(false);
+                AddOrChange Dialog = new AddOrChange(false, Product_CB.Text, OperationsVersions);
                 if (Dialog.ShowDialog() == DialogResult.OK)
                 {
-                    if (OperationsVersions.Add(Product_CB.SelectedItem.ToString(), Dialog.Version_TB.Text, Dialog.Date_TB.Text, Dialog.Added_LB.Items.Cast<string>().ToList(), Dialog.Deleted_LB.Items.Cast<string>().ToList(), Dialog.Path_TB.Text, OperationsFiles))
+                    if (OperationsVersions.Add(Product_CB.Text, Dialog.Version_TB.Text, Dialog.Date_TB.Text, Dialog.Added_LB.Items.Cast<string>().ToList(), Dialog.Deleted_LB.Items.Cast<string>().ToList(), OperationsFiles))
                     {
                         Versions_DGV.Rows.Add(Dialog.Version_TB.Text);
                         Info("Добавление было успешно произведено");
@@ -57,7 +57,7 @@ namespace SZMK.ServerUpdater.Views
             {
                 if (Versions_DGV.CurrentCell != null)
                 {
-                    AddOrChange Dialog = new AddOrChange(true);
+                    AddOrChange Dialog = new AddOrChange(false, Product_CB.Text, OperationsVersions);
 
                     XDocument about = XDocument.Load(@"About\AboutProgram.conf");
 
@@ -83,7 +83,7 @@ namespace SZMK.ServerUpdater.Views
                         {
                             if (OperationsVersions.Delete(Versions_DGV.CurrentCell.Value.ToString()))
                             {
-                                if (OperationsVersions.Add(Product_CB.SelectedItem.ToString(), Dialog.Version_TB.Text, Dialog.Date_TB.Text, Dialog.Added_LB.Items.Cast<string>().ToList(), Dialog.Deleted_LB.Items.Cast<string>().ToList(), Dialog.Path_TB.Text, OperationsFiles))
+                                if (OperationsVersions.Add(Product_CB.SelectedItem.ToString(), Dialog.Version_TB.Text, Dialog.Date_TB.Text, Dialog.Added_LB.Items.Cast<string>().ToList(), Dialog.Deleted_LB.Items.Cast<string>().ToList(), OperationsFiles))
                                 {
                                     Info("Успешное редактирование версии!");
                                 }

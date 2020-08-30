@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SZMK.ServerUpdater.Services;
 using SZMK.ServerUpdater.Views.Interfaces;
 using SZMK.ServerUpdater.Views.Shared;
 
@@ -14,12 +15,19 @@ namespace SZMK.ServerUpdater.Views.Versions
 {
     public partial class AddOrChange : Form, IBaseView
     {
-        private bool Changed;
+        private OperationsVersions OperationsVersions;
 
-        public AddOrChange(bool Changed)
+        private bool Changed;
+        private string Product;
+
+        public AddOrChange(bool Changed, string Product, OperationsVersions OperationsVersions)
         {
             InitializeComponent();
+
+            this.OperationsVersions = OperationsVersions;
+
             this.Changed = Changed;
+            this.Product = Product;
         }
 
         private void Version_FormClosing(object sender, FormClosingEventArgs e)
@@ -28,11 +36,6 @@ namespace SZMK.ServerUpdater.Views.Versions
             {
                 if (DialogResult == DialogResult.OK)
                 {
-                    //if (!Version_TB.MaskCompleted)
-                    //{
-                    //    Version_TB.Focus();
-                    //    throw new Exception("Необходимо указать версию обновления");
-                    //}
                     if (Added_LB.Items.Count == 0)
                     {
                         Added_Add_B.Focus();
@@ -205,6 +208,12 @@ namespace SZMK.ServerUpdater.Views.Versions
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     Path_TB.Text = ofd.FileName;
+
+                    if (OperationsVersions.Upzip(Path_TB.Text))
+                    {
+                        Version_TB.Text = OperationsVersions.GetTempVersion(Product);
+                        Date_TB.Text = DateTime.Now.ToShortDateString();
+                    }
                 }
             }
             catch (Exception Ex)
