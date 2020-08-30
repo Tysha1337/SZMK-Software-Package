@@ -136,20 +136,28 @@ namespace SZMK.ServerUpdater.Services
             FileVersionInfo myFileVersionInfo = FileVersionInfo.GetVersionInfo(@"Temp\" + Product + @".exe");
             return myFileVersionInfo.FileVersion;
         }
-        public bool Delete(string Version)
+        public bool Delete(string Product,string Version)
         {
             try
             {
-                Directory.Delete(@"Versions\" + Version, true);
+                Directory.Delete($@"Products\{Product}\{Version}", true);
 
-                XDocument about = XDocument.Load(@"About\AboutProgram.conf");
+                XDocument about = XDocument.Load($@"About\{Product}\AboutProgram.conf");
 
                 about.Element("Program").Element("Updates").Elements("Update").Where(p => p.Element("Version").Value == Version).First().Remove();
 
-                about.Element("Program").Element("CurretVersion").SetValue(about.Element("Program").Element("Updates").Element("Update").Element("Version").Value);
-                about.Element("Program").Element("DateCurret").SetValue(about.Element("Program").Element("Updates").Element("Update").Element("Date").Value);
+                if (about.Element("Program").Element("Updates").Elements("Update").Count() > 0)
+                {
+                    about.Element("Program").Element("CurretVersion").SetValue(about.Element("Program").Element("Updates").Element("Update").Element("Version").Value);
+                    about.Element("Program").Element("DateCurret").SetValue(about.Element("Program").Element("Updates").Element("Update").Element("Date").Value);
+                }
+                else
+                {
+                    about.Element("Program").Element("CurretVersion").SetValue("");
+                    about.Element("Program").Element("DateCurret").SetValue("");
+                }
 
-                about.Save(@"About\AboutProgram.conf");
+                about.Save($@"About\{Product}\AboutProgram.conf");
 
                 return true;
             }
@@ -158,13 +166,13 @@ namespace SZMK.ServerUpdater.Services
                 throw new Exception(Ex.Message, Ex);
             }
         }
-        public List<string> GetVersions()
+        public List<string> GetVersions(string Product)
         {
             try
             {
                 List<string> versions = new List<string>();
 
-                foreach (var version in Directory.GetDirectories(@"Versions"))
+                foreach (var version in Directory.GetDirectories($@"Products\{Product}"))
                 {
                     versions.Add(Path.GetFileName(version));
                 }
@@ -176,11 +184,11 @@ namespace SZMK.ServerUpdater.Services
                 throw new Exception(Ex.Message, Ex);
             }
         }
-        public string GetLastVersion()
+        public string GetLastVersion(string Product)
         {
             try
             {
-                XDocument version = XDocument.Load(@"About\AboutProgram.conf");
+                XDocument version = XDocument.Load($@"About\{Product}\AboutProgram.conf");
                 return version.Element("Program").Element("CurretVersion").Value;
             }
             catch (Exception Ex)

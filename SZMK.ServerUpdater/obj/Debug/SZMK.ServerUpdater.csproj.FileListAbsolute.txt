@@ -1,4 +1,3 @@
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.csprojAssemblyReference.cache
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.Views.Main.resources
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.Properties.Resources.resources
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.csproj.GenerateResource.cache
@@ -16,3 +15,4 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.S
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.Views.Settings.Server.resources
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.Views.Settings.SettingsProducts.resources
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.Views.Versions.AddOrChange.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.csprojAssemblyReference.cache

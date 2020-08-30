@@ -1,6 +1,0 @@
-[2020-08-29 15:23:48.1395] [INFO] Проверка подключения к серверу обновления и выполняемых процессов
-[2020-08-29 15:23:48.2352] [ERROR] System.Exception: Ошибка подключения к серверу обновления
-   в SZMK.LauncherUpdater.Program.Main(String[] args) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 52
-[2020-08-29 20:53:52.7898] [INFO] Проверка подключения к серверу обновления и выполняемых процессов
-[2020-08-29 20:53:52.8487] [ERROR] System.Exception: Ошибка подключения к серверу обновления
-   в SZMK.LauncherUpdater.Program.Main(String[] args) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 52

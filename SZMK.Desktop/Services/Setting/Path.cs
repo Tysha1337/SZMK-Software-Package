@@ -14,7 +14,6 @@ namespace SZMK.Desktop.Services.Setting
         private readonly String _MainConnectMobilePath;
         private readonly String _MainConnectServerMails;
         private readonly String _MainConnectDecodePath;
-        private readonly String _MainConnectServerUpdate;
 
         #endregion
 
@@ -65,7 +64,6 @@ namespace SZMK.Desktop.Services.Setting
             _MainConnectMobilePath = $@"Program\Settings\Main\Connect\Mobile\connect.conf"; //Параметры подключения к приложению
             _MainConnectDecodePath = $@"Program\Settings\Main\Connect\Decode\connect.conf"; //Параметры подключения к программе распознавания
             _MainConnectServerMails = $@"Program\Settings\Main\Connect\Mails\connect.conf"; //Конфигурация почтового сервера
-            _MainConnectServerUpdate = $@"Program\Settings\Main\Connect\Update\connect.conf"; //Конфигурация почтового сервера
 
             #endregion
 
@@ -105,7 +103,7 @@ namespace SZMK.Desktop.Services.Setting
 
             _LogPath = $@"Program\Log"; //Путь к директории хранения логов
 
-            _AboutProgram = $@"Program\AboutProgram.conf"; //Путь до файла с информацией о программе
+            _AboutProgram = $@"AboutProgram.conf"; //Путь до файла с информацией о программе
         }
         #region Свойства основных файлов с параметрами подключения
 
@@ -135,13 +133,6 @@ namespace SZMK.Desktop.Services.Setting
             get
             {
                 return _MainConnectDBPath;
-            }
-        }
-        public String MainConnectServerUpdate
-        {
-            get
-            {
-                return _MainConnectServerUpdate;
             }
         }
 

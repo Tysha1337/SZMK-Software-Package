@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.Main_MS = new System.Windows.Forms.MenuStrip();
             this.основныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Products_TSM = new System.Windows.Forms.ToolStripMenuItem();
-            this.настройкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Server_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,9 +46,14 @@
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Product_CB = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Tray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Open_TSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.Exit_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Main_MS.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Versions_DGV)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Main_MS
@@ -67,7 +73,7 @@
             // 
             this.основныеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Products_TSM,
-            this.настройкаToolStripMenuItem});
+            this.Server_TSM});
             this.основныеToolStripMenuItem.Name = "основныеToolStripMenuItem";
             this.основныеToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.основныеToolStripMenuItem.Text = "Основные";
@@ -75,16 +81,16 @@
             // Products_TSM
             // 
             this.Products_TSM.Name = "Products_TSM";
-            this.Products_TSM.Size = new System.Drawing.Size(147, 22);
+            this.Products_TSM.Size = new System.Drawing.Size(141, 22);
             this.Products_TSM.Text = "Продукты";
             this.Products_TSM.Click += new System.EventHandler(this.Products_TSM_Click);
             // 
-            // настройкаToolStripMenuItem
+            // Server_TSM
             // 
-            this.настройкаToolStripMenuItem.Name = "настройкаToolStripMenuItem";
-            this.настройкаToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.настройкаToolStripMenuItem.Text = "Настройки";
-            this.настройкаToolStripMenuItem.Click += new System.EventHandler(this.настройкаToolStripMenuItem_Click);
+            this.Server_TSM.Name = "Server_TSM";
+            this.Server_TSM.Size = new System.Drawing.Size(141, 22);
+            this.Server_TSM.Text = "Сервер";
+            this.Server_TSM.Click += new System.EventHandler(this.Server_TSM_Click);
             // 
             // помощьToolStripMenuItem
             // 
@@ -162,7 +168,6 @@
             this.Change_B.TabIndex = 3;
             this.Change_B.Text = "Изменить";
             this.Change_B.UseVisualStyleBackColor = false;
-            this.Change_B.Click += new System.EventHandler(this.Change_B_Click);
             // 
             // Add_B
             // 
@@ -184,14 +189,14 @@
             this.Versions_DGV.AllowUserToAddRows = false;
             this.Versions_DGV.AllowUserToDeleteRows = false;
             this.Versions_DGV.BackgroundColor = System.Drawing.Color.AntiqueWhite;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Versions_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Versions_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Versions_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Versions_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Version});
@@ -207,9 +212,9 @@
             // Version
             // 
             this.Version.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Version.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Version.DefaultCellStyle = dataGridViewCellStyle2;
             this.Version.HeaderText = "Версия";
             this.Version.Name = "Version";
             this.Version.ReadOnly = true;
@@ -228,6 +233,7 @@
             this.Product_CB.Name = "Product_CB";
             this.Product_CB.Size = new System.Drawing.Size(353, 24);
             this.Product_CB.TabIndex = 5;
+            this.Product_CB.SelectedIndexChanged += new System.EventHandler(this.Product_CB_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -244,6 +250,40 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Выбор продукта";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Tray
+            // 
+            this.Tray.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.Tray.BalloonTipText = "Нажмите правой кнопкой мыши для выбора действия";
+            this.Tray.BalloonTipTitle = "Подсказка";
+            this.Tray.ContextMenuStrip = this.contextMenuStrip1;
+            this.Tray.Icon = ((System.Drawing.Icon)(resources.GetObject("Tray.Icon")));
+            this.Tray.Text = "SZMK.ServerUpdater";
+            this.Tray.Visible = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.BackColor = System.Drawing.Color.FloralWhite;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Open_TSMI,
+            this.Exit_TSMI});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.ShowImageMargin = false;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 70);
+            // 
+            // Open_TSMI
+            // 
+            this.Open_TSMI.Name = "Open_TSMI";
+            this.Open_TSMI.Size = new System.Drawing.Size(155, 22);
+            this.Open_TSMI.Text = "Открыть";
+            this.Open_TSMI.Click += new System.EventHandler(this.Open_TSMI_Click);
+            // 
+            // Exit_TSMI
+            // 
+            this.Exit_TSMI.Name = "Exit_TSMI";
+            this.Exit_TSMI.Size = new System.Drawing.Size(155, 22);
+            this.Exit_TSMI.Text = "Выход";
+            this.Exit_TSMI.Click += new System.EventHandler(this.Exit_TSMI_Click);
             // 
             // Main
             // 
@@ -262,12 +302,14 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сервер обновлений";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.Main_MS.ResumeLayout(false);
             this.Main_MS.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Versions_DGV)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,11 +326,15 @@
         private System.Windows.Forms.Button Add_B;
         private System.Windows.Forms.Button Change_B;
         private System.Windows.Forms.Button Delete_B;
-        private System.Windows.Forms.ToolStripMenuItem настройкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Server_TSM;
         private System.Windows.Forms.ComboBox Product_CB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem Products_TSM;
         private System.Windows.Forms.DataGridViewTextBoxColumn Version;
+        private System.Windows.Forms.NotifyIcon Tray;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem Open_TSMI;
+        private System.Windows.Forms.ToolStripMenuItem Exit_TSMI;
     }
 }
 

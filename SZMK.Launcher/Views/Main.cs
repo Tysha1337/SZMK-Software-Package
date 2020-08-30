@@ -71,6 +71,7 @@ namespace SZMK.Launcher.Views
             {
                 CheckLauncher();
                 CheckProduct();
+
                 StartApp();
                 Application.Exit();
             }
@@ -89,9 +90,9 @@ namespace SZMK.Launcher.Views
 
                 Notify(0, "Начало проверки обновления лаунчера");
 
-                if (OperationsLauncher.CheckedUpdateAsync().Result)
+                if (OperationsLauncher.CheckedUpdate())
                 {
-                    while (OperationsLauncher.CheckedProcessAsync().Result)
+                    while (OperationsLauncher.CheckedProcess())
                     {
                         if (MessageBox.Show("Для обновления необходимо закрыть остальные копии лаунчера программы, нажмите \"Повторить\" для повторной проверки или \"Отмена\" для выхода из обновления", "Внимание", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
                         {
@@ -100,7 +101,7 @@ namespace SZMK.Launcher.Views
                         }
                     }
 
-                    OperationsLauncher.UpdateAsync();
+                    OperationsLauncher.Update();
                 }
             }
             catch (Exception Ex)
@@ -115,9 +116,10 @@ namespace SZMK.Launcher.Views
                 OperationsProduct = new OperationsProduct(this);
 
                 Notify(0, "Начало проверки обновления основного приложения");
-                if (OperationsProduct.CheckedUpdateAsync().Result)
+
+                if (OperationsProduct.CheckedUpdate())
                 {
-                    while (OperationsProduct.CheckedProcessAsync().Result)
+                    while (!OperationsProduct.CheckedProcess())
                     {
                         if (MessageBox.Show("Для обновления необходимо закрыть остальные копии основной программы, нажмите \"Повторить\" для повторной проверки или \"Отмена\" для выхода из обновления", "Внимание", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
                         {
@@ -126,7 +128,7 @@ namespace SZMK.Launcher.Views
                         }
                     }
 
-                    OperationsProduct.UpdateAsync();
+                    OperationsProduct.Update();
                 }
             }
             catch (Exception Ex)

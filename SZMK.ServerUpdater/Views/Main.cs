@@ -51,86 +51,6 @@ namespace SZMK.ServerUpdater.Views
             }
         }
 
-        private void Change_B_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Versions_DGV.CurrentCell != null)
-                {
-                    AddOrChange Dialog = new AddOrChange(false, Product_CB.Text, OperationsVersions);
-
-                    XDocument about = XDocument.Load(@"About\AboutProgram.conf");
-
-                    XElement update = about.Element("Program").Element("Updates").Elements("Update").Where(p => p.Element("Version").Value == Versions_DGV.CurrentCell.Value.ToString()).First();
-
-                    Dialog.Version_TB.Text = Versions_DGV.CurrentCell.Value.ToString();
-
-                    //Dialog.DateRelease_DTP.Value = Convert.ToDateTime(update.Element("Date").Value);
-
-                    foreach (var item in update.Element("Added").Elements("Item"))
-                    {
-                        Dialog.Added_LB.Items.Add(item.Value);
-                    }
-
-                    foreach (var item in update.Element("Deleted").Elements("Item"))
-                    {
-                        Dialog.Deleted_LB.Items.Add(item.Value);
-                    }
-
-                    if (Dialog.ShowDialog() == DialogResult.OK)
-                    {
-                        if (!String.IsNullOrEmpty(Dialog.Path_TB.Text))
-                        {
-                            if (OperationsVersions.Delete(Versions_DGV.CurrentCell.Value.ToString()))
-                            {
-                                if (OperationsVersions.Add(Product_CB.SelectedItem.ToString(), Dialog.Version_TB.Text, Dialog.Date_TB.Text, Dialog.Added_LB.Items.Cast<string>().ToList(), Dialog.Deleted_LB.Items.Cast<string>().ToList(), OperationsFiles))
-                                {
-                                    Info("Успешное редактирование версии!");
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Directory.Move(@"Versions\" + Versions_DGV.CurrentCell.Value.ToString(), @"Versions\" + Dialog.Version_TB.Text);
-
-                            Versions_DGV.CurrentCell.Value = Dialog.Version_TB.Text;
-
-                            if (update.Element("Version").Value == about.Element("Program").Element("CurretVersion").Value)
-                            {
-                                about.Element("Program").Element("CurretVersion").SetValue(Dialog.Version_TB.Text);
-                                //about.Element("Program").Element("DateCurret").SetValue(Dialog.DateRelease_DTP.Value.ToShortDateString());
-                            }
-
-                            update.Element("Version").SetValue(Dialog.Version_TB.Text);
-                            //update.Element("Date").SetValue(Dialog.DateRelease_DTP.Value.ToShortDateString());
-
-                            update.Element("Added").Elements().Remove();
-                            update.Element("Deleted").Elements().Remove();
-
-                            foreach (var item in Dialog.Added_LB.Items)
-                            {
-                                XElement el = new XElement("Item", item);
-                                update.Element("Added").Add(el);
-                            }
-
-                            foreach (var item in Dialog.Deleted_LB.Items)
-                            {
-                                XElement el = new XElement("Item", item);
-                                update.Element("Deleted").Add(el);
-                            }
-
-                            about.Save(@"About\AboutProgram.conf");
-                            about.Save(@"Versions\" + Dialog.Version_TB.Text + @"\Program\AboutProgram.conf");
-                        }
-                    }
-                }
-            }
-            catch (Exception Ex)
-            {
-                Error(Ex.Message);
-            }
-        }
-
         private void Delete_B_Click(object sender, EventArgs e)
         {
             try
@@ -139,7 +59,7 @@ namespace SZMK.ServerUpdater.Views
                 {
                     if (MessageBox.Show("Вы действительно хотите удалить продукт?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                     {
-                        if (OperationsVersions.Delete(Versions_DGV.CurrentCell.Value.ToString()))
+                        if (OperationsVersions.Delete(Product_CB.Text, Versions_DGV.CurrentCell.Value.ToString()))
                         {
                             Versions_DGV.Rows.RemoveAt(Versions_DGV.CurrentCell.RowIndex);
                             Info("Удаление прошло успешно");
@@ -152,6 +72,7 @@ namespace SZMK.ServerUpdater.Views
                 Error(Ex.Message);
             }
         }
+
         public void Info(string Message)
         {
             MessageBox.Show(Message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -174,6 +95,9 @@ namespace SZMK.ServerUpdater.Views
                 OperationsVersions = new OperationsVersions();
                 OperationsFiles = new OperationsFiles();
                 OperationsProducts = new OperationsProducts();
+                Server = new Services.Server(OperationsFiles, OperationsVersions);
+
+                Server.Start();
 
                 ShowProducts();
             }
@@ -183,7 +107,7 @@ namespace SZMK.ServerUpdater.Views
             }
         }
 
-        private void настройкаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Server_TSM_Click(object sender, EventArgs e)
         {
             try
             {
@@ -219,10 +143,50 @@ namespace SZMK.ServerUpdater.Views
 
             products.Show();
         }
+
         private void ShowProducts()
         {
             Products = new BindingList<string>(OperationsProducts.GetProducts());
             Product_CB.DataSource = Products;
+        }
+
+        private void Product_CB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(Product_CB.Text))
+            {
+                List<string> versions = OperationsVersions.GetVersions(Product_CB.Text);
+
+                Versions_DGV.Rows.Clear();
+
+                for (int i = 0; i < versions.Count; i++)
+                {
+                    Versions_DGV.Rows.Add(versions[i]);
+                }
+            }
+            else
+            {
+                Versions_DGV.Rows.Clear();
+            }
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Tray.ShowBalloonTip(5);
+            this.WindowState = FormWindowState.Minimized;
+            this.ShowInTaskbar = false;
+            e.Cancel = true;
+        }
+
+        private void Open_TSMI_Click(object sender, EventArgs e)
+        {
+            this.ShowInTaskbar = true;
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void Exit_TSMI_Click(object sender, EventArgs e)
+        {
+            Server.Stop();
+            Environment.Exit(0);
         }
     }
 }

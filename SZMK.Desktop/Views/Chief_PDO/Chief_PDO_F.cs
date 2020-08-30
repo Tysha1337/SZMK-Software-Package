@@ -302,9 +302,9 @@ namespace SZMK.Desktop.Views.Chief_PDO
                                         for (int j = (int)Temp.ID + 1; j <= NewStatus; j++)
                                         {
                                             ChangedOrder.Status = SystemArgs.Statuses.Where(p => p.ID == j).Single();
-                                            if (!SystemArgs.Request.StatusExist(ChangedOrder))
+                                            if (!SystemArgs.Request.StatusExist(ChangedOrder.ID, ChangedOrder.Status.ID))
                                             {
-                                                SystemArgs.Request.InsertStatus(ChangedOrder.Number,ChangedOrder.List,ChangedOrder.Status.ID, SystemArgs.User);
+                                                SystemArgs.Request.InsertStatus(ChangedOrder.Number, ChangedOrder.List, ChangedOrder.Status.ID, SystemArgs.User);
                                             }
                                         }
                                     }

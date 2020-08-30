@@ -262,16 +262,33 @@ namespace SZMK.Desktop.Views.PDO
 
                                     if (TempStatus.Name == "Передан в ПДО")
                                     {
-                                        if (SystemArgs.Request.UpdateDateCreateStatus(DateTime.Now, SystemArgs.User.ID, IDOrder, TempStatus.ID))
+                                        if (SystemArgs.Request.StatusExist(IDOrder, TempStatus.ID))
                                         {
-                                            if (!SystemArgs.Request.UpdateExecutorWorkOrder(ScanSession[i].QRBlankOrder.Split('_')[1], IDOrder))
+                                            if (SystemArgs.Request.UpdateDateCreateStatus(DateTime.Now, SystemArgs.User.ID, IDOrder, TempStatus.ID))
                                             {
-                                                MessageBox.Show("Ошибка ошибка обновления исполнителя работ чертежа: " + NumberAndList.Number + " " + NumberAndList.List, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                if (!SystemArgs.Request.UpdateExecutorWorkOrder(ScanSession[i].QRBlankOrder.Split('_')[1], IDOrder))
+                                                {
+                                                    MessageBox.Show("Ошибка ошибка обновления исполнителя работ чертежа: " + NumberAndList.Number + " " + NumberAndList.List, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Ошибка при добавлении в базу данных бланка заказа: " + ScanSession[i].QRBlankOrder, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                             }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Ошибка при добавлении в базу данных бланка заказа: " + ScanSession[i].QRBlankOrder, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            if (SystemArgs.Request.InsertStatus(NumberAndList.Number, NumberAndList.List, TempStatus.ID, SystemArgs.User))
+                                            {
+                                                if (!SystemArgs.Request.UpdateExecutorWorkOrder(ScanSession[i].QRBlankOrder.Split('_')[1], IDOrder))
+                                                {
+                                                    MessageBox.Show("Ошибка ошибка обновления исполнителя работ чертежа: " + NumberAndList.Number + " " + NumberAndList.List, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Ошибка при добавлении в базу данных бланка заказа: " + ScanSession[i].QRBlankOrder, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            }
                                         }
                                     }
                                     else
@@ -309,7 +326,7 @@ namespace SZMK.Desktop.Views.PDO
                                 }
                             }
 
-                            SystemArgs.RequestLinq.CompareBlankOrder(TempForBlankOrder, NewBlankOrder.QR);
+                            SystemArgs.RequestLinq.CompareBlankOrder(TempForBlankOrder, ScanSession[i].QRBlankOrder);
 
                             TempForBlankOrder.Clear();
                         }

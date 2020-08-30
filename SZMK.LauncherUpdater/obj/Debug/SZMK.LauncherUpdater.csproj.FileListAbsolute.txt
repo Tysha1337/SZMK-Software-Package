@@ -7,6 +7,5 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\bin\Debug\Updater\SZMK.LauncherUpdater.exe.config
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\bin\Debug\Updater\SZMK.LauncherUpdater.exe
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\bin\Debug\Updater\SZMK.LauncherUpdater.pdb
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.csprojAssemblyReference.cache
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\bin\Debug\Updater\NLog.config
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.csproj.CopyComplete

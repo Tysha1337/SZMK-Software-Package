@@ -77,18 +77,7 @@ namespace SZMK.Launcher.Services.Launcher
                 throw new Exception(Ex.Message, Ex);
             }
         }
-        public async Task<bool> CheckedProcessAsync()
-        {
-            try
-            {
-                return await Task.Run(() => CheckedProcess());
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message, Ex);
-            }
-        }
-        private bool CheckedProcess()
+        public bool CheckedProcess()
         {
             try
             {
@@ -110,18 +99,7 @@ namespace SZMK.Launcher.Services.Launcher
                 throw new Exception(Ex.Message, Ex);
             }
         }
-        public async Task<bool> CheckedUpdateAsync()
-        {
-            try
-            {
-                return await Task.Run(() => CheckedUpdate());
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message, Ex);
-            }
-        }
-        private bool CheckedUpdate()
+        public bool CheckedUpdate()
         {
             try
             {
@@ -170,18 +148,7 @@ namespace SZMK.Launcher.Services.Launcher
                 throw new Exception(Ex.Message, Ex);
             }
         }
-        public async void UpdateAsync()
-        {
-            try
-            {
-                await Task.Run(() => Update());
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message, Ex);
-            }
-        }
-        private void Update()
+        public void Update()
         {
             try
             {

@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using SZMK.LauncherUpdater.Models;
 
 namespace SZMK.LauncherUpdater
 {
@@ -22,7 +25,7 @@ namespace SZMK.LauncherUpdater
 
                 Info("Проверка подключения к серверу обновления и выполняемых процессов");
 
-                if (CheckedProcess() && CheckConnect())
+                if (GetParametersConnect() && CheckedProcess() && CheckConnect())
                 {
                     Info("Проверка процессов прошла успешно");
                     Info("Подключение к серверу обновления успешно");
@@ -120,19 +123,46 @@ namespace SZMK.LauncherUpdater
 
                 using (NetworkStream Stream = tcpClient.GetStream())
                 {
-                    using (BinaryWriter writer = new BinaryWriter(Stream))
+                    using (BinaryWriter writer = new BinaryWriter(Stream, Encoding.UTF8))
                     {
-                        using (BinaryReader reader = new BinaryReader(Stream))
+                        using (BinaryReader reader = new BinaryReader(Stream, Encoding.UTF8))
                         {
                             Info("Отправка необходимых флагов и наименования приложения");
 
                             writer.Write(false);
                             writer.Write(true);
-                            writer.Write("Launcher");
+
+                            writer.Write("SZMK.Launcher");
+                            writer.Write(Environment.MachineName);
+
+                            writer.Write(GetVersion());
+
+                            Info("Получение файла информации обновления");
+
+                            using (FileStream fileStream = File.Open(Directory.GetCurrentDirectory() + @"\InfoUpdate.conf", FileMode.Create))
+                            {
+                                long lenght = reader.ReadInt64();
+
+                                long totalBytes = 0;
+                                int readBytes = 0;
+                                byte[] buffer = new byte[8192];
+
+                                do
+                                {
+                                    readBytes = Stream.Read(buffer, 0, buffer.Length);
+                                    fileStream.Write(buffer, 0, readBytes);
+                                    totalBytes += readBytes;
+                                } while (tcpClient.Connected && totalBytes < lenght);
+                            }
+                            Info("Получение файла информации обновления успешно");
+
+                            writer.Write(true);
 
                             Info("Чтение количества файлов");
 
                             int CountFiles = reader.ReadInt32();
+
+                            writer.Write(true);
 
                             for (int i = 0; i < CountFiles; i++)
                             {
@@ -155,6 +185,7 @@ namespace SZMK.LauncherUpdater
                                         totalBytes += readBytes;
                                     } while (tcpClient.Connected && totalBytes < lenght);
                                 }
+                                writer.Write(i);
                                 Info($"Скачивание файлов {i} из {CountFiles}");
                             }
                         }
@@ -171,35 +202,33 @@ namespace SZMK.LauncherUpdater
         {
             try
             {
-                Info("Удаление старых файлов начато");
-                foreach (var file in Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).FullName))
+                XDocument info = XDocument.Load(Directory.GetCurrentDirectory() + @"\InfoUpdate.conf");
+
+                List<FileAndMove> files = new List<FileAndMove>();
+
+                foreach (var file in info.Element("Program").Elements("File"))
                 {
-                    File.Delete(file);
+                    files.Add(new FileAndMove { FileName = file.Element("FileName").Value, Move = file.Element("Move").Value });
                 }
-                Info("Удаление старых файлов завершено");
-                Info("Удаление старых папок начато");
-                foreach (var directory in Directory.GetDirectories(Directory.GetParent(Directory.GetCurrentDirectory()).FullName))
+
+                foreach (var file in files.FindAll(p => p.Move.Contains("Remove")))
                 {
-                    string check = Path.GetFileName(directory);
-                    if (check != "Product" && check != "Updater")
+                    File.Delete($@"{Path.GetDirectoryName(Directory.GetCurrentDirectory())}\{file.FileName}");
+                    if (Directory.GetDirectories(Path.GetDirectoryName($@"{Path.GetDirectoryName(Directory.GetCurrentDirectory())}\{file.FileName}")).Count() == 0 && Directory.GetFiles(Path.GetDirectoryName($@"{Path.GetDirectoryName(Directory.GetCurrentDirectory())}\{file.FileName}")).Length == 0)
                     {
-                        Directory.Delete(directory, true);
+                        Directory.Delete(Path.GetDirectoryName($@"{Path.GetDirectoryName(Directory.GetCurrentDirectory())}\{file.FileName}"));
                     }
                 }
-                Info("Удаление старых папок завершено");
-                Info("Копирование новых файлов и папок начато");
-                Directory.Move(Directory.GetCurrentDirectory() + @"\Temp", Directory.GetParent(Directory.GetCurrentDirectory()).FullName);
-                Info("Копирование новых файлов и папок завершено");
 
-                //foreach(var file in Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Temp"))
-                //{
-                //    File.Copy(file, Directory.GetParent(Directory.GetCurrentDirectory()).FullName+@"\"+Path.GetFileName(file));
-                //}
+                foreach (var file in files.FindAll(p => !p.Move.Contains("Remove")))
+                {
+                    if (!Directory.Exists(Path.GetDirectoryName($@"{Path.GetDirectoryName(Directory.GetCurrentDirectory())}\{file.FileName}")))
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName($@"{Path.GetDirectoryName(Directory.GetCurrentDirectory())}\{file.FileName}"));
+                    }
 
-                //foreach(var directory in Directory.GetDirectories(Directory.GetCurrentDirectory() + @"\Temp"))
-                //{
-                //    Directory.Move(directory,);
-                //}
+                    File.Copy(Directory.GetCurrentDirectory() + @"\Temp\" + file.FileName, $@"{Path.GetDirectoryName(Directory.GetCurrentDirectory())}\{file.FileName}", true);
+                }
             }
             catch (Exception Ex)
             {
@@ -222,6 +251,11 @@ namespace SZMK.LauncherUpdater
             {
                 throw new Exception(Ex.Message, Ex);
             }
+        }
+        private static string GetVersion()
+        {
+            FileVersionInfo myFileVersionInfo = FileVersionInfo.GetVersionInfo($@"{Path.GetDirectoryName(Directory.GetCurrentDirectory())}\SZMK.Launcher.exe");
+            return myFileVersionInfo.FileVersion;
         }
         private static void Info(string message)
         {

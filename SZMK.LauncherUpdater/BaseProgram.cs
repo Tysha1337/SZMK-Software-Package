@@ -10,20 +10,12 @@ namespace SZMK.LauncherUpdater
 {
     public class BaseProgram
     {
-        private readonly string Path = Directory.GetCurrentDirectory() + @"\Updater\Settings\connect.conf";
+        private readonly static string Path = Directory.GetCurrentDirectory() + @"\Settings\connect.conf";
 
         public static string Port;
         public static string Server;
 
-        public BaseProgram()
-        {
-            if (!GetParametersConnect())
-            {
-                throw new Exception("Ошибка получения данных для подключения к серверу обновления");
-            }
-        }
-
-        private bool GetParametersConnect()
+        protected static bool GetParametersConnect()
         {
             try
             {

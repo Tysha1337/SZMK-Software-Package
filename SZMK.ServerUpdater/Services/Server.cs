@@ -21,19 +21,17 @@ namespace SZMK.ServerUpdater.Services
         private bool working;
         private string Port;
 
-        private string LastVersion;
+        private OperationsFiles OperationsFiles;
+        private OperationsVersions OperationsVersions;
 
-        private OperationsFiles operationsFiles;
-        private OperationsVersions versions;
-
-        public Server(OperationsFiles operationsFiles, OperationsVersions versions)
+        public Server(OperationsFiles OperationsFiles, OperationsVersions OperationsVersions)
         {
             try
             {
                 GetParametersConnect();
 
-                this.operationsFiles = operationsFiles;
-                this.versions = versions;
+                this.OperationsFiles = OperationsFiles;
+                this.OperationsVersions = OperationsVersions;
             }
             catch (Exception Ex)
             {
@@ -84,7 +82,7 @@ namespace SZMK.ServerUpdater.Services
                     CountClients++;
                     using (NetworkStream inputStream = client.GetStream())
                     {
-                        using (BinaryReader reader = new BinaryReader(inputStream))
+                        using (BinaryReader reader = new BinaryReader(inputStream, Encoding.UTF8))
                         {
                             if (!reader.ReadBoolean())
                             {
@@ -112,42 +110,17 @@ namespace SZMK.ServerUpdater.Services
         {
             try
             {
-                string ClientHost = reader.ReadString();//Наименование компа который попросил обновление
+                string ClientProduct = reader.ReadString();
+
+                string ClientHost = reader.ReadString();
 
                 string ClientVersion = reader.ReadString();
 
                 using (BinaryWriter writer = new BinaryWriter(stream))
                 {
-                    if (ClientVersion != LastVersion)
+                    if (ClientVersion != OperationsVersions.GetLastVersion(ClientProduct))
                     {
                         writer.Write(true);
-                        
-                        int ClientFilesCount = reader.ReadInt32();
-
-                        List<LastUpdateFiles> ClientFiles = new List<LastUpdateFiles>();
-
-                        for (int i = 0; i < ClientFilesCount; i++)
-                        {
-                            ClientFiles.Add(new LastUpdateFiles { FileName = reader.ReadString(), Hash = reader.ReadString(), NeedUpdate = true });
-                        }
-
-                        List<FileAndMove> UpdatesFiles = CompareFiles(ClientFiles);
-                        if (UpdatesFiles.Count != 0)
-                        {
-                            writer.Write(true);
-
-                            writer.Write(UpdatesFiles.Count);
-
-                            for (int i = 0; i < UpdatesFiles.Count; i++)
-                            {
-                                writer.Write(UpdatesFiles[i].FileName);
-                                writer.Write(UpdatesFiles[i].Move);
-                            }
-                        }
-                        else
-                        {
-                            writer.Write(false);
-                        }
                     }
                     else
                     {
@@ -160,65 +133,26 @@ namespace SZMK.ServerUpdater.Services
                 throw new Exception(Ex.Message, Ex);
             }
         }
-        private List<FileAndMove> CompareFiles(List<LastUpdateFiles> ClientFiles)
-        {
-            try
-            {
-                List<LastUpdateFiles> ServerFiles = operationsFiles.GetSettingsUpdate();
-
-                List<FileAndMove> UpdateFiles = new List<FileAndMove>();
-
-                for (int i = 0; i < ClientFiles.Count; i++)
-                {
-                    List<LastUpdateFiles> compares = ServerFiles.Where(p => p.FileName == ClientFiles[i].FileName).ToList();
-
-                    if (compares.Count == 1)
-                    {
-                        if (!(compares[0].Hash == ClientFiles[i].Hash) && compares[0].NeedUpdate)
-                        {
-                            UpdateFiles.Add(new FileAndMove { FileName = ClientFiles[i].FileName, Move = "Update" });
-                        }
-                    }
-                    else
-                    {
-                        UpdateFiles.Add(new FileAndMove { FileName = ClientFiles[i].FileName, Move = "Remove" });
-                    }
-                }
-
-                for (int i = 0; i < ServerFiles.Count; i++)
-                {
-                    List<LastUpdateFiles> compares = ClientFiles.FindAll(p => p.FileName == ServerFiles[i].FileName);
-
-                    if (compares.Count == 0 && ServerFiles[i].NeedUpdate)
-                    {
-                        UpdateFiles.Add(new FileAndMove { FileName = ServerFiles[i].FileName, Move = "Add" });
-                    }
-                }
-
-                return UpdateFiles;
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message, Ex);
-            }
-        }
         private void Update(BinaryReader reader, NetworkStream stream, TcpClient client)
         {
             try
             {
-                LastVersion = versions.GetLastVersion();
+                string ClientProduct = reader.ReadString();
 
-                int CountFiles = reader.ReadInt32();
+                string ClientHost = reader.ReadString();
 
-                for (int i = 0; i < CountFiles; i++)
+                string ClientVersion = reader.ReadString();
+
+                List<FileAndMove> files = OperationsFiles.GetLastFiles(ClientVersion, OperationsVersions.GetLastVersion(ClientProduct), ClientProduct);
+
+                GenerateInfoUpdate(ClientProduct, ClientHost, files);
+
+                using (BinaryWriter writer = new BinaryWriter(stream, Encoding.UTF8))
                 {
-                    string FileName = reader.ReadString();
-
-                    using (FileStream inputStream = File.OpenRead(@"Versions\" + LastVersion + @"\" + FileName))
+                    using (FileStream inputStream = File.OpenRead($@"About\{ClientProduct}\{ClientHost}\InfoUpdate.conf"))
                     {
                         long lenght = inputStream.Length;
 
-                        BinaryWriter writer = new BinaryWriter(stream);
                         writer.Write(lenght);
 
                         long totalBytes = 0;
@@ -231,6 +165,44 @@ namespace SZMK.ServerUpdater.Services
                             stream.Write(buffer, 0, readBytes);
                             totalBytes += readBytes;
                         } while (client.Connected && totalBytes < lenght);
+                    }
+
+                    var noremovefiles = files.FindAll(p => p.Move != "Remove");
+
+                    if (reader.ReadBoolean())
+                    {
+                        writer.Write(noremovefiles.Count);
+
+                        if (reader.ReadBoolean())
+                        {
+                            for (int i = 0; i < noremovefiles.Count; i++)
+                            {
+                                writer.Write(noremovefiles[i].FileName);
+
+                                using (FileStream inputStream = File.OpenRead($@"Products\{ClientProduct}\{OperationsVersions.GetLastVersion(ClientProduct)}\{files[i].FileName}"))
+                                {
+                                    long lenght = inputStream.Length;
+
+                                    writer.Write(lenght);
+
+                                    long totalBytes = 0;
+                                    int readBytes = 0;
+                                    byte[] buffer = new byte[8192];
+
+                                    do
+                                    {
+                                        readBytes = inputStream.Read(buffer, 0, buffer.Length);
+                                        stream.Write(buffer, 0, readBytes);
+                                        totalBytes += readBytes;
+                                    } while (client.Connected && totalBytes < lenght);
+
+                                    if (reader.ReadInt32() != i)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -256,6 +228,28 @@ namespace SZMK.ServerUpdater.Services
             {
                 throw new Exception(Ex.Message, Ex);
             }
+        }
+        private void GenerateInfoUpdate(string Product, string Host, List<FileAndMove> files)
+        {
+            XDocument infoupdate = new XDocument();
+            XElement program = new XElement("Program");
+
+            foreach (var file in files)
+            {
+                XElement f = new XElement("File");
+
+                XElement fileName = new XElement("FileName", file.FileName);
+                f.Add(fileName);
+                XElement move = new XElement("Move", file.Move);
+                f.Add(move);
+
+                program.Add(f);
+            }
+            infoupdate.Add(program);
+
+            Directory.CreateDirectory($@"About\{Product}\{Host}");
+
+            infoupdate.Save($@"About\{Product}\{Host}\InfoUpdate.conf");
         }
     }
 }

@@ -49,8 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\FileAndHash.cs" />
     <Compile Include="Models\FileAndMove.cs" />
-    <Compile Include="Models\LastUpdateFiles.cs" />
     <Compile Include="Services\BaseOperations.cs" />
     <Compile Include="Services\OperationsFiles.cs" />
     <Compile Include="Services\OperationsProducts.cs" />

@@ -550,7 +550,7 @@ namespace SZMK.Desktop.Services
                 return false;
             }
         }
-        public bool StatusExist(Order Order)
+        public bool StatusExist(long ID_Order, long ID_Status)
         {
             Boolean flag = false;
             try
@@ -560,7 +560,7 @@ namespace SZMK.Desktop.Services
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"SELECT \"DateCreate\", \"ID_Status\", \"ID_Order\", \"ID_User\" FROM public.\"AddStatus\" WHERE \"ID_Status\"='{Order.Status.ID}' AND \"ID_Order\"='{Order.ID}';", Connect))
+                    using (var Command = new NpgsqlCommand($"SELECT \"DateCreate\", \"ID_Status\", \"ID_Order\", \"ID_User\" FROM public.\"AddStatus\" WHERE \"ID_Status\"='{ID_Status}' AND \"ID_Order\"='{ID_Order}';", Connect))
                     {
                         using (var Reader = Command.ExecuteReader())
                         {
@@ -681,13 +681,13 @@ namespace SZMK.Desktop.Services
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"Number\"='{Number}' AND \"List\"='{List}';", Connect))
+                    using (var Command = new NpgsqlCommand($"SELECT \"ExecutorWork\" FROM public.\"Orders\" WHERE \"Number\"='{Number}' AND \"List\"='{List}';", Connect))
                     {
                         using (var Reader = Command.ExecuteReader())
                         {
                             while (Reader.Read())
                             {
-                                if (Reader.GetString(0).Split('_')[1] == QR.Split('_')[1])
+                                if (Reader.GetString(0) == QR.Split('_')[1])
                                 {
                                     flag = true;
                                 }

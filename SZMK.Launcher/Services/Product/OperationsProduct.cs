@@ -33,17 +33,6 @@ namespace SZMK.Launcher.Services.Product
                 throw new Exception(Ex.Message, Ex);
             }
         }
-        public async Task<bool> CheckedProcessAsync()
-        {
-            try
-            {
-                return await Task.Run(() => CheckedProcess());
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message, Ex);
-            }
-        }
         public bool CheckedProcess()
         {
             try
@@ -77,17 +66,6 @@ namespace SZMK.Launcher.Services.Product
                 FileVersionInfo myFileVersionInfo = FileVersionInfo.GetVersionInfo(Directory.GetCurrentDirectory() + @"\Product\" + NameProduct + @"\" + NameProduct + ".exe");
                 VersionProduct = myFileVersionInfo.FileVersion;
                 notify.Notify(0, "Версия и имя основный программы успешно получены");
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message, Ex);
-            }
-        }
-        public async Task<bool> CheckedUpdateAsync()
-        {
-            try
-            {
-                return await Task.Run(() => CheckedUpdate());
             }
             catch (Exception Ex)
             {
@@ -137,24 +115,14 @@ namespace SZMK.Launcher.Services.Product
                 throw new Exception(Ex.Message, Ex);
             }
         }
-        public async void UpdateAsync()
-        {
-            try
-            {
-                await Task.Run(() => Update());
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message, Ex);
-            }
-        }
-        public void Update()
+        public bool Update()
         {
             try
             {
                 notify.Notify(0, "Начало получения обновления основной программы");
                 DownloadFiles();
                 RemoveAndCopeFiles();
+                return true;
             }
             catch (Exception Ex)
             {
@@ -180,14 +148,16 @@ namespace SZMK.Launcher.Services.Product
                             writer.Write(true);
 
                             writer.Write(NameProduct);
+                            writer.Write(Environment.MachineName);
                             writer.Write(VersionProduct);
                             notify.Notify(1, "Отправка параметров прошла успешна");
 
                             notify.Notify(0, "Получение файла информации обновления");
-                            long lenght = reader.ReadInt64();
 
                             using (FileStream fileStream = File.Open(Directory.GetCurrentDirectory() + @"\InfoUpdate.conf", FileMode.Create))
                             {
+                                long lenght = reader.ReadInt64();
+
                                 long totalBytes = 0;
                                 int readBytes = 0;
                                 byte[] buffer = new byte[8192];
@@ -201,8 +171,11 @@ namespace SZMK.Launcher.Services.Product
                             }
                             notify.Notify(1, "Получение файла информации обновления успешно");
 
+                            writer.Write(true);
 
                             int CountFiles = reader.ReadInt32();
+
+                            writer.Write(true);
 
                             notify.SetMaximum(CountFiles);
 
@@ -212,7 +185,7 @@ namespace SZMK.Launcher.Services.Product
 
                                 Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\Temp\" + Path.GetDirectoryName(PathFile));
 
-                                lenght = reader.ReadInt64();
+                                long lenght = reader.ReadInt64();
 
                                 using (FileStream fileStream = File.Open(Directory.GetCurrentDirectory() + @"\Temp\" + PathFile, FileMode.Create))
                                 {
@@ -227,6 +200,7 @@ namespace SZMK.Launcher.Services.Product
                                         totalBytes += readBytes;
                                     } while (tcpClient.Connected && totalBytes < lenght);
                                 }
+                                writer.Write(i);
                                 notify.Notify(i + 1, $"Скачивание файлов обновления {i + 1} из {CountFiles}");
                             }
                         }
@@ -255,8 +229,8 @@ namespace SZMK.Launcher.Services.Product
 
                 foreach (var file in files.FindAll(p => p.Move.Contains("Remove")))
                 {
-                    File.Delete(Directory.GetCurrentDirectory() + @"\Products\" + NameProduct + @"\" + file.FileName);
-                    if (Directory.GetDirectories(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Products\" + NameProduct + @"\" + file.FileName)).Count() == 0 && Directory.GetFiles(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Products\" + NameProduct + @"\" + file.FileName)).Length == 0)
+                    File.Delete(Directory.GetCurrentDirectory() + @"\Product\" + NameProduct + @"\" + file.FileName);
+                    if (Directory.GetDirectories(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Product\" + NameProduct + @"\" + file.FileName)).Count() == 0 && Directory.GetFiles(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Product\" + NameProduct + @"\" + file.FileName)).Length == 0)
                     {
                         Directory.Delete(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Products\" + NameProduct + @"\" + file.FileName));
                     }
@@ -266,12 +240,12 @@ namespace SZMK.Launcher.Services.Product
                 notify.Notify(0, "Обновление файлов основной программы");
                 foreach (var file in files.FindAll(p => !p.Move.Contains("Remove")))
                 {
-                    if (!Directory.Exists(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Products\" + NameProduct + @"\" + file.FileName)))
+                    if (!Directory.Exists(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Product\" + NameProduct + @"\" + file.FileName)))
                     {
-                        Directory.CreateDirectory(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Products\" + NameProduct + @"\" + file.FileName));
+                        Directory.CreateDirectory(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Product\" + NameProduct + @"\" + file.FileName));
                     }
 
-                    File.Copy(Directory.GetCurrentDirectory() + @"\Temp\" + file.FileName, Directory.GetCurrentDirectory() + @"\Products\" + NameProduct + @"\" + file.FileName, true);
+                    File.Copy(Directory.GetCurrentDirectory() + @"\Temp\" + file.FileName, Directory.GetCurrentDirectory() + @"\Product\" + NameProduct + @"\" + file.FileName, true);
                 }
                 notify.Notify(1, "Обновление файлов основной программы успешно");
             }

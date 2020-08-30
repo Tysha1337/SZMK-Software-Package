@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SZMK.ServerUpdater.Models
+namespace SZMK.LauncherUpdater.Models
 {
-    public class LastUpdateFiles
+    public class FileAndMove
     {
         public string FileName { get; set; }
-        public string Hash { get; set; }
-        public bool NeedUpdate { get; set; }
+        public string Move { get; set; }
     }
 }
