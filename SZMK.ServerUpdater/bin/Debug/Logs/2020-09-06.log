@@ -1,0 +1,35 @@
+[2020-09-06 03:21:57.1279] [INFO] Инициализация основной формы пройдена успешно
+[2020-09-06 03:21:57.1767] [INFO] Сборка пройдена успешно
+[2020-09-06 03:21:57.1867] [INFO] Запуск сервера успешно выполнен
+[2020-09-06 03:21:57.1967] [INFO] Успешный показ продуктов
+[2020-09-06 03:22:03.0565] [INFO] Инициализация формы настроек продуктов пройдена успешно
+[2020-09-06 03:22:03.0725] [INFO] Выполнен показ настройки продуктов
+[2020-09-06 03:22:03.9283] [INFO] Инициализация добавления информации пройдена успешно
+[2020-09-06 03:23:32.8315] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-09-06 03:23:38.5294] [INFO] Инициализация добавления информации пройдена успешно
+[2020-09-06 03:23:58.7157] [INFO] Инициализация добавления информации пройдена успешно
+[2020-09-06 03:24:04.3230] [INFO] Добавление было успешно произведено
+[2020-09-06 03:25:47.8957] [ERROR] System.Exception: Не удалось найти часть пути "C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\bin\Debug\About\SZMK.LauncherUpdater\AboutProgram.conf". ---> System.Exception: Не удалось найти часть пути "C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\bin\Debug\About\SZMK.LauncherUpdater\AboutProgram.conf". ---> System.IO.DirectoryNotFoundException: Не удалось найти часть пути "C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\bin\Debug\About\SZMK.LauncherUpdater\AboutProgram.conf".
+   в System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   в System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   в System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   в System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   в System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   в System.Xml.XmlTextReaderImpl.FinishInitUriString()
+   в System.Xml.XmlTextReaderImpl..ctor(String uriStr, XmlReaderSettings settings, XmlParserContext context, XmlResolver uriResolver)
+   в System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   в System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings, XmlParserContext inputContext)
+   в System.Xml.Linq.XDocument.Load(String uri, LoadOptions options)
+   в System.Xml.Linq.XDocument.Load(String uri)
+   в SZMK.ServerUpdater.Services.OperationsVersions.GetLastVersion(String Product) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\OperationsVersions.cs:строка 313
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.OperationsVersions.GetLastVersion(String Product) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\OperationsVersions.cs:строка 318
+   в SZMK.ServerUpdater.Services.Server.CheckedUpdate(BinaryReader reader, NetworkStream stream) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 137
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.Server.CheckedUpdate(BinaryReader reader, NetworkStream stream) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 149
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 103
+[2020-09-06 03:26:53.3159] [INFO] Выполнена остановка сервера и закрытие программы
+[2020-09-06 03:26:53.3189] [ERROR] System.Net.Sockets.SocketException (0x80004005): Операция блокирования прервана вызовом WSACancelBlockingCall
+   в System.Net.Sockets.Socket.Accept()
+   в System.Net.Sockets.TcpListener.AcceptTcpClient()
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 93

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mail>
+  <Email>szmk@adm-nk.ru</Email>
+  <Name>Информирование об ошибках</Name>
+  <Login>szmk@adm-nk.ru</Login>
+  <HashPassword>eBHAQBStOW2vgNyzEWOV1Q==</HashPassword>
+  <Host>smtp.yandex.ru</Host>
+  <Port>587</Port>
+  <SSL>True</SSL>
+</Mail>
