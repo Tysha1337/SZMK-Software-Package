@@ -15,41 +15,69 @@ namespace SZMK.ServerUpdater.Services
 
         public void Add(string Name)
         {
-            XDocument products = XDocument.Load(SettingsPath);
+            try
+            {
+                XDocument products = XDocument.Load(SettingsPath);
 
-            XElement product = new XElement("Product", Name);
-            products.Element("Products").Add(product);
+                XElement product = new XElement("Product", Name);
+                products.Element("Products").Add(product);
 
-            products.Save(SettingsPath);
+                products.Save(SettingsPath);
 
-            Directory.CreateDirectory(FolderPath + @"\" + Name);
+                Directory.CreateDirectory(FolderPath + @"\" + Name);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message, Ex);
+            }
         }
         public void Change(string OldName, string NewName)
         {
-            XDocument products = XDocument.Load(SettingsPath);
+            try
+            {
+                XDocument products = XDocument.Load(SettingsPath);
 
-            products.Element("Products").Elements("Product").Where(p => p.Value == OldName).First().SetValue(NewName);
+                products.Element("Products").Elements("Product").Where(p => p.Value == OldName).First().SetValue(NewName);
 
-            products.Save(SettingsPath);
+                products.Save(SettingsPath);
 
-            string RenameFolder = Directory.GetDirectories(FolderPath).Where(p => Path.GetFileName(p) == OldName).First();
+                string RenameFolder = Directory.GetDirectories(FolderPath).Where(p => Path.GetFileName(p) == OldName).First();
 
-            Directory.Move(RenameFolder, Path.GetDirectoryName(RenameFolder) + @"\" + NewName);
+                Directory.Move(RenameFolder, Path.GetDirectoryName(RenameFolder) + @"\" + NewName);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message, Ex);
+            }
         }
         public void Delete(string Name)
         {
-            XDocument products = XDocument.Load(SettingsPath);
+            try
+            {
+                XDocument products = XDocument.Load(SettingsPath);
 
-            products.Element("Products").Elements("Product").Where(p => p.Value == Name).First().Remove();
+                products.Element("Products").Elements("Product").Where(p => p.Value == Name).First().Remove();
 
-            products.Save(SettingsPath);
+                products.Save(SettingsPath);
 
-            Directory.Delete(FolderPath + @"\" + Name, true);
+                Directory.Delete(FolderPath + @"\" + Name, true);
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message, Ex);
+            }
         }
         public List<string> GetProducts()
         {
-            XDocument data = XDocument.Load(SettingsPath);
-            return data.Element("Products").Elements("Product").Select(p => p.Value).ToList();
+            try
+            {
+                XDocument data = XDocument.Load(SettingsPath);
+                return data.Element("Products").Elements("Product").Select(p => p.Value).ToList();
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message, Ex);
+            }
         }
     }
 }

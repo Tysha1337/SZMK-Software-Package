@@ -39,17 +39,23 @@
             this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.Delete_B = new System.Windows.Forms.Button();
-            this.Change_B = new System.Windows.Forms.Button();
-            this.Add_B = new System.Windows.Forms.Button();
             this.Versions_DGV = new System.Windows.Forms.DataGridView();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Product_CB = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.StatusServer_TB = new System.Windows.Forms.TextBox();
+            this.StartServer_B = new System.Windows.Forms.Button();
+            this.StopServer_B = new System.Windows.Forms.Button();
+            this.Add_B = new System.Windows.Forms.Button();
+            this.Change_B = new System.Windows.Forms.Button();
+            this.Delete_B = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.Tray = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Open_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Exit_TSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.CheckerStatus_T = new System.Windows.Forms.Timer(this.components);
             this.Main_MS.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Versions_DGV)).BeginInit();
@@ -101,19 +107,26 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FloralWhite;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.79339F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.20661F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.Delete_B, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.Change_B, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.Add_B, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.Versions_DGV, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.Product_CB, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.StatusServer_TB, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.StartServer_B, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.Change_B, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.Delete_B, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.Add_B, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.StopServer_B, 2, 8);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowCount = 10;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
@@ -121,7 +134,10 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 567);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 584);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // label2
@@ -129,6 +145,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Tan;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel1.SetColumnSpan(this.label2, 3);
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -139,50 +156,6 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Список версий";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Delete_B
-            // 
-            this.Delete_B.BackColor = System.Drawing.Color.NavajoWhite;
-            this.Delete_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Delete_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Delete_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Delete_B.Location = new System.Drawing.Point(5, 532);
-            this.Delete_B.Margin = new System.Windows.Forms.Padding(5);
-            this.Delete_B.Name = "Delete_B";
-            this.Delete_B.Size = new System.Drawing.Size(353, 30);
-            this.Delete_B.TabIndex = 4;
-            this.Delete_B.Text = "Удалить";
-            this.Delete_B.UseVisualStyleBackColor = false;
-            this.Delete_B.Click += new System.EventHandler(this.Delete_B_Click);
-            // 
-            // Change_B
-            // 
-            this.Change_B.BackColor = System.Drawing.Color.NavajoWhite;
-            this.Change_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Change_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Change_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Change_B.Location = new System.Drawing.Point(5, 492);
-            this.Change_B.Margin = new System.Windows.Forms.Padding(5);
-            this.Change_B.Name = "Change_B";
-            this.Change_B.Size = new System.Drawing.Size(353, 30);
-            this.Change_B.TabIndex = 3;
-            this.Change_B.Text = "Изменить";
-            this.Change_B.UseVisualStyleBackColor = false;
-            // 
-            // Add_B
-            // 
-            this.Add_B.BackColor = System.Drawing.Color.NavajoWhite;
-            this.Add_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Add_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Add_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Add_B.Location = new System.Drawing.Point(5, 452);
-            this.Add_B.Margin = new System.Windows.Forms.Padding(5);
-            this.Add_B.Name = "Add_B";
-            this.Add_B.Size = new System.Drawing.Size(353, 30);
-            this.Add_B.TabIndex = 2;
-            this.Add_B.Text = "Добавить";
-            this.Add_B.UseVisualStyleBackColor = false;
-            this.Add_B.Click += new System.EventHandler(this.Add_B_Click);
             // 
             // Versions_DGV
             // 
@@ -200,13 +173,14 @@
             this.Versions_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Versions_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Version});
+            this.tableLayoutPanel1.SetColumnSpan(this.Versions_DGV, 3);
             this.Versions_DGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Versions_DGV.Location = new System.Drawing.Point(5, 129);
             this.Versions_DGV.Margin = new System.Windows.Forms.Padding(5);
             this.Versions_DGV.Name = "Versions_DGV";
             this.Versions_DGV.ReadOnly = true;
             this.Versions_DGV.RowHeadersVisible = false;
-            this.Versions_DGV.Size = new System.Drawing.Size(353, 313);
+            this.Versions_DGV.Size = new System.Drawing.Size(353, 213);
             this.Versions_DGV.TabIndex = 1;
             // 
             // Version
@@ -222,6 +196,7 @@
             // Product_CB
             // 
             this.Product_CB.BackColor = System.Drawing.Color.PeachPuff;
+            this.tableLayoutPanel1.SetColumnSpan(this.Product_CB, 3);
             this.Product_CB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Product_CB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Product_CB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -240,6 +215,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Tan;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel1.SetColumnSpan(this.label1, 3);
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -250,6 +226,130 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Выбор продукта";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label3.Location = new System.Drawing.Point(5, 557);
+            this.label3.Margin = new System.Windows.Forms.Padding(5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 22);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Статус сервера:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // StatusServer_TB
+            // 
+            this.StatusServer_TB.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.StatusServer_TB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel1.SetColumnSpan(this.StatusServer_TB, 2);
+            this.StatusServer_TB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StatusServer_TB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.StatusServer_TB.Location = new System.Drawing.Point(130, 557);
+            this.StatusServer_TB.Margin = new System.Windows.Forms.Padding(5);
+            this.StatusServer_TB.Name = "StatusServer_TB";
+            this.StatusServer_TB.ReadOnly = true;
+            this.StatusServer_TB.Size = new System.Drawing.Size(228, 22);
+            this.StatusServer_TB.TabIndex = 10;
+            this.StatusServer_TB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // StartServer_B
+            // 
+            this.StartServer_B.BackColor = System.Drawing.Color.NavajoWhite;
+            this.tableLayoutPanel1.SetColumnSpan(this.StartServer_B, 2);
+            this.StartServer_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StartServer_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StartServer_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.StartServer_B.Location = new System.Drawing.Point(5, 517);
+            this.StartServer_B.Margin = new System.Windows.Forms.Padding(5);
+            this.StartServer_B.Name = "StartServer_B";
+            this.StartServer_B.Size = new System.Drawing.Size(174, 30);
+            this.StartServer_B.TabIndex = 7;
+            this.StartServer_B.Text = "Запуск";
+            this.StartServer_B.UseVisualStyleBackColor = false;
+            this.StartServer_B.Click += new System.EventHandler(this.StartServer_B_Click);
+            // 
+            // StopServer_B
+            // 
+            this.StopServer_B.BackColor = System.Drawing.Color.NavajoWhite;
+            this.StopServer_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StopServer_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StopServer_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.StopServer_B.Location = new System.Drawing.Point(189, 517);
+            this.StopServer_B.Margin = new System.Windows.Forms.Padding(5);
+            this.StopServer_B.Name = "StopServer_B";
+            this.StopServer_B.Size = new System.Drawing.Size(169, 30);
+            this.StopServer_B.TabIndex = 8;
+            this.StopServer_B.Text = "Остановка";
+            this.StopServer_B.UseVisualStyleBackColor = false;
+            this.StopServer_B.Click += new System.EventHandler(this.StopServer_B_Click);
+            // 
+            // Add_B
+            // 
+            this.Add_B.BackColor = System.Drawing.Color.NavajoWhite;
+            this.tableLayoutPanel1.SetColumnSpan(this.Add_B, 3);
+            this.Add_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Add_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Add_B.Location = new System.Drawing.Point(5, 352);
+            this.Add_B.Margin = new System.Windows.Forms.Padding(5);
+            this.Add_B.Name = "Add_B";
+            this.Add_B.Size = new System.Drawing.Size(353, 30);
+            this.Add_B.TabIndex = 2;
+            this.Add_B.Text = "Добавить";
+            this.Add_B.UseVisualStyleBackColor = false;
+            this.Add_B.Click += new System.EventHandler(this.Add_B_Click);
+            // 
+            // Change_B
+            // 
+            this.Change_B.BackColor = System.Drawing.Color.NavajoWhite;
+            this.tableLayoutPanel1.SetColumnSpan(this.Change_B, 3);
+            this.Change_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Change_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Change_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Change_B.Location = new System.Drawing.Point(5, 392);
+            this.Change_B.Margin = new System.Windows.Forms.Padding(5);
+            this.Change_B.Name = "Change_B";
+            this.Change_B.Size = new System.Drawing.Size(353, 30);
+            this.Change_B.TabIndex = 3;
+            this.Change_B.Text = "Изменить";
+            this.Change_B.UseVisualStyleBackColor = false;
+            this.Change_B.Click += new System.EventHandler(this.Change_B_Click);
+            // 
+            // Delete_B
+            // 
+            this.Delete_B.BackColor = System.Drawing.Color.NavajoWhite;
+            this.tableLayoutPanel1.SetColumnSpan(this.Delete_B, 3);
+            this.Delete_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Delete_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Delete_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Delete_B.Location = new System.Drawing.Point(5, 432);
+            this.Delete_B.Margin = new System.Windows.Forms.Padding(5);
+            this.Delete_B.Name = "Delete_B";
+            this.Delete_B.Size = new System.Drawing.Size(353, 30);
+            this.Delete_B.TabIndex = 4;
+            this.Delete_B.Text = "Удалить";
+            this.Delete_B.UseVisualStyleBackColor = false;
+            this.Delete_B.Click += new System.EventHandler(this.Delete_B_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Tan;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel1.SetColumnSpan(this.label4, 3);
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(5, 472);
+            this.label4.Margin = new System.Windows.Forms.Padding(5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(353, 35);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Сервер";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Tray
             // 
@@ -269,36 +369,41 @@
             this.Exit_TSMI});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.ShowImageMargin = false;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(97, 48);
             // 
             // Open_TSMI
             // 
             this.Open_TSMI.Name = "Open_TSMI";
-            this.Open_TSMI.Size = new System.Drawing.Size(155, 22);
+            this.Open_TSMI.Size = new System.Drawing.Size(96, 22);
             this.Open_TSMI.Text = "Открыть";
             this.Open_TSMI.Click += new System.EventHandler(this.Open_TSMI_Click);
             // 
             // Exit_TSMI
             // 
             this.Exit_TSMI.Name = "Exit_TSMI";
-            this.Exit_TSMI.Size = new System.Drawing.Size(155, 22);
+            this.Exit_TSMI.Size = new System.Drawing.Size(96, 22);
             this.Exit_TSMI.Text = "Выход";
             this.Exit_TSMI.Click += new System.EventHandler(this.Exit_TSMI_Click);
+            // 
+            // CheckerStatus_T
+            // 
+            this.CheckerStatus_T.Interval = 1000;
+            this.CheckerStatus_T.Tick += new System.EventHandler(this.CheckerStatus_T_Tick);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(363, 591);
+            this.ClientSize = new System.Drawing.Size(363, 608);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.Main_MS);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Main_MS;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(379, 630);
+            this.MaximumSize = new System.Drawing.Size(379, 647);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(379, 630);
+            this.MinimumSize = new System.Drawing.Size(379, 647);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сервер обновлений";
@@ -335,6 +440,12 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Open_TSMI;
         private System.Windows.Forms.ToolStripMenuItem Exit_TSMI;
+        private System.Windows.Forms.Button StartServer_B;
+        private System.Windows.Forms.Button StopServer_B;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox StatusServer_TB;
+        private System.Windows.Forms.Timer CheckerStatus_T;
+        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -1,0 +1,9 @@
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\bin\x64\Debug\Tekla_Interaction.Tekla21_1.exe.config
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\bin\x64\Debug\Tekla_Interaction.Tekla21_1.exe
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\bin\x64\Debug\Tekla_Interaction.Tekla21_1.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.Properties.Resources.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.csproj.GenerateResource.cache
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.exe
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.pdb

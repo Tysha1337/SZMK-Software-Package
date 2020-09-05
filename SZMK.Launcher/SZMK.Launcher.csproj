@@ -58,6 +58,7 @@
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\Launcher\OperationsLauncher.cs" />
     <Compile Include="Services\Product\OperationsProduct.cs" />
+    <Compile Include="Services\Updater\OperationsUpdater.cs" />
     <Compile Include="Views\Interfaces\IView.cs" />
     <Compile Include="Views\Main.cs">
       <SubType>Form</SubType>

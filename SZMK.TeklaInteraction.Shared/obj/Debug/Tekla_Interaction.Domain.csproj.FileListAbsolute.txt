@@ -1,0 +1,123 @@
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\NLog.config
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.dll.config
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\NLog.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Npgsql.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Buffers.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Memory.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Json.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.ValueTuple.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\NLog.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Npgsql.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Npgsql.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Buffers.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Memory.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Json.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.ValueTuple.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.csproj.CopyComplete
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.csprojAssemblyReference.cache
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.dll.config
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.pdb
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\NLog.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Npgsql.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Buffers.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Memory.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Json.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.ValueTuple.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\NLog.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Npgsql.pdb
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Npgsql.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Buffers.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Memory.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Json.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.ValueTuple.xml
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.csproj.CoreCompileInputs.cache
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.csproj.CopyComplete
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.dll
+C:\Users\kirill.gubanov\Desktop\Work\SZMK Software package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.dll.config
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\NLog.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Npgsql.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Buffers.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Memory.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Json.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.ValueTuple.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\NLog.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Npgsql.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\Npgsql.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Buffers.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Memory.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Text.Json.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\bin\Debug\System.ValueTuple.xml
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.csproj.CopyComplete
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.dll
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.pdb
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.dll.config
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\Tekla_Interaction.Domain.pdb
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\NLog.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\Npgsql.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Buffers.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Memory.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Text.Json.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.ValueTuple.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\NLog.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\Npgsql.pdb
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\Npgsql.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Buffers.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Memory.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Text.Json.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\bin\Debug\System.ValueTuple.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.csproj.CopyComplete
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\Tekla_Interaction.Domain\obj\Debug\Tekla_Interaction.Domain.pdb

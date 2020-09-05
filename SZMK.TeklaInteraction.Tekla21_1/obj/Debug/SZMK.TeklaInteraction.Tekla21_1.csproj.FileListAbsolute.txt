@@ -1,0 +1,16 @@
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction\bin\x64\Debug\Tekla21_1\NLog.config
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction\bin\x64\Debug\Tekla21_1\Tekla_Interaction.Tekla21_1.exe.config
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction\bin\x64\Debug\Tekla21_1\Tekla_Interaction.Tekla21_1.exe
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction\bin\x64\Debug\Tekla21_1\Tekla_Interaction.Tekla21_1.pdb
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\SZMK.TeklaInteraction.Tekla21_1.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.Properties.Resources.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.Views.Auth.Main.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.Views.Main.Main.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.Views.Main.Report.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.Views.Main.Update.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.Views.Shared.Loading.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\SZMK.TeklaInteraction.Tekla21_1.csproj.GenerateResource.cache
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\SZMK.TeklaInteraction.Tekla21_1.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\SZMK.TeklaInteraction.Tekla21_1.csproj.CopyComplete
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.exe
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla21_1\obj\Debug\Tekla_Interaction.Tekla21_1.pdb

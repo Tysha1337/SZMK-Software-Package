@@ -11,3 +11,4 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\bin\Debug\NLog.config
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\bin\Debug\NLog.dll
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\bin\Debug\NLog.xml
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.csproj.CopyComplete
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.csprojAssemblyReference.cache

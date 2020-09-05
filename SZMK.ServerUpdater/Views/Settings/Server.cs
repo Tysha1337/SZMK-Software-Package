@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +16,19 @@ namespace SZMK.ServerUpdater.Views.Settings
 {
     public partial class Server : Form, IBaseView
     {
+        private readonly Logger logger;
+
         OperationsFiles operationsFiles;
 
         public Server(OperationsFiles operationsFiles)
         {
             InitializeComponent();
+
+            logger = LogManager.GetCurrentClassLogger();
+
             this.operationsFiles = operationsFiles;
+
+            logger.Info("Инициализация формы настройки сервера пройдена успешно");
         }
 
         private void Settings_FormClosing(object sender, FormClosingEventArgs e)
@@ -32,25 +40,28 @@ namespace SZMK.ServerUpdater.Views.Settings
                     int Port = Convert.ToInt32(Port_TB.Text);
                 }
             }
-            catch (FormatException)
+            catch (FormatException FormEx)
             {
-                Error("Порт должен быть целым числом");
+                Error(FormEx);
                 e.Cancel = true;
             }
         }
         public void Info(string Message)
         {
+            logger.Info(Message);
             MessageBox.Show(Message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void Warn(string Message)
         {
+            logger.Warn(Message);
             MessageBox.Show(Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        public void Error(string Message)
+        public void Error(Exception Ex)
         {
-            MessageBox.Show(Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            logger.Error(Ex.ToString());
+            MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace SZMK.ServerUpdater.Views.Versions
 {
     public partial class AddOrChange : Form, IBaseView
     {
+        private readonly Logger logger;
+
         private OperationsVersions OperationsVersions;
 
         private bool Changed;
@@ -24,10 +27,14 @@ namespace SZMK.ServerUpdater.Views.Versions
         {
             InitializeComponent();
 
+            logger = LogManager.GetCurrentClassLogger();
+
             this.OperationsVersions = OperationsVersions;
 
             this.Changed = Changed;
             this.Product = Product;
+
+            logger.Info("Успешная инициализация формы изменения и добавления обновления");
         }
 
         private void Version_FormClosing(object sender, FormClosingEventArgs e)
@@ -55,23 +62,26 @@ namespace SZMK.ServerUpdater.Views.Versions
             }
             catch (Exception Ex)
             {
-                Error(Ex.Message);
+                Error(Ex);
                 e.Cancel = true;
             }
         }
         public void Info(string Message)
         {
+            logger.Info(Message);
             MessageBox.Show(Message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void Warn(string Message)
         {
+            logger.Warn(Message);
             MessageBox.Show(Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        public void Error(string Message)
+        public void Error(Exception Ex)
         {
-            MessageBox.Show(Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            logger.Error(Ex.ToString());
+            MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void Added_Add_B_Click(object sender, EventArgs e)
@@ -86,7 +96,7 @@ namespace SZMK.ServerUpdater.Views.Versions
             }
             catch (Exception Ex)
             {
-                Error(Ex.Message);
+                Error(Ex);
             }
         }
 
@@ -102,7 +112,7 @@ namespace SZMK.ServerUpdater.Views.Versions
             }
             catch (Exception Ex)
             {
-                Error(Ex.Message);
+                Error(Ex);
             }
         }
 
@@ -126,7 +136,7 @@ namespace SZMK.ServerUpdater.Views.Versions
             }
             catch (Exception Ex)
             {
-                Error(Ex.Message);
+                Error(Ex);
             }
         }
 
@@ -150,7 +160,7 @@ namespace SZMK.ServerUpdater.Views.Versions
             }
             catch (Exception Ex)
             {
-                Error(Ex.Message);
+                Error(Ex);
             }
         }
 
@@ -172,7 +182,7 @@ namespace SZMK.ServerUpdater.Views.Versions
             }
             catch (Exception Ex)
             {
-                Error(Ex.Message);
+                Error(Ex);
             }
         }
 
@@ -194,7 +204,7 @@ namespace SZMK.ServerUpdater.Views.Versions
             }
             catch (Exception Ex)
             {
-                Error(Ex.Message);
+                Error(Ex);
             }
         }
 
@@ -209,7 +219,7 @@ namespace SZMK.ServerUpdater.Views.Versions
                 {
                     Path_TB.Text = ofd.FileName;
 
-                    if (OperationsVersions.Upzip(Path_TB.Text))
+                    if (OperationsVersions.Unzip(Path_TB.Text))
                     {
                         Version_TB.Text = OperationsVersions.GetTempVersion(Product);
                         Date_TB.Text = DateTime.Now.ToShortDateString();
@@ -218,7 +228,15 @@ namespace SZMK.ServerUpdater.Views.Versions
             }
             catch (Exception Ex)
             {
-                Error(Ex.Message);
+                Error(Ex);
+            }
+        }
+
+        private void AddOrChange_Load(object sender, EventArgs e)
+        {
+            if (Changed)
+            {
+                SelectProgram_B.Enabled = false;
             }
         }
     }

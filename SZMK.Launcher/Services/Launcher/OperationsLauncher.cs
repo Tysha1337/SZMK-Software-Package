@@ -70,6 +70,14 @@ namespace SZMK.Launcher.Services.Launcher
                 {
                     Directory.Delete(Directory.GetCurrentDirectory() + @"\Temp", true);
                 }
+                if (File.Exists(Directory.GetCurrentDirectory() + @"\InfoProduct.conf"))
+                {
+                    File.Delete(Directory.GetCurrentDirectory() + @"\InfoProduct.conf");
+                }
+                if (File.Exists(Directory.GetCurrentDirectory() + @"\InfoUpdater.conf"))
+                {
+                    File.Delete(Directory.GetCurrentDirectory() + @"\InfoUpdater.conf");
+                }
                 notify.Notify(1, "Удаление старого обновления завершено успешно");
             }
             catch (Exception Ex)

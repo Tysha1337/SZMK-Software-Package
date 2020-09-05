@@ -10,6 +10,6 @@ namespace SZMK.ServerUpdater.Views.Interfaces
     {
         void Info(string Message);
         void Warn(string Message);
-        void Error(string Message);
+        void Error(Exception Ex);
     }
 }

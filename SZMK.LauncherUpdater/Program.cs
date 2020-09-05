@@ -107,6 +107,10 @@ namespace SZMK.LauncherUpdater
                 {
                     Directory.Delete(Directory.GetCurrentDirectory() + @"\Temp", true);
                 }
+                if (File.Exists(Directory.GetCurrentDirectory() + @"\InfoLauncher.conf"))
+                {
+                    File.Delete(Directory.GetCurrentDirectory() + @"\InfoLauncher.conf");
+                }
             }
             catch (Exception Ex)
             {
@@ -139,7 +143,7 @@ namespace SZMK.LauncherUpdater
 
                             Info("Получение файла информации обновления");
 
-                            using (FileStream fileStream = File.Open(Directory.GetCurrentDirectory() + @"\InfoUpdate.conf", FileMode.Create))
+                            using (FileStream fileStream = File.Open(Directory.GetCurrentDirectory() + @"\InfoLauncher.conf", FileMode.Create))
                             {
                                 long lenght = reader.ReadInt64();
 
@@ -202,7 +206,7 @@ namespace SZMK.LauncherUpdater
         {
             try
             {
-                XDocument info = XDocument.Load(Directory.GetCurrentDirectory() + @"\InfoUpdate.conf");
+                XDocument info = XDocument.Load(Directory.GetCurrentDirectory() + @"\InfoLauncher.conf");
 
                 List<FileAndMove> files = new List<FileAndMove>();
 

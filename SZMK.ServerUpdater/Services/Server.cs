@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace SZMK.ServerUpdater.Services
 {
     class Server
     {
+        private readonly Logger logger;
+
         TcpListener listener;
 
         static int CountClients = 0;
@@ -28,6 +31,8 @@ namespace SZMK.ServerUpdater.Services
         {
             try
             {
+                logger = LogManager.GetCurrentClassLogger();
+
                 GetParametersConnect();
 
                 this.OperationsFiles = OperationsFiles;
@@ -58,8 +63,15 @@ namespace SZMK.ServerUpdater.Services
         {
             try
             {
-                working = false;
-                listener.Stop();
+                if (CountClients <= 0)
+                {
+                    working = false;
+                    listener.Stop();
+                }
+                else
+                {
+                    throw new Exception("Невозможно остановить сервер, имеются подключенные клиенты");
+                }
 
                 return true;
             }
@@ -101,8 +113,12 @@ namespace SZMK.ServerUpdater.Services
                     CountClients--;
                 }
             }
-            catch
+            catch (Exception Ex)
             {
+                CountClients--;
+
+                logger.Error(Ex.ToString());
+
                 ListeningAsync();
             }
         }
@@ -166,6 +182,8 @@ namespace SZMK.ServerUpdater.Services
                             totalBytes += readBytes;
                         } while (client.Connected && totalBytes < lenght);
                     }
+
+                    Directory.Delete($@"About\{ClientProduct}\{ClientHost}", true);
 
                     var noremovefiles = files.FindAll(p => p.Move != "Remove");
 
@@ -231,25 +249,43 @@ namespace SZMK.ServerUpdater.Services
         }
         private void GenerateInfoUpdate(string Product, string Host, List<FileAndMove> files)
         {
-            XDocument infoupdate = new XDocument();
-            XElement program = new XElement("Program");
-
-            foreach (var file in files)
+            try
             {
-                XElement f = new XElement("File");
+                XDocument infoupdate = new XDocument();
+                XElement program = new XElement("Program");
 
-                XElement fileName = new XElement("FileName", file.FileName);
-                f.Add(fileName);
-                XElement move = new XElement("Move", file.Move);
-                f.Add(move);
+                foreach (var file in files)
+                {
+                    XElement f = new XElement("File");
 
-                program.Add(f);
+                    XElement fileName = new XElement("FileName", file.FileName);
+                    f.Add(fileName);
+                    XElement move = new XElement("Move", file.Move);
+                    f.Add(move);
+
+                    program.Add(f);
+                }
+                infoupdate.Add(program);
+
+                Directory.CreateDirectory($@"About\{Product}\{Host}");
+
+                infoupdate.Save($@"About\{Product}\{Host}\InfoUpdate.conf");
             }
-            infoupdate.Add(program);
-
-            Directory.CreateDirectory($@"About\{Product}\{Host}");
-
-            infoupdate.Save($@"About\{Product}\{Host}\InfoUpdate.conf");
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message, Ex);
+            }
+        }
+        public bool GetStatus()
+        {
+            try
+            {
+                return working;
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message, Ex);
+            }
         }
     }
 }

@@ -1,0 +1,8 @@
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\bin\x64\Debug\Tekla_Interaction.Tekla2018.exe.config
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\bin\x64\Debug\Tekla_Interaction.Tekla2018.exe
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction\bin\x64\Debug\Tekla_Interaction.Tekla2018.pdb
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.Properties.Resources.resources
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.csproj.GenerateResource.cache
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.exe
+C:\Users\thedr\Desktop\Works\SZMK Software Package\Tekla_Interaction\Tekla_Interaction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.pdb

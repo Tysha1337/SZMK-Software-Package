@@ -1,0 +1,17 @@
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction\bin\x64\Debug\Tekla2018\NLog.config
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction\bin\x64\Debug\Tekla2018\Tekla_Interaction.Tekla2018.exe.config
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction\bin\x64\Debug\Tekla2018\Tekla_Interaction.Tekla2018.exe
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction\bin\x64\Debug\Tekla2018\Tekla_Interaction.Tekla2018.pdb
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\SZMK.TeklaInteraction.Tekla2018.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.exe.config
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.Properties.Resources.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.Views.Auth.Main.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.Views.Main.Main.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.Views.Main.Report.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.Views.Main.Update.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.Views.Shared.Loading.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\SZMK.TeklaInteraction.Tekla2018.csproj.GenerateResource.cache
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\SZMK.TeklaInteraction.Tekla2018.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\SZMK.TeklaInteraction.Tekla2018.csproj.CopyComplete
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.exe
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Tekla2018\obj\Debug\Tekla_Interaction.Tekla2018.pdb

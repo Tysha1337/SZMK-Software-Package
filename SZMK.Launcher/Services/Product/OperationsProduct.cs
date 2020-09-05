@@ -154,7 +154,7 @@ namespace SZMK.Launcher.Services.Product
 
                             notify.Notify(0, "Получение файла информации обновления");
 
-                            using (FileStream fileStream = File.Open(Directory.GetCurrentDirectory() + @"\InfoUpdate.conf", FileMode.Create))
+                            using (FileStream fileStream = File.Open(Directory.GetCurrentDirectory() + @"\InfoProduct.conf", FileMode.Create))
                             {
                                 long lenght = reader.ReadInt64();
 

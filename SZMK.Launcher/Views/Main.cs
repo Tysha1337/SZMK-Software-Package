@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SZMK.Launcher.Services.Launcher;
 using SZMK.Launcher.Services.Product;
+using SZMK.Launcher.Services.Updater;
 using SZMK.Launcher.Views.Interfaces;
 
 namespace SZMK.Launcher.Views
@@ -20,6 +21,7 @@ namespace SZMK.Launcher.Views
 
         delegate void NotifyCallback(int value, string message);
 
+        private OperationsUpdater OperationsUpdater;
         private OperationsLauncher OperationsLauncher;
         private OperationsProduct OperationsProduct;
 
@@ -69,11 +71,39 @@ namespace SZMK.Launcher.Views
         {
             try
             {
+                CheckUpdater();
                 CheckLauncher();
                 CheckProduct();
 
                 StartApp();
                 Application.Exit();
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message, Ex);
+            }
+        }
+        private void CheckUpdater()
+        {
+            try
+            {
+                OperationsUpdater = new OperationsUpdater(this);
+
+                Notify(0, "Начало проверки обновления основного приложения");
+
+                if (OperationsUpdater.CheckedUpdate())
+                {
+                    while (!OperationsUpdater.CheckedProcess())
+                    {
+                        if (MessageBox.Show("Для обновления необходимо закрыть остальные копии SZMK.LauncherUpdater, нажмите \"Повторить\" для повторной проверки или \"Отмена\" для выхода из обновления", "Внимание", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
+                        {
+                            logger.Info("Пользователь отменил обновление лаунчера");
+                            Environment.Exit(0);
+                        }
+                    }
+
+                    OperationsUpdater.Update();
+                }
             }
             catch (Exception Ex)
             {

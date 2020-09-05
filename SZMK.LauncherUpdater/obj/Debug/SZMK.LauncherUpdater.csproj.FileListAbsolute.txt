@@ -9,3 +9,10 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\bin\Debug\Updater\SZM
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\bin\Debug\Updater\SZMK.LauncherUpdater.pdb
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\bin\Debug\Updater\NLog.config
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.csproj.CopyComplete
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\NLog.config
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\SZMK.LauncherUpdater.exe.config
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\SZMK.LauncherUpdater.exe
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\SZMK.LauncherUpdater.pdb
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\NLog.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\NLog.xml

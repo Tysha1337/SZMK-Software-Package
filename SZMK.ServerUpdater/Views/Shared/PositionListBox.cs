@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,13 +14,19 @@ namespace SZMK.ServerUpdater.Views.Shared
 {
     public partial class PositionListBox : Form, IBaseView
     {
+        private readonly Logger logger;
+
         List<string> positions;
 
         public PositionListBox(List<string> positions)
         {
             InitializeComponent();
 
+            logger = LogManager.GetCurrentClassLogger();
+
             this.positions = positions;
+
+            logger.Info("Инициализация добавления информации пройдена успешно");
         }
 
         private void PositionListBox_FormClosing(object sender, FormClosingEventArgs e)
@@ -41,22 +48,25 @@ namespace SZMK.ServerUpdater.Views.Shared
             catch (Exception Ex)
             {
                 e.Cancel = true;
-                Error(Ex.Message);
+                Error(Ex);
             }
         }
         public void Info(string Message)
         {
+            logger.Info(Message);
             MessageBox.Show(Message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void Warn(string Message)
         {
+            logger.Warn(Message);
             MessageBox.Show(Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        public void Error(string Message)
+        public void Error(Exception Ex)
         {
-            MessageBox.Show(Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            logger.Error(Ex.ToString());
+            MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

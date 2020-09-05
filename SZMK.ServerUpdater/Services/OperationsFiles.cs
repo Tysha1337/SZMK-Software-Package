@@ -42,14 +42,21 @@ namespace SZMK.ServerUpdater.Services
         }
         private List<FileAndHash> GetHashFiles(string Product, string Version)
         {
-            List<FileAndHash> files = new List<FileAndHash>();
-
-            foreach (var file in Directory.GetFiles($@"Products\{Product}\{Version}"))
+            try
             {
-                files.Add(new FileAndHash { FileName = file.Remove(0, file.IndexOf($@"{Product}\{Version}") + $@"{Product}\{Version}".Length + 1), Hash = ComputeMD5Checksum(file) });
-            }
+                List<FileAndHash> files = new List<FileAndHash>();
 
-            return files;
+                foreach (var file in Directory.GetFiles($@"Products\{Product}\{Version}"))
+                {
+                    files.Add(new FileAndHash { FileName = file.Remove(0, file.IndexOf($@"{Product}\{Version}") + $@"{Product}\{Version}".Length + 1), Hash = ComputeMD5Checksum(file) });
+                }
+
+                return files;
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message, Ex);
+            }
         }
     }
 }
