@@ -79,7 +79,6 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Web\bin\ru\System.Web.Razor.re
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Web\bin\ru\System.Web.WebPages.resources.dll
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Web\bin\ru\System.Web.WebPages.Deployment.resources.dll
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Web\bin\ru\System.Web.WebPages.Razor.resources.dll
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Web\obj\Debug\SZMK.Web.csprojAssemblyReference.cache
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Web\obj\Debug\SZMK.Web.csproj.CoreCompileInputs.cache
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Web\obj\Debug\SZMK.Web.csproj.CopyComplete
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Web\obj\Debug\SZMK.Web.dll

@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using SZMK.TeklaInteraction.Shared.Services;
-using Tekla.Structures.Drawing;
-using Tekla.Structures.Model;
 using SZMK.TeklaInteraction.Tekla21_1.Services.Server.Interfaces;
 using SZMK.TeklaInteraction.Tekla21_1.Views.Shared.Interfaces;
+using Tekla.Structures.Drawing;
+using Tekla.Structures.Model;
 using ModelObject = Tekla.Structures.Model.ModelObject;
 
 namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
@@ -46,7 +46,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                 return false;
             }
         }
-        public void GetData(SZMK.TeklaInteraction.Shared.Models.User user)
+        public void GetData(Shared.Models.User user)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
 
                 logger.Info("Чертежи получены");
 
-                Drawings = new List<SZMK.TeklaInteraction.Shared.Models.Drawing>();
+                Drawings = new List<Shared.Models.Drawing>();
 
                 while (SelectedDrawings.MoveNext())
                 {
@@ -86,20 +86,20 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                         assembly.GetReportProperty("CUSTOM.Zakaz", ref Number);
                         assembly.GetReportProperty("CUSTOM.Drw_SheetRev", ref List);
                         logger.Error(E.ToString());
-                        MessageBox.Show("Ошибка в чертеже:" + Environment.NewLine + "Заказ " + Number + Environment.NewLine + "Лист " + List + Environment.NewLine + "Проверьте его параметры", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ошибка в чертеже:" + Environment.NewLine + "Заказ " + Number + Environment.NewLine + "Лист " + List + Environment.NewLine + "Проверьте его параметры" + Environment.NewLine + "Пояснение ошибки: " + E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
                 logger.Info("Чертежи успешно добавлены");
 
                 ModelInfo modelInfo = model.GetInfo();
-                Model = new SZMK.TeklaInteraction.Shared.Models.Model { Path = modelInfo.ModelPath, Drawings = Drawings };
+                Model = new Shared.Models.Model { Path = modelInfo.ModelPath, Drawings = Drawings };
+
+                notify.Close();
 
                 if (Model.Drawings.Count() > 0)
                 {
                     logger.Info("Начато отображение данных");
-
-                    notify.Close();
 
                     Operations operations = new Operations();
                     operations.ShowData(Model, user);
@@ -112,11 +112,11 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                 MessageBox.Show("Ошибка операции", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private List<SZMK.TeklaInteraction.Shared.Models.Detail> AddMainDetailDrawingObjects(AssemblyDrawing parentDrawing)
+        private List<Shared.Models.Detail> AddMainDetailDrawingObjects(AssemblyDrawing parentDrawing)
         {
             try
             {
-                List<SZMK.TeklaInteraction.Shared.Models.Detail> Details = new List<SZMK.TeklaInteraction.Shared.Models.Detail>();
+                List<Shared.Models.Detail> Details = new List<Shared.Models.Detail>();
 
                 Assembly assembly = model.SelectModelObject(parentDrawing.AssemblyIdentifier) as Assembly;
 
@@ -164,7 +164,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                 throw new Exception(E.Message, E);
             }
         }
-        private SZMK.TeklaInteraction.Shared.Models.Detail GetDetailAttribute(ModelObject modelObject, Int32 CountDetail)
+        private Shared.Models.Detail GetDetailAttribute(ModelObject modelObject, Int32 CountDetail)
         {
             try
             {
@@ -198,7 +198,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                 modelObject.GetReportProperty("ASSEMBLY.AREA", ref _paintingArea);
                 _subTotalWeight = CountDetail * _weight;
 
-                return new SZMK.TeklaInteraction.Shared.Models.Detail { Position = _position, Profile = _profile, Width = Convert.ToDouble(_width.ToString("F2")), Lenght = Convert.ToDouble(_lenght.ToString("F2")), Weight = Convert.ToDouble(_weight.ToString("F2")), SubtotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), MarkSteel = _markSteel, Discription = _discription, GMlenght = Convert.ToDouble(_gmlenght.ToString("F2")), GMwidth = Convert.ToDouble(_gmwidth.ToString("F2")), GMheight = Convert.ToDouble(_gmheight.ToString("F2")), Machining = _machining, MethodOfpPaintingRAL = _methodOfPaintingRAL, PaintingArea = Convert.ToDouble((_paintingArea / 1000000).ToString("F2")), Count = CountDetail };
+                return new Shared.Models.Detail { Position = _position, Profile = _profile, Width = Convert.ToDouble(_width.ToString("F2")), Lenght = Convert.ToDouble(_lenght.ToString("F2")), Weight = Convert.ToDouble(_weight.ToString("F2")), SubtotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), MarkSteel = _markSteel, Discription = _discription, GMlenght = Convert.ToDouble(_gmlenght.ToString("F2")), GMwidth = Convert.ToDouble(_gmwidth.ToString("F2")), GMheight = Convert.ToDouble(_gmheight.ToString("F2")), Machining = _machining, MethodOfpPaintingRAL = _methodOfPaintingRAL, PaintingArea = Convert.ToDouble((_paintingArea / 1000000).ToString("F2")), Count = CountDetail };
             }
             catch (Exception E)
             {
@@ -228,6 +228,12 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                 _assembly = assembly.Name;
 
                 assembly.GetReportProperty("CUSTOM.Zakaz", ref _order);
+
+                if (!CheckedOrder(_order))
+                {
+                    throw new Exception($"Ошибочное указание заказа: {_order}");
+                }
+
                 assembly.GetReportProperty("DRAWING.USERDEFINED.ru_mesto", ref _place);
                 assembly.GetReportProperty("CUSTOM.Drw_SheetRev", ref _list);
 
@@ -249,24 +255,34 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
 
                 assembly.GetReportProperty("ASSEMBLY_POS", ref _mark);
                 assembly.GetReportProperty("DRAWING.USERDEFINED.ru_11_fam_dop", ref _executor);
+
+                if (!CheckedExecutor(_executor))
+                {
+                    throw new Exception($"Исполнитель не указан");
+                }
+                else
+                {
+                    _executor = _executor.Replace(" ", "");
+                    _executor = _executor.Insert(_executor.IndexOf('.') - 1, " ");
+                }
+
                 assembly.GetReportProperty("CUSTOM.SZ_AssWeight", ref _weightMark);
                 assembly.GetReportProperty("MODEL_TOTAL", ref _countMark);
 
                 _subTotalWeight = _weightMark * _countMark;
 
                 _dataMatrix = $"{_order}_{_list}_{_mark}_{_executor}_{_lenght:F2}_{_subTotalWeight:F2}";
-                _dataMatrix = _dataMatrix.Replace(" ", "");
 
                 if (!CheckedUnique(_dataMatrix))
                 {
                     throw new Exception("Чертеж " + _dataMatrix + " уже существует");
                 }
 
-                List<SZMK.TeklaInteraction.Shared.Models.Detail> Details = AddMainDetailDrawingObjects(parentDrawing);
+                List<Shared.Models.Detail> Details = AddMainDetailDrawingObjects(parentDrawing);
 
                 _countDetail = Details.Sum(p => p.Count);
 
-                Drawings.Add(new SZMK.TeklaInteraction.Shared.Models.Drawing { DataMatrix = _dataMatrix, Assembly = _assembly, Order = _order, Place = _place, List = _list, Mark = _mark, Executor = _executor, WeightMark = Convert.ToDouble(_weightMark.ToString("F2")), CountMark = _countMark, SubTotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), CountDetail = _countDetail, Details = Details });
+                Drawings.Add(new Shared.Models.Drawing { DataMatrix = _dataMatrix, Assembly = _assembly, Order = _order, Place = _place, List = _list, Mark = _mark, Executor = _executor, WeightMark = Convert.ToDouble(_weightMark.ToString("F2")), CountMark = _countMark, SubTotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), CountDetail = _countDetail, Details = Details });
 
                 return true;
             }
@@ -297,6 +313,47 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
             try
             {
                 if (Drawings.Where(p => p.DataMatrix == dataMatrix).Count() != 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception E)
+            {
+                throw new Exception(E.Message, E);
+            }
+        }
+        public bool CheckedOrder(string order)
+        {
+            try
+            {
+                int firstNum = Convert.ToInt32(order.Substring(0, order.IndexOf('(')));
+                int secondNum = Convert.ToInt32(order.Substring(order.IndexOf('(') + 1, order.IndexOf(')')- order.IndexOf('(')-1));
+
+                string lastNum = order.Remove(0, order.IndexOf(')') + 1);
+
+                if (!String.IsNullOrEmpty(lastNum))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool CheckedExecutor(string executor)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(executor))
                 {
                     return false;
                 }

@@ -11,7 +11,6 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Domain\bin\Debug\Microsoft.Asp
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Domain\bin\Debug\ru\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Domain\bin\Debug\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Domain\obj\Debug\SZMK.Domain.csprojAssemblyReference.cache
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Domain\obj\Debug\SZMK.Domain.csproj.CoreCompileInputs.cache
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Domain\obj\Debug\SZMK.Domain.csproj.CopyComplete
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Domain\obj\Debug\SZMK.Domain.dll

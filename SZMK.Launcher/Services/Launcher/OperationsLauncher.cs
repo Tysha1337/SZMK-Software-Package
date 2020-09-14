@@ -175,6 +175,8 @@ namespace SZMK.Launcher.Services.Launcher
                 notify.Notify(1, "Запуск обновления");
 
                 Process.Start(procInfo);
+
+                Environment.Exit(0);
             }
             catch (Exception Ex)
             {

@@ -218,7 +218,7 @@ namespace SZMK.Launcher.Services.Product
             {
                 notify.Notify(0, "Начало удаление старых файлов основной программы");
                 notify.SetMaximum(1);
-                XDocument info = XDocument.Load(Directory.GetCurrentDirectory() + @"\InfoUpdate.conf");
+                XDocument info = XDocument.Load(Directory.GetCurrentDirectory() + @"\InfoProduct.conf");
 
                 List<FileAndMove> files = new List<FileAndMove>();
 

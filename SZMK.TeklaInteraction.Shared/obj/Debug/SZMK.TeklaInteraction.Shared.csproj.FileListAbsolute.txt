@@ -1,4 +1,6 @@
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\obj\Debug\SZMK.TeklaInteraction.Shared.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\SZMK.TeklaInteraction.Shared.dll.config
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\SZMK.TeklaInteraction.Shared.dll
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\SZMK.TeklaInteraction.Shared.pdb
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\NLog.dll
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\Npgsql.dll
@@ -22,9 +24,7 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\De
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\System.Text.Json.xml
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\System.ValueTuple.xml
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\obj\Debug\SZMK.TeklaInteraction.Shared.csproj.CoreCompileInputs.cache
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\obj\Debug\SZMK.TeklaInteraction.Shared.csproj.CopyComplete
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\SZMK.TeklaInteraction.Shared.dll.config
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\SZMK.TeklaInteraction.Shared.dll
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\SZMK.TeklaInteraction.Shared.pdb
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\obj\Debug\SZMK.TeklaInteraction.Shared.dll
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\obj\Debug\SZMK.TeklaInteraction.Shared.pdb

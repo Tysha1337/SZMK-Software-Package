@@ -44,6 +44,31 @@ namespace SZMK.Desktop.Services.Scan
                         ValidationDataMatrix[1] = Splitter[0];
                     }
 
+                    if (!CheckedExecutor(ValidationDataMatrix[3]))
+                    {
+                        Orders.Add(new OrderScanSession(Temp, 0, $"Пустое имя исполнителя"));
+                        return true;
+                    }
+                    else
+                    {
+                        ValidationDataMatrix[3] = FormingExecutor(ValidationDataMatrix[3]);
+                    }
+
+                    if (SystemArgs.SettingsProgram.CheckMarks)
+                    {
+                        if (!CheckedLowerRegistery(ReplaceMark))
+                        {
+                            Orders.Add(new OrderScanSession(Temp, 0, $"Строчные буквы в префиксе марки «{ReplaceMark}» не допускаются"));
+                            return true;
+                        }
+                    }
+
+                    if (ReplaceMark.IndexOf("(?)") != -1)
+                    {
+                        Orders.Add(new OrderScanSession(Temp, 0, $"В заказе {ValidationDataMatrix[0]}, марка {ReplaceMark} уже существует."));
+                        return true;
+                    }
+
                     Temp = ValidationDataMatrix[0] + "_" + ValidationDataMatrix[1] + "_" + ReplaceMark + "_" + ValidationDataMatrix[3] + "_" + Convert.ToDouble(ValidationDataMatrix[4].Replace(".", ",")).ToString("F2") + "_" + Convert.ToDouble(ValidationDataMatrix[5].Replace(".", ",")).ToString("F2");
 
                     Int32 IndexException = SystemArgs.Request.CheckedNumberAndList(ValidationDataMatrix[0], ValidationDataMatrix[1], Temp);
@@ -53,92 +78,24 @@ namespace SZMK.Desktop.Services.Scan
                         case 0:
                             if (SystemArgs.Request.CheckedNumberAndMark(ValidationDataMatrix[0], ReplaceMark))
                             {
-                                if (ReplaceMark.IndexOf("(?)") == -1)
-                                {
-                                    if (SystemArgs.SettingsProgram.CheckMarks)
-                                    {
-                                        if (CheckedLowerRegistery(ReplaceMark))
-                                        {
-                                            Orders.Add(new OrderScanSession(Temp, 1, "-"));
-                                        }
-                                        else
-                                        {
-                                            Orders.Add(new OrderScanSession(Temp, 0, $"Строчные буквы в префиксе марки «{ReplaceMark}» не допускаются"));
-                                        }
-                                    }
-                                    else
-                                    {
-                                        Orders.Add(new OrderScanSession(Temp, 1, "-"));
-                                    }
-                                }
-                                else
-                                {
-                                    Orders.Add(new OrderScanSession(Temp, 0, $"Марка требует нумерации"));
-                                }
+                                Orders.Add(new OrderScanSession(Temp, 1, "-"));
                             }
                             else
                             {
                                 Orders.Add(new OrderScanSession(Temp, 0, $"В заказе {ValidationDataMatrix[0]}, марка {ReplaceMark} уже существует."));
                             }
-
                             break;
                         case 1:
                             Orders.Add(new OrderScanSession(Temp, 0, $"В заказе {ValidationDataMatrix[0]}, номер листа {ValidationDataMatrix[1]} уже существует."));
-
                             break;
                         case 2:
-                            if (ReplaceMark.IndexOf("(?)") == -1)
-                            {
-                                if (SystemArgs.SettingsProgram.CheckMarks)
-                                {
-                                    if (CheckedLowerRegistery(ReplaceMark))
-                                    {
-                                        Orders.Add(new OrderScanSession(Temp, 1, "-"));
-                                    }
-                                    else
-                                    {
-                                        Orders.Add(new OrderScanSession(Temp, 0, $"Строчные буквы в префиксе марки «{ReplaceMark}» не допускаются"));
-                                    }
-                                }
-                                else
-                                {
-                                    Orders.Add(new OrderScanSession(Temp, 1, "-"));
-                                }
-                            }
-                            else
-                            {
-                                Orders.Add(new OrderScanSession(Temp, 0, $"Марка требует нумерации"));
-                            }
-
+                            Orders.Add(new OrderScanSession(Temp, 1, "-"));
                             break;
                         case 3:
-                            if (ReplaceMark.IndexOf("(?)") == -1)
-                            {
-                                if (SystemArgs.SettingsProgram.CheckMarks)
-                                {
-                                    if (CheckedLowerRegistery(ReplaceMark))
-                                    {
-                                        Orders.Add(new OrderScanSession(Temp, 2, "-"));
-                                    }
-                                    else
-                                    {
-                                        Orders.Add(new OrderScanSession(Temp, 0, $"Строчные буквы в префиксе марки «{ReplaceMark}» не допускаются"));
-                                    }
-                                }
-                                else
-                                {
-                                    Orders.Add(new OrderScanSession(Temp, 2, "-"));
-                                }
-                            }
-                            else
-                            {
-                                Orders.Add(new OrderScanSession(Temp, 0, $"Марка требует нумерации"));
-                            }
-
+                            Orders.Add(new OrderScanSession(Temp, 2, "-"));
                             break;
                         default:
                             Orders.Add(new OrderScanSession(Temp, 0, "Ошибка добавления чертежа"));
-
                             break;
                     }
                     return true;
@@ -150,6 +107,34 @@ namespace SZMK.Desktop.Services.Scan
                 SystemArgs.PrintLog(E.ToString());
                 MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+        }
+        private string FormingExecutor(string Executor)
+        {
+            try
+            {
+                Executor = Executor.Insert(Executor.IndexOf('.') - 1, " ");
+
+                return Executor;
+            }
+            catch
+            {
+                throw new Exception("Имя исполнителя должно быть в формате: Иванов И.И.");
+            }
+        }
+        private bool CheckedExecutor(string Executor)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(Executor))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message, Ex);
             }
         }
         private bool CheckedLowerRegistery(String Mark)

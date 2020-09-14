@@ -143,10 +143,7 @@ namespace SZMK.Desktop.Views.KB
 
         private void AdvancedSearch_TSB_Click(object sender, EventArgs e)
         {
-            if (SearchParam())
-            {
-                ViewSearch(Result);
-            }
+            SearchParamAsync();
         }
         private Boolean AddOrder()
         {
@@ -590,8 +587,24 @@ namespace SZMK.Desktop.Views.KB
 
             RefreshOrderAsync(FilterCB_TSB.SelectedIndex);
         }
+        private void GetDataForSearch(ForLongOperations_F Load)
+        {
+            try
+            {
+                SystemArgs.Orders.Clear();
+                SystemArgs.BlankOrders.Clear();
+                SystemArgs.StatusOfOrders.Clear();
+                SystemArgs.BlankOrderOfOrders.Clear();
 
-        private bool SearchParam()
+                SystemArgs.RequestLinq.GetOrdersForSearch(Load);
+            }
+            catch (Exception Ex)
+            {
+                SystemArgs.PrintLog(Ex.ToString());
+                throw new Exception(Ex.Message, Ex);
+            }
+        }
+        private async void SearchParamAsync()
         {
             try
             {
@@ -606,18 +619,34 @@ namespace SZMK.Desktop.Views.KB
 
                 if (Dialog.ShowDialog() == DialogResult.OK)
                 {
+                    ForLongOperations_F Load = new ForLongOperations_F();
+                    Load.Show();
+
+                    LockedButtonForLoadData(false);
+
+                    await Task.Run(() => GetDataForSearch(Load));
+
+                    LockedButtonForLoadData(true);
+
+                    Load.Close();
+
                     Result = SystemArgs.Orders.ToList();
-                    if (Dialog.Finished_CB.Checked && Dialog.Number_TB.Text.Trim() == String.Empty && Dialog.List_TB.Text.Trim() == String.Empty)
+
+                    if (Dialog.Finished_CB.Checked && Dialog.Number_TB.Text == String.Empty && Dialog.List_TB.Text == String.Empty)
                     {
                         if (MessageBox.Show("Вы уверены в выводе всех завершенных чертежей?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
                         {
                             Result = Result.Where(p => !p.Finished).ToList();
                         }
                     }
-                    else if (!Dialog.Finished_CB.Checked)
+                    else
                     {
-                        Result = Result.Where(p => !p.Finished).ToList();
+                        if (!Dialog.Finished_CB.Checked)
+                        {
+                            Result = Result.Where(p => !p.Finished).ToList();
+                        }
                     }
+
                     if (Dialog.DateEnable_CB.Checked && Dialog.Status_CB.SelectedIndex != 0)
                     {
                         Status Status = (Status)Dialog.Status_CB.SelectedItem;
@@ -686,17 +715,13 @@ namespace SZMK.Desktop.Views.KB
                     {
                         Result = Result.Where(p => p.User == (Models.User)Dialog.User_CB.SelectedItem).ToList();
                     }
-                    return true;
-                }
-                else
-                {
-                    return false;
+
+                    ViewSearch(Result);
                 }
             }
             catch (Exception E)
             {
                 MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
             }
         }
 

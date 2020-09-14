@@ -171,9 +171,9 @@ namespace SZMK.TeklaInteraction.Services
                 }
                 Load?.Invoke("Успешная остановка слушания процессов Tekla 2018");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                throw new Exception(e.Message,e);
+                throw new Exception(e.Message, e);
             }
         }
     }

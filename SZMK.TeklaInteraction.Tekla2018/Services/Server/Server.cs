@@ -2,7 +2,6 @@
 using System;
 using System.IO;
 using System.IO.Pipes;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SZMK.TeklaInteraction.Shared.Models;
 using SZMK.TeklaInteraction.Shared.Services;

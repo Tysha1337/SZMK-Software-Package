@@ -143,10 +143,7 @@ namespace SZMK.Desktop.Views.Arhive
 
         private void AdvancedSearch_TSB_Click(object sender, EventArgs e)
         {
-            if (SearchParamAsync().Result)
-            {
-                ViewSearch(Result);
-            }
+            SearchParamAsync(); 
         }
 
         private Boolean AddOrder()
@@ -204,14 +201,12 @@ namespace SZMK.Desktop.Views.Arhive
                 }
                 else
                 {
-                    SystemArgs.ByteScout.ClearData();
                     throw new Exception("Ошибка при подключении к серверу распознавнаия");
                 }
             }
             catch (Exception E)
             {
                 SystemArgs.ByteScout.ClearData();
-                SystemArgs.PrintLog(E.ToString());
                 SystemArgs.PrintLog(E.ToString());
                 MessageBox.Show(E.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -565,8 +560,25 @@ namespace SZMK.Desktop.Views.Arhive
 
             RefreshOrderAsync(FilterCB_TSB.SelectedIndex);
         }
+        private void GetDataForSearch(ForLongOperations_F Load)
+        {
+            try
+            {
+                SystemArgs.Orders.Clear();
+                SystemArgs.BlankOrders.Clear();
+                SystemArgs.StatusOfOrders.Clear();
+                SystemArgs.BlankOrderOfOrders.Clear();
 
-        private async Task<bool> SearchParamAsync()
+                SystemArgs.RequestLinq.GetOrdersForSearch(Load);
+            }
+            catch (Exception Ex)
+            {
+                SystemArgs.PrintLog(Ex.ToString());
+                throw new Exception(Ex.Message, Ex);
+            }
+        }
+
+        private async void SearchParamAsync()
         {
             try
             {
@@ -582,20 +594,32 @@ namespace SZMK.Desktop.Views.Arhive
                 if (Dialog.ShowDialog() == DialogResult.OK)
                 {
                     ForLongOperations_F Load = new ForLongOperations_F();
-                    Dialog.Show();
+                    Load.Show();
 
                     LockedButtonForLoadData(false);
 
-                    //await Task.Run(() => SelectedOrders(Load, Dialog));
+                    await Task.Run(() => GetDataForSearch(Load));
 
                     LockedButtonForLoadData(true);
 
-                    Dialog.Close();
-
-                    RefreshOrderAsync(1);
-                    RefreshOrderAsync(2);
+                    Load.Close();
 
                     Result = SystemArgs.Orders.ToList();
+
+                    if (Dialog.Finished_CB.Checked && Dialog.Number_TB.Text == String.Empty && Dialog.List_TB.Text == String.Empty)
+                    {
+                        if (MessageBox.Show("Вы уверены в выводе всех завершенных чертежей?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
+                        {
+                            Result = Result.Where(p => !p.Finished).ToList();
+                        }
+                    }
+                    else
+                    {
+                        if (!Dialog.Finished_CB.Checked)
+                        {
+                            Result = Result.Where(p => !p.Finished).ToList();
+                        }
+                    }
 
                     if (Dialog.DateEnable_CB.Checked && Dialog.Status_CB.SelectedIndex != 0)
                     {
@@ -666,48 +690,12 @@ namespace SZMK.Desktop.Views.Arhive
                         Result = Result.Where(p => p.User == (Models.User)Dialog.User_CB.SelectedItem).ToList();
                     }
 
-                    return true;
-                }
-                else
-                {
-                    return false;
+                    ViewSearch(Result);
                 }
             }
             catch (Exception E)
             {
                 MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-        private List<Order> SelectedOrders(ForLongOperations_F Load, bool Finished, string Number, string List)
-        {
-            try
-            {
-                if (Finished && Number == String.Empty && List == String.Empty)
-                {
-                    if (MessageBox.Show("Вы уверены в выводе всех завершенных чертежей?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
-                    {
-                        Result = Result.Where(p => !p.Finished).ToList();
-                    }
-                    else
-                    {
-                        //SystemArgs.RequestLinq.GetOrdersFinished();
-
-                        Result.AddRange(SystemArgs.Orders);
-                    }
-                }
-                else
-                {
-                    RefreshOrderAsync(3);
-
-                    Result.AddRange(SystemArgs.Orders);
-                }
-
-                return Result;
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message, Ex);
             }
         }
         private bool ReportOrderOfDate()

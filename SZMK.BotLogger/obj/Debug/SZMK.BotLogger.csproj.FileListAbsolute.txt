@@ -8,7 +8,6 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\bin\Debug\Telegram.B
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\bin\Debug\Newtonsoft.Json.xml
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\bin\Debug\NLog.xml
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\bin\Debug\Telegram.Bot.xml
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\obj\Debug\SZMK.BotLogger.csprojAssemblyReference.cache
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\obj\Debug\SZMK.BotLogger.Views.AddProduct.resources
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\obj\Debug\SZMK.BotLogger.Views.Main.resources
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\obj\Debug\SZMK.BotLogger.Properties.Resources.resources
@@ -17,3 +16,4 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\obj\Debug\SZMK.BotLo
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\obj\Debug\SZMK.BotLogger.csproj.CopyComplete
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\obj\Debug\SZMK.BotLogger.exe
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\obj\Debug\SZMK.BotLogger.pdb
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BotLogger\obj\Debug\SZMK.BotLogger.csprojAssemblyReference.cache

@@ -249,6 +249,49 @@ namespace SZMK.Desktop.Services
                 throw new Exception(Ex.Message, Ex);
             }
         }
+        public void GetOrdersForSearch(INotifyProcess notifier)
+        {
+            try
+            {
+                notifier.Notify(0, "Получение данных");
+                if (GetData())
+                {
+                    notifier.Notify(15, "Группировка статусов");
+                    var GroupStatuses = FormingGroupStatuses();
+
+                    notifier.Notify(20, "Группировка бланков заказов");
+                    var GroupBlankOrders = FormingGroupBlankOrders();
+
+                    notifier.Notify(35, "Выборка необходимых чертежей");
+                    List<OrdersGetting> Orders = GettingNeedOrders(GroupBlankOrders, GroupStatuses);
+
+                    notifier.Notify(45, "Отбор полученных данных");
+                    List<Order> Temp = new List<Order>();
+
+                    notifier.Notify(75, "Сопоставление данных");
+                    for (int i = 0; i < SystemArgs.Orders.Count(); i++)
+                    {
+                        var Data = Orders.FindAll(p => p.ID == SystemArgs.Orders[i].ID).SingleOrDefault();
+                        if (Data != null)
+                        {
+                            SystemArgs.Orders[i].Status = Data.Status;
+                            SystemArgs.Orders[i].User = Data.User;
+                            SystemArgs.Orders[i].BlankOrder = Data.BlankOrder;
+                            SystemArgs.Orders[i].StatusDate = Data.DateStatus;
+
+                            Temp.Add(SystemArgs.Orders[i]);
+                        }
+                    }
+
+                    notifier.Notify(100, "Присвоение данных");
+                    SystemArgs.Orders = Temp;
+                }
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message, Ex);
+            }
+        }
         private bool GetData()
         {
             try
