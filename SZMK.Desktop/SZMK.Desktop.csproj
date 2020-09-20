@@ -118,10 +118,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BindingModels\OrdersGetting.cs" />
+    <Compile Include="Models\TypeAdd.cs" />
     <Compile Include="Services\Scan\BaseScanBlankOrder.cs" />
     <Compile Include="Services\Scan\BaseScanOrder.cs" />
     <Compile Include="Services\Scan\ScannerBlankOrder.cs" />
     <Compile Include="Services\Scan\ScannerOrder.cs" />
+    <Compile Include="Services\Scan\ParseXML.cs" />
     <Compile Include="Services\Setting\AboutProgram.cs" />
     <Compile Include="Services\Setting\Position.cs" />
     <Compile Include="Services\Setting\Program.cs" />
@@ -436,7 +438,7 @@
     </Compile>
     <Compile Include="Views\Shared\Interfaces\INotifyProcess.cs" />
     <Compile Include="Models\MarkSteel.cs" />
-    <Compile Include="Models\Pattern.cs" />
+    <Compile Include="Models\Model.cs" />
     <Compile Include="Views\OPP\OPP_ChangeOrder_F.cs">
       <SubType>Form</SubType>
     </Compile>

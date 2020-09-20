@@ -1,0 +1,84 @@
+20.09.2020 15:15:22 : Дешифрование пароля успешно завершено
+20.09.2020 16:35:32 : Дешифрование пароля успешно завершено
+20.09.2020 16:36:26 : Дешифрование пароля успешно завершено
+20.09.2020 16:36:33 : Хеш-последовательность успешно получена
+20.09.2020 16:36:33 : Хеш-последовательность успешно получена
+20.09.2020 16:36:33 : Дешифрование пароля успешно завершено
+20.09.2020 16:39:41 : Дешифрование пароля успешно завершено
+20.09.2020 16:39:46 : Хеш-последовательность успешно получена
+20.09.2020 16:39:46 : Хеш-последовательность успешно получена
+20.09.2020 16:39:47 : Дешифрование пароля успешно завершено
+20.09.2020 16:39:47 : System.Exception: System.InvalidCastException: Column is null
+   в Npgsql.NpgsqlDataReader.GetFieldValue[T](Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 1344
+   в Npgsql.NpgsqlDataReader.GetInt64(Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 889
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1044 ---> System.Exception: System.InvalidCastException: Column is null
+   в Npgsql.NpgsqlDataReader.GetFieldValue[T](Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 1344
+   в Npgsql.NpgsqlDataReader.GetInt64(Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 889
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1044 ---> System.Exception: System.InvalidCastException: Column is null
+   в Npgsql.NpgsqlDataReader.GetFieldValue[T](Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 1344
+   в Npgsql.NpgsqlDataReader.GetInt64(Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 889
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1044
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1060
+   в SZMK.Desktop.Services.RequestLinq.GetData() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 302
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.Desktop.Services.RequestLinq.GetData() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 308
+   в SZMK.Desktop.Services.RequestLinq.GetOrdersUser(INotifyProcess notifier) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 75
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.Desktop.Services.RequestLinq.GetOrdersUser(INotifyProcess notifier) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 114
+   в SZMK.Desktop.Views.KB.KB_F.GetOrders(Int32 ForViews, ForLongOperations_F Dialog) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Views\KB\KB_F.cs:строка 915
+   в SZMK.Desktop.Views.KB.KB_F.RefreshOrder(Int32 ForViews, ForLongOperations_F Dialog) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Views\KB\KB_F.cs:строка 897
+20.09.2020 16:39:58 : Дешифрование пароля успешно завершено
+20.09.2020 16:40:03 : Хеш-последовательность успешно получена
+20.09.2020 16:40:03 : Хеш-последовательность успешно получена
+20.09.2020 16:40:03 : Дешифрование пароля успешно завершено
+20.09.2020 16:40:12 : System.Exception: System.InvalidCastException: Column is null
+   в Npgsql.NpgsqlDataReader.GetFieldValue[T](Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 1344
+   в Npgsql.NpgsqlDataReader.GetInt64(Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 889
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1044 ---> System.Exception: System.InvalidCastException: Column is null
+   в Npgsql.NpgsqlDataReader.GetFieldValue[T](Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 1344
+   в Npgsql.NpgsqlDataReader.GetInt64(Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 889
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1044 ---> System.Exception: System.InvalidCastException: Column is null
+   в Npgsql.NpgsqlDataReader.GetFieldValue[T](Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 1344
+   в Npgsql.NpgsqlDataReader.GetInt64(Int32 ordinal) в C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:строка 889
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1044
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1060
+   в SZMK.Desktop.Services.RequestLinq.GetData() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 302
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.Desktop.Services.RequestLinq.GetData() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 308
+   в SZMK.Desktop.Services.RequestLinq.GetOrdersUser(INotifyProcess notifier) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 75
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.Desktop.Services.RequestLinq.GetOrdersUser(INotifyProcess notifier) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 114
+   в SZMK.Desktop.Views.KB.KB_F.GetOrders(Int32 ForViews, ForLongOperations_F Dialog) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Views\KB\KB_F.cs:строка 915
+   в SZMK.Desktop.Views.KB.KB_F.RefreshOrder(Int32 ForViews, ForLongOperations_F Dialog) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Views\KB\KB_F.cs:строка 897
+20.09.2020 16:41:05 : Дешифрование пароля успешно завершено
+20.09.2020 16:41:10 : Хеш-последовательность успешно получена
+20.09.2020 16:41:10 : Хеш-последовательность успешно получена
+20.09.2020 16:41:11 : Дешифрование пароля успешно завершено
+20.09.2020 16:41:38 : System.Exception: System.NullReferenceException: Ссылка на объект не указывает на экземпляр объекта.
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1046 ---> System.Exception: System.NullReferenceException: Ссылка на объект не указывает на экземпляр объекта.
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1046 ---> System.Exception: System.NullReferenceException: Ссылка на объект не указывает на экземпляр объекта.
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1046
+   в SZMK.Desktop.Services.Request.GetAllOrders() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Request.cs:строка 1060
+   в SZMK.Desktop.Services.RequestLinq.GetData() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 302
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.Desktop.Services.RequestLinq.GetData() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 308
+   в SZMK.Desktop.Services.RequestLinq.GetOrdersUser(INotifyProcess notifier) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 75
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.Desktop.Services.RequestLinq.GetOrdersUser(INotifyProcess notifier) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\RequestLinq.cs:строка 114
+   в SZMK.Desktop.Views.KB.KB_F.GetOrders(Int32 ForViews, ForLongOperations_F Dialog) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Views\KB\KB_F.cs:строка 915
+   в SZMK.Desktop.Views.KB.KB_F.RefreshOrder(Int32 ForViews, ForLongOperations_F Dialog) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Views\KB\KB_F.cs:строка 897
+20.09.2020 16:42:37 : Дешифрование пароля успешно завершено
+20.09.2020 16:42:45 : Хеш-последовательность успешно получена
+20.09.2020 16:42:45 : Хеш-последовательность успешно получена
+20.09.2020 16:42:45 : Дешифрование пароля успешно завершено
+20.09.2020 16:45:24 : Дешифрование пароля успешно завершено
+20.09.2020 16:51:17 : Дешифрование пароля успешно завершено
+20.09.2020 16:51:22 : Хеш-последовательность успешно получена
+20.09.2020 16:51:22 : Хеш-последовательность успешно получена
+20.09.2020 16:51:23 : Дешифрование пароля успешно завершено
+20.09.2020 23:10:27 : Дешифрование пароля успешно завершено
+20.09.2020 23:13:16 : Дешифрование пароля успешно завершено
+20.09.2020 23:37:42 : Дешифрование пароля успешно завершено
+20.09.2020 23:38:02 : Хеш-последовательность успешно получена
+20.09.2020 23:38:02 : Хеш-последовательность успешно получена
+20.09.2020 23:38:02 : Дешифрование пароля успешно завершено

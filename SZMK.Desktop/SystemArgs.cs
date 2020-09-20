@@ -46,6 +46,8 @@ namespace SZMK.Desktop
         static public List<Models.StatusOfOrder> StatusOfOrders; //Общий список всех присвоенных статусов к чертежам
         static public List<Models.Status> Statuses;//Общий список возможных статусов
         static public List<Models.BlankOrder> BlankOrders;//Общий список возможных бланков заказа
+        static public List<Models.TypeAdd> TypesAdds;//Общий типов добавления
+        static public List<Models.Model> Models;//Общий список моделей
 
         public static void PrintLog(String Message)
         {

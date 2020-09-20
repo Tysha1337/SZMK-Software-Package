@@ -1,5 +1,0 @@
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BuisnessLogic\bin\Debug\SZMK.BuisnessLogic.dll
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BuisnessLogic\bin\Debug\SZMK.BuisnessLogic.pdb
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BuisnessLogic\obj\Debug\SZMK.BuisnessLogic.csproj.CoreCompileInputs.cache
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BuisnessLogic\obj\Debug\SZMK.BuisnessLogic.dll
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.BuisnessLogic\obj\Debug\SZMK.BuisnessLogic.pdb

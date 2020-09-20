@@ -994,7 +994,64 @@ namespace SZMK.Desktop.Services
                 return false;
             }
         }
+        public bool GetAllTypesAdd()
+        {
+            try
+            {
+                using (var Connect = new NpgsqlConnection(_ConnectString))
+                {
+                    Connect.Open();
 
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\",\"DateCreate\", \"Discription\"" +
+                                        $" FROM public.\"TypeAdd\";", Connect))
+                    {
+                        using (var Reader = Command.ExecuteReader())
+                        {
+                            while (Reader.Read())
+                            {
+                                SystemArgs.TypesAdds.Add(new TypeAdd { ID=Reader.GetInt64(0),DateCreate = Reader.GetDateTime(1),Discriprion=Reader.GetString(2)});
+                            }
+                        }
+                    }
+
+                    Connect.Close();
+                }
+                return true;
+            }
+            catch (Exception E)
+            {
+                throw new Exception(E.ToString());
+            }
+        }
+        public bool GetAllModels()
+        {
+            try
+            {
+                using (var Connect = new NpgsqlConnection(_ConnectString))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\",\"Path\"" +
+                                        $" FROM public.\"Model\";", Connect))
+                    {
+                        using (var Reader = Command.ExecuteReader())
+                        {
+                            while (Reader.Read())
+                            {
+                                SystemArgs.Models.Add(new Model { ID = Reader.GetInt64(0),DateCreate = Reader.GetDateTime(1), Path = Reader.GetString(2) });
+                            }
+                        }
+                    }
+
+                    Connect.Close();
+                }
+                return true;
+            }
+            catch (Exception E)
+            {
+                throw new Exception(E.ToString());
+            }
+        }
         public bool GetAllOrders()
         {
             try
@@ -1004,14 +1061,28 @@ namespace SZMK.Desktop.Services
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\", \"DataMatrix\", \"Executor\",\"ExecutorWork\", \"Number\", \"List\", \"Mark\", \"Lenght\", \"Weight\", \"Canceled\",\"Finished\"" +
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\", \"DataMatrix\", \"Executor\",\"ExecutorWork\", \"Number\", \"List\", \"Mark\", \"Lenght\", \"Weight\", \"Canceled\",\"Finished\",\"ID_TypeAdd\",\"ID_Model\"" +
                                                             $" FROM public.\"Orders\";", Connect))
                     {
                         using (var Reader = Command.ExecuteReader())
                         {
                             while (Reader.Read())
                             {
-                                SystemArgs.Orders.Add(new Order(Reader.GetInt64(0), Reader.GetString(2), Reader.GetDateTime(1), Reader.GetString(5), Reader.GetString(3), Reader.GetString(4), Reader.GetString(6), Reader.GetString(7), Convert.ToDouble(Reader.GetString(8)), Convert.ToDouble(Reader.GetString(9)), null, DateTime.Now, null, new BlankOrder(), Reader.GetBoolean(10), Reader.GetBoolean(11)));
+                                TypeAdd TempTypeAdd=null;
+
+                                if (!Reader.IsDBNull(12))
+                                {
+                                    TempTypeAdd = SystemArgs.TypesAdds.FindAll(p => p.ID == Reader.GetInt64(12)).FirstOrDefault();
+                                }
+
+                                Model TempModel = null;
+
+                                if (!Reader.IsDBNull(13))
+                                {
+                                    TempModel = SystemArgs.Models.FindAll(p => p.ID == Reader.GetInt64(13)).FirstOrDefault();
+                                }
+
+                                SystemArgs.Orders.Add(new Order(Reader.GetInt64(0), Reader.GetString(2), Reader.GetDateTime(1), Reader.GetString(5), Reader.GetString(3), Reader.GetString(4), Reader.GetString(6), Reader.GetString(7), Convert.ToDouble(Reader.GetString(8)), Convert.ToDouble(Reader.GetString(9)),null, DateTime.Now,TempTypeAdd,TempModel, null, new BlankOrder(), Reader.GetBoolean(10), Reader.GetBoolean(11)));
                             }
                         }
                     }
@@ -1093,14 +1164,28 @@ namespace SZMK.Desktop.Services
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\", \"DataMatrix\", \"Executor\",\"ExecutorWork\", \"Number\", \"List\", \"Mark\", \"Lenght\", \"Weight\", \"Canceled\",\"Finished\"" +
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\", \"DataMatrix\", \"Executor\",\"ExecutorWork\", \"Number\", \"List\", \"Mark\", \"Lenght\", \"Weight\", \"Canceled\",\"Finished\",\"ID_TypeAdd\"" +
                                                             $" FROM public.\"Orders\" WHERE \"Number\"='{Number}' AND \"List\"='{List}';", Connect))
                     {
                         using (var Reader = Command.ExecuteReader())
                         {
                             while (Reader.Read())
                             {
-                                Temp = new Order(Reader.GetInt64(0), Reader.GetString(2), Reader.GetDateTime(1), Reader.GetString(5), Reader.GetString(3), Reader.GetString(4), Reader.GetString(6), Reader.GetString(7), Convert.ToDouble(Reader.GetString(8)), Convert.ToDouble(Reader.GetString(9)), null, DateTime.Now, null, new BlankOrder(), Reader.GetBoolean(10), Reader.GetBoolean(11));
+                                TypeAdd TempTypeAdd = null;
+
+                                if (!Reader.IsDBNull(12))
+                                {
+                                    TempTypeAdd = SystemArgs.TypesAdds.FindAll(p => p.ID == Reader.GetInt64(12)).FirstOrDefault();
+                                }
+
+                                Model TempModel = null;
+
+                                if (!Reader.IsDBNull(13))
+                                {
+                                    TempModel = SystemArgs.Models.FindAll(p => p.ID == Reader.GetInt64(13)).FirstOrDefault();
+                                }
+
+                                Temp = new Order(Reader.GetInt64(0), Reader.GetString(2), Reader.GetDateTime(1), Reader.GetString(5), Reader.GetString(3), Reader.GetString(4), Reader.GetString(6), Reader.GetString(7), Convert.ToDouble(Reader.GetString(8)), Convert.ToDouble(Reader.GetString(9)), null, DateTime.Now, TempTypeAdd,TempModel, null, new BlankOrder(), Reader.GetBoolean(10), Reader.GetBoolean(11));
                             }
                         }
                     }

@@ -269,7 +269,9 @@ namespace SZMK.Desktop.Views.KB
 
                                 Status TempStatus = user.StatusesUser.First();
 
-                                Order TempOrder = new Order(SystemArgs.Request.GetLastIDOrder() + 1, ScanSession[i].DataMatrix, DateTime.Now, SplitDataMatrix[0], SplitDataMatrix[3], "Исполнитель не определен", SplitDataMatrix[1], SplitDataMatrix[2], Convert.ToDouble(SplitDataMatrix[4]), 0, TempStatus, DateTime.Now, user, TempBlank, false, false);
+                                TypeAdd TempTypeAdd = SystemArgs.TypesAdds.FindAll(p => p.Discriprion == "КБ").FirstOrDefault();
+
+                                Order TempOrder = new Order(SystemArgs.Request.GetLastIDOrder() + 1, ScanSession[i].DataMatrix, DateTime.Now, SplitDataMatrix[0], SplitDataMatrix[3], "Исполнитель не определен", SplitDataMatrix[1], SplitDataMatrix[2], Convert.ToDouble(SplitDataMatrix[4]), 0, TempStatus, DateTime.Now,TempTypeAdd,null, user, TempBlank, false, false);
 
                                 if (SystemArgs.Request.InsertOrder(TempOrder))
                                 {
@@ -333,7 +335,7 @@ namespace SZMK.Desktop.Views.KB
                     {
                         String NewDataMatrix = Dialog.Number_TB.Text + "_" + Dialog.List_TB.Text + "_" + Dialog.Mark_TB.Text + "_" + Dialog.Executor_TB.Text + "_" + Dialog.Lenght_TB.Text + "_" + Dialog.Weight_TB.Text;
                         List<DateTime> StatusDate = SystemArgs.StatusOfOrders.Where(p => p.IDOrder == Temp.ID && p.IDStatus == Temp.Status.ID).Select(p => p.DateCreate).ToList();
-                        Order NewOrder = new Order(Temp.ID, NewDataMatrix, Temp.DateCreate, Dialog.Number_TB.Text, Dialog.Executor_TB.Text, Temp.ExecutorWork, Dialog.List_TB.Text, Dialog.Mark_TB.Text, Convert.ToDouble(Dialog.Lenght_TB.Text), Convert.ToDouble(Dialog.Weight_TB.Text), Temp.Status, StatusDate[0], Temp.User, Temp.BlankOrder, Temp.Canceled, Temp.Finished);
+                        Order NewOrder = new Order(Temp.ID, NewDataMatrix, Temp.DateCreate, Dialog.Number_TB.Text, Dialog.Executor_TB.Text, Temp.ExecutorWork, Dialog.List_TB.Text, Dialog.Mark_TB.Text, Convert.ToDouble(Dialog.Lenght_TB.Text), Convert.ToDouble(Dialog.Weight_TB.Text), Temp.Status, StatusDate[0],Temp.TypeAdd,Temp.Model, Temp.User, Temp.BlankOrder, Temp.Canceled, Temp.Finished);
 
                         if (SystemArgs.Request.UpdateOrder(NewOrder))
                         {
@@ -657,7 +659,7 @@ namespace SZMK.Desktop.Views.KB
                             List<Order> Order = Result.Where(p => p.ID == item.IDOrder).ToList();
                             if (Order.Count > 0)
                             {
-                                Temp.Add(new Order(Order[0].ID, Order[0].DataMatrix, Order[0].DateCreate, Order[0].Number, Order[0].Executor, Order[0].ExecutorWork, Order[0].List, Order[0].Mark, Order[0].Lenght, Order[0].Weight, Order[0].Status, Order[0].StatusDate, Order[0].User, Order[0].BlankOrder, Order[0].Canceled, Order[0].Finished));
+                                Temp.Add(new Order(Order[0].ID, Order[0].DataMatrix, Order[0].DateCreate, Order[0].Number, Order[0].Executor, Order[0].ExecutorWork, Order[0].List, Order[0].Mark, Order[0].Lenght, Order[0].Weight, Order[0].Status, Order[0].StatusDate,Order[0].TypeAdd, Order[0].Model, Order[0].User, Order[0].BlankOrder, Order[0].Canceled, Order[0].Finished));
                             }
                         }
                         Result = Temp;
@@ -1482,6 +1484,41 @@ namespace SZMK.Desktop.Views.KB
             {
                 SystemArgs.PrintLog(E.ToString());
                 MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void XML_TSM_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog Opd = new OpenFileDialog
+                {
+                    Multiselect = true,
+                    Title = "Выберите отчёты для добавления",
+                    Filter = "XML|*.xml"
+                };
+
+                if (Opd.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+            catch(Exception Ex)
+            {
+                SystemArgs.PrintLog(Ex.ToString());
+                MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private async void StartingParse(List<string> FileNames)
+        {
+            try
+            {
+
+            }
+            catch (Exception Ex)
+            {
+                SystemArgs.PrintLog(Ex.ToString());
+                MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

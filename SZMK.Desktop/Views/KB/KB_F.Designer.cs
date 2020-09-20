@@ -132,6 +132,7 @@
             this.StatusDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Finished = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.XML_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -143,6 +144,7 @@
             // добавлениеToolStripMenuItem
             // 
             this.добавлениеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.XML_TSM,
             this.AddOrder_TSM,
             this.ChangeOrder_TSM,
             this.DeleteOrder_TSM});
@@ -153,21 +155,21 @@
             // AddOrder_TSM
             // 
             this.AddOrder_TSM.Name = "AddOrder_TSM";
-            this.AddOrder_TSM.Size = new System.Drawing.Size(145, 22);
+            this.AddOrder_TSM.Size = new System.Drawing.Size(180, 22);
             this.AddOrder_TSM.Text = "Сканировать";
             this.AddOrder_TSM.Click += new System.EventHandler(this.AddOrder_TSM_Click);
             // 
             // ChangeOrder_TSM
             // 
             this.ChangeOrder_TSM.Name = "ChangeOrder_TSM";
-            this.ChangeOrder_TSM.Size = new System.Drawing.Size(145, 22);
+            this.ChangeOrder_TSM.Size = new System.Drawing.Size(180, 22);
             this.ChangeOrder_TSM.Text = "Изменить";
             this.ChangeOrder_TSM.Click += new System.EventHandler(this.ChangeOrder_TSM_Click);
             // 
             // DeleteOrder_TSM
             // 
             this.DeleteOrder_TSM.Name = "DeleteOrder_TSM";
-            this.DeleteOrder_TSM.Size = new System.Drawing.Size(145, 22);
+            this.DeleteOrder_TSM.Size = new System.Drawing.Size(180, 22);
             this.DeleteOrder_TSM.Text = "Удалить";
             this.DeleteOrder_TSM.Click += new System.EventHandler(this.DeleteOrder_TSM_Click);
             // 
@@ -1188,6 +1190,13 @@
             this.label1.Text = "Список чертежей";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // XML_TSM
+            // 
+            this.XML_TSM.Name = "XML_TSM";
+            this.XML_TSM.Size = new System.Drawing.Size(180, 22);
+            this.XML_TSM.Text = "XML";
+            this.XML_TSM.Click += new System.EventHandler(this.XML_TSM_Click);
+            // 
             // KB_F
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1307,5 +1316,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Finished;
         private System.Windows.Forms.ToolStripMenuItem SettingScanner_TSM;
+        private System.Windows.Forms.ToolStripMenuItem XML_TSM;
     }
 }

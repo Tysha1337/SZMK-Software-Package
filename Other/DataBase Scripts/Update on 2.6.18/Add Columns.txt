@@ -1,0 +1,6 @@
+ALTER TABLE public."Orders"
+    ADD COLUMN "ID_TypeAdd" bigint;
+ALTER TABLE "Orders" ADD CONSTRAINT "Orders_fk0" FOREIGN KEY ("ID_TypeAdd") REFERENCES "TypeAdd"("ID") ON DELETE CASCADE;
+ALTER TABLE public."Orders"
+    ADD COLUMN "ID_Model" bigint;
+ALTER TABLE "Orders" ADD CONSTRAINT "Orders_fk1" FOREIGN KEY ("ID_Model") REFERENCES "Model"("ID") ON DELETE CASCADE;

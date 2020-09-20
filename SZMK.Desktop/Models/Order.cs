@@ -21,15 +21,17 @@ namespace SZMK.Desktop.Models
         private Double _Lenght;
         private Double _Weight;
         private Status _Status;
-        private User _User;
+        private DateTime _StatusDate;
         private BlankOrder _BlankOrder;
         private String _BlankOrderView;
+        private TypeAdd _TypeAdd;
+        private Model _Model;
+        private User _User;
         private Boolean _Canceled;
-        private DateTime _StatusDate;
         private Boolean _Finished;
 
 
-        public Order(Int64 ID, String DataMatrix, DateTime DateCreate, String Number, String Executor, String ExecutorWork, String List, String Mark, Double Lenght, Double Weight, Status Status, DateTime StatusDate, User User, BlankOrder BlankOrder, Boolean Canceled, Boolean Finished)
+        public Order(Int64 ID, String DataMatrix, DateTime DateCreate, String Number, String Executor, String ExecutorWork, String List, String Mark, Double Lenght, Double Weight, Status Status, DateTime StatusDate, TypeAdd TypeAdd,Model Model, User User, BlankOrder BlankOrder, Boolean Canceled, Boolean Finished)
         {
             if (ID >= 0)
             {
@@ -116,6 +118,24 @@ namespace SZMK.Desktop.Models
                 throw new Exception("Значение веса меньше 0");
             }
 
+            if (TypeAdd!=null)
+            {
+                _TypeAdd = TypeAdd;
+            }
+            else
+            {
+                _TypeAdd = new TypeAdd { ID = 0,Discriprion="Не определен" };
+            }
+
+            if (Model != null)
+            {
+                _Model = Model;
+            }
+            else
+            {
+                _Model = new Model { ID = 0, DateCreate = DateTime.Now, Path = "Путь не определен" };
+            }
+
             if (StatusDate != null)
             {
                 _StatusDate = StatusDate;
@@ -134,7 +154,7 @@ namespace SZMK.Desktop.Models
             _Finished = Finished;
         }
 
-        public Order() : this(-1, "Нет DataMatrix", DateTime.Now, "Нет номера заказа", "Нет исполнителя", "Нет исполнителя работ", "Нет листа", "Нет марки", -1, -1, null, DateTime.Now, null, null, false, false) { }
+        public Order() : this(-1, "Нет DataMatrix", DateTime.Now, "Нет номера заказа", "Нет исполнителя", "Нет исполнителя работ", "Нет листа", "Нет марки", -1, -1, null, DateTime.Now,null,null, null, null, false, false) { }
 
         public Int64 ID
         {
@@ -312,6 +332,34 @@ namespace SZMK.Desktop.Models
                 if (value != null)
                 {
                     _StatusDate = value;
+                }
+            }
+        }
+        public TypeAdd TypeAdd
+        {
+            get
+            {
+                return _TypeAdd;
+            }
+            set
+            {
+                if (value!=null)
+                {
+                    _TypeAdd = value;
+                }
+            }
+        }
+        public Model Model
+        {
+            get
+            {
+                return _Model;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    _Model = value;
                 }
             }
         }
