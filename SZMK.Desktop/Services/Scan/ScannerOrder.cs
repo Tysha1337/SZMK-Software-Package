@@ -83,7 +83,7 @@ namespace SZMK.Desktop.Services.Scan
                 code = code.Replace("\u001d", "и");
             }
 
-            if (SetResult(code, _Orders))
+            if (SetResult(FormingOrder(code), _Orders))
             {
                 LoadResult?.Invoke(_Orders);
             }

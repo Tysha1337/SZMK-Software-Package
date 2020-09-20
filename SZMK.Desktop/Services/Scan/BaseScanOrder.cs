@@ -5,30 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SZMK.Desktop.BindingModels;
+using SZMK.Desktop.Models;
 
 namespace SZMK.Desktop.Services.Scan
 {
     public class BaseScanOrder
     {
-        public bool SetResult(string result, List<OrderScanSession> Orders)
+        public bool SetResult(Order Order, List<OrderScanSession> Orders)
         {
             try
             {
-                if (CheckedUniqueList(result))
+                if (CheckedUniqueList(Order))
                 {
-                    String Temp = result.Replace(" ", "");
                     String ReplaceMark = "";
 
-                    String[] ValidationDataMatrix = Temp.Split('_');
                     String[] ExistingCharaterEnglish = new String[] { "A", "a", "B", "C", "c", "E", "e", "H", "K", "M", "O", "o", "P", "p", "T" };
                     String[] ExistingCharaterRussia = new String[] { "А", "а", "В", "С", "с", "Е", "е", "Н", "К", "М", "О", "о", "Р", "р", "Т" };
 
                     for (int i = 0; i < ExistingCharaterRussia.Length; i++)
                     {
-                        ReplaceMark = ValidationDataMatrix[2].Replace(ExistingCharaterRussia[i], ExistingCharaterEnglish[i]);
+                        ReplaceMark = Order.Mark.Replace(ExistingCharaterRussia[i], ExistingCharaterEnglish[i]);
                     }
 
-                    String[] Splitter = ValidationDataMatrix[1].Split('и');
+                    String[] Splitter = Order.List.Split('и');
 
                     while (Splitter[0][0] == '0')
                     {
@@ -37,65 +36,63 @@ namespace SZMK.Desktop.Services.Scan
 
                     if (Splitter.Length != 1)
                     {
-                        ValidationDataMatrix[1] = Splitter[0] + "и" + Splitter[1];
+                        Order.List = Splitter[0] + "и" + Splitter[1];
                     }
                     else
                     {
-                        ValidationDataMatrix[1] = Splitter[0];
+                        Order.List = Splitter[0];
                     }
 
-                    if (!CheckedExecutor(ValidationDataMatrix[3]))
+                    if (!CheckedExecutor(Order.Executor))
                     {
-                        Orders.Add(new OrderScanSession(Temp, 0, $"Пустое имя исполнителя"));
+                        Orders.Add(new OrderScanSession(Order, 0, $"Пустое имя исполнителя"));
                         return true;
                     }
                     else
                     {
-                        ValidationDataMatrix[3] = FormingExecutor(ValidationDataMatrix[3]);
+                        Order.Executor = FormingExecutor(Order.Executor);
                     }
 
                     if (SystemArgs.SettingsProgram.CheckMarks)
                     {
                         if (!CheckedLowerRegistery(ReplaceMark))
                         {
-                            Orders.Add(new OrderScanSession(Temp, 0, $"Строчные буквы в префиксе марки «{ReplaceMark}» не допускаются"));
+                            Orders.Add(new OrderScanSession(Order, 0, $"Строчные буквы в префиксе марки «{ReplaceMark}» не допускаются"));
                             return true;
                         }
                     }
 
                     if (ReplaceMark.IndexOf("(?)") != -1)
                     {
-                        Orders.Add(new OrderScanSession(Temp, 0, $"В заказе {ValidationDataMatrix[0]}, марка {ReplaceMark} уже существует."));
+                        Orders.Add(new OrderScanSession(Order, 0, $"В заказе {Order.Number}, марка {ReplaceMark} уже существует."));
                         return true;
                     }
 
-                    Temp = ValidationDataMatrix[0] + "_" + ValidationDataMatrix[1] + "_" + ReplaceMark + "_" + ValidationDataMatrix[3] + "_" + Convert.ToDouble(ValidationDataMatrix[4].Replace(".", ",")).ToString("F2") + "_" + Convert.ToDouble(ValidationDataMatrix[5].Replace(".", ",")).ToString("F2");
-
-                    Int32 IndexException = SystemArgs.Request.CheckedNumberAndList(ValidationDataMatrix[0], ValidationDataMatrix[1], Temp);
+                    Int32 IndexException = SystemArgs.Request.CheckedNumberAndList(Order.Number, Order.List);
 
                     switch (IndexException)
                     {
                         case 0:
-                            if (SystemArgs.Request.CheckedNumberAndMark(ValidationDataMatrix[0], ReplaceMark))
+                            if (SystemArgs.Request.CheckedNumberAndMark(Order.Number, ReplaceMark))
                             {
-                                Orders.Add(new OrderScanSession(Temp, 1, "-"));
+                                Orders.Add(new OrderScanSession(Order, 1, "-"));
                             }
                             else
                             {
-                                Orders.Add(new OrderScanSession(Temp, 0, $"В заказе {ValidationDataMatrix[0]}, марка {ReplaceMark} уже существует."));
+                                Orders.Add(new OrderScanSession(Order, 0, $"В заказе {Order.Number}, марка {ReplaceMark} уже существует."));
                             }
                             break;
                         case 1:
-                            Orders.Add(new OrderScanSession(Temp, 0, $"В заказе {ValidationDataMatrix[0]}, номер листа {ValidationDataMatrix[1]} уже существует."));
+                            Orders.Add(new OrderScanSession(Order, 0, $"В заказе {Order.Number}, номер листа {Order.List} уже существует."));
                             break;
                         case 2:
-                            Orders.Add(new OrderScanSession(Temp, 1, "-"));
+                            Orders.Add(new OrderScanSession(Order, 1, "-"));
                             break;
                         case 3:
-                            Orders.Add(new OrderScanSession(Temp, 2, "-"));
+                            Orders.Add(new OrderScanSession(Order, 2, "-"));
                             break;
                         default:
-                            Orders.Add(new OrderScanSession(Temp, 0, "Ошибка добавления чертежа"));
+                            Orders.Add(new OrderScanSession(Order, 0, "Ошибка добавления чертежа"));
                             break;
                     }
                     return true;
@@ -150,25 +147,28 @@ namespace SZMK.Desktop.Services.Scan
             return true;
         }
 
-        readonly List<string> UniqueList = new List<string>();
-        private bool CheckedUniqueList(String Temp)
+        readonly List<Order> UniqueList = new List<Order>();
+        private bool CheckedUniqueList(Order Order)
         {
-            String[] NumberAndList = Temp.Split('_');
-
-            if (NumberAndList.Length != 6)
-            {
-                throw new Exception("В DataMatrix менее 6 полей");
-            }
-
-            if (UniqueList.Exists(p => p.IndexOf(NumberAndList[0] + "_" + NumberAndList[1]) != -1))
+            if (UniqueList.Exists(p => p.Number==Order.Number && p.List==Order.List))
             {
                 return false;
             }
             else
             {
-                UniqueList.Add(Temp);
+                UniqueList.Add(Order);
                 return true;
             }
+        }
+        public Order FormingOrder(string DataMatrix)
+        {
+            string[] ValidationDataMatrix = DataMatrix.Replace(" ","").Split('_');
+            if (ValidationDataMatrix.Length != 6)
+            {
+                throw new Exception($"В {DataMatrix} менее 6 полей");
+            }
+
+            return new Order(0,DateTime.Now,ValidationDataMatrix[0],ValidationDataMatrix[3],"Исполнитель не определен",ValidationDataMatrix[1],ValidationDataMatrix[2],Convert.ToDouble(ValidationDataMatrix[4]),Convert.ToDouble(ValidationDataMatrix[5]),null,DateTime.Now,null,null,null,new BlankOrder(),false,false);
         }
     }
 }

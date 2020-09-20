@@ -11,7 +11,6 @@ namespace SZMK.Desktop.Models
     public class Order
     {
         private Int64 _ID;
-        private String _DataMatrix;
         private DateTime _DateCreate;
         private String _Number;
         private String _Executor;
@@ -26,25 +25,17 @@ namespace SZMK.Desktop.Models
         private String _BlankOrderView;
         private TypeAdd _TypeAdd;
         private Model _Model;
+        private List<Detail> _Details;
         private User _User;
         private Boolean _Canceled;
         private Boolean _Finished;
 
 
-        public Order(Int64 ID, String DataMatrix, DateTime DateCreate, String Number, String Executor, String ExecutorWork, String List, String Mark, Double Lenght, Double Weight, Status Status, DateTime StatusDate, TypeAdd TypeAdd,Model Model, User User, BlankOrder BlankOrder, Boolean Canceled, Boolean Finished)
+        public Order(Int64 ID, DateTime DateCreate, String Number, String Executor, String ExecutorWork, String List, String Mark, Double Lenght, Double Weight, Status Status, DateTime StatusDate, TypeAdd TypeAdd,Model Model, User User, BlankOrder BlankOrder, Boolean Canceled, Boolean Finished)
         {
             if (ID >= 0)
             {
                 _ID = ID;
-            }
-
-            if (!String.IsNullOrEmpty(DataMatrix))
-            {
-                _DataMatrix = DataMatrix;
-            }
-            else
-            {
-                throw new Exception("Пустое значение DataMatrix");
             }
 
             if (DateCreate != null)
@@ -136,6 +127,8 @@ namespace SZMK.Desktop.Models
                 _Model = new Model { ID = 0, DateCreate = DateTime.Now, Path = "Путь не определен" };
             }
 
+            _Details = new List<Detail>();
+
             if (StatusDate != null)
             {
                 _StatusDate = StatusDate;
@@ -154,7 +147,7 @@ namespace SZMK.Desktop.Models
             _Finished = Finished;
         }
 
-        public Order() : this(-1, "Нет DataMatrix", DateTime.Now, "Нет номера заказа", "Нет исполнителя", "Нет исполнителя работ", "Нет листа", "Нет марки", -1, -1, null, DateTime.Now,null,null, null, null, false, false) { }
+        public Order() : this(-1, DateTime.Now, "Нет номера заказа", "Нет исполнителя", "Нет исполнителя работ", "Нет листа", "Нет марки", -1, -1, null, DateTime.Now,null,null, null, null, false, false) { }
 
         public Int64 ID
         {
@@ -167,21 +160,6 @@ namespace SZMK.Desktop.Models
                 if (value >= 0)
                 {
                     _ID = value;
-                }
-            }
-        }
-
-        public String DataMatrix
-        {
-            get
-            {
-                return _DataMatrix;
-            }
-            set
-            {
-                if (!String.IsNullOrEmpty(value))
-                {
-                    _DataMatrix = value;
                 }
             }
         }
@@ -363,6 +341,13 @@ namespace SZMK.Desktop.Models
                 }
             }
         }
+        public List<Detail> Details
+        {
+            get
+            {
+                return _Details;
+            }
+        }
 
         public User User
         {
@@ -482,6 +467,6 @@ namespace SZMK.Desktop.Models
             }
         }
 
-        public String SearchString() => $"{_DataMatrix}_{ExecutorWork}_{_Status.Name}_{_BlankOrder}_{_DateCreate}_{_User.Name}_{_User.MiddleName}_{_User.Surname}_{SystemArgs.StatusOfOrders.Where(p => p.IDOrder == _ID && p.IDStatus == _Status.ID).Select(p => p.DateCreate)}";
+        public String SearchString() => $"{ExecutorWork}_{_Status.Name}_{_BlankOrder}_{_DateCreate}_{_User.Name}_{_User.MiddleName}_{_User.Surname}_{SystemArgs.StatusOfOrders.Where(p => p.IDOrder == _ID && p.IDStatus == _Status.ID).Select(p => p.DateCreate)}";
     }
 }

@@ -87,16 +87,6 @@ namespace SZMK.Desktop.Views.Design_Engineer
                     {
                         TempList.Remove(TempOrder);
                     }
-
-                    String NewDataMatrix = Number_TB.Text + "_" + List_TB.Text + "_" + Mark_TB.Text + "_" + Executor_TB.Text + "_" + Lenght_TB.Text + "_" + Weight_TB.Text;
-
-                    for (Int32 i = 0; i < TempList.Count(); i++)
-                    {
-                        if (TempList[i].DataMatrix == NewDataMatrix.Trim())
-                        {
-                            throw new Exception("Чертеж с указанными данными уже существует");
-                        }
-                    }
                 }
                 catch (FormatException)
                 {

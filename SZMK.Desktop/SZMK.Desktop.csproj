@@ -140,6 +140,12 @@
     <Compile Include="Views\KB\KB_CodeSettingScanner_F.Designer.cs">
       <DependentUpon>KB_CodeSettingScanner_F.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\KB\KB_AddXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KB\KB_AddXML.Designer.cs">
+      <DependentUpon>KB_AddXML.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\KB\KB_SelectedUser_F.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -653,6 +659,9 @@
     <Compile Include="Services\Scan\WebcamScanOrder.cs" />
     <EmbeddedResource Include="Views\Admin\PositionSettings\Settings_KB.resx">
       <DependentUpon>Settings_KB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KB\KB_AddXML.resx">
+      <DependentUpon>KB_AddXML.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\KB\KB_CodeSettingScanner_F.resx">
       <DependentUpon>KB_CodeSettingScanner_F.cs</DependentUpon>

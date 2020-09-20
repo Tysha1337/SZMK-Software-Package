@@ -56,16 +56,15 @@ namespace SZMK.Desktop.Services
                     {
                         for (Int32 i = 0; i < ScanSession.Count; i++)
                         {
-                            String[] SplitDataMatrix = ScanSession[i].DataMatrix.Split('_');
                             if (ScanSession[i].Unique != 0)
                             {
                                 int rowCntActUnique = wsUnique.Dimension.End.Row;
-                                wsUnique.Cells[rowCntActUnique + 1, 1].Value = SplitDataMatrix[0];
-                                wsUnique.Cells[rowCntActUnique + 1, 2].Value = SplitDataMatrix[1];
-                                wsUnique.Cells[rowCntActUnique + 1, 3].Value = SplitDataMatrix[2];
-                                wsUnique.Cells[rowCntActUnique + 1, 4].Value = SplitDataMatrix[3];
-                                wsUnique.Cells[rowCntActUnique + 1, 5].Value = Convert.ToDouble(SplitDataMatrix[4]);
-                                wsUnique.Cells[rowCntActUnique + 1, 6].Value = Convert.ToDouble(SplitDataMatrix[5]);
+                                wsUnique.Cells[rowCntActUnique + 1, 1].Value = ScanSession[i].Order.Number;
+                                wsUnique.Cells[rowCntActUnique + 1, 2].Value = ScanSession[i].Order.List;
+                                wsUnique.Cells[rowCntActUnique + 1, 3].Value = ScanSession[i].Order.Mark;
+                                wsUnique.Cells[rowCntActUnique + 1, 4].Value = ScanSession[i].Order.Executor;
+                                wsUnique.Cells[rowCntActUnique + 1, 5].Value = ScanSession[i].Order.Lenght;
+                                wsUnique.Cells[rowCntActUnique + 1, 6].Value = ScanSession[i].Order.Weight;
                                 wsUnique.Cells[rowCntActUnique + 1, 7].Value = DateTime.Now.ToString();
                                 wsUnique.Cells[rowCntActUnique + 1, 8].Value = Status;
                                 wsUnique.Cells[rowCntActUnique + 1, 9].Value = SystemArgs.User.Surname + " " + SystemArgs.User.Name + " " + SystemArgs.User.MiddleName;
@@ -73,12 +72,12 @@ namespace SZMK.Desktop.Services
                             else
                             {
                                 int rowCntActNoUnique = wsNoUnique.Dimension.End.Row;
-                                wsNoUnique.Cells[rowCntActNoUnique + 1, 1].Value = SplitDataMatrix[0];
-                                wsNoUnique.Cells[rowCntActNoUnique + 1, 2].Value = SplitDataMatrix[1];
-                                wsNoUnique.Cells[rowCntActNoUnique + 1, 3].Value = SplitDataMatrix[2];
-                                wsNoUnique.Cells[rowCntActNoUnique + 1, 4].Value = SplitDataMatrix[3];
-                                wsNoUnique.Cells[rowCntActNoUnique + 1, 5].Value = Convert.ToDouble(SplitDataMatrix[4]);
-                                wsNoUnique.Cells[rowCntActNoUnique + 1, 6].Value = Convert.ToDouble(SplitDataMatrix[5]);
+                                wsNoUnique.Cells[rowCntActNoUnique + 1, 1].Value = ScanSession[i].Order.Number;
+                                wsNoUnique.Cells[rowCntActNoUnique + 1, 2].Value = ScanSession[i].Order.List;
+                                wsNoUnique.Cells[rowCntActNoUnique + 1, 3].Value = ScanSession[i].Order.Mark;
+                                wsNoUnique.Cells[rowCntActNoUnique + 1, 4].Value = ScanSession[i].Order.Executor;
+                                wsNoUnique.Cells[rowCntActNoUnique + 1, 5].Value = ScanSession[i].Order.Lenght;
+                                wsNoUnique.Cells[rowCntActNoUnique + 1, 6].Value = ScanSession[i].Order.Weight;
                                 wsNoUnique.Cells[rowCntActNoUnique + 1, 7].Value = DateTime.Now.ToString();
                                 wsNoUnique.Cells[rowCntActNoUnique + 1, 8].Value = Status;
                                 wsNoUnique.Cells[rowCntActNoUnique + 1, 9].Value = SystemArgs.User.Surname + " " + SystemArgs.User.Name + " " + SystemArgs.User.MiddleName;

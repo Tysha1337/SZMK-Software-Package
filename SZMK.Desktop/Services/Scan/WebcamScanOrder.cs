@@ -107,7 +107,7 @@ namespace SZMK.Desktop.Services.Scan
                         datamatrix = datamatrix.Replace("\u001d", "и");
                     }
 
-                    if(SetResult(datamatrix, _Orders))
+                    if(SetResult(FormingOrder(datamatrix), _Orders))
                     {
                         LoadResult?.Invoke(_Orders);
                     }

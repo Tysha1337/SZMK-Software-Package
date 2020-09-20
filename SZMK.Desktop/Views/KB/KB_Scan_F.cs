@@ -45,48 +45,48 @@ namespace SZMK.Desktop.Views.KB
 
         private void CheckedUnloading_TSM_Click(object sender, EventArgs e)
         {
-            List<OrderScanSession> Temp = new List<OrderScanSession>();
-            switch (SystemArgs.SettingsUser.TypeScan)
-            {
-                case 0:
-                    Temp = SystemArgs.ScannerOrder.GetScanSessions();
-                    break;
-                case 1:
-                    Temp = SystemArgs.WebcamScanOrder.GetScanSessions();
-                    break;
-                case 2:
-                    Temp = SystemArgs.ServerMobileAppOrder.GetScanSessions();
-                    break;
-            }
-            if (Temp.Count != 0)
-            {
-                try
-                {
-                    if (SystemArgs.UnLoadSpecific.SearchFileUnloading(Temp.Select(p => p.DataMatrix).ToList()))
-                    {
-                        if (SystemArgs.UnLoadSpecific.ExecutorMails.Count != 0)
-                        {
-                            KB_ScanUnloadSpecific Dialog = new KB_ScanUnloadSpecific();
-                            Dialog.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("При проверки выгрузки не было найдено ни одного совпадения номера заказа с листом", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                }
-                catch (Exception E)
-                {
-                    MessageBox.Show("Файл был указан не верно или не хватило прав доступа к файлу", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    SystemArgs.PrintLog(E.ToString());
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Невозможно проверить выгрузку, нет данных", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            //List<OrderScanSession> Temp = new List<OrderScanSession>();
+            //switch (SystemArgs.SettingsUser.TypeScan)
+            //{
+            //    case 0:
+            //        Temp = SystemArgs.ScannerOrder.GetScanSessions();
+            //        break;
+            //    case 1:
+            //        Temp = SystemArgs.WebcamScanOrder.GetScanSessions();
+            //        break;
+            //    case 2:
+            //        Temp = SystemArgs.ServerMobileAppOrder.GetScanSessions();
+            //        break;
+            //}
+            //if (Temp.Count != 0)
+            //{
+            //    try
+            //    {
+            //        if (SystemArgs.UnLoadSpecific.SearchFileUnloading(Temp.Select(p => p.DataMatrix).ToList()))
+            //        {
+            //            if (SystemArgs.UnLoadSpecific.ExecutorMails.Count != 0)
+            //            {
+            //                KB_ScanUnloadSpecific Dialog = new KB_ScanUnloadSpecific();
+            //                Dialog.ShowDialog();
+            //            }
+            //            else
+            //            {
+            //                MessageBox.Show("При проверки выгрузки не было найдено ни одного совпадения номера заказа с листом", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            }
+            //        }
+            //    }
+            //    catch (Exception E)
+            //    {
+            //        MessageBox.Show("Файл был указан не верно или не хватило прав доступа к файлу", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        SystemArgs.PrintLog(E.ToString());
+            //        return;
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Невозможно проверить выгрузку, нет данных", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return;
+            //}
         }
 
         private void CreateAct_TSM_Click(object sender, EventArgs e)
@@ -181,9 +181,10 @@ namespace SZMK.Desktop.Views.KB
             Scan_DGV.Invoke((MethodInvoker)delegate ()
             {
                 SessionCount_TB.Text = ScanSessions.Count().ToString();
-                LoadStatusOperation(ScanSessions[ScanSessions.Count - 1].DataMatrix);
+                string DataMatrix = $"{ScanSessions[ScanSessions.Count - 1].Order.Number}_{ScanSessions[ScanSessions.Count - 1].Order.List}_{ScanSessions[ScanSessions.Count - 1].Order.Mark}_{ScanSessions[ScanSessions.Count - 1].Order.Executor}_{ScanSessions[ScanSessions.Count - 1].Order.Lenght}_{ScanSessions[ScanSessions.Count - 1].Order.Weight}";
+                LoadStatusOperation(DataMatrix);
                 Scan_DGV.Rows.Add();
-                Scan_DGV[0, Scan_DGV.Rows.Count - 1].Value = ScanSessions[ScanSessions.Count - 1].DataMatrix;
+                Scan_DGV[0, Scan_DGV.Rows.Count - 1].Value = DataMatrix;
                 if (ScanSessions[ScanSessions.Count - 1].Unique == 2)
                 {
                     Scan_DGV[1, Scan_DGV.Rows.Count - 1].Value = "Обновление статуса";
