@@ -1,6 +1,7 @@
 CREATE TABLE public."TypeAdd"
 (
     "ID" bigint NOT NULL,
+    "DateCreate" timestamp without time zone NOT NULL,
     "Discription" character varying NOT NULL,
     PRIMARY KEY ("ID")
 );
@@ -11,7 +12,7 @@ ALTER TABLE public."TypeAdd"
 CREATE TABLE public."Model"
 (
     "ID" bigint NOT NULL,
-    "DateCreate" time without time zone NOT NULL,
+    "DateCreate" timestamp without time zone NOT NULL,
     "Path" character varying NOT NULL,
     PRIMARY KEY ("ID")
 );

@@ -249,10 +249,13 @@ namespace SZMK.Desktop.Views.Autorization
                 SystemArgs.Mails = new List<Mail>(); //Общий список адресов почты
                 SystemArgs.Request.GetAllMails();
                 SystemArgs.Statuses = new List<Status>();
+                SystemArgs.TypesAdds = new List<TypeAdd>();
+                SystemArgs.Models = new List<Model>();
 
                 SystemArgs.SettingsUser = new Services.Setting.User();
                 SystemArgs.SettingsPosition = new Services.Setting.Position();
 
+                SystemArgs.Request.GetAllTypesAdd();
                 SystemArgs.Request.GetAllStatus();
                 SystemArgs.Request.GetAllUsers();
 

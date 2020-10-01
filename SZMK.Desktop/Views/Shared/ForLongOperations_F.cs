@@ -32,10 +32,25 @@ namespace SZMK.Desktop.Views.Shared
                 Operations_L.Text = Message;
             }
         }
+        public void SetMaximum(int Max)
+        {
+            Operations_PB.Invoke((MethodInvoker)delegate ()
+            {
+                Operations_PB.Maximum = Max;
+            });
+        }
 
         private void ForLongOperations_F_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
+        }
+
+        public void CloseAsync()
+        {
+            this.Invoke((MethodInvoker)delegate ()
+            {
+                this.Close();
+            });
         }
     }
 }

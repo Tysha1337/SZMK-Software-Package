@@ -443,7 +443,6 @@
       <DependentUpon>ForLongOperations_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Shared\Interfaces\INotifyProcess.cs" />
-    <Compile Include="Models\MarkSteel.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Views\OPP\OPP_ChangeOrder_F.cs">
       <SubType>Form</SubType>
@@ -554,7 +553,6 @@
     <Compile Include="Views\PDO\PDO_SettingWebcam_F.Designer.cs">
       <DependentUpon>PDO_SettingWebcam_F.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Profile.cs" />
     <Compile Include="Services\Request.cs" />
     <Compile Include="Models\BlankOrder.cs" />
     <Compile Include="Views\KB\KB_SearchParam_F.cs">

@@ -225,13 +225,13 @@ namespace SZMK.TeklaInteraction.Shared.Services
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"SELECT \"DataMatrix\", \"List\" FROM public.\"Orders\" WHERE(\"List\" NOT LIKE '%{List + "и"}' OR \"List\"='{List}') AND \"Number\"='{Number}';", Connect))
+                    using (var Command = new NpgsqlCommand($"SELECT \"Number\",\"Mark\", \"List\" FROM public.\"Orders\" WHERE(\"List\" NOT LIKE '%{List + "и"}' OR \"List\"='{List}') AND \"Number\"='{Number}';", Connect))
                     {
                         using (var Reader = Command.ExecuteReader())
                         {
                             while (Reader.Read())
                             {
-                                drawings.Add(new Drawing { DataMatrix = Reader.GetString(0), List = Reader.GetString(1) });
+                                drawings.Add(new Drawing { Order = Reader.GetString(0), Mark = Reader.GetString(1), List = Reader.GetString(2) });
                             }
                         }
                     }
@@ -246,7 +246,7 @@ namespace SZMK.TeklaInteraction.Shared.Services
                 throw new Exception(E.Message, E);
             }
         }
-        public Int32 CheckedDrawing(String Number, String List, String DataMatrix)
+        public Int32 CheckedDrawing(String Number, String List, String Mark)
         {
             try
             {
@@ -283,7 +283,7 @@ namespace SZMK.TeklaInteraction.Shared.Services
                                         flag = 0;
                                     }
                                 }
-                                else if (CheckedDataMatrixUpdate(DataMatrix))
+                                else if (CheckedDataMatrixUpdate(Number, List, Mark))
                                 {
                                     flag = 3;
                                 }
@@ -327,13 +327,13 @@ namespace SZMK.TeklaInteraction.Shared.Services
             }
             return flag;
         }
-        private bool CheckedDataMatrixUpdate(String DataMatrix)
+        private bool CheckedDataMatrixUpdate(string Order, string List, string Mark)
         {
             bool flag = false;
             using (var Connect = new NpgsqlConnection(db.ToString()))
             {
                 Connect.Open();
-                using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"DataMatrix\"='{DataMatrix}';", Connect))
+                using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"Number\"='{Order}' AND \"List\"='{List}' AND \"Mark\"='{Mark}';", Connect))
                 {
                     using (var Reader = Command.ExecuteReader())
                     {
@@ -356,13 +356,13 @@ namespace SZMK.TeklaInteraction.Shared.Services
             using (var Connect = new NpgsqlConnection(db.ToString()))
             {
                 Connect.Open();
-                using (var Command = new NpgsqlCommand($"SELECT \"DataMatrix\" FROM public.\"Orders\" WHERE  \"Number\"='{Number}' AND \"List\" = '{List}';", Connect))
+                using (var Command = new NpgsqlCommand($"SELECT \"Number\",\"List\",\"Mark\",\"Executor\",\"Lenght\",\"Weight\" FROM public.\"Orders\" WHERE  \"Number\"='{Number}' AND \"List\" = '{List}';", Connect))
                 {
                     using (var Reader = Command.ExecuteReader())
                     {
                         while (Reader.Read())
                         {
-                            DataMatrix = Reader.GetString(0);
+                            DataMatrix = $"{Reader.GetString(0)}_{Reader.GetString(1)}_{Reader.GetString(2)}_{Reader.GetString(3)}_{Reader.GetString(4)}_{Reader.GetString(5)}";
                         }
                     }
                 }
@@ -410,8 +410,8 @@ namespace SZMK.TeklaInteraction.Shared.Services
                     Connect.Open();
 
                     using (var Command = new NpgsqlCommand($"INSERT INTO public.\"Orders\"(" +
-                                                            "\"DateCreate\", \"DataMatrix\", \"Executor\", \"Number\", \"List\", \"Mark\", \"Lenght\", \"Weight\", \"Canceled\" )" +
-                                                            $"VALUES('{DateTime.Now}', '{Drawing.DataMatrix}', '{Drawing.Executor}', '{Drawing.Order}', '{Drawing.List}', '{Drawing.Mark}', '{Drawing.DataMatrix.Split('_')[4]}', '{Drawing.SubTotalWeight}', {false});", Connect))
+                                                            "\"DateCreate\", \"Executor\", \"Number\", \"List\", \"Mark\", \"Lenght\", \"Weight\", \"Canceled\",\"ID_TypeAdd\",\"ID_Model\" )" +
+                                                            $"VALUES('{DateTime.Now}', '{Drawing.Executor}', '{Drawing.Order}', '{Drawing.List}', '{Drawing.Mark}', '{Drawing.SubTotalLenght}', '{Drawing.SubTotalWeight}', {false},'{Drawing.TypeAdd.Id}','{Drawing.Model.Id}');", Connect))
                     {
                         Command.ExecuteNonQuery();
                     }
@@ -461,7 +461,8 @@ namespace SZMK.TeklaInteraction.Shared.Services
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"INSERT INTO public.\"Detail\"(\"Profile\", \"SubtotalWeight\", \"MarkSteel\") VALUES('{Detail.Profile}', '{Detail.SubtotalWeight}', '{Detail.MarkSteel}'); ", Connect))
+                    using (var Command = new NpgsqlCommand($"INSERT INTO public.\"Detail\"(\"Position\",\"Count\",\"Profile\",\"Width\",\"Lenght\",\"Weight\",\"SubtotalWeight\",\"MarkSteel\",\"Discription\",\"Machining\", \"MethodOfPaintingRAL\", \"PaintingArea\") " +
+                        $"VALUES('{Detail.Position}','{Detail.Count}','{Detail.Profile}','{Detail.Width}','{Detail.Lenght}','{Detail.Weight}','{Detail.SubtotalWeight}','{Detail.MarkSteel}','{Detail.Discription}','{Detail.Machining}', '{Detail.MethodOfpPaintingRAL}', '{Detail.PaintingArea}'); ", Connect))
                     {
                         Command.ExecuteNonQuery();
                     }
@@ -561,7 +562,7 @@ namespace SZMK.TeklaInteraction.Shared.Services
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"UPDATE public.\"Orders\" SET \"DataMatrix\" = '{Drawing.DataMatrix}', \"Executor\" = '{Drawing.Executor}', \"Number\" = '{Drawing.Order}', \"List\" = '{Drawing.List}', \"Mark\" = '{Drawing.Mark}', \"Lenght\" = '{Drawing.DataMatrix.Split('_')[4]}', \"Weight\" = '{Drawing.SubTotalWeight}' WHERE \"ID\" = '{GetIDDrawing(Drawing.Order, Drawing.List)}'; ", Connect))
+                    using (var Command = new NpgsqlCommand($"UPDATE public.\"Orders\" SET \"Executor\" = '{Drawing.Executor}', \"Number\" = '{Drawing.Order}', \"List\" = '{Drawing.List}', \"Mark\" = '{Drawing.Mark}', \"Lenght\" = '{Drawing.SubTotalLenght}', \"Weight\" = '{Drawing.SubTotalWeight}' WHERE \"ID\" = '{GetIDDrawing(Drawing.Order, Drawing.List)}'; ", Connect))
                     {
                         Command.ExecuteNonQuery();
                     }
@@ -602,6 +603,120 @@ namespace SZMK.TeklaInteraction.Shared.Services
             catch
             {
                 return -1;
+            }
+        }
+        public Model GetModel(Model Model)
+        {
+            try
+            {
+                using (var Connect = new NpgsqlConnection(db.ToString()))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\", \"Path\" FROM public.\"Model\" WHERE \"Path\"='{Model.Path}';", Connect))
+                    {
+                        using (var Reader = Command.ExecuteReader())
+                        {
+                            while (Reader.Read())
+                            {
+                                Model = new Model { Id = Reader.GetInt64(0), DateCreate = Reader.GetDateTime(1), Path = Reader.GetString(2) };
+                            }
+                        }
+                    }
+
+                    Connect.Close();
+                }
+
+                return Model;
+            }
+            catch (Exception E)
+            {
+                throw new Exception(E.ToString());
+            }
+        }
+        public bool ModelExist(Model Model)
+        {
+            Boolean flag = false;
+            try
+            {
+
+                using (var Connect = new NpgsqlConnection(db.ToString()))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\", \"Path\" FROM public.\"Model\" WHERE \"Path\"='{Model.Path}';", Connect))
+                    {
+                        using (var Reader = Command.ExecuteReader())
+                        {
+                            while (Reader.Read())
+                            {
+                                flag = true;
+                            }
+                        }
+                    }
+
+                    Connect.Close();
+                }
+
+                return flag;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public bool InsertModel(Model Model)
+        {
+            try
+            {
+                using (var Connect = new NpgsqlConnection(db.ToString()))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"INSERT INTO public.\"Model\"(\"DateCreate\", \"Path\") VALUES('{Model.DateCreate}', '{Model.Path}'); ", Connect))
+                    {
+                        Command.ExecuteNonQuery();
+                    }
+
+                    Connect.Close();
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public TypeAdd GetTypeAdd(string Discription)
+        {
+            try
+            {
+                TypeAdd TypeAdd = new TypeAdd();
+
+                using (var Connect = new NpgsqlConnection(db.ToString()))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\", \"Discription\" FROM public.\"TypeAdd\" WHERE \"Discription\"='{Discription}';", Connect))
+                    {
+                        using (var Reader = Command.ExecuteReader())
+                        {
+                            while (Reader.Read())
+                            {
+                                TypeAdd = new TypeAdd { Id = Reader.GetInt64(0), DateCreate = Reader.GetDateTime(1), Discription = Reader.GetString(2) };
+                            }
+                        }
+                    }
+
+                    Connect.Close();
+                }
+
+                return TypeAdd;
+            }
+            catch (Exception E)
+            {
+                throw new Exception(E.ToString());
             }
         }
     }

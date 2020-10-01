@@ -93,7 +93,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                 logger.Info("Чертежи успешно добавлены");
 
                 ModelInfo modelInfo = model.GetInfo();
-                Model = new Shared.Models.Model { Path = modelInfo.ModelPath, Drawings = Drawings };
+                Model = new Shared.Models.Model { DateCreate = DateTime.Now, Path = modelInfo.ModelPath, Drawings = Drawings };
 
                 notify.Close();
 
@@ -209,7 +209,6 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
         {
             try
             {
-                string _dataMatrix = "";
                 string _assembly = "";
                 string _order = "";
                 string _place = "";
@@ -219,11 +218,10 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                 double _weightMark = 0;
                 int _countMark = 0;
                 double _subTotalWeight = 0;
+                double _subTotallenght = 0;
                 int _countDetail = 0;
 
-                double _lenght = 0;
-
-                assembly.GetReportProperty("LENGTH", ref _lenght);
+                assembly.GetReportProperty("LENGTH", ref _subTotallenght);
 
                 _assembly = assembly.Name;
 
@@ -231,7 +229,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
 
                 if (!CheckedOrder(_order))
                 {
-                    throw new Exception($"Ошибочное указание заказа: {_order}");
+                    throw new Exception($"Номер заказа должен быть записан по шаблону 0000(00)");
                 }
 
                 assembly.GetReportProperty("DRAWING.USERDEFINED.ru_mesto", ref _place);
@@ -271,18 +269,16 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
 
                 _subTotalWeight = _weightMark * _countMark;
 
-                _dataMatrix = $"{_order}_{_list}_{_mark}_{_executor}_{_lenght:F2}_{_subTotalWeight:F2}";
-
-                if (!CheckedUnique(_dataMatrix))
+                if (!CheckedUnique(_order, _list, _mark))
                 {
-                    throw new Exception("Чертеж " + _dataMatrix + " уже существует");
+                    throw new Exception($"Чертеж с Номером:{_order},Листом:{_list}, Маркой:{_mark} уже существует");
                 }
 
                 List<Shared.Models.Detail> Details = AddMainDetailDrawingObjects(parentDrawing);
 
                 _countDetail = Details.Sum(p => p.Count);
 
-                Drawings.Add(new Shared.Models.Drawing { DataMatrix = _dataMatrix, Assembly = _assembly, Order = _order, Place = _place, List = _list, Mark = _mark, Executor = _executor, WeightMark = Convert.ToDouble(_weightMark.ToString("F2")), CountMark = _countMark, SubTotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), CountDetail = _countDetail, Details = Details });
+                Drawings.Add(new Shared.Models.Drawing { Assembly = _assembly, Order = _order, Place = _place, List = _list, Mark = _mark, Executor = _executor, WeightMark = Convert.ToDouble(_weightMark.ToString("F2")), CountMark = _countMark, SubTotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), SubTotalLenght = Convert.ToDouble(_subTotallenght.ToString("F2")), CountDetail = _countDetail, Details = Details });
 
                 return true;
             }
@@ -308,11 +304,11 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                 throw new Exception(Ex.ToString());
             }
         }
-        public bool CheckedUnique(string dataMatrix)
+        public bool CheckedUnique(string order, string list, string mark)
         {
             try
             {
-                if (Drawings.Where(p => p.DataMatrix == dataMatrix).Count() != 0)
+                if (Drawings.Where(p => p.Order == order && p.List == list && p.Mark == mark).Count() != 0)
                 {
                     return false;
                 }
@@ -331,7 +327,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
             try
             {
                 int firstNum = Convert.ToInt32(order.Substring(0, order.IndexOf('(')));
-                int secondNum = Convert.ToInt32(order.Substring(order.IndexOf('(') + 1, order.IndexOf(')')- order.IndexOf('(')-1));
+                int secondNum = Convert.ToInt32(order.Substring(order.IndexOf('(') + 1, order.IndexOf(')') - order.IndexOf('(') - 1));
 
                 string lastNum = order.Remove(0, order.IndexOf(')') + 1);
 

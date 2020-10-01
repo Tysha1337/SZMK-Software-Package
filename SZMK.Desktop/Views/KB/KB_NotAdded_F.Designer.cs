@@ -158,7 +158,7 @@
             // DataMatrix
             // 
             this.DataMatrix.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DataMatrix.DataPropertyName = "DataMatrix";
+            this.DataMatrix.DataPropertyName = "Order";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DataMatrix.DefaultCellStyle = dataGridViewCellStyle1;
             this.DataMatrix.FillWeight = 60F;

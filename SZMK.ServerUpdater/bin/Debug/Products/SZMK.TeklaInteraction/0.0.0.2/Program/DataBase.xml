@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataBase>
+  <Name>SZMK</Name>
+  <Owner>postgres</Owner>
+  <IP>localhost</IP>
+  <Port>5432</Port>
+  <HashPassword>dWQOYeeTuaLGamTeplKfWg==</HashPassword>
+</DataBase>

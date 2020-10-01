@@ -50,27 +50,19 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
 
                 for (int i = 0; i < Model.Drawings.Count; i++)
                 {
-                    String Temp = Model.Drawings[i].DataMatrix;
-                    Temp = Temp.Remove(0, Temp.IndexOf(":") + 1);
                     String ReplaceMark = "";
 
-                    String[] ValidationDataMatrix = Temp.Split('_');
                     String[] ExistingCharaterEnglish = new String[] { "A", "a", "B", "C", "c", "E", "e", "H", "K", "M", "O", "o", "P", "p", "T" };
                     String[] ExistingCharaterRussia = new String[] { "А", "а", "В", "С", "с", "Е", "е", "Н", "К", "М", "О", "о", "Р", "р", "Т" };
 
-                    if (ValidationDataMatrix.Length != 6)
-                    {
-                        throw new Exception("В DataMatrix менее 6 полей");
-                    }
-
                     for (int j = 0; j < ExistingCharaterRussia.Length; j++)
                     {
-                        ReplaceMark = ValidationDataMatrix[2].Replace(ExistingCharaterRussia[j], ExistingCharaterEnglish[j]);
+                        ReplaceMark = Model.Drawings[i].Mark.Replace(ExistingCharaterRussia[j], ExistingCharaterEnglish[j]);
                     }
 
                     try
                     {
-                        String[] Splitter = ValidationDataMatrix[1].Split('и');
+                        String[] Splitter = Model.Drawings[i].List.Split('и');
 
                         while (Splitter[0][0] == '0')
                         {
@@ -79,11 +71,11 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
 
                         if (Splitter.Length != 1)
                         {
-                            ValidationDataMatrix[1] = Splitter[0] + "и" + Splitter[1];
+                            Model.Drawings[i].List = Splitter[0] + "и" + Splitter[1];
                         }
                         else
                         {
-                            ValidationDataMatrix[1] = Splitter[0];
+                            Model.Drawings[i].List = Splitter[0];
                         }
                     }
                     catch
@@ -92,15 +84,15 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                         continue;
                     }
 
-                    if (ValidationDataMatrix[3] == "")
+                    if (Model.Drawings[i].Executor == "")
                     {
                         session.Add(new SessionAdded { Drawing = Model.Drawings[i], Unique = 0, Discription = "Поле \"Фамилия\" не заполнено" });
                         continue;
                     }
 
-                    Temp = ValidationDataMatrix[0] + "_" + ValidationDataMatrix[1] + "_" + ReplaceMark + "_" + ValidationDataMatrix[3] + "_" + ValidationDataMatrix[4].Replace(".", ",") + "_" + ValidationDataMatrix[5].Replace(".", ",");
+                    Model.Drawings[i].Model = Model;
 
-                    Int32 IndexException = request.CheckedDrawing(ValidationDataMatrix[0], ValidationDataMatrix[1], Temp);
+                    Int32 IndexException = request.CheckedDrawing(Model.Drawings[i].Order, Model.Drawings[i].List, Model.Drawings[i].Mark);
 
                     switch (IndexException)
                     {
@@ -108,7 +100,7 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                             session.Add(new SessionAdded { Drawing = Model.Drawings[i], Unique = 0, Discription = "Ошибка добавления чертежа" });
                             break;
                         case 0:
-                            if (request.CheckedNumberAndMark(ValidationDataMatrix[0], ReplaceMark))
+                            if (request.CheckedNumberAndMark(Model.Drawings[i].Order, ReplaceMark))
                             {
                                 if (ReplaceMark.IndexOf("(?)") == -1)
                                 {
@@ -135,11 +127,11 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                             }
                             else
                             {
-                                session.Add(new SessionAdded { Drawing = Model.Drawings[i], Unique = 0, Discription = $"В заказе {ValidationDataMatrix[0]}, марка {ReplaceMark} уже существует." });
+                                session.Add(new SessionAdded { Drawing = Model.Drawings[i], Unique = 0, Discription = $"В заказе {Model.Drawings[i].Order}, марка {ReplaceMark} уже существует." });
                             }
                             break;
                         case 1:
-                            session.Add(new SessionAdded { Drawing = Model.Drawings[i], Unique = 0, Discription = $"В заказе {ValidationDataMatrix[0]}, номер листа {ValidationDataMatrix[1]} уже существует." });
+                            session.Add(new SessionAdded { Drawing = Model.Drawings[i], Unique = 0, Discription = $"В заказе {Model.Drawings[i].Order}, номер листа {Model.Drawings[i].List} уже существует." });
                             break;
                         case 2:
                             if (ReplaceMark.IndexOf("(?)") == -1)
@@ -168,8 +160,8 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                         case 3:
                             Views.Main.Update Update = new Views.Main.Update();
 
-                            Update.NewOrder_TB.Text = Temp;
-                            Update.OldOrder_TB.Text = request.GetDataMatrix(ValidationDataMatrix[0], ValidationDataMatrix[1]);
+                            Update.NewOrder_TB.Text = Model.Drawings[i].ToString();
+                            Update.OldOrder_TB.Text = request.GetDataMatrix(Model.Drawings[i].Order, Model.Drawings[i].List);
 
                             if (Update.ShowDialog() == DialogResult.OK)
                             {
@@ -177,13 +169,13 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                             }
                             else
                             {
-                                session.Add(new SessionAdded { Drawing = Model.Drawings[i], Unique = 0, Discription = $"В заказе {ValidationDataMatrix[0]}, номер листа {ValidationDataMatrix[1]} уже существует." });
+                                session.Add(new SessionAdded { Drawing = Model.Drawings[i], Unique = 0, Discription = $"В заказе {Model.Drawings[i].Order}, номер листа {Model.Drawings[i].List} уже существует." });
                             }
 
                             break;
                     }
                 }
-                logger.Info("Проверка чертежей прошла успешно");
+                logger.Info("Проверка чертежей успешна");
 
                 AddData(session);
             }
@@ -204,7 +196,7 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
             {
                 TreeNode drawingNode = new TreeNode
                 {
-                    Text = "DataMatrix: " + model.Drawings[i].DataMatrix
+                    Text = "DataMatrix: " + model.Drawings[i].ToString()
                 };
 
                 drawingNode.Nodes.Add("Заказ: " + model.Drawings[i].Order);
@@ -286,7 +278,7 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
 
                             if (ListCanceled.Length != 1)
                             {
-                                List<Drawing> CanceledDrawings = request.GetCanceledDrawings(ListCanceled[0], Session[i].Drawing.DataMatrix.Split('_')[0]);
+                                List<Drawing> CanceledDrawings = request.GetCanceledDrawings(ListCanceled[0], Session[i].Drawing.Order);
 
                                 if (CanceledDrawings.Count() > 0)
                                 {
@@ -300,6 +292,15 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                             Status TempStatus = user.StatusesUser.First();
 
                             Session[i].Drawing.Id = request.GetAutoIDDrawing() + 1;
+
+                            Session[i].Drawing.TypeAdd = request.GetTypeAdd("Tekla Interaction");
+
+                            if (!request.ModelExist(Session[i].Drawing.Model))
+                            {
+                                request.InsertModel(Session[i].Drawing.Model);
+                            }
+
+                            Session[i].Drawing.Model = request.GetModel(Session[i].Drawing.Model);
 
                             if (request.InsertDrawing(Session[i].Drawing))
                             {
@@ -321,7 +322,7 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                             }
                             else
                             {
-                                MessageBox.Show("Ошибка при добавлении в базу данных DataMatrix: " + Session[i].Drawing.DataMatrix, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Ошибка при добавлении в базу данных DataMatrix: " + Session[i].Drawing.ToString(), "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
 
                         }

@@ -1,0 +1,13 @@
+27.09.2020 2:40:14 : Дешифрование пароля успешно завершено
+27.09.2020 2:40:19 : Хеш-последовательность успешно получена
+27.09.2020 2:40:19 : Хеш-последовательность успешно получена
+27.09.2020 2:40:19 : Дешифрование пароля успешно завершено
+27.09.2020 2:40:53 : System.Exception: Имя исполнителя должно быть в формате: Иванов И.И.
+   в SZMK.Desktop.Services.Scan.BaseScanOrder.FormingExecutor(String Executor) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Scan\BaseScanOrder.cs:строка 119
+   в SZMK.Desktop.Services.Scan.BaseScanOrder.SetResult(Order Order, List`1 Orders) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\Services\Scan\BaseScanOrder.cs:строка 53
+27.09.2020 2:46:03 : Дешифрование пароля успешно завершено
+27.09.2020 2:46:10 : Хеш-последовательность успешно получена
+27.09.2020 2:46:10 : Хеш-последовательность успешно получена
+27.09.2020 2:46:10 : Дешифрование пароля успешно завершено
+27.09.2020 2:47:30 : Дешифрование пароля успешно завершено
+27.09.2020 2:47:52 : Дешифрование пароля успешно завершено

@@ -150,7 +150,7 @@ namespace SZMK.Desktop.Services.Scan
         readonly List<Order> UniqueList = new List<Order>();
         private bool CheckedUniqueList(Order Order)
         {
-            if (UniqueList.Exists(p => p.Number==Order.Number && p.List==Order.List))
+            if (UniqueList.Exists(p => p.Number == Order.Number && p.List == Order.List && p.Mark == Order.Mark))
             {
                 return false;
             }
@@ -162,13 +162,14 @@ namespace SZMK.Desktop.Services.Scan
         }
         public Order FormingOrder(string DataMatrix)
         {
-            string[] ValidationDataMatrix = DataMatrix.Replace(" ","").Split('_');
+            string[] ValidationDataMatrix = DataMatrix.Replace(" ", "").Split('_');
+
             if (ValidationDataMatrix.Length != 6)
             {
                 throw new Exception($"В {DataMatrix} менее 6 полей");
             }
 
-            return new Order(0,DateTime.Now,ValidationDataMatrix[0],ValidationDataMatrix[3],"Исполнитель не определен",ValidationDataMatrix[1],ValidationDataMatrix[2],Convert.ToDouble(ValidationDataMatrix[4]),Convert.ToDouble(ValidationDataMatrix[5]),null,DateTime.Now,null,null,null,new BlankOrder(),false,false);
+            return new Order(0, DateTime.Now, ValidationDataMatrix[0], ValidationDataMatrix[3], "Исполнитель не определен", ValidationDataMatrix[1], ValidationDataMatrix[2], Convert.ToDouble(ValidationDataMatrix[4].Replace(".",",")), Convert.ToDouble(ValidationDataMatrix[5].Replace(".", ",")), null, DateTime.Now, null, null, null, new BlankOrder(), false, false);
         }
     }
 }

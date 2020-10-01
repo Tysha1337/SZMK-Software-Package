@@ -18,3 +18,4 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.S
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.csproj.CopyComplete
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.exe
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.pdb
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\obj\Debug\SZMK.ServerUpdater.csprojAssemblyReference.cache

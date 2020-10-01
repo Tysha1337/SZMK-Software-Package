@@ -1009,7 +1009,7 @@ namespace SZMK.Desktop.Services
                         {
                             while (Reader.Read())
                             {
-                                SystemArgs.TypesAdds.Add(new TypeAdd { ID=Reader.GetInt64(0),DateCreate = Reader.GetDateTime(1),Discriprion=Reader.GetString(2)});
+                                SystemArgs.TypesAdds.Add(new TypeAdd { ID = Reader.GetInt64(0), DateCreate = Reader.GetDateTime(1), Discriprion = Reader.GetString(2) });
                             }
                         }
                     }
@@ -1038,7 +1038,7 @@ namespace SZMK.Desktop.Services
                         {
                             while (Reader.Read())
                             {
-                                SystemArgs.Models.Add(new Model { ID = Reader.GetInt64(0),DateCreate = Reader.GetDateTime(1), Path = Reader.GetString(2) });
+                                SystemArgs.Models.Add(new Model { ID = Reader.GetInt64(0), DateCreate = Reader.GetDateTime(1), Path = Reader.GetString(2) });
                             }
                         }
                     }
@@ -1068,7 +1068,7 @@ namespace SZMK.Desktop.Services
                         {
                             while (Reader.Read())
                             {
-                                TypeAdd TempTypeAdd=null;
+                                TypeAdd TempTypeAdd = null;
 
                                 if (!Reader.IsDBNull(11))
                                 {
@@ -1082,7 +1082,7 @@ namespace SZMK.Desktop.Services
                                     TempModel = SystemArgs.Models.FindAll(p => p.ID == Reader.GetInt64(13)).FirstOrDefault();
                                 }
 
-                                SystemArgs.Orders.Add(new Order(Reader.GetInt64(0), Reader.GetDateTime(1), Reader.GetString(4), Reader.GetString(2), Reader.GetString(3), Reader.GetString(5), Reader.GetString(6), Convert.ToDouble(Reader.GetString(7)), Convert.ToDouble(Reader.GetString(8)),null, DateTime.Now,TempTypeAdd,TempModel, null, new BlankOrder(), Reader.GetBoolean(9), Reader.GetBoolean(10)));
+                                SystemArgs.Orders.Add(new Order(Reader.GetInt64(0), Reader.GetDateTime(1), Reader.GetString(4), Reader.GetString(2), Reader.GetString(3), Reader.GetString(5), Reader.GetString(6), Convert.ToDouble(Reader.GetString(7)), Convert.ToDouble(Reader.GetString(8)), null, DateTime.Now, TempTypeAdd, TempModel, null, new BlankOrder(), Reader.GetBoolean(9), Reader.GetBoolean(10)));
                             }
                         }
                     }
@@ -1135,7 +1135,7 @@ namespace SZMK.Desktop.Services
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"SELECT \"ID\" FROM public.\"Orders\" WHERE(\"List\" NOT LIKE '{List + "и"}%' OR \"List\"='{List}') AND \"Number\"='{Number}';", Connect))
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\" FROM public.\"Orders\" WHERE(\"List\" LIKE '{List + "и"}%' OR \"List\"='{List}') AND \"Number\"='{Number}';", Connect))
                     {
                         using (var Reader = Command.ExecuteReader())
                         {
@@ -1185,7 +1185,7 @@ namespace SZMK.Desktop.Services
                                     TempModel = SystemArgs.Models.FindAll(p => p.ID == Reader.GetInt64(13)).FirstOrDefault();
                                 }
 
-                                Temp = new Order(Reader.GetInt64(0), Reader.GetDateTime(1), Reader.GetString(4), Reader.GetString(2), Reader.GetString(3), Reader.GetString(5), Reader.GetString(6), Convert.ToDouble(Reader.GetString(7)), Convert.ToDouble(Reader.GetString(8)), null, DateTime.Now, TempTypeAdd,TempModel, null, new BlankOrder(), Reader.GetBoolean(9), Reader.GetBoolean(10));
+                                Temp = new Order(Reader.GetInt64(0), Reader.GetDateTime(1), Reader.GetString(4), Reader.GetString(2), Reader.GetString(3), Reader.GetString(5), Reader.GetString(6), Convert.ToDouble(Reader.GetString(7)), Convert.ToDouble(Reader.GetString(8)), null, DateTime.Now, TempTypeAdd, TempModel, null, new BlankOrder(), Reader.GetBoolean(9), Reader.GetBoolean(10));
                             }
                         }
                     }
@@ -1587,7 +1587,8 @@ namespace SZMK.Desktop.Services
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"INSERT INTO public.\"Detail\"(\"Profile\", \"SubtotalWeight\", \"MarkSteel\") VALUES('{Detail.Profile}', '{Detail.SubtotalWeight}', '{Detail.MarkSteel}'); ", Connect))
+                    using (var Command = new NpgsqlCommand($"INSERT INTO public.\"Detail\"(\"Position\",\"Count\",\"Profile\",\"Width\",\"Lenght\",\"Weight\",\"SubtotalWeight\",\"MarkSteel\",\"Discription\",\"Machining\", \"MethodOfPaintingRAL\", \"PaintingArea\") " +
+                        $"VALUES('{Detail.Position}','{Detail.Count}','{Detail.Profile}','{Detail.Width}','{Detail.Lenght}','{Detail.Weight}','{Detail.SubtotalWeight}','{Detail.MarkSteel}','{Detail.Discription}','{Detail.Machining}', '{Detail.MethodOfPaintingRAL}', '{Detail.PaintingArea}'); ", Connect))
                     {
                         Command.ExecuteNonQuery();
                     }
@@ -1649,13 +1650,13 @@ namespace SZMK.Desktop.Services
                     }
                     for (int i = 0; i < IDDetails.Count; i++)
                     {
-                        using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"Profile\", \"SubtotalWeight\", \"MarkSteel\" FROM public.\"Detail\" WHERE \"ID\"='{IDDetails[i]}';", Connect))
+                        using (var Command = new NpgsqlCommand($"SELECT \"ID\",\"Position\",\"Count\", \"Profile\",\"Width\",\"Lenght\",\"Weight\", \"SubtotalWeight\", \"MarkSteel\",\"Discription\",\"Machining\",\"MethodOfPaintingRAL\",\"PaintingArea\" FROM public.\"Detail\" WHERE \"ID\"='{IDDetails[i]}';", Connect))
                         {
                             using (var Reader = Command.ExecuteReader())
                             {
                                 while (Reader.Read())
                                 {
-                                    details.Add(new Detail(Reader.GetInt64(0), Reader.GetString(1), Convert.ToDouble(Reader.GetString(2)), Reader.GetString(3)));
+                                    details.Add(new Detail { ID = Reader.GetInt64(0), Position = !Reader.IsDBNull(1) ? Reader.GetInt64(1) : -1, Count = !Reader.IsDBNull(2) ? Reader.GetInt64(2) : -1, Profile = Reader.GetString(3), Width = !Reader.IsDBNull(4) ? Convert.ToDouble(Reader.GetString(4)) : -1, Lenght = !Reader.IsDBNull(5) ? Convert.ToDouble(Reader.GetString(5)) : -1, Weight = !Reader.IsDBNull(6) ? Convert.ToDouble(Reader.GetString(6)) : -1, SubtotalWeight = Convert.ToDouble(Reader.GetString(7)), MarkSteel = Reader.GetString(8), Discription = !Reader.IsDBNull(9) ? Reader.GetString(9) : "", Machining = !Reader.IsDBNull(10) ? Reader.GetString(10) : "", MethodOfPaintingRAL = !Reader.IsDBNull(11) ? Reader.GetString(11) : "", PaintingArea = !Reader.IsDBNull(12) ? Convert.ToDouble(Reader.GetString(12)) : -1 });
                                 }
                             }
                         }
@@ -1706,32 +1707,136 @@ namespace SZMK.Desktop.Services
                 throw new Exception(e.ToString());
             }
         }
-        public Int64 GetAutoIDOrder()
+        public bool InsertModel(Model Model)
         {
             try
             {
-                Int64 Index = 0;
-                using (var Connect = new NpgsqlConnection(SystemArgs.DataBase.ToString()))
+                using (var Connect = new NpgsqlConnection(_ConnectString))
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"SELECT last_value FROM \"Orders_ID_seq\"", Connect))
+                    using (var Command = new NpgsqlCommand($"INSERT INTO public.\"Model\"(\"DateCreate\", \"Path\") VALUES('{Model.DateCreate}', '{Model.Path}'); ", Connect))
+                    {
+                        Command.ExecuteNonQuery();
+                    }
+
+                    Connect.Close();
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public bool ModelExist(Model Model)
+        {
+            Boolean flag = false;
+            try
+            {
+
+                using (var Connect = new NpgsqlConnection(_ConnectString))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\", \"Path\" FROM public.\"Model\" WHERE \"Path\"='{Model.Path}';", Connect))
                     {
                         using (var Reader = Command.ExecuteReader())
                         {
                             while (Reader.Read())
                             {
-                                Index = Reader.GetInt64(0);
+                                flag = true;
                             }
                         }
                     }
+
+                    Connect.Close();
                 }
-                return Index;
+
+                return flag;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public Model GetModel(Model Model)
+        {
+            try
+            {
+                using (var Connect = new NpgsqlConnection(_ConnectString))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\", \"Path\" FROM public.\"Model\" WHERE \"Path\"='{Model.Path}';", Connect))
+                    {
+                        using (var Reader = Command.ExecuteReader())
+                        {
+                            while (Reader.Read())
+                            {
+                                Model = new Model { ID = Reader.GetInt64(0), DateCreate = Reader.GetDateTime(1), Path = Reader.GetString(2) };
+                            }
+                        }
+                    }
+
+                    Connect.Close();
+                }
+
+                return Model;
             }
             catch (Exception E)
             {
-                throw new Exception(E.Message, E);
+                throw new Exception(E.ToString());
             }
         }
+        public bool SetModelOrder(Order Order)
+        {
+            try
+            {
+                using (var Connect = new NpgsqlConnection(_ConnectString))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"UPDATE public.\"Orders\" SET \"ID_Model\" = '{Order.Model.ID}' WHERE \"ID\" = '{Order.ID}'; ", Connect))
+                    {
+                        Command.ExecuteNonQuery();
+                    }
+
+                    Connect.Close();
+                }
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool SetTypeAddOrder(Order Order)
+        {
+            try
+            {
+                using (var Connect = new NpgsqlConnection(_ConnectString))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"UPDATE public.\"Orders\" SET \"ID_TypeAdd\" = '{Order.TypeAdd.ID}' WHERE \"ID\" = '{Order.ID}'; ", Connect))
+                    {
+                        Command.ExecuteNonQuery();
+                    }
+
+                    Connect.Close();
+                }
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

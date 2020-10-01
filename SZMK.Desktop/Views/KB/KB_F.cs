@@ -21,6 +21,7 @@ using SZMK.Desktop.BindingModels;
 using SZMK.Desktop.Views.Admin;
 using SZMK.Desktop.Services.Scan;
 using System.IO.Ports;
+using SZMK.Desktop.Views.Shared.Interfaces;
 
 namespace SZMK.Desktop.Views.KB
 {
@@ -243,7 +244,7 @@ namespace SZMK.Desktop.Views.KB
 
                                 if (!SystemArgs.Request.InsertStatus(Number, List, TempStatus.ID, user))
                                 {
-                                    MessageBox.Show("Ошибка при добавлении в базу данных статуса для: Номер-" +ScanSession[i].Order.Number+"Лист-"+ ScanSession[i].Order.List, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    MessageBox.Show("Ошибка при добавлении в базу данных статуса для: Номер-" + ScanSession[i].Order.Number + "Лист-" + ScanSession[i].Order.List, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
                             }
                             else if (ScanSession[i].Unique == 1)
@@ -334,7 +335,7 @@ namespace SZMK.Desktop.Views.KB
                     if (Dialog.ShowDialog() == DialogResult.OK)
                     {
                         List<DateTime> StatusDate = SystemArgs.StatusOfOrders.Where(p => p.IDOrder == Temp.ID && p.IDStatus == Temp.Status.ID).Select(p => p.DateCreate).ToList();
-                        Order NewOrder = new Order(Temp.ID, Temp.DateCreate, Dialog.Number_TB.Text, Dialog.Executor_TB.Text, Temp.ExecutorWork, Dialog.List_TB.Text, Dialog.Mark_TB.Text, Convert.ToDouble(Dialog.Lenght_TB.Text), Convert.ToDouble(Dialog.Weight_TB.Text), Temp.Status, StatusDate[0],Temp.TypeAdd,Temp.Model, Temp.User, Temp.BlankOrder, Temp.Canceled, Temp.Finished);
+                        Order NewOrder = new Order(Temp.ID, Temp.DateCreate, Dialog.Number_TB.Text, Dialog.Executor_TB.Text, Temp.ExecutorWork, Dialog.List_TB.Text, Dialog.Mark_TB.Text, Convert.ToDouble(Dialog.Lenght_TB.Text), Convert.ToDouble(Dialog.Weight_TB.Text), Temp.Status, StatusDate[0], Temp.TypeAdd, Temp.Model, Temp.User, Temp.BlankOrder, Temp.Canceled, Temp.Finished);
 
                         if (SystemArgs.Request.UpdateOrder(NewOrder))
                         {
@@ -389,7 +390,7 @@ namespace SZMK.Desktop.Views.KB
                             }
                             catch
                             {
-                                MessageBox.Show("Ошибка удаления чертежа: Номер-" + Temp.Number+"Лист-"+ Temp.List, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Ошибка удаления чертежа: Номер-" + Temp.Number + "Лист-" + Temp.List, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
                         }
@@ -658,7 +659,7 @@ namespace SZMK.Desktop.Views.KB
                             List<Order> Order = Result.Where(p => p.ID == item.IDOrder).ToList();
                             if (Order.Count > 0)
                             {
-                                Temp.Add(new Order(Order[0].ID, Order[0].DateCreate, Order[0].Number, Order[0].Executor, Order[0].ExecutorWork, Order[0].List, Order[0].Mark, Order[0].Lenght, Order[0].Weight, Order[0].Status, Order[0].StatusDate,Order[0].TypeAdd, Order[0].Model, Order[0].User, Order[0].BlankOrder, Order[0].Canceled, Order[0].Finished));
+                                Temp.Add(new Order(Order[0].ID, Order[0].DateCreate, Order[0].Number, Order[0].Executor, Order[0].ExecutorWork, Order[0].List, Order[0].Mark, Order[0].Lenght, Order[0].Weight, Order[0].Status, Order[0].StatusDate, Order[0].TypeAdd, Order[0].Model, Order[0].User, Order[0].BlankOrder, Order[0].Canceled, Order[0].Finished));
                             }
                         }
                         Result = Temp;
@@ -1061,7 +1062,7 @@ namespace SZMK.Desktop.Views.KB
                             }
                             catch
                             {
-                                MessageBox.Show("Произошла ошибка при аннулировании чертежа: Номер-" + Temp.Number+" Лист-"+Temp.List, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Произошла ошибка при аннулировании чертежа: Номер-" + Temp.Number + " Лист-" + Temp.List, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
                         }
@@ -1492,37 +1493,22 @@ namespace SZMK.Desktop.Views.KB
             {
                 OpenFileDialog Opd = new OpenFileDialog
                 {
-                    Multiselect = true,
-                    Title = "Выберите отчёты для добавления",
+                    Title = "Выберите отчёт для добавления",
                     Filter = "XML|*.xml"
                 };
 
                 if (Opd.ShowDialog() == DialogResult.OK)
                 {
-                    StartingParseAsync(Opd.FileNames);
-                }
-            }
-            catch(Exception Ex)
-            {
-                SystemArgs.PrintLog(Ex.ToString());
-                MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private async void StartingParseAsync(string[] FileNames)
-        {
-            try
-            {
-                ParseXML parseXML = new ParseXML();
-                await Task.Run(()=>parseXML.Start(FileNames));
+                    FolderBrowserDialog Fbd = new FolderBrowserDialog()
+                    {
+                        ShowNewFolderButton = false,
+                        Description = "Выберите папку с моделью"
+                    };
 
-                KB_AddXML Dialog = new KB_AddXML();
-
-                Dialog.Data_TV.Nodes.AddRange(parseXML.TreeNodes.ToArray());
-                if (Dialog.ShowDialog() == DialogResult.OK)
-                {
-                    await Task.Run(() => parseXML.CheckedData());
-
-                    AddXMLData(parseXML.OrderScanSession);
+                    if (Fbd.ShowDialog() == DialogResult.OK)
+                    {
+                        StartingParseAsync(Opd.FileName, Fbd.SelectedPath);
+                    }
                 }
             }
             catch (Exception Ex)
@@ -1531,19 +1517,57 @@ namespace SZMK.Desktop.Views.KB
                 MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void AddXMLData(List<OrderScanSession> Session)
+        private async void StartingParseAsync(string FileName, string ModelPath)
+        {
+            try
+            {
+                ForLongOperations_F Notify = new ForLongOperations_F();
+                Notify.Show();
+
+                ParseXML parseXML = new ParseXML();
+                await Task.Run(() => parseXML.Start(FileName, ModelPath, Notify));
+
+                KB_AddXML Dialog = new KB_AddXML();
+
+                Dialog.Data_TV.Nodes.AddRange(parseXML.TreeNodes.ToArray());
+                Dialog.Count_TB.Text = parseXML.Orders.Count.ToString();
+
+                Notify.Hide();
+
+                if (Dialog.ShowDialog() == DialogResult.OK)
+                {
+                    Notify.Show();
+
+                    await Task.Run(() => parseXML.CheckedData());
+
+                    await Task.Run(() => AddXMLData(parseXML.OrderScanSession, Notify));
+                }
+            }
+            catch (Exception Ex)
+            {
+
+
+                SystemArgs.PrintLog(Ex.ToString());
+                MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void AddXMLData(List<OrderScanSession> Session, INotifyProcess notify)
         {
             try
             {
                 Int64 IndexOrder = -1;
 
+                notify.SetMaximum(Session.Count);
+
                 for (int i = 0; i < Session.Count; i++)
                 {
+                    notify.Notify(i, $"Добавление {i + 1} чертежа из {Session.Count}");
+
                     try
                     {
                         if (Session[i].Unique == 1)
                         {
-                            IndexOrder = SystemArgs.Request.GetAutoIDOrder();
+                            IndexOrder = SystemArgs.Request.GetLastIDOrder();
 
                             String[] ListCanceled = Session[i].Order.List.Split('и');
 
@@ -1560,30 +1584,50 @@ namespace SZMK.Desktop.Views.KB
                                 }
                             }
 
-                            Status TempStatus = SystemArgs.Statuses.FindAll(p=>p.ID==SystemArgs.User.StatusesUser.First().ID-1).First();
+                            Status TempStatus = SystemArgs.Statuses.FindAll(p => p.ID == SystemArgs.User.StatusesUser.First().ID - 1).First();
 
-                            Session[i].Order.ID = IndexOrder + 1;
+                            Session[i].Order.ID = SystemArgs.Request.GetLastIDOrder()+1;
+                            Session[i].Order.Status = TempStatus;
+                            Session[i].Order.TypeAdd = SystemArgs.TypesAdds.FindAll(p => p.Discriprion == "XML").FirstOrDefault();
+
+                            if (!SystemArgs.Request.ModelExist(Session[i].Order.Model))
+                            {
+                                SystemArgs.Request.InsertModel(Session[i].Order.Model);
+                            }
+
+                            Session[i].Order.Model = SystemArgs.Request.GetModel(Session[i].Order.Model);
 
                             if (SystemArgs.Request.InsertOrder(Session[i].Order))
                             {
-                                for (int j = 0; j < Session[i].Order.Details.Count; j++)
+                                if (!(SystemArgs.Request.SetModelOrder(Session[i].Order) && SystemArgs.Request.SetTypeAddOrder(Session[i].Order)))
                                 {
-                                    Session[i].Order.Details[j].ID = SystemArgs.Request.GetAutoIDDetail() + 1;
+                                    MessageBox.Show("Ошибка при добавлении данных о модели и типа добавления в базу данных DataMatrix: Номер-" + Session[i].Order.Number + " Лист-" + Session[i].Order.List, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
 
-                                    SystemArgs.Request.InsertDetail(Session[i].Order.Details[j]);
-                                    SystemArgs.Request.InsertAddDetail(Session[i].Order, Session[i].Order.Details[j]);
+                                for (int k = 0; k < Session[i].Order.CountMarks; k++)
+                                {
+                                    for (int j = 0; j < Session[i].Order.Details.Count; j++)
+                                    {
+                                        Session[i].Order.Details[j].ID = SystemArgs.Request.GetAutoIDDetail() + 1;
+
+                                        SystemArgs.Request.InsertDetail(Session[i].Order.Details[j]);
+                                        SystemArgs.Request.InsertAddDetail(Session[i].Order, Session[i].Order.Details[j]);
+                                    }
                                 }
 
                                 if (!SystemArgs.Request.StatusExist(Session[i].Order.ID, TempStatus.ID))
                                 {
-                                    SystemArgs.Request.InsertStatus(Session[i].Order.Number, Session[i].Order.List, TempStatus.ID,SystemArgs.User);
+                                    SystemArgs.Request.InsertStatus(Session[i].Order.Number, Session[i].Order.List, TempStatus.ID, SystemArgs.User);
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Ошибка при добавлении в базу данных DataMatrix: Номер-" + Session[i].Order.Number+" Лист-"+ Session[i].Order.List, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Ошибка при добавлении в базу данных DataMatrix: Номер-" + Session[i].Order.Number + " Лист-" + Session[i].Order.List, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
-
+                        }
+                        else if (Session[i].Unique == 2)
+                        {
+                            Session[i].Discription = $"В заказе {Session[i].Order.Number}, номер листа {Session[i].Order.List} уже существует.";
                         }
                     }
                     catch (Exception E)
@@ -1594,7 +1638,9 @@ namespace SZMK.Desktop.Views.KB
 
                 }
 
-                List<OrderScanSession> Temp = Session.Where(p => p.Unique == 0).ToList();
+                List<OrderScanSession> Temp = Session.Where(p => p.Unique == 0 || p.Unique == 2).ToList();
+
+                notify.CloseAsync();
 
                 if (Temp.Count() > 0)
                 {
@@ -1613,10 +1659,12 @@ namespace SZMK.Desktop.Views.KB
 
                 Session.Clear();
             }
-            catch (Exception E)
+            catch (Exception Ex)
             {
+                notify.CloseAsync();
+
                 Session.Clear();
-                throw new Exception(E.Message, E);
+                throw new Exception(Ex.Message, Ex);
             }
         }
     }
