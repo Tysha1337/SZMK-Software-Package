@@ -24,6 +24,8 @@ namespace SZMK.Desktop
         static public Services.Setting.SelectedColumn SelectedColumn;//Конфигурация отображения столбцов
         static public Services.Setting.AboutProgram About;//Информация о программе
 
+        static public Services.Sleep Sleep;//Класс проверки неактивности пользователя
+
         static public Services.Request Request; //Слой запросов к базе данных
         static public Services.RequestLinq RequestLinq; //Слой запросов Linq к полученным из БД данным
         static public Services.Template Template;//Проверка шаблонов

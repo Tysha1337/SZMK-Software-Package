@@ -18,6 +18,7 @@ namespace SZMK.TeklaInteraction.Presenters
 {
     class Main : BasePresener<IMain>
     {
+        private readonly ISleep sleep;
         private readonly IMailLogger maillogger;
         private readonly ILogin login;
         private readonly IHash hash;
@@ -33,10 +34,11 @@ namespace SZMK.TeklaInteraction.Presenters
         const string pathRegistryKeyStartup = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
         const string applicationName = "Tekla_Interaction";
 
-        public Main(IApplicationController controller, IMain view, IMailLogger maillogger, ILogin login, IHash hash, IChecked2018 checked2018, IChecked21_1 checked21_1, IOperations operations) : base(controller, view)
+        public Main(IApplicationController controller, IMain view, ISleep sleep, IMailLogger maillogger, ILogin login, IHash hash, IChecked2018 checked2018, IChecked21_1 checked21_1, IOperations operations) : base(controller, view)
         {
             try
             {
+                this.sleep = sleep;
                 this.maillogger = maillogger;
                 this.login = login;
                 this.hash = hash;
@@ -73,6 +75,8 @@ namespace SZMK.TeklaInteraction.Presenters
         {
             try
             {
+                sleep.Start();
+
                 DeleteLogs();
 
                 CheckedProcess();

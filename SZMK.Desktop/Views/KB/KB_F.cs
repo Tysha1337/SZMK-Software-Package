@@ -32,6 +32,7 @@ namespace SZMK.Desktop.Views.KB
             InitializeComponent();
         }
         BindingListView<Order> View;
+        private bool UsedSearch = false;
         private void KB_F_Load(object sender, EventArgs e)
         {
             try
@@ -130,10 +131,7 @@ namespace SZMK.Desktop.Views.KB
         {
             if (Search())
             {
-                if (Result != null)
-                {
-                    Display(Result);
-                }
+                Display(SystemArgs.Orders);
             }
         }
 
@@ -446,13 +444,17 @@ namespace SZMK.Desktop.Views.KB
                                 VisibleButton(false);
                             }
                         }
-                        if (Index == 0)
+
+                        if (!UsedSearch)
                         {
-                            ForgetOrder();
-                        }
-                        else
-                        {
-                            VisibleButton(false);
+                            if (Index == 0)
+                            {
+                                ForgetOrder();
+                            }
+                            else
+                            {
+                                VisibleButton(false);
+                            }
                         }
                     }
                 });
@@ -552,9 +554,9 @@ namespace SZMK.Desktop.Views.KB
                 {
                     String SearchText = Search_TSTB.Text.Trim();
 
-                    Result = ResultSearch(SearchText);
+                    SystemArgs.Orders = ResultSearch(SearchText);
 
-                    if (Result.Count <= 0)
+                    if (SystemArgs.Orders.Count <= 0)
                     {
                         Search_TSTB.Focus();
                         MessageBox.Show("Поиск не дал результатов", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -577,19 +579,19 @@ namespace SZMK.Desktop.Views.KB
             }
         }
 
-        List<Order> Result;
-
         private void ResetSearch()
         {
-            if (Result != null)
+            UsedSearch = false;
+
+            if (SystemArgs.Orders != null)
             {
-                Result.Clear();
+                SystemArgs.Orders.Clear();
             }
             Search_TSTB.Text = String.Empty;
 
             RefreshOrderAsync(FilterCB_TSB.SelectedIndex);
         }
-        private void GetDataForSearch(ForLongOperations_F Load)
+        private void GetDataForSearch(ForLongOperations_F Load, bool Finished)
         {
             try
             {
@@ -598,7 +600,7 @@ namespace SZMK.Desktop.Views.KB
                 SystemArgs.StatusOfOrders.Clear();
                 SystemArgs.BlankOrderOfOrders.Clear();
 
-                SystemArgs.RequestLinq.GetOrdersForSearch(Load);
+                SystemArgs.RequestLinq.GetOrdersForSearch(Load, Finished);
             }
             catch (Exception Ex)
             {
@@ -621,33 +623,35 @@ namespace SZMK.Desktop.Views.KB
 
                 if (Dialog.ShowDialog() == DialogResult.OK)
                 {
-                    ForLongOperations_F Load = new ForLongOperations_F();
-                    Load.Show();
-
-                    LockedButtonForLoadData(false);
-
-                    await Task.Run(() => GetDataForSearch(Load));
-
-                    LockedButtonForLoadData(true);
-
-                    Load.Close();
-
-                    Result = SystemArgs.Orders.ToList();
+                    bool Finished = true;
 
                     if (Dialog.Finished_CB.Checked && Dialog.Number_TB.Text == String.Empty && Dialog.List_TB.Text == String.Empty)
                     {
                         if (MessageBox.Show("Вы уверены в выводе всех завершенных чертежей?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
                         {
-                            Result = Result.Where(p => !p.Finished).ToList();
+                            Finished = false;
                         }
                     }
                     else
                     {
                         if (!Dialog.Finished_CB.Checked)
                         {
-                            Result = Result.Where(p => !p.Finished).ToList();
+                            Finished = false;
                         }
                     }
+
+                    ForLongOperations_F Load = new ForLongOperations_F();
+                    Load.Show();
+
+                    LockedButtonForLoadData(false);
+
+                    await Task.Run(() => GetDataForSearch(Load, Finished));
+
+                    LockedButtonForLoadData(true);
+
+                    Load.Close();
+
+                    SystemArgs.Orders.ToList();
 
                     if (Dialog.DateEnable_CB.Checked && Dialog.Status_CB.SelectedIndex != 0)
                     {
@@ -656,69 +660,71 @@ namespace SZMK.Desktop.Views.KB
                         List<Order> Temp = new List<Order>();
                         foreach (var item in Orders)
                         {
-                            List<Order> Order = Result.Where(p => p.ID == item.IDOrder).ToList();
+                            List<Order> Order = SystemArgs.Orders.Where(p => p.ID == item.IDOrder).ToList();
                             if (Order.Count > 0)
                             {
                                 Temp.Add(new Order(Order[0].ID, Order[0].DateCreate, Order[0].Number, Order[0].Executor, Order[0].ExecutorWork, Order[0].List, Order[0].Mark, Order[0].Lenght, Order[0].Weight, Order[0].Status, Order[0].StatusDate, Order[0].TypeAdd, Order[0].Model, Order[0].User, Order[0].BlankOrder, Order[0].Canceled, Order[0].Finished));
                             }
                         }
-                        Result = Temp;
+                        SystemArgs.Orders = Temp;
                     }
                     else if (Dialog.DateEnable_CB.Checked)
                     {
-                        Result = Result.Where(p => (p.DateCreate >= Dialog.First_DP.Value.Date) && (p.DateCreate <= Dialog.Second_DP.Value.Date.AddSeconds(86399))).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => (p.DateCreate >= Dialog.First_DP.Value.Date) && (p.DateCreate <= Dialog.Second_DP.Value.Date.AddSeconds(86399))).ToList();
                     }
                     else if (Dialog.Status_CB.SelectedIndex > 0)
                     {
-                        Result = Result.Where(p => p.Status == (Status)Dialog.Status_CB.SelectedItem).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.Status == (Status)Dialog.Status_CB.SelectedItem).ToList();
                     }
 
                     if (Dialog.Executor_TB.Text.Trim() != String.Empty)
                     {
-                        Result = Result.Where(p => p.Executor.IndexOf(Dialog.Executor_TB.Text.Trim()) != -1).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.Executor.IndexOf(Dialog.Executor_TB.Text.Trim()) != -1).ToList();
                     }
 
                     if (Dialog.ExecutorWork_TB.Text.Trim() != String.Empty)
                     {
-                        Result = Result.Where(p => p.ExecutorWork.IndexOf(Dialog.ExecutorWork_TB.Text.Trim()) != -1).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.ExecutorWork.IndexOf(Dialog.ExecutorWork_TB.Text.Trim()) != -1).ToList();
                     }
 
                     if (Dialog.Number_TB.Text.Trim() != String.Empty)
                     {
-                        Result = Result.Where(p => p.Number.IndexOf(Dialog.Number_TB.Text.Trim()) != -1).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.Number.IndexOf(Dialog.Number_TB.Text.Trim()) != -1).ToList();
                     }
 
                     if (Dialog.List_TB.Text.Trim() != String.Empty)
                     {
-                        Result = Result.Where(p => p.List.IndexOf(Dialog.List_TB.Text.Trim()) != -1).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.List.IndexOf(Dialog.List_TB.Text.Trim()) != -1).ToList();
                     }
 
                     if (Dialog.Mark_TB.Text.Trim() != String.Empty)
                     {
-                        Result = Result.Where(p => p.Mark.IndexOf(Dialog.Mark_TB.Text.Trim()) != -1).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.Mark.IndexOf(Dialog.Mark_TB.Text.Trim()) != -1).ToList();
                     }
 
                     if (Dialog.Lenght_TB.Text.Trim() != String.Empty)
                     {
-                        Result = Result.Where(p => p.Lenght.ToString().IndexOf(Dialog.Lenght_TB.Text.Trim()) != -1).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.Lenght.ToString().IndexOf(Dialog.Lenght_TB.Text.Trim()) != -1).ToList();
                     }
 
                     if (Dialog.Weight_TB.Text.Trim() != String.Empty)
                     {
-                        Result = Result.Where(p => p.Weight.ToString().IndexOf(Dialog.Weight_TB.Text.Trim()) != -1).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.Weight.ToString().IndexOf(Dialog.Weight_TB.Text.Trim()) != -1).ToList();
                     }
 
                     if (Dialog.NumberBlankOrder_TB.Text.Trim() != String.Empty)
                     {
-                        Result = Result.Where(p => p.BlankOrderView.IndexOf(Dialog.NumberBlankOrder_TB.Text.Trim()) != -1).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.BlankOrderView.IndexOf(Dialog.NumberBlankOrder_TB.Text.Trim()) != -1).ToList();
                     }
 
                     if (Dialog.User_CB.SelectedIndex > 0)
                     {
-                        Result = Result.Where(p => p.User == (Models.User)Dialog.User_CB.SelectedItem).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.User == (Models.User)Dialog.User_CB.SelectedItem).ToList();
                     }
 
-                    ViewSearch(Result);
+                    UsedSearch = true;
+
+                    Display(SystemArgs.Orders);
                 }
             }
             catch (Exception E)
@@ -842,27 +848,7 @@ namespace SZMK.Desktop.Views.KB
 
             Dialog.Close();
         }
-        private void ViewSearch(List<Order> Orders)
-        {
-            try
-            {
-                Order_DGV.Invoke((MethodInvoker)delegate ()
-                {
-                    View.DataSource = null;
-                    View.DataSource = Orders;
 
-                    Order_DGV.DataSource = View;
-
-                    VisibleButton(true);
-
-                    CountOrder_TB.Text = View.Count.ToString();
-                });
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         private void LockedButtonForLoadData(bool flag)
         {
             AddOrder_TSB.Enabled = flag;
@@ -930,7 +916,7 @@ namespace SZMK.Desktop.Views.KB
         {
             try
             {
-                RefreshOrderAsync(FilterCB_TSB.SelectedIndex);
+                ResetSearch();
             }
             catch (Exception E)
             {
@@ -1586,7 +1572,7 @@ namespace SZMK.Desktop.Views.KB
 
                             Status TempStatus = SystemArgs.Statuses.FindAll(p => p.ID == SystemArgs.User.StatusesUser.First().ID - 1).First();
 
-                            Session[i].Order.ID = SystemArgs.Request.GetLastIDOrder()+1;
+                            Session[i].Order.ID = SystemArgs.Request.GetLastIDOrder() + 1;
                             Session[i].Order.Status = TempStatus;
                             Session[i].Order.TypeAdd = SystemArgs.TypesAdds.FindAll(p => p.Discriprion == "XML").FirstOrDefault();
 

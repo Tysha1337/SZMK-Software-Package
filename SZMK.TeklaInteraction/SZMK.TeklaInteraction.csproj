@@ -83,7 +83,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Interfaces\IChecked21_1.cs" />
     <Compile Include="Services\Interfaces\IOperations.cs" />
+    <Compile Include="Services\Interfaces\ISleep.cs" />
     <Compile Include="Services\Operations.cs" />
+    <Compile Include="Services\Sleep.cs" />
     <Compile Include="Views\ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>

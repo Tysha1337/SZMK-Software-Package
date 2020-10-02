@@ -469,7 +469,7 @@ namespace SZMK.Desktop.Models
 
         public int CountMarks { get; set; }
 
-        public String SearchString() => $"{ExecutorWork}_{_Status.Name}_{_BlankOrder}_{_DateCreate}_{_User.Name}_{_User.MiddleName}_{_User.Surname}_{SystemArgs.StatusOfOrders.Where(p => p.IDOrder == _ID && p.IDStatus == _Status.ID).Select(p => p.DateCreate)}";
+        public String SearchString() => $"{ToString()}_{ExecutorWork}_{_Status.Name}_{_BlankOrder}_{_DateCreate}_{_User.Name}_{_User.MiddleName}_{_User.Surname}_{SystemArgs.StatusOfOrders.Where(p => p.IDOrder == _ID && p.IDStatus == _Status.ID).Select(p => p.DateCreate)}";
 
         public override string ToString()
         {

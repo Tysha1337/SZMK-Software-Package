@@ -198,7 +198,7 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                 modelObject.GetReportProperty("ASSEMBLY.AREA", ref _paintingArea);
                 _subTotalWeight = CountDetail * _weight;
 
-                return new Shared.Models.Detail { Position = _position, Profile = _profile, Width = Convert.ToDouble(_width.ToString("F2")), Lenght = Convert.ToDouble(_lenght.ToString("F2")), Weight = Convert.ToDouble(_weight.ToString("F2")), SubtotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), MarkSteel = _markSteel, Discription = _discription, GMlenght = Convert.ToDouble(_gmlenght.ToString("F2")), GMwidth = Convert.ToDouble(_gmwidth.ToString("F2")), GMheight = Convert.ToDouble(_gmheight.ToString("F2")), Machining = _machining, MethodOfpPaintingRAL = _methodOfPaintingRAL, PaintingArea = Convert.ToDouble((_paintingArea / 1000000).ToString("F2")), Count = CountDetail };
+                return new Shared.Models.Detail { Position = _position, Profile = _profile, Width = Convert.ToDouble(_width.ToString("F2")), Lenght = Convert.ToDouble(_lenght.ToString("F2")), Weight = Convert.ToDouble(_weight.ToString("F2")), SubtotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), MarkSteel = _markSteel.Replace(" ",""), Discription = _discription, GMlenght = Convert.ToDouble(_gmlenght.ToString("F2")), GMwidth = Convert.ToDouble(_gmwidth.ToString("F2")), GMheight = Convert.ToDouble(_gmheight.ToString("F2")), Machining = _machining, MethodOfpPaintingRAL = _methodOfPaintingRAL, PaintingArea = Convert.ToDouble((_paintingArea / 1000000).ToString("F2")), Count = CountDetail };
             }
             catch (Exception E)
             {
@@ -443,19 +443,21 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                     case 7:
                         modelObject.GetReportProperty("PROFILE.DIAMETER", ref IntAnswer);
                         modelObject.GetReportProperty("PROFILE.PLATE_THICKNESS", ref DoubleAnswer);
-                        StringAnswer = "Труба " + DoubleAnswer.ToString("F2") + "x" + DoubleAnswer.ToString("F2");
+                        StringAnswer = "Труба " + IntAnswer + "x" + DoubleAnswer.ToString("F2");
                         return StringAnswer;
                     case 8:
                         modelObject.GetReportProperty("PROFILE.HEIGHT", ref DoubleAnswer);
+                        StringAnswer = "Тр.кв." + DoubleAnswer.ToString("F2");
                         modelObject.GetReportProperty("PROFILE.PLATE_THICKNESS", ref DoubleAnswer);
-                        StringAnswer = "Тр.кв." + DoubleAnswer.ToString("F2") + "x" + DoubleAnswer.ToString("F2");
+                        StringAnswer +="x" + DoubleAnswer.ToString("F2");
                         return StringAnswer;
                     case 9:
                         modelObject.GetReportProperty("PROFILE.HEIGHT", ref DoubleAnswer);
                         StringAnswer = "Тр.пр." + DoubleAnswer.ToString("F2") + "x";
                         modelObject.GetReportProperty("PROFILE.HEIGHT", ref DoubleAnswer);
+                        StringAnswer += DoubleAnswer.ToString("F2");
                         modelObject.GetReportProperty("PROFILE.PLATE_THICKNESS", ref DoubleAnswer);
-                        StringAnswer += DoubleAnswer.ToString("F2") + "x" + DoubleAnswer.ToString("F2");
+                        StringAnswer += "x" + DoubleAnswer.ToString("F2");
                         return StringAnswer;
                     case 10:
                         StringAnswer = Profile.Replace("*", "x");

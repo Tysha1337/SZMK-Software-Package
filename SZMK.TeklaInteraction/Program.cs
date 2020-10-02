@@ -21,6 +21,7 @@ namespace SZMK.TeklaInteraction
             Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo("ru-RU");
             var controller = new ApplicationController(new LightInjectAdapder())
                         .RegisterView<Views.Interfaces.IMain, Views.Main>()
+                        .RegisterService<Services.Interfaces.ISleep, Services.Sleep>()
                         .RegisterService<Shared.Services.Interfaces.IMailLogger, Shared.Services.MailLogger>()
                         .RegisterService<Shared.Services.Interfaces.ILogin, Shared.Services.Login>()
                         .RegisterService<Services.Interfaces.IChecked2018, Services.Checked2018>()

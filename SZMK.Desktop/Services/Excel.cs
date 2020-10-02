@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.IO;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-using System.Drawing;
 using System.Diagnostics;
-using OfficeOpenXml.Table.PivotTable;
 using SZMK.Desktop.BindingModels;
 using SZMK.Desktop.Models;
 
@@ -672,17 +668,20 @@ namespace SZMK.Desktop.Services
                         details.AddRange(SystemArgs.Request.GetDetails(Report[i].ID));
                     }
 
-                    var GroupByOrder = details.GroupBy(p => p.MarkSteel).Select(p => new { Mark = p.Key, Profile = p.GroupBy(l => l.Profile) });
-                    foreach (var key in GroupByOrder)
+                    var GroupByOrder = details.GroupBy(p => p.MarkSteel.Replace(" ","")).Select(p => new { Mark = p.Key, Profile = p.GroupBy(l => l.Profile.Replace(" ","")).OrderBy(k=>k.Key).ToList() }).OrderBy(p=>p.Mark).ToList();
+                    for (int i=0;i<GroupByOrder.Count;i++)
                     {
-                        foreach (var item in key.Profile)
+                        for (int j = 0; j < GroupByOrder[i].Profile.Count; j++)
                         {
                             rowCntReport = WS.Dimension.End.Row;
-                            WS.Cells[rowCntReport + 1, 2].Value = key.Mark;
-                            WS.Cells[rowCntReport + 1, 3].Value = item.Key;
-                            WS.Cells[rowCntReport + 1, 4].Value = item.Sum(p => p.SubtotalWeight);
+                            WS.Cells[rowCntReport + 1, 2].Value = GroupByOrder[i].Mark;
+                            WS.Cells[rowCntReport + 1, 3].Value = GroupByOrder[i].Profile[j].Key;
+                            WS.Cells[rowCntReport + 1, 4].Value = GroupByOrder[i].Profile[j].Sum(p => p.SubtotalWeight);
                         }
                     }
+
+
+
                     int last = WS.Dimension.End.Row;
 
                     WS.Cells[last + 1, 3].Value = "Итого";

@@ -249,7 +249,7 @@ namespace SZMK.Desktop.Services
                 throw new Exception(Ex.Message, Ex);
             }
         }
-        public void GetOrdersForSearch(INotifyProcess notifier)
+        public void GetOrdersForSearch(INotifyProcess notifier, bool Finished)
         {
             try
             {
@@ -267,6 +267,11 @@ namespace SZMK.Desktop.Services
 
                     notifier.Notify(45, "Отбор полученных данных");
                     List<Order> Temp = new List<Order>();
+
+                    if (!Finished)
+                    {
+                        SystemArgs.Orders = SystemArgs.Orders.FindAll(p=>!p.Finished);
+                    }
 
                     notifier.Notify(75, "Сопоставление данных");
                     for (int i = 0; i < SystemArgs.Orders.Count(); i++)

@@ -128,6 +128,7 @@
     <Compile Include="Services\Setting\Position.cs" />
     <Compile Include="Services\Setting\Program.cs" />
     <Compile Include="Services\Setting\User.cs" />
+    <Compile Include="Services\Sleep.cs" />
     <Compile Include="Views\Admin\PositionSettings\Settings_KB.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -216,6 +216,9 @@ namespace SZMK.Desktop.Views.Autorization
         {
             try
             {
+                SystemArgs.Sleep = new Sleep();
+                SystemArgs.Sleep.Start();
+
                 SystemArgs.Path = new Services.Setting.Path(); //Системные пути
                 SystemArgs.SettingsProgram = new Services.Setting.Program();
 

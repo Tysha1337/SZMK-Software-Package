@@ -283,6 +283,7 @@
             this.SettingColumn_TSM.Name = "SettingColumn_TSM";
             this.SettingColumn_TSM.Size = new System.Drawing.Size(212, 22);
             this.SettingColumn_TSM.Text = "Выбор столбцов";
+            this.SettingColumn_TSM.Click += new System.EventHandler(this.SelectedColumn_TSM_Click);
             // 
             // SettingScanner_TSM
             // 
@@ -303,6 +304,7 @@
             this.SettingMobileApplication_TSM.Name = "SettingMobileApplication_TSM";
             this.SettingMobileApplication_TSM.Size = new System.Drawing.Size(212, 22);
             this.SettingMobileApplication_TSM.Text = "Мобильное приложение";
+            this.SettingMobileApplication_TSM.Click += new System.EventHandler(this.SettingMobile_TSM_Click);
             // 
             // помощьToolStripMenuItem
             // 
