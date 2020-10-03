@@ -1228,6 +1228,34 @@ namespace SZMK.Desktop.Services
                 return -1;
             }
         }
+        public Double GetWeightOrder(Int64 ID)
+        {
+            try
+            {
+                using (var Connect = new NpgsqlConnection(_ConnectString))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"SELECT \"Weight\" FROM public.\"Orders\" WHERE \"ID\" = '{ID}';", Connect))
+                    {
+                        using (var Reader = Command.ExecuteReader())
+                        {
+                            while (Reader.Read())
+                            {
+                                return Convert.ToDouble(Reader.GetString(0));
+                            }
+                        }
+                    }
+
+                    Connect.Close();
+                }
+                return -1;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
 
         public bool FinishedOrder(bool Finished, long ID)
         {

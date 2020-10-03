@@ -245,43 +245,6 @@ namespace SZMK.Desktop.Views.KB
                                     MessageBox.Show("Ошибка при добавлении в базу данных статуса для: Номер-" + ScanSession[i].Order.Number + "Лист-" + ScanSession[i].Order.List, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
                             }
-                            else if (ScanSession[i].Unique == 1)
-                            {
-                                String[] ListCancelled = ScanSession[i].Order.List.Split('и');
-
-                                if (ListCancelled.Length != 1)
-                                {
-                                    List<long> CanceledID = SystemArgs.Request.GetIDOrdersForCancelled(ListCancelled[0], ScanSession[i].Order.Number);
-
-                                    if (CanceledID.Count() >= 1)
-                                    {
-                                        for (Int32 j = 0; j < CanceledID.Count; j++)
-                                        {
-                                            SystemArgs.Request.CanceledOrder(true, CanceledID[j]);
-                                        }
-                                    }
-                                }
-
-                                Status TempStatus = user.StatusesUser.First();
-
-                                TypeAdd TempTypeAdd = SystemArgs.TypesAdds.FindAll(p => p.Discriprion == "КБ").FirstOrDefault();
-
-                                ScanSession[i].Order.ID = SystemArgs.Request.GetLastIDOrder() + 1;
-                                ScanSession[i].Order.Weight = 0;
-                                ScanSession[i].Order.Status = TempStatus;
-                                ScanSession[i].Order.TypeAdd = TempTypeAdd;
-                                ScanSession[i].Order.User = user;
-
-                                if (SystemArgs.Request.InsertOrder(ScanSession[i].Order))
-                                {
-                                    SystemArgs.Request.InsertStatus(ScanSession[i].Order.Number, ScanSession[i].Order.List, ScanSession[i].Order.Status.ID, ScanSession[i].Order.User);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Ошибка при добавлении в базу данных DataMatrix: Номер-" + ScanSession[i].Order.Number + "Лист-" + ScanSession[i].Order.List, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-
-                            }
                         }
                         catch (Exception E)
                         {
@@ -290,7 +253,7 @@ namespace SZMK.Desktop.Views.KB
                         }
 
                     }
-                    List<OrderScanSession> Temp = ScanSession.Where(p => p.Unique == 0).ToList();
+                    List<OrderScanSession> Temp = ScanSession.Where(p => p.Unique == 0 || p.Unique == 1).ToList();
                     if (Temp.Count() > 0)
                     {
                         KB_NotAdded_F Report = new KB_NotAdded_F();
@@ -762,7 +725,6 @@ namespace SZMK.Desktop.Views.KB
                 ChangeOrder_TSM.Visible = true;
                 DeleteOrder_TSM.Visible = true;
                 CanceledOrder_TSB.Visible = true;
-                Checked_TSM.Visible = true;
                 SelectionReport_TSM.Enabled = true;
 
             }
@@ -773,7 +735,6 @@ namespace SZMK.Desktop.Views.KB
                 ChangeOrder_TSM.Visible = false;
                 DeleteOrder_TSM.Visible = false;
                 CanceledOrder_TSB.Visible = false;
-                Checked_TSM.Visible = false;
                 SelectionReport_TSM.Enabled = false;
             }
         }
@@ -990,42 +951,6 @@ namespace SZMK.Desktop.Views.KB
             {
                 MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void CheckedUnloading_TSM_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    List<Order> Selection = new List<Order>();
-            //    if (Order_DGV.CurrentCell.RowIndex >= 0)
-            //    {
-            //        for (int i = 0; i < Order_DGV.SelectedRows.Count; i++)
-            //        {
-            //            Selection.Add((Order)(View[Order_DGV.SelectedRows[i].Index]));
-            //        }
-            //        if (SystemArgs.UnLoadSpecific.SearchFileUnloading(Selection.Select(p => p.DataMatrix).ToList()))
-            //        {
-            //            if (SystemArgs.UnLoadSpecific.ExecutorMails.Count != 0)
-            //            {
-            //                KB_ScanUnloadSpecific Dialog = new KB_ScanUnloadSpecific();
-            //                Dialog.ShowDialog();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("При проверки выгрузки не было найдено ни одного совпадения номера заказа с листом", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            }
-            //        }
-            //    }
-            //    else
-            //    {
-            //        throw new Exception("Необходимо выбрать объекты");
-            //    }
-            //}
-            //catch (Exception E)
-            //{
-            //    MessageBox.Show("Файл был указан не верно или не хватило прав доступа к файлу", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    SystemArgs.PrintLog(E.ToString());
-            //}
         }
 
         private void CanceledOrder_TSB_Click(object sender, EventArgs e)
@@ -1488,7 +1413,8 @@ namespace SZMK.Desktop.Views.KB
                     FolderBrowserDialog Fbd = new FolderBrowserDialog()
                     {
                         ShowNewFolderButton = false,
-                        Description = "Выберите папку с моделью"
+                        Description = "Выберите папку с моделью",
+                        SelectedPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(Opd.FileName))
                     };
 
                     if (Fbd.ShowDialog() == DialogResult.OK)
@@ -1652,6 +1578,72 @@ namespace SZMK.Desktop.Views.KB
                 Session.Clear();
                 throw new Exception(Ex.Message, Ex);
             }
+        }
+
+        private void CompleteStatusReport_TSM_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Order_DGV.CurrentCell != null && Order_DGV.CurrentCell.RowIndex >= 0)
+                {
+                    SaveFileDialog SaveReport = new SaveFileDialog();
+                    String date = DateTime.Now.ToString();
+                    date = date.Replace(".", "_");
+                    date = date.Replace(":", "_");
+                    SaveReport.FileName = "Отчет прохождения статусов от " + date;
+                    SaveReport.Filter = "Excel Files .xlsx|*.xlsx";
+
+                    if (SaveReport.ShowDialog() == DialogResult.OK)
+                    {
+
+                        ALL_FormingReportForAllPosition_F FormingF = new ALL_FormingReportForAllPosition_F();
+                        FormingF.Show();
+                        Task<Boolean> task = ReportCompleteStatuses(SaveReport.FileName);
+                        task.ContinueWith(t =>
+                        {
+                            if (t.Result)
+                            {
+                                FormingF.Invoke((MethodInvoker)delegate ()
+                                {
+                                    FormingF.Close();
+                                });
+                                if (MessageBox.Show("Отчет сформирован успешно." + Environment.NewLine + "Открыть его?", "Информация", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                                {
+                                    if (File.Exists(SaveReport.FileName))
+                                    {
+                                        Process.Start(SaveReport.FileName);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Отчет по пути не обнаружен." + Environment.NewLine + "Ошибка открытия отчета!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                FormingF.Invoke((MethodInvoker)delegate ()
+                                {
+                                    FormingF.Close();
+                                });
+                                MessageBox.Show("Ошибка фомирования отчета", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        });
+                    }
+                }
+                else
+                {
+                    throw new Exception("Необходимо выбрать чертежи");
+                }
+            }
+            catch (Exception E)
+            {
+                SystemArgs.PrintLog(E.ToString());
+                MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private async Task<Boolean> ReportCompleteStatuses(String filename)
+        {
+            return await Task.Run(() => SystemArgs.Excel.ReportCompleteStatuses(filename));
         }
     }
 }

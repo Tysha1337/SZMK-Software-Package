@@ -46,6 +46,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KB_F));
             this.добавлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.XML_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.AddOrder_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.ChangeOrder_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteOrder_TSM = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,8 +61,7 @@
             this.Time_Month_Report_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.Time_SelectionDate_Report_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.Steel_TSM = new System.Windows.Forms.ToolStripMenuItem();
-            this.Checked_TSM = new System.Windows.Forms.ToolStripMenuItem();
-            this.CheckedUnloading_TSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.CompleteStatusReport_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingConfig_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingColumn_TSM = new System.Windows.Forms.ToolStripMenuItem();
@@ -132,7 +132,6 @@
             this.StatusDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Finished = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.XML_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -152,24 +151,31 @@
             this.добавлениеToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.добавлениеToolStripMenuItem.Text = "Добавление";
             // 
+            // XML_TSM
+            // 
+            this.XML_TSM.Name = "XML_TSM";
+            this.XML_TSM.Size = new System.Drawing.Size(145, 22);
+            this.XML_TSM.Text = "XML";
+            this.XML_TSM.Click += new System.EventHandler(this.XML_TSM_Click);
+            // 
             // AddOrder_TSM
             // 
             this.AddOrder_TSM.Name = "AddOrder_TSM";
-            this.AddOrder_TSM.Size = new System.Drawing.Size(180, 22);
+            this.AddOrder_TSM.Size = new System.Drawing.Size(145, 22);
             this.AddOrder_TSM.Text = "Сканировать";
             this.AddOrder_TSM.Click += new System.EventHandler(this.AddOrder_TSM_Click);
             // 
             // ChangeOrder_TSM
             // 
             this.ChangeOrder_TSM.Name = "ChangeOrder_TSM";
-            this.ChangeOrder_TSM.Size = new System.Drawing.Size(180, 22);
+            this.ChangeOrder_TSM.Size = new System.Drawing.Size(145, 22);
             this.ChangeOrder_TSM.Text = "Изменить";
             this.ChangeOrder_TSM.Click += new System.EventHandler(this.ChangeOrder_TSM_Click);
             // 
             // DeleteOrder_TSM
             // 
             this.DeleteOrder_TSM.Name = "DeleteOrder_TSM";
-            this.DeleteOrder_TSM.Size = new System.Drawing.Size(180, 22);
+            this.DeleteOrder_TSM.Size = new System.Drawing.Size(145, 22);
             this.DeleteOrder_TSM.Text = "Удалить";
             this.DeleteOrder_TSM.Click += new System.EventHandler(this.DeleteOrder_TSM_Click);
             // 
@@ -179,7 +185,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавлениеToolStripMenuItem,
             this.Report_TSM,
-            this.Checked_TSM,
             this.настройкиToolStripMenuItem,
             this.помощьToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -193,7 +198,8 @@
             this.Report_TSM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.поЧертежамToolStripMenuItem,
             this.поВремениToolStripMenuItem,
-            this.Steel_TSM});
+            this.Steel_TSM,
+            this.CompleteStatusReport_TSM});
             this.Report_TSM.Name = "Report_TSM";
             this.Report_TSM.Size = new System.Drawing.Size(51, 20);
             this.Report_TSM.Text = "Отчет";
@@ -204,7 +210,7 @@
             this.SelectionReport_TSM,
             this.ReportDate_TSM});
             this.поЧертежамToolStripMenuItem.Name = "поЧертежамToolStripMenuItem";
-            this.поЧертежамToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.поЧертежамToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.поЧертежамToolStripMenuItem.Text = "По чертежам";
             // 
             // SelectionReport_TSM
@@ -229,7 +235,7 @@
             this.Time_Month_Report_TSM,
             this.Time_SelectionDate_Report_TSM});
             this.поВремениToolStripMenuItem.Name = "поВремениToolStripMenuItem";
-            this.поВремениToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.поВремениToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.поВремениToolStripMenuItem.Text = "По времени";
             // 
             // Time_Day_Report_TSM
@@ -263,24 +269,16 @@
             // Steel_TSM
             // 
             this.Steel_TSM.Name = "Steel_TSM";
-            this.Steel_TSM.Size = new System.Drawing.Size(190, 22);
+            this.Steel_TSM.Size = new System.Drawing.Size(201, 22);
             this.Steel_TSM.Text = "По выборке металла";
             this.Steel_TSM.Click += new System.EventHandler(this.Steel_TSM_Click);
             // 
-            // Checked_TSM
+            // CompleteStatusReport_TSM
             // 
-            this.Checked_TSM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CheckedUnloading_TSM});
-            this.Checked_TSM.Name = "Checked_TSM";
-            this.Checked_TSM.Size = new System.Drawing.Size(74, 20);
-            this.Checked_TSM.Text = "Проверки";
-            // 
-            // CheckedUnloading_TSM
-            // 
-            this.CheckedUnloading_TSM.Name = "CheckedUnloading_TSM";
-            this.CheckedUnloading_TSM.Size = new System.Drawing.Size(187, 22);
-            this.CheckedUnloading_TSM.Text = "Проверить выгрузку";
-            this.CheckedUnloading_TSM.Click += new System.EventHandler(this.CheckedUnloading_TSM_Click);
+            this.CompleteStatusReport_TSM.Name = "CompleteStatusReport_TSM";
+            this.CompleteStatusReport_TSM.Size = new System.Drawing.Size(201, 22);
+            this.CompleteStatusReport_TSM.Text = "Прохождение статусов";
+            this.CompleteStatusReport_TSM.Click += new System.EventHandler(this.CompleteStatusReport_TSM_Click);
             // 
             // настройкиToolStripMenuItem
             // 
@@ -1190,13 +1188,6 @@
             this.label1.Text = "Список чертежей";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // XML_TSM
-            // 
-            this.XML_TSM.Name = "XML_TSM";
-            this.XML_TSM.Size = new System.Drawing.Size(180, 22);
-            this.XML_TSM.Text = "XML";
-            this.XML_TSM.Click += new System.EventHandler(this.XML_TSM_Click);
-            // 
             // KB_F
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1246,8 +1237,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripComboBox FilterCB_TSB;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripMenuItem Checked_TSM;
-        private System.Windows.Forms.ToolStripMenuItem CheckedUnloading_TSM;
         private System.Windows.Forms.ToolStripButton CanceledOrder_TSB;
         private System.Windows.Forms.ToolStripMenuItem Report_TSM;
         private System.Windows.Forms.ToolStripMenuItem поЧертежамToolStripMenuItem;
@@ -1317,5 +1306,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Finished;
         private System.Windows.Forms.ToolStripMenuItem SettingScanner_TSM;
         private System.Windows.Forms.ToolStripMenuItem XML_TSM;
+        private System.Windows.Forms.ToolStripMenuItem CompleteStatusReport_TSM;
     }
 }

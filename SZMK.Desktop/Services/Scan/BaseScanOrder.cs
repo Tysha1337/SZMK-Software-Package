@@ -75,7 +75,7 @@ namespace SZMK.Desktop.Services.Scan
                         case 0:
                             if (SystemArgs.Request.CheckedNumberAndMark(Order.Number, ReplaceMark))
                             {
-                                Orders.Add(new OrderScanSession(Order, 1, "-"));
+                                Orders.Add(new OrderScanSession(Order, 1, "Добавление чертежа необходимо проводить через Инженера конструктора"));
                             }
                             else
                             {
@@ -86,7 +86,7 @@ namespace SZMK.Desktop.Services.Scan
                             Orders.Add(new OrderScanSession(Order, 0, $"В заказе {Order.Number}, номер листа {Order.List} уже существует."));
                             break;
                         case 2:
-                            Orders.Add(new OrderScanSession(Order, 1, "-"));
+                            Orders.Add(new OrderScanSession(Order, 1, "Добавление чертежа необходимо проводить через Инженера конструктора"));
                             break;
                         case 3:
                             Orders.Add(new OrderScanSession(Order, 2, "-"));

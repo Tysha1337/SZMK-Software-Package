@@ -194,10 +194,10 @@ namespace SZMK.Desktop.Views.KB
                 }
                 else if (ScanSessions[ScanSessions.Count - 1].Unique==1)
                 {
-                    Scan_DGV[1, Scan_DGV.Rows.Count - 1].Value = "Добавление";
-                    Scan_DGV[1, Scan_DGV.Rows.Count - 1].Style.BackColor = Color.BlueViolet;
+                    Scan_DGV[1, Scan_DGV.Rows.Count - 1].Value = "Не найден в базе данных";
+                    Scan_DGV[1, Scan_DGV.Rows.Count - 1].Style.BackColor = Color.Red;
                     Scan_DGV[2, Scan_DGV.Rows.Count - 1].Value = ScanSessions[ScanSessions.Count - 1].Discription;
-                    Scan_DGV[2, Scan_DGV.Rows.Count - 1].Style.BackColor = Color.BlueViolet;
+                    Scan_DGV[2, Scan_DGV.Rows.Count - 1].Style.BackColor = Color.Red;
                 }
                 else
                 {
