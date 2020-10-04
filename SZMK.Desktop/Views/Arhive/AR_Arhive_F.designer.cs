@@ -129,6 +129,7 @@
             this.StatusDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Finished = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.CompleteStatusReport_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -187,7 +188,8 @@
             this.Report_TSM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.поЧертежамToolStripMenuItem,
             this.поВремениToolStripMenuItem,
-            this.Steel_TSM});
+            this.Steel_TSM,
+            this.CompleteStatusReport_TSM});
             this.Report_TSM.Name = "Report_TSM";
             this.Report_TSM.Size = new System.Drawing.Size(51, 20);
             this.Report_TSM.Text = "Отчет";
@@ -198,7 +200,7 @@
             this.SelectionReport_TSM,
             this.ReportDate_TSM});
             this.поЧертежамToolStripMenuItem.Name = "поЧертежамToolStripMenuItem";
-            this.поЧертежамToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.поЧертежамToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.поЧертежамToolStripMenuItem.Text = "По чертежам";
             // 
             // SelectionReport_TSM
@@ -223,7 +225,7 @@
             this.Time_Month_Report_TSM,
             this.Time_SelectionDate_Report_TSM});
             this.поВремениToolStripMenuItem.Name = "поВремениToolStripMenuItem";
-            this.поВремениToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.поВремениToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.поВремениToolStripMenuItem.Text = "По времени";
             // 
             // Time_Day_Report_TSM
@@ -257,7 +259,7 @@
             // Steel_TSM
             // 
             this.Steel_TSM.Name = "Steel_TSM";
-            this.Steel_TSM.Size = new System.Drawing.Size(190, 22);
+            this.Steel_TSM.Size = new System.Drawing.Size(201, 22);
             this.Steel_TSM.Text = "По выборке металла";
             this.Steel_TSM.Click += new System.EventHandler(this.Steel_TSM_Click);
             // 
@@ -272,7 +274,7 @@
             // переименоватьToolStripMenuItem
             // 
             this.переименоватьToolStripMenuItem.Name = "переименоватьToolStripMenuItem";
-            this.переименоватьToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.переименоватьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.переименоватьToolStripMenuItem.Text = "Переименовать";
             this.переименоватьToolStripMenuItem.Click += new System.EventHandler(this.RenameOrder_TSM_Click);
             // 
@@ -1161,6 +1163,13 @@
             this.label1.Text = "Список чертежей";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // CompleteStatusReport_TSM
+            // 
+            this.CompleteStatusReport_TSM.Name = "CompleteStatusReport_TSM";
+            this.CompleteStatusReport_TSM.Size = new System.Drawing.Size(201, 22);
+            this.CompleteStatusReport_TSM.Text = "Прохождение статусов";
+            this.CompleteStatusReport_TSM.Click += new System.EventHandler(this.CompleteStatusReport_TSM_Click);
+            // 
             // AR_Arhive_F
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1277,5 +1286,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cancelled;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Finished;
+        private System.Windows.Forms.ToolStripMenuItem CompleteStatusReport_TSM;
     }
 }

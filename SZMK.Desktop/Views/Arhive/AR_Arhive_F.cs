@@ -141,7 +141,7 @@ namespace SZMK.Desktop.Views.Arhive
 
         private void AdvancedSearch_TSB_Click(object sender, EventArgs e)
         {
-            SearchParamAsync(); 
+            SearchParamAsync();
         }
 
         private Boolean AddOrder()
@@ -297,7 +297,7 @@ namespace SZMK.Desktop.Views.Arhive
                     if (Dialog.ShowDialog() == DialogResult.OK)
                     {
                         List<DateTime> StatusDate = SystemArgs.StatusOfOrders.Where(p => p.IDOrder == Temp.ID && p.IDStatus == SystemArgs.Statuses.Where(j => j == (Status)Dialog.Status_CB.SelectedItem).Single().ID).Select(p => p.DateCreate).ToList();
-                        Order NewOrder = new Order(Temp.ID, Temp.DateCreate, Dialog.Number_TB.Text, Dialog.Executor_TB.Text, Temp.ExecutorWork, Dialog.List_TB.Text, Dialog.Mark_TB.Text, Convert.ToDouble(Dialog.Lenght_TB.Text), Convert.ToDouble(Dialog.Weight_TB.Text), SystemArgs.Statuses.Where(p => p == (Status)Dialog.Status_CB.SelectedItem).Single(), StatusDate[0],Temp.TypeAdd,Temp.Model, Temp.User, Temp.BlankOrder, Temp.Canceled, Temp.Finished);
+                        Order NewOrder = new Order(Temp.ID, Temp.DateCreate, Dialog.Number_TB.Text, Dialog.Executor_TB.Text, Temp.ExecutorWork, Dialog.List_TB.Text, Dialog.Mark_TB.Text, Convert.ToDouble(Dialog.Lenght_TB.Text), Convert.ToDouble(Dialog.Weight_TB.Text), SystemArgs.Statuses.Where(p => p == (Status)Dialog.Status_CB.SelectedItem).Single(), StatusDate[0], Temp.TypeAdd, Temp.Model, Temp.User, Temp.BlankOrder, Temp.Canceled, Temp.Finished);
                         if (SystemArgs.Request.UpdateOrder(NewOrder))
                         {
                             if (Dialog.Status_CB.SelectedIndex != 0)
@@ -631,7 +631,7 @@ namespace SZMK.Desktop.Views.Arhive
                             List<Order> Order = SystemArgs.Orders.Where(p => p.ID == item.IDOrder).ToList();
                             if (Order.Count > 0)
                             {
-                                Temp.Add(new Order(Order[0].ID, Order[0].DateCreate, Order[0].Number, Order[0].Executor, Order[0].ExecutorWork, Order[0].List, Order[0].Mark, Order[0].Lenght, Order[0].Weight, Order[0].Status, Order[0].StatusDate,Order[0].TypeAdd, Order[0].Model, Order[0].User, Order[0].BlankOrder, Order[0].Canceled, Order[0].Finished));
+                                Temp.Add(new Order(Order[0].ID, Order[0].DateCreate, Order[0].Number, Order[0].Executor, Order[0].ExecutorWork, Order[0].List, Order[0].Mark, Order[0].Lenght, Order[0].Weight, Order[0].Status, Order[0].StatusDate, Order[0].TypeAdd, Order[0].Model, Order[0].User, Order[0].BlankOrder, Order[0].Canceled, Order[0].Finished));
                             }
                         }
                         SystemArgs.Orders = Temp;
@@ -1382,6 +1382,65 @@ namespace SZMK.Desktop.Views.Arhive
         private async Task<Boolean> ReportSteelAsync(List<Order> Report, String filename)
         {
             return await Task.Run(() => SystemArgs.Excel.ReportSteelOfDate(Report, filename));
+        }
+
+        private void CompleteStatusReport_TSM_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog SaveReport = new SaveFileDialog();
+                String date = DateTime.Now.ToString();
+                date = date.Replace(".", "_");
+                date = date.Replace(":", "_");
+                SaveReport.FileName = "Отчет прохождения статусов от " + date;
+                SaveReport.Filter = "Excel Files .xlsx|*.xlsx";
+
+                if (SaveReport.ShowDialog() == DialogResult.OK)
+                {
+
+                    ALL_FormingReportForAllPosition_F FormingF = new ALL_FormingReportForAllPosition_F();
+                    FormingF.Show();
+                    Task<Boolean> task = ReportCompleteStatuses(SaveReport.FileName);
+                    task.ContinueWith(t =>
+                    {
+                        if (t.Result)
+                        {
+                            FormingF.Invoke((MethodInvoker)delegate ()
+                            {
+                                FormingF.Close();
+                            });
+                            if (MessageBox.Show("Отчет сформирован успешно." + Environment.NewLine + "Открыть его?", "Информация", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
+                                if (File.Exists(SaveReport.FileName))
+                                {
+                                    Process.Start(SaveReport.FileName);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Отчет по пути не обнаружен." + Environment.NewLine + "Ошибка открытия отчета!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            FormingF.Invoke((MethodInvoker)delegate ()
+                            {
+                                FormingF.Close();
+                            });
+                            MessageBox.Show("Ошибка фомирования отчета", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    });
+                }
+            }
+            catch (Exception E)
+            {
+                SystemArgs.PrintLog(E.ToString());
+                MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private async Task<Boolean> ReportCompleteStatuses(String filename)
+        {
+            return await Task.Run(() => SystemArgs.Excel.ReportCompleteStatuses(filename));
         }
     }
 }

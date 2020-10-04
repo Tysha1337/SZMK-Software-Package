@@ -1584,55 +1584,48 @@ namespace SZMK.Desktop.Views.KB
         {
             try
             {
-                if (Order_DGV.CurrentCell != null && Order_DGV.CurrentCell.RowIndex >= 0)
+                SaveFileDialog SaveReport = new SaveFileDialog();
+                String date = DateTime.Now.ToString();
+                date = date.Replace(".", "_");
+                date = date.Replace(":", "_");
+                SaveReport.FileName = "Отчет прохождения статусов от " + date;
+                SaveReport.Filter = "Excel Files .xlsx|*.xlsx";
+
+                if (SaveReport.ShowDialog() == DialogResult.OK)
                 {
-                    SaveFileDialog SaveReport = new SaveFileDialog();
-                    String date = DateTime.Now.ToString();
-                    date = date.Replace(".", "_");
-                    date = date.Replace(":", "_");
-                    SaveReport.FileName = "Отчет прохождения статусов от " + date;
-                    SaveReport.Filter = "Excel Files .xlsx|*.xlsx";
 
-                    if (SaveReport.ShowDialog() == DialogResult.OK)
+                    ALL_FormingReportForAllPosition_F FormingF = new ALL_FormingReportForAllPosition_F();
+                    FormingF.Show();
+                    Task<Boolean> task = ReportCompleteStatuses(SaveReport.FileName);
+                    task.ContinueWith(t =>
                     {
-
-                        ALL_FormingReportForAllPosition_F FormingF = new ALL_FormingReportForAllPosition_F();
-                        FormingF.Show();
-                        Task<Boolean> task = ReportCompleteStatuses(SaveReport.FileName);
-                        task.ContinueWith(t =>
+                        if (t.Result)
                         {
-                            if (t.Result)
+                            FormingF.Invoke((MethodInvoker)delegate ()
                             {
-                                FormingF.Invoke((MethodInvoker)delegate ()
+                                FormingF.Close();
+                            });
+                            if (MessageBox.Show("Отчет сформирован успешно." + Environment.NewLine + "Открыть его?", "Информация", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
+                                if (File.Exists(SaveReport.FileName))
                                 {
-                                    FormingF.Close();
-                                });
-                                if (MessageBox.Show("Отчет сформирован успешно." + Environment.NewLine + "Открыть его?", "Информация", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                                    Process.Start(SaveReport.FileName);
+                                }
+                                else
                                 {
-                                    if (File.Exists(SaveReport.FileName))
-                                    {
-                                        Process.Start(SaveReport.FileName);
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Отчет по пути не обнаружен." + Environment.NewLine + "Ошибка открытия отчета!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    }
+                                    MessageBox.Show("Отчет по пути не обнаружен." + Environment.NewLine + "Ошибка открытия отчета!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
-                            else
+                        }
+                        else
+                        {
+                            FormingF.Invoke((MethodInvoker)delegate ()
                             {
-                                FormingF.Invoke((MethodInvoker)delegate ()
-                                {
-                                    FormingF.Close();
-                                });
-                                MessageBox.Show("Ошибка фомирования отчета", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        });
-                    }
-                }
-                else
-                {
-                    throw new Exception("Необходимо выбрать чертежи");
+                                FormingF.Close();
+                            });
+                            MessageBox.Show("Ошибка фомирования отчета", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    });
                 }
             }
             catch (Exception E)

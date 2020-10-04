@@ -1228,32 +1228,42 @@ namespace SZMK.Desktop.Services
                 return -1;
             }
         }
-        public Double GetWeightOrder(Int64 ID)
+
+        public struct IDandWeight
         {
+            public Int64 ID { get; set; }
+            public double Weight { get; set; }
+        }
+
+        public List<IDandWeight> GetWeightOrders()
+        {
+
             try
             {
+                List<IDandWeight> weights = new List<IDandWeight>();
+
                 using (var Connect = new NpgsqlConnection(_ConnectString))
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"SELECT \"Weight\" FROM public.\"Orders\" WHERE \"ID\" = '{ID}';", Connect))
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\",\"Weight\" FROM public.\"Orders\";", Connect))
                     {
                         using (var Reader = Command.ExecuteReader())
                         {
                             while (Reader.Read())
                             {
-                                return Convert.ToDouble(Reader.GetString(0));
+                                weights.Add(new IDandWeight { ID = Reader.GetInt64(0), Weight = Convert.ToDouble(Reader.GetString(1)) });
                             }
                         }
                     }
 
                     Connect.Close();
                 }
-                return -1;
+                return weights;
             }
             catch
             {
-                return -1;
+                return null;
             }
         }
 

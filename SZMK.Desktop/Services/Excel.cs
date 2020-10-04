@@ -724,9 +724,13 @@ namespace SZMK.Desktop.Services
                 {
                     var GroupingStatuses = SystemArgs.StatusOfOrders.GroupBy(p => p.IDOrder).Select(p => new { ID = p.Key, Statuses = p.OrderBy(o => o.DateCreate).ToList() }).ToList();
 
+                    var Weights = SystemArgs.Request.GetWeightOrders();
+
                     foreach (var key in GroupingStatuses)
                     {
-                        DistributionStatus(WS, key.Statuses, key.ID);
+                        double weight = Weights.FindAll(p => p.ID == key.ID).First().Weight / 1000;
+
+                        DistributionStatus(weight, WS, key.Statuses, key.ID);
                     }
 
                     int last = WS.Dimension.End.Row;
@@ -748,11 +752,9 @@ namespace SZMK.Desktop.Services
             }
             return true;
         }
-        private void DistributionStatus(ExcelWorksheet WS, List<StatusOfOrder> statuses, Int64 ID)
+        private void DistributionStatus(double weight, ExcelWorksheet WS, List<StatusOfOrder> statuses, Int64 ID)
         {
-            double weight = SystemArgs.Request.GetWeightOrder(ID) / 1000;
-
-            for(int i = 0; i < statuses.Count; i++)
+            for (int i = 0; i < statuses.Count; i++)
             {
                 if (statuses[i].IDStatus != 1)
                 {

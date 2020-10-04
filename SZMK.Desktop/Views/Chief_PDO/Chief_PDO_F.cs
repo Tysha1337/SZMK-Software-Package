@@ -1169,5 +1169,64 @@ namespace SZMK.Desktop.Views.Chief_PDO
         {
             return await Task.Run(() => SystemArgs.Excel.ReportSteelOfDate(Report, filename));
         }
+
+        private void CompleteStatusReport_TSM_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog SaveReport = new SaveFileDialog();
+                String date = DateTime.Now.ToString();
+                date = date.Replace(".", "_");
+                date = date.Replace(":", "_");
+                SaveReport.FileName = "Отчет прохождения статусов от " + date;
+                SaveReport.Filter = "Excel Files .xlsx|*.xlsx";
+
+                if (SaveReport.ShowDialog() == DialogResult.OK)
+                {
+
+                    ALL_FormingReportForAllPosition_F FormingF = new ALL_FormingReportForAllPosition_F();
+                    FormingF.Show();
+                    Task<Boolean> task = ReportCompleteStatuses(SaveReport.FileName);
+                    task.ContinueWith(t =>
+                    {
+                        if (t.Result)
+                        {
+                            FormingF.Invoke((MethodInvoker)delegate ()
+                            {
+                                FormingF.Close();
+                            });
+                            if (MessageBox.Show("Отчет сформирован успешно." + Environment.NewLine + "Открыть его?", "Информация", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                            {
+                                if (File.Exists(SaveReport.FileName))
+                                {
+                                    Process.Start(SaveReport.FileName);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Отчет по пути не обнаружен." + Environment.NewLine + "Ошибка открытия отчета!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            FormingF.Invoke((MethodInvoker)delegate ()
+                            {
+                                FormingF.Close();
+                            });
+                            MessageBox.Show("Ошибка фомирования отчета", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    });
+                }
+            }
+            catch (Exception E)
+            {
+                SystemArgs.PrintLog(E.ToString());
+                MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private async Task<Boolean> ReportCompleteStatuses(String filename)
+        {
+            return await Task.Run(() => SystemArgs.Excel.ReportCompleteStatuses(filename));
+        }
     }
 }
