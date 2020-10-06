@@ -99,7 +99,7 @@ namespace SZMK.Desktop.Services.Setting
             _TemplateReportOrderOfDatePath = $@"Program\Templates\ReportOrderOfDateTemplate.xlsx";//Путь до шаблона отчета по дате
             _TemplateReportPastTimeofDate = $@"Program\Templates\ReportPastTimeofDateTemplate.xlsx";//Путь до шаблона отчета по времени
             _TemplateReportSteelPath = $@"Program\Templates\ReportSteelTemplate.xlsx";//Путь до шаблона отчета выборки металла
-            _TemplateReportCompleteStatusesPath = $@"Program\Templates\ReportCompleteStatusesTemplate.xlsx";//Путь до шаблона отчета прохождения статусов
+            _TemplateReportCompleteStatusesPath = $@"Program\Templates\ReportCompleteStatusesTemplate.tmpl";//Путь до шаблона отчета прохождения статусов
 
             #endregion
 
