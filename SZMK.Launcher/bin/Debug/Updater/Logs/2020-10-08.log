@@ -1,0 +1,17 @@
+[2020-10-08 15:03:09.5381] [INFO] Проверка подключения к серверу обновления и выполняемых процессов
+[2020-10-08 15:03:09.5820] [INFO] Проверка процессов прошла успешно
+[2020-10-08 15:03:09.5900] [INFO] Подключение к серверу обновления успешно
+[2020-10-08 15:03:09.5900] [INFO] Начато удаление старых лог файлов
+[2020-10-08 15:03:09.6029] [INFO] Удаление старых лог файлов успешно
+[2020-10-08 15:03:09.6029] [INFO] Начато удаление старого обновления
+[2020-10-08 15:03:09.6179] [INFO] Удаление старого обновление успешно
+[2020-10-08 15:03:09.6179] [INFO] Начало скачивания файлов обновления
+[2020-10-08 15:03:09.6319] [INFO] Отправка необходимых флагов и наименования приложения
+[2020-10-08 15:03:09.6468] [INFO] Получение файла информации обновления
+[2020-10-08 15:03:09.6857] [ERROR] System.Exception: Чтение после конца потока невозможно. ---> System.IO.EndOfStreamException: Чтение после конца потока невозможно.
+   в System.IO.BinaryReader.FillBuffer(Int32 numBytes)
+   в System.IO.BinaryReader.ReadInt64()
+   в SZMK.LauncherUpdater.Program.DownloadFiles() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 148
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.LauncherUpdater.Program.DownloadFiles() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 202
+   в SZMK.LauncherUpdater.Program.Main(String[] args) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 40

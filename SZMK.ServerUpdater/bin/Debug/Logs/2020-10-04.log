@@ -1,8 +1,131 @@
-[2020-10-04 22:59:50.4314] [INFO] Инициализация основной формы пройдена успешно
-[2020-10-04 22:59:50.4802] [INFO] Сборка пройдена успешно
-[2020-10-04 22:59:50.5054] [INFO] Запуск сервера успешно выполнен
-[2020-10-04 22:59:50.5283] [INFO] Успешный показ продуктов
-[2020-10-04 23:17:03.0247] [INFO] Инициализация основной формы пройдена успешно
-[2020-10-04 23:17:03.0815] [INFO] Сборка пройдена успешно
-[2020-10-04 23:17:03.1404] [INFO] Запуск сервера успешно выполнен
-[2020-10-04 23:17:03.1593] [INFO] Успешный показ продуктов
+[2020-10-04 21:32:48.0295] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 21:33:04.1438] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:33:09.5897] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:33:14.7007] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:33:20.3136] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:40:01.7557] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 21:40:10.9423] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:40:22.5823] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:40:27.5380] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:40:31.1039] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:40:35.0057] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:40:40.0336] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:40:43.9823] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:40:48.0424] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:40:52.0731] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:40:56.3432] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 21:41:02.7629] [INFO] Добавление было успешно произведено
+[2020-10-04 21:59:58.8904] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 22:00:10.1944] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 22:00:15.5476] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 22:00:37.5628] [INFO] Добавление было успешно произведено
+[2020-10-04 22:39:02.9272] [INFO] Удаление прошло успешно
+[2020-10-04 22:39:16.1048] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 22:39:17.2397] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 22:39:23.3030] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 22:39:45.2249] [INFO] Добавление было успешно произведено
+[2020-10-04 23:06:00.4721] [INFO] Выполнена остановка сервера и закрытие программы
+[2020-10-04 23:06:00.4721] [ERROR] System.Net.Sockets.SocketException (0x80004005): Операция блокирования прервана вызовом WSACancelBlockingCall
+   в System.Net.Sockets.Socket.Accept()
+   в System.Net.Sockets.TcpListener.AcceptTcpClient()
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 93
+[2020-10-04 23:06:10.0418] [INFO] Инициализация основной формы пройдена успешно
+[2020-10-04 23:06:10.1415] [INFO] Сборка пройдена успешно
+[2020-10-04 23:06:10.1717] [INFO] Запуск сервера успешно выполнен
+[2020-10-04 23:06:10.2069] [INFO] Успешный показ продуктов
+[2020-10-04 23:06:35.0354] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 23:07:19.9205] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 23:07:27.0542] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:07:34.2587] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:07:44.2499] [ERROR] System.Exception: Невозможно создать файл, так как он уже существует.
+ ---> System.Exception: Невозможно создать файл, так как он уже существует.
+ ---> System.IO.IOException: Невозможно создать файл, так как он уже существует.
+
+   в System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   в System.IO.Directory.InternalMove(String sourceDirName, String destDirName, Boolean checkHost)
+   в System.IO.Directory.Move(String sourceDirName, String destDirName)
+   в SZMK.ServerUpdater.Services.OperationsVersions.MoveUpdate(String Product, String Version) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\OperationsVersions.cs:строка 65
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.OperationsVersions.MoveUpdate(String Product, String Version) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\OperationsVersions.cs:строка 69
+   в SZMK.ServerUpdater.Services.OperationsVersions.Add(String Product, String Version, String DateRelease, List`1 Added, List`1 Deleted) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\OperationsVersions.cs:строка 21
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.OperationsVersions.Add(String Product, String Version, String DateRelease, List`1 Added, List`1 Deleted) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\OperationsVersions.cs:строка 34
+   в SZMK.ServerUpdater.Views.Main.Add_B_Click(Object sender, EventArgs e) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Views\Main.cs:строка 48
+[2020-10-04 23:07:49.6835] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 23:08:08.5102] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 23:09:03.8575] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 23:09:08.6924] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:09:20.4729] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:09:38.3414] [INFO] Добавление было успешно произведено
+[2020-10-04 23:14:11.1777] [INFO] Удаление прошло успешно
+[2020-10-04 23:14:16.0633] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 23:15:23.5619] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:15:29.3635] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:15:35.2970] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:15:50.8220] [INFO] Добавление было успешно произведено
+[2020-10-04 23:16:14.8693] [ERROR] System.Exception: Файл 'C:\SZMK\SZMK.ServerUpdater\Products\SZMK.Desktop\0.2.6.23\Program\Templates\ReportCompleteStatusesTemplate.xlsx' не найден. ---> System.IO.FileNotFoundException: Файл 'C:\SZMK\SZMK.ServerUpdater\Products\SZMK.Desktop\0.2.6.23\Program\Templates\ReportCompleteStatusesTemplate.xlsx' не найден.
+   в System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   в System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   в System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   в System.IO.File.OpenRead(String path)
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 200
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 229
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 107
+[2020-10-04 23:17:46.0516] [ERROR] System.Exception: Файл 'C:\SZMK\SZMK.ServerUpdater\Products\SZMK.Desktop\0.2.6.23\Program\Templates\ReportCompleteStatusesTemplate.xlsx' не найден. ---> System.IO.FileNotFoundException: Файл 'C:\SZMK\SZMK.ServerUpdater\Products\SZMK.Desktop\0.2.6.23\Program\Templates\ReportCompleteStatusesTemplate.xlsx' не найден.
+   в System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   в System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   в System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   в System.IO.File.OpenRead(String path)
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 200
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 229
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 107
+[2020-10-04 23:18:15.6193] [INFO] Удаление прошло успешно
+[2020-10-04 23:18:43.3295] [ERROR] System.Exception: Файл 'C:\SZMK\SZMK.ServerUpdater\Products\SZMK.Desktop\0.2.6.23\Program\Templates\ReportCompleteStatusesTemplate.xlsx' не найден. ---> System.IO.FileNotFoundException: Файл 'C:\SZMK\SZMK.ServerUpdater\Products\SZMK.Desktop\0.2.6.23\Program\Templates\ReportCompleteStatusesTemplate.xlsx' не найден.
+   в System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   в System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   в System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   в System.IO.File.OpenRead(String path)
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 200
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 229
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 107
+[2020-10-04 23:19:03.2275] [INFO] Выполнена остановка сервера и закрытие программы
+[2020-10-04 23:19:03.2275] [ERROR] System.Net.Sockets.SocketException (0x80004005): Операция блокирования прервана вызовом WSACancelBlockingCall
+   в System.Net.Sockets.Socket.Accept()
+   в System.Net.Sockets.TcpListener.AcceptTcpClient()
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 93
+[2020-10-04 23:20:38.3725] [INFO] Инициализация основной формы пройдена успешно
+[2020-10-04 23:20:38.4662] [INFO] Сборка пройдена успешно
+[2020-10-04 23:20:38.4975] [INFO] Запуск сервера успешно выполнен
+[2020-10-04 23:20:38.4975] [INFO] Успешный показ продуктов
+[2020-10-04 23:20:50.0209] [ERROR] System.Exception: Файл 'C:\SZMK\SZMK.ServerUpdater\Products\SZMK.Desktop\0.2.6.23\Program\Templates\ReportCompleteStatusesTemplate.xlsx' не найден. ---> System.IO.FileNotFoundException: Файл 'C:\SZMK\SZMK.ServerUpdater\Products\SZMK.Desktop\0.2.6.23\Program\Templates\ReportCompleteStatusesTemplate.xlsx' не найден.
+   в System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   в System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   в System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   в System.IO.File.OpenRead(String path)
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 200
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 229
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 107
+[2020-10-04 23:22:50.3574] [INFO] Удаление прошло успешно
+[2020-10-04 23:22:53.0032] [INFO] Удаление прошло успешно
+[2020-10-04 23:22:54.6215] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 23:23:13.1034] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 23:23:19.7387] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:23:25.7733] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:23:29.2335] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:23:32.8891] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:23:36.5935] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:23:40.0420] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:23:45.8403] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:23:51.7392] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:23:55.9622] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:23:59.8004] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:24:02.4227] [INFO] Добавление было успешно произведено
+[2020-10-04 23:35:17.9113] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-04 23:35:23.0384] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:35:38.5164] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:35:49.8420] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-04 23:35:58.3530] [INFO] Добавление было успешно произведено

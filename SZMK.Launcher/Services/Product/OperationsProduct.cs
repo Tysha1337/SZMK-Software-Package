@@ -227,12 +227,12 @@ namespace SZMK.Launcher.Services.Product
                     files.Add(new FileAndMove { FileName = file.Element("FileName").Value, Move = file.Element("Move").Value });
                 }
 
-                foreach (var file in files.FindAll(p => p.Move.Contains("Remove")))
+                foreach (var file in files.FindAll(p => p.Move=="Remove"))
                 {
                     File.Delete(Directory.GetCurrentDirectory() + @"\Product\" + NameProduct + @"\" + file.FileName);
                     if (Directory.GetDirectories(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Product\" + NameProduct + @"\" + file.FileName)).Count() == 0 && Directory.GetFiles(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Product\" + NameProduct + @"\" + file.FileName)).Length == 0)
                     {
-                        Directory.Delete(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Products\" + NameProduct + @"\" + file.FileName));
+                        Directory.Delete(Path.GetDirectoryName(Directory.GetCurrentDirectory() + @"\Product\" + NameProduct + @"\" + file.FileName));
                     }
                 }
                 notify.Notify(1, "Удаление старых файлов основной программы успешно");

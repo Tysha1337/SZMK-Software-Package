@@ -1,0 +1,16 @@
+[2020-09-16 08:15:52.8303] [ERROR] System.Exception: „тение после конца потока невозможно. ---> System.IO.EndOfStreamException: „тение после конца потока невозможно.
+   в System.IO.BinaryReader.ReadByte()
+   в System.IO.BinaryReader.Read7BitEncodedInt()
+   в System.IO.BinaryReader.ReadString()
+   в SZMK.ServerUpdater.Services.Server.CheckedUpdate(BinaryReader reader, NetworkStream stream) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 133
+   ---  онец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.Server.CheckedUpdate(BinaryReader reader, NetworkStream stream) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 149
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 103
+[2020-09-16 08:16:10.8148] [ERROR] System.Exception: „тение после конца потока невозможно. ---> System.IO.EndOfStreamException: „тение после конца потока невозможно.
+   в System.IO.BinaryReader.ReadByte()
+   в System.IO.BinaryReader.Read7BitEncodedInt()
+   в System.IO.BinaryReader.ReadString()
+   в SZMK.ServerUpdater.Services.Server.CheckedUpdate(BinaryReader reader, NetworkStream stream) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 133
+   ---  онец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.Server.CheckedUpdate(BinaryReader reader, NetworkStream stream) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 149
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 103

@@ -197,7 +197,7 @@ namespace SZMK.ServerUpdater.Services
                             {
                                 writer.Write(noremovefiles[i].FileName);
 
-                                using (FileStream inputStream = File.OpenRead($@"Products\{ClientProduct}\{OperationsVersions.GetLastVersion(ClientProduct)}\{files[i].FileName}"))
+                                using (FileStream inputStream = File.OpenRead($@"Products\{ClientProduct}\{OperationsVersions.GetLastVersion(ClientProduct)}\{noremovefiles[i].FileName}"))
                                 {
                                     long lenght = inputStream.Length;
 

@@ -672,7 +672,7 @@ namespace SZMK.Desktop.Views.KB
 
                     if (Dialog.Weight_TB.Text.Trim() != String.Empty)
                     {
-                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.Weight.ToString().IndexOf(Dialog.Weight_TB.Text.Trim()) != -1).ToList();
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => p.Weight == Convert.ToDouble(Dialog.Weight_TB.Text.Trim())).ToList();
                     }
 
                     if (Dialog.NumberBlankOrder_TB.Text.Trim() != String.Empty)

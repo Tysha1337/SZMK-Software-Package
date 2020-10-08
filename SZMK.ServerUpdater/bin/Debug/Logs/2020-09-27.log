@@ -1,15 +1,28 @@
-[2020-09-27 02:04:40.5326] [INFO] Инициализация основной формы пройдена успешно
-[2020-09-27 02:04:40.7381] [INFO] Сборка пройдена успешно
-[2020-09-27 02:04:40.7867] [INFO] Запуск сервера успешно выполнен
-[2020-09-27 02:04:40.8296] [INFO] Успешный показ продуктов
-[2020-09-27 02:05:08.8466] [INFO] Инициализация формы настроек продуктов пройдена успешно
-[2020-09-27 02:05:08.8666] [INFO] Выполнен показ настройки продуктов
-[2020-09-27 02:05:10.8022] [INFO] Инициализация формы настройки сервера пройдена успешно
-[2020-09-27 02:07:03.9020] [INFO] Инициализация основной формы пройдена успешно
-[2020-09-27 02:07:03.9579] [INFO] Сборка пройдена успешно
-[2020-09-27 02:07:03.9838] [INFO] Запуск сервера успешно выполнен
-[2020-09-27 02:07:03.9958] [INFO] Успешный показ продуктов
-[2020-09-27 02:15:00.1432] [INFO] Инициализация основной формы пройдена успешно
-[2020-09-27 02:15:00.1931] [INFO] Сборка пройдена успешно
-[2020-09-27 02:15:00.2160] [INFO] Запуск сервера успешно выполнен
-[2020-09-27 02:15:00.2290] [INFO] Успешный показ продуктов
+[2020-09-27 02:26:08.1228] [INFO] Выполнена остановка сервера и закрытие программы
+[2020-09-27 02:29:15.9446] [INFO] Инициализация основной формы пройдена успешно
+[2020-09-27 02:29:16.0227] [INFO] Сборка пройдена успешно
+[2020-09-27 02:29:16.0384] [INFO] Запуск сервера успешно выполнен
+[2020-09-27 02:29:16.0540] [INFO] Успешный показ продуктов
+[2020-09-27 02:29:32.9917] [INFO] Инициализация формы настройки сервера пройдена успешно
+[2020-09-27 02:34:29.2107] [ERROR] System.Exception: Не удалось найти часть пути "C:\SZMK\SZMK.ServerUpdater\Products\SZMK.TeklaInteraction\0.0.0.4\Tekla2018\Logs\2020-09-06.log". ---> System.IO.DirectoryNotFoundException: Не удалось найти часть пути "C:\SZMK\SZMK.ServerUpdater\Products\SZMK.TeklaInteraction\0.0.0.4\Tekla2018\Logs\2020-09-06.log".
+   в System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   в System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   в System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   в System.IO.File.OpenRead(String path)
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 200
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 229
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 107
+[2020-09-27 02:34:38.5545] [ERROR] System.Exception: Не удалось найти часть пути "C:\SZMK\SZMK.ServerUpdater\Products\SZMK.TeklaInteraction\0.0.0.4\Tekla2018\Logs\2020-09-06.log". ---> System.IO.DirectoryNotFoundException: Не удалось найти часть пути "C:\SZMK\SZMK.ServerUpdater\Products\SZMK.TeklaInteraction\0.0.0.4\Tekla2018\Logs\2020-09-06.log".
+   в System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   в System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   в System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   в System.IO.File.OpenRead(String path)
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 200
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 229
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 107
+[2020-09-27 02:52:42.7257] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-09-27 02:53:15.8976] [INFO] Инициализация добавления информации пройдена успешно
+[2020-09-27 02:53:44.7726] [INFO] Инициализация добавления информации пройдена успешно
+[2020-09-27 02:53:54.0226] [INFO] Добавление было успешно произведено

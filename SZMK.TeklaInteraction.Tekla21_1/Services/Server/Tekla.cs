@@ -278,7 +278,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
 
                 _countDetail = Details.Sum(p => p.Count);
 
-                Drawings.Add(new Shared.Models.Drawing { Assembly = _assembly, Order = _order, Place = _place, List = _list, Mark = _mark, Executor = _executor, WeightMark = Convert.ToDouble(_weightMark.ToString("F2")), CountMark = _countMark, SubTotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), SubTotalLenght = Convert.ToDouble(_subTotallenght.ToString("F2")), CountDetail = _countDetail, Details = Details });
+                Drawings.Add(new Shared.Models.Drawing { Assembly = _assembly, Order = _order.Replace(" ",""), Place = _place, List = _list, Mark = _mark, Executor = _executor, WeightMark = Convert.ToDouble(_weightMark.ToString("F2")), CountMark = _countMark, SubTotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), SubTotalLenght = Convert.ToDouble(_subTotallenght.ToString("F2")), CountDetail = _countDetail, Details = Details });
 
                 return true;
             }

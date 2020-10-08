@@ -977,6 +977,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Order_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Order_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Order_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DataMatrix,
             this.DateCreate,

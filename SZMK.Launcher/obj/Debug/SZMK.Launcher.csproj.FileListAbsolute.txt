@@ -11,4 +11,3 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launch
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.csproj.CopyComplete
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.exe
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.pdb
-C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.csprojAssemblyReference.cache

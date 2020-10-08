@@ -1,4 +1,29 @@
-[2020-10-01 20:42:38.5964] [INFO] Инициализация основной формы пройдена успешно
-[2020-10-01 20:42:38.6462] [INFO] Сборка пройдена успешно
-[2020-10-01 20:42:38.6782] [INFO] Запуск сервера успешно выполнен
-[2020-10-01 20:42:39.9421] [INFO] Успешный показ продуктов
+[2020-10-01 13:04:19.1691] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-01 13:04:20.3878] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-01 13:04:28.6063] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-01 13:04:58.2148] [INFO] Добавление было успешно произведено
+[2020-10-01 13:05:58.1347] [ERROR] System.Net.Sockets.SocketException (0x80004005): Операция блокирования прервана вызовом WSACancelBlockingCall
+   в System.Net.Sockets.Socket.Accept()
+   в System.Net.Sockets.TcpListener.AcceptTcpClient()
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 93
+[2020-10-01 13:23:39.3838] [ERROR] System.Net.Sockets.SocketException (0x80004005): Операция блокирования прервана вызовом WSACancelBlockingCall
+   в System.Net.Sockets.Socket.Accept()
+   в System.Net.Sockets.TcpListener.AcceptTcpClient()
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 93
+[2020-10-01 13:23:40.8221] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-01 13:23:46.7941] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-01 13:23:53.0632] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-01 13:24:11.2890] [INFO] Добавление было успешно произведено
+[2020-10-01 13:58:56.3438] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-10-01 13:58:57.3750] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-01 13:59:03.9687] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-01 13:59:48.1712] [INFO] Инициализация добавления информации пройдена успешно
+[2020-10-01 14:00:25.5770] [INFO] Добавление было успешно произведено
+[2020-10-01 14:00:27.3895] [ERROR] System.Net.Sockets.SocketException (0x80004005): Операция блокирования прервана вызовом WSACancelBlockingCall
+   в System.Net.Sockets.Socket.Accept()
+   в System.Net.Sockets.TcpListener.AcceptTcpClient()
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 93
+[2020-10-01 20:48:54.0801] [ERROR] System.Net.Sockets.SocketException (0x80004005): Операция блокирования прервана вызовом WSACancelBlockingCall
+   в System.Net.Sockets.Socket.Accept()
+   в System.Net.Sockets.TcpListener.AcceptTcpClient()
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 93

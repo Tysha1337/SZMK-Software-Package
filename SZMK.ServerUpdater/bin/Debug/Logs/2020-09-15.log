@@ -1,0 +1,6 @@
+[2020-09-15 10:57:46.5315] [INFO] Успешная инициализация формы изменения и добавления обновления
+[2020-09-15 10:57:52.5316] [INFO] Инициализация добавления информации пройдена успешно
+[2020-09-15 10:58:01.7661] [ERROR] System.Exception: Необходимо указать, что удалено в обновлении
+   в SZMK.ServerUpdater.Views.Versions.AddOrChange.Version_FormClosing(Object sender, FormClosingEventArgs e) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Views\Versions\AddOrChange.cs:строка 54
+[2020-09-15 10:58:04.4537] [INFO] Инициализация добавления информации пройдена успешно
+[2020-09-15 10:58:10.3444] [INFO] Добавление было успешно произведено

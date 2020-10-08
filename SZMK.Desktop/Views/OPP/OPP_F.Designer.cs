@@ -60,6 +60,7 @@
             this.Time_Month_Report_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.Time_SelectionDate_Report_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.Steel_TSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.CompleteStatusReport_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingConfig_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingColumn_TSM = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,7 +129,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.Finished_TB = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.CompleteStatusReport_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -260,6 +260,13 @@
             this.Steel_TSM.Size = new System.Drawing.Size(201, 22);
             this.Steel_TSM.Text = "По выборке металла";
             this.Steel_TSM.Click += new System.EventHandler(this.Steel_TSM_Click);
+            // 
+            // CompleteStatusReport_TSM
+            // 
+            this.CompleteStatusReport_TSM.Name = "CompleteStatusReport_TSM";
+            this.CompleteStatusReport_TSM.Size = new System.Drawing.Size(201, 22);
+            this.CompleteStatusReport_TSM.Text = "Прохождение статусов";
+            this.CompleteStatusReport_TSM.Click += new System.EventHandler(this.CompleteStatusReport_TSM_Click);
             // 
             // настройкиToolStripMenuItem
             // 
@@ -481,6 +488,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Order_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Order_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Order_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DataMatrix,
             this.DateCreate,
@@ -1150,13 +1158,6 @@
             this.label16.Size = new System.Drawing.Size(119, 24);
             this.label16.TabIndex = 67;
             this.label16.Text = "Завершен";
-            // 
-            // CompleteStatusReport_TSM
-            // 
-            this.CompleteStatusReport_TSM.Name = "CompleteStatusReport_TSM";
-            this.CompleteStatusReport_TSM.Size = new System.Drawing.Size(201, 22);
-            this.CompleteStatusReport_TSM.Text = "Прохождение статусов";
-            this.CompleteStatusReport_TSM.Click += new System.EventHandler(this.CompleteStatusReport_TSM_Click);
             // 
             // OPP_F
             // 

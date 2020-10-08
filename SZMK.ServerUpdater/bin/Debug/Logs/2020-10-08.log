@@ -1,0 +1,46 @@
+[2020-10-08 10:41:20.0102] [INFO] Инициализация основной формы пройдена успешно
+[2020-10-08 10:41:20.0520] [INFO] Сборка пройдена успешно
+[2020-10-08 10:41:20.0520] [INFO] Запуск сервера успешно выполнен
+[2020-10-08 10:41:20.0809] [INFO] Успешный показ продуктов
+[2020-10-08 10:41:37.3091] [INFO] Выполнена остановка сервера и закрытие программы
+[2020-10-08 10:41:37.3170] [ERROR] System.Net.Sockets.SocketException (0x80004005): Операция блокирования прервана вызовом WSACancelBlockingCall
+   в System.Net.Sockets.Socket.Accept()
+   в System.Net.Sockets.TcpListener.AcceptTcpClient()
+   в SZMK.ServerUpdater.Services.Server.Listening()
+[2020-10-08 10:52:38.6074] [INFO] Инициализация основной формы пройдена успешно
+[2020-10-08 10:52:38.6852] [INFO] Сборка пройдена успешно
+[2020-10-08 10:52:38.7141] [INFO] Запуск сервера успешно выполнен
+[2020-10-08 10:52:38.7311] [INFO] Успешный показ продуктов
+[2020-10-08 10:55:14.6632] [INFO] Инициализация основной формы пройдена успешно
+[2020-10-08 10:55:14.7280] [INFO] Сборка пройдена успешно
+[2020-10-08 10:55:14.7580] [INFO] Запуск сервера успешно выполнен
+[2020-10-08 10:55:14.7739] [INFO] Успешный показ продуктов
+[2020-10-08 11:11:17.5565] [INFO] Выполнена остановка сервера и закрытие программы
+[2020-10-08 11:11:17.5715] [ERROR] System.Net.Sockets.SocketException (0x80004005): Операция блокирования прервана вызовом WSACancelBlockingCall
+   в System.Net.Sockets.Socket.Accept()
+   в System.Net.Sockets.TcpListener.AcceptTcpClient()
+   в SZMK.ServerUpdater.Services.Server.Listening()
+[2020-10-08 11:11:29.0020] [INFO] Инициализация основной формы пройдена успешно
+[2020-10-08 11:11:29.0468] [INFO] Сборка пройдена успешно
+[2020-10-08 11:11:29.0608] [INFO] Запуск сервера успешно выполнен
+[2020-10-08 11:11:29.0758] [INFO] Успешный показ продуктов
+[2020-10-08 15:03:09.6678] [ERROR] System.Exception: Не удалось найти часть пути "C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\bin\Debug\Products\SZMK.Launcher\0.0.0.6". ---> System.Exception: Не удалось найти часть пути "C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\bin\Debug\Products\SZMK.Launcher\0.0.0.6". ---> System.Exception: Не удалось найти часть пути "C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\bin\Debug\Products\SZMK.Launcher\0.0.0.6". ---> System.IO.DirectoryNotFoundException: Не удалось найти часть пути "C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\bin\Debug\Products\SZMK.Launcher\0.0.0.6".
+   в System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   в System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   в System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   в System.IO.Directory.GetFiles(String path, String searchPattern, SearchOption searchOption)
+   в SZMK.ServerUpdater.Services.OperationsFiles.GetHashFiles(String Product, String Version) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\OperationsFiles.cs:строка 65
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.OperationsFiles.GetHashFiles(String Product, String Version) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\OperationsFiles.cs:строка 74
+   в SZMK.ServerUpdater.Services.OperationsFiles.GetLastFiles(String OldVersion, String LastVerison, String Product) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\OperationsFiles.cs:строка 20
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.OperationsFiles.GetLastFiles(String OldVersion, String LastVerison, String Product) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\OperationsFiles.cs:строка 56
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 162
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.ServerUpdater.Services.Server.Update(BinaryReader reader, NetworkStream stream, TcpClient client) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 229
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 107
+[2020-10-08 15:03:16.5447] [INFO] Выполнена остановка сервера и закрытие программы
+[2020-10-08 15:03:16.5447] [ERROR] System.Net.Sockets.SocketException (0x80004005): Операция блокирования прервана вызовом WSACancelBlockingCall
+   в System.Net.Sockets.Socket.Accept()
+   в System.Net.Sockets.TcpListener.AcceptTcpClient()
+   в SZMK.ServerUpdater.Services.Server.Listening() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.ServerUpdater\Services\Server.cs:строка 93
