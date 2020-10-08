@@ -1056,6 +1056,9 @@ namespace SZMK.Desktop.Services
         {
             try
             {
+                SystemArgs.Models.Clear();
+
+                GetAllModels();
 
                 using (var Connect = new NpgsqlConnection(_ConnectString))
                 {
@@ -1072,14 +1075,14 @@ namespace SZMK.Desktop.Services
 
                                 if (!Reader.IsDBNull(11))
                                 {
-                                    TempTypeAdd = SystemArgs.TypesAdds.FindAll(p => p.ID == Reader.GetInt64(12)).FirstOrDefault();
+                                    TempTypeAdd = SystemArgs.TypesAdds.FindAll(p => p.ID == Reader.GetInt64(11)).FirstOrDefault();
                                 }
 
                                 Model TempModel = null;
 
                                 if (!Reader.IsDBNull(12))
                                 {
-                                    TempModel = SystemArgs.Models.FindAll(p => p.ID == Reader.GetInt64(13)).FirstOrDefault();
+                                    TempModel = SystemArgs.Models.FindAll(p => p.ID == Reader.GetInt64(12)).FirstOrDefault();
                                 }
 
                                 SystemArgs.Orders.Add(new Order(Reader.GetInt64(0), Reader.GetDateTime(1), Reader.GetString(4), Reader.GetString(2), Reader.GetString(3), Reader.GetString(5), Reader.GetString(6), Convert.ToDouble(Reader.GetString(7)), Convert.ToDouble(Reader.GetString(8)), null, DateTime.Now, TempTypeAdd, TempModel, null, new BlankOrder(), Reader.GetBoolean(9), Reader.GetBoolean(10)));
@@ -1158,13 +1161,18 @@ namespace SZMK.Desktop.Services
         {
             try
             {
+                SystemArgs.Models.Clear();
+
+                GetAllModels();
+
+
                 Order Temp = null;
 
                 using (var Connect = new NpgsqlConnection(_ConnectString))
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\", \"Executor\",\"ExecutorWork\", \"Number\", \"List\", \"Mark\", \"Lenght\", \"Weight\", \"Canceled\",\"Finished\",\"ID_TypeAdd\"" +
+                    using (var Command = new NpgsqlCommand($"SELECT \"ID\", \"DateCreate\", \"Executor\",\"ExecutorWork\", \"Number\", \"List\", \"Mark\", \"Lenght\", \"Weight\", \"Canceled\",\"Finished\",\"ID_TypeAdd\", \"ID_Model\"" +
                                                             $" FROM public.\"Orders\" WHERE \"Number\"='{Number}' AND \"List\"='{List}';", Connect))
                     {
                         using (var Reader = Command.ExecuteReader())
@@ -1175,14 +1183,14 @@ namespace SZMK.Desktop.Services
 
                                 if (!Reader.IsDBNull(11))
                                 {
-                                    TempTypeAdd = SystemArgs.TypesAdds.FindAll(p => p.ID == Reader.GetInt64(12)).FirstOrDefault();
+                                    TempTypeAdd = SystemArgs.TypesAdds.FindAll(p => p.ID == Reader.GetInt64(11)).FirstOrDefault();
                                 }
 
                                 Model TempModel = null;
 
                                 if (!Reader.IsDBNull(12))
                                 {
-                                    TempModel = SystemArgs.Models.FindAll(p => p.ID == Reader.GetInt64(13)).FirstOrDefault();
+                                    TempModel = SystemArgs.Models.FindAll(p => p.ID == Reader.GetInt64(12)).FirstOrDefault();
                                 }
 
                                 Temp = new Order(Reader.GetInt64(0), Reader.GetDateTime(1), Reader.GetString(4), Reader.GetString(2), Reader.GetString(3), Reader.GetString(5), Reader.GetString(6), Convert.ToDouble(Reader.GetString(7)), Convert.ToDouble(Reader.GetString(8)), null, DateTime.Now, TempTypeAdd, TempModel, null, new BlankOrder(), Reader.GetBoolean(9), Reader.GetBoolean(10));
@@ -1873,6 +1881,37 @@ namespace SZMK.Desktop.Services
             catch
             {
                 return false;
+            }
+        }
+        public String GetExecutor(String Number, String List)
+        {
+            try
+            {
+                String Executor = "";
+
+                using (var Connect = new NpgsqlConnection(_ConnectString))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"SELECT \"Executor\" FROM public.\"Orders\" WHERE \"List\" = '{List}' AND \"Number\"='{Number}';", Connect))
+                    {
+                        using (var Reader = Command.ExecuteReader())
+                        {
+                            while (Reader.Read())
+                            {
+                                Executor = Reader.GetString(0);
+                            }
+                        }
+                    }
+
+                    Connect.Close();
+                }
+
+                return Executor;
+            }
+            catch (Exception E)
+            {
+                throw new Exception(E.ToString());
             }
         }
 

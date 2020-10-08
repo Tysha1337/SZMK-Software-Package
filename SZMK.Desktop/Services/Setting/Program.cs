@@ -10,7 +10,7 @@ namespace SZMK.Desktop.Services.Setting
 {
     public class Program
     {
-        private Boolean _CheckMarks;
+        private Boolean _CheckMarks; 
         private (Int32, Int32) _VisualRow; // (n1,n2)
         private Boolean _CheckedProcess;
 

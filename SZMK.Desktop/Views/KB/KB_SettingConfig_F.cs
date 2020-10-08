@@ -18,35 +18,10 @@ namespace SZMK.Desktop.Views.KB
             InitializeComponent();
         }
 
-        private void ReviewModels_B_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog Ofd = new FolderBrowserDialog();
-
-            if (Ofd.ShowDialog() == DialogResult.OK)
-            {
-                ModelsPath_TB.Text = Ofd.SelectedPath;
-            }
-        }
-
         private void OK_B_Click(object sender, EventArgs e)
         {
             try
             {
-
-                if (String.IsNullOrEmpty(ModelsPath_TB.Text))
-                {
-                    ModelsPath_TB.Focus();
-                    throw new Exception("Необходимо указать директорию выгрузки");
-                }
-
-                if (!Directory.Exists(ModelsPath_TB.Text.Trim()))
-                {
-                    ModelsPath_TB.Focus();
-                    throw new Exception("Указанная дирекория выгрузки не существует");
-                }
-
-                SystemArgs.SettingsUser.ModelsPath = ModelsPath_TB.Text.Trim();
-
                 SystemArgs.SettingsUser.TypeScan = TypesScan_CB.SelectedIndex;
 
                 if (SystemArgs.SettingsUser.SetParametersConnect())

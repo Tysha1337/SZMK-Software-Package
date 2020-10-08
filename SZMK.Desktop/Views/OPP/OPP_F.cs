@@ -51,6 +51,8 @@ namespace SZMK.Desktop.Views.OPP
                 SystemArgs.Excel = new Excel();
                 SystemArgs.Template = new Template();
                 SystemArgs.SelectedColumn = new SelectedColumn();
+                SystemArgs.ServerMail = new ServerMail();
+                SystemArgs.UnLoadSpecific = new UnLoadSpecific();
 
                 ItemsFilter();
                 SelectedColumnDGV();
@@ -274,10 +276,21 @@ namespace SZMK.Desktop.Views.OPP
                                     {
                                         MessageBox.Show("Ошибка добавления в базу данных, обновление статуса " + ScanSession[i].QRBlankOrder + " не будет произведено", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     }
+
+                                    SystemArgs.UnLoadSpecific.ChekedUnloading(NumberAndList.Number, NumberAndList.List, SystemArgs.Request.GetExecutor(NumberAndList.Number, NumberAndList.List));
                                 }
                             }
                         }
                     }
+
+                    if (SystemArgs.UnLoadSpecific.ExecutorMails.Count != 0)
+                    {
+                        SystemArgs.ServerMail.SendMail(true);
+                    }
+
+                    SystemArgs.UnLoadSpecific.ExecutorMails.Clear();
+
+
                     return true;
                 }
                 else
@@ -287,6 +300,7 @@ namespace SZMK.Desktop.Views.OPP
             }
             catch (Exception E)
             {
+                SystemArgs.UnLoadSpecific.ExecutorMails.Clear();
                 SystemArgs.PrintLog(E.ToString());
                 MessageBox.Show(E.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;

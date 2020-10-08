@@ -51,6 +51,8 @@ namespace SZMK.Desktop.Views.PDO
                 SystemArgs.Excel = new Excel();
                 SystemArgs.Template = new Template();
                 SystemArgs.SelectedColumn = new SelectedColumn();
+                SystemArgs.ServerMail = new ServerMail();
+                SystemArgs.UnLoadSpecific = new UnLoadSpecific();
 
                 ItemsFilter();
                 SelectedColumnDGV();
@@ -319,7 +321,16 @@ namespace SZMK.Desktop.Views.PDO
                                         MessageBox.Show("Ошибка при добавлении в базу данных бланка заказа: " + ScanSession[i].QRBlankOrder, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     }
                                 }
+
+                                SystemArgs.UnLoadSpecific.ChekedUnloading(NumberAndList.Number, NumberAndList.List, SystemArgs.Request.GetExecutor(NumberAndList.Number, NumberAndList.List));
                             }
+
+                            if (SystemArgs.UnLoadSpecific.ExecutorMails.Count != 0)
+                            {
+                                SystemArgs.ServerMail.SendMail(true);
+                            }
+
+                            SystemArgs.UnLoadSpecific.ExecutorMails.Clear();
 
                             SystemArgs.RequestLinq.CompareBlankOrder(TempForBlankOrder, ScanSession[i].QRBlankOrder);
 
@@ -335,6 +346,7 @@ namespace SZMK.Desktop.Views.PDO
             }
             catch (Exception E)
             {
+                SystemArgs.UnLoadSpecific.ExecutorMails.Clear();
                 MessageBox.Show(E.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }

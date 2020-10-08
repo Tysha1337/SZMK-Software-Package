@@ -244,6 +244,8 @@ namespace SZMK.Desktop.Views.KB
                                 {
                                     MessageBox.Show("Ошибка при добавлении в базу данных статуса для: Номер-" + ScanSession[i].Order.Number + "Лист-" + ScanSession[i].Order.List, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
+
+                                SystemArgs.UnLoadSpecific.ChekedUnloading(Number, List, ScanSession[i].Order.Executor);
                             }
                         }
                         catch (Exception E)
@@ -253,6 +255,15 @@ namespace SZMK.Desktop.Views.KB
                         }
 
                     }
+
+                    if (SystemArgs.UnLoadSpecific.ExecutorMails.Count != 0)
+                    {
+                        KB_ScanUnloadSpecific unloadSpecific = new KB_ScanUnloadSpecific();
+                        unloadSpecific.ShowDialog();
+                    }
+
+                    SystemArgs.UnLoadSpecific.ExecutorMails.Clear();
+
                     List<OrderScanSession> Temp = ScanSession.Where(p => p.Unique == 0 || p.Unique == 1).ToList();
                     if (Temp.Count() > 0)
                     {
@@ -273,6 +284,7 @@ namespace SZMK.Desktop.Views.KB
             }
             catch (Exception E)
             {
+                SystemArgs.UnLoadSpecific.ExecutorMails.Clear();
                 MessageBox.Show(E.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
@@ -1248,8 +1260,6 @@ namespace SZMK.Desktop.Views.KB
 
                 if (SystemArgs.SettingsUser.GetParametersConnect())
                 {
-                    Dialog.ModelsPath_TB.Text = SystemArgs.SettingsUser.ModelsPath;
-
                     string[] Types = new string[] { "Сканер", "Вебкамера", "Мобильное приложение" };
 
                     Dialog.TypesScan_CB.Items.AddRange(Types);

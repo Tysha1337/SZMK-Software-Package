@@ -218,4 +218,5 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.exe
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.pdb
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.Views.KB.KB_AddXML.resources
+C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.Views.Admin.MainSettings.Settings_GeneralConstructor.resources
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.csprojAssemblyReference.cache

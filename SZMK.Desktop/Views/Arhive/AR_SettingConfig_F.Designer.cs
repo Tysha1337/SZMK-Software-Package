@@ -44,7 +44,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.11055F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.68845F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.20101F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanel1.Controls.Add(this.Cancel_B, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.OK_B, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.ArchivePath_TB, 1, 1);
@@ -113,7 +113,7 @@
             this.ArchivePath_TB.Margin = new System.Windows.Forms.Padding(2);
             this.ArchivePath_TB.Name = "ArchivePath_TB";
             this.ArchivePath_TB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ArchivePath_TB.Size = new System.Drawing.Size(304, 20);
+            this.ArchivePath_TB.Size = new System.Drawing.Size(302, 20);
             this.ArchivePath_TB.TabIndex = 94;
             this.ArchivePath_TB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -153,7 +153,7 @@
             this.ReviewArchive_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
             this.ReviewArchive_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReviewArchive_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReviewArchive_B.Location = new System.Drawing.Point(397, 57);
+            this.ReviewArchive_B.Location = new System.Drawing.Point(395, 57);
             this.ReviewArchive_B.Margin = new System.Windows.Forms.Padding(2, 2, 5, 2);
             this.ReviewArchive_B.Name = "ReviewArchive_B";
             this.ReviewArchive_B.Size = new System.Drawing.Size(111, 25);

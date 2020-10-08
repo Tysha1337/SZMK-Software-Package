@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.CreateAct_TSM = new System.Windows.Forms.ToolStripMenuItem();
-            this.проверкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CheckedUnloading_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.Scan_DGV = new System.Windows.Forms.DataGridView();
             this.DataMatrixOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unique = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,8 +62,7 @@
             this.menuStrip1.AutoSize = false;
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(201)))), ((int)(((byte)(188)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.проверкиToolStripMenuItem});
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1184, 25);
@@ -83,24 +80,9 @@
             // CreateAct_TSM
             // 
             this.CreateAct_TSM.Name = "CreateAct_TSM";
-            this.CreateAct_TSM.Size = new System.Drawing.Size(178, 22);
+            this.CreateAct_TSM.Size = new System.Drawing.Size(180, 22);
             this.CreateAct_TSM.Text = "Сформировать акт";
             this.CreateAct_TSM.Click += new System.EventHandler(this.CreateAct_TSM_Click);
-            // 
-            // проверкиToolStripMenuItem
-            // 
-            this.проверкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CheckedUnloading_TSM});
-            this.проверкиToolStripMenuItem.Name = "проверкиToolStripMenuItem";
-            this.проверкиToolStripMenuItem.Size = new System.Drawing.Size(74, 21);
-            this.проверкиToolStripMenuItem.Text = "Проверки";
-            // 
-            // CheckedUnloading_TSM
-            // 
-            this.CheckedUnloading_TSM.Name = "CheckedUnloading_TSM";
-            this.CheckedUnloading_TSM.Size = new System.Drawing.Size(187, 22);
-            this.CheckedUnloading_TSM.Text = "Проверить выгрузку";
-            this.CheckedUnloading_TSM.Click += new System.EventHandler(this.CheckedUnloading_TSM_Click);
             // 
             // Scan_DGV
             // 
@@ -130,8 +112,8 @@
             // 
             this.DataMatrixOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.DataMatrixOrder.DataPropertyName = "DataMatrix";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DataMatrixOrder.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DataMatrixOrder.DefaultCellStyle = dataGridViewCellStyle1;
             this.DataMatrixOrder.FillWeight = 65F;
             this.DataMatrixOrder.HeaderText = "Данные чертежа";
             this.DataMatrixOrder.Name = "DataMatrixOrder";
@@ -141,8 +123,8 @@
             // 
             this.Unique.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Unique.DataPropertyName = "Unique";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Unique.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Unique.DefaultCellStyle = dataGridViewCellStyle2;
             this.Unique.FillWeight = 40F;
             this.Unique.HeaderText = "Уникальность";
             this.Unique.Name = "Unique";
@@ -152,8 +134,8 @@
             // Discription
             // 
             this.Discription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Discription.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Discription.DefaultCellStyle = dataGridViewCellStyle3;
             this.Discription.FillWeight = 75F;
             this.Discription.HeaderText = "Описание";
             this.Discription.Name = "Discription";
@@ -405,8 +387,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem CreateAct_TSM;
-        private System.Windows.Forms.ToolStripMenuItem проверкиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem CheckedUnloading_TSM;
         private System.Windows.Forms.Button Cancel_B;
         public System.Windows.Forms.TextBox ServerStatus_TB;
         private System.Windows.Forms.Label label2;

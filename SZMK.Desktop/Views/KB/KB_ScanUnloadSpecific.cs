@@ -24,7 +24,7 @@ namespace SZMK.Desktop.Views.KB
             Report_DGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             for(int i = 0; i < SystemArgs.UnLoadSpecific.ExecutorMails.Count(); i++)
             {
-                for (int j = 0; j < SystemArgs.UnLoadSpecific.ExecutorMails[i].GetSpecific().Count(); j++)
+                for (int j = 0; j < SystemArgs.UnLoadSpecific.ExecutorMails[i].GetSpecifics().Count(); j++)
                 {
                     Report_DGV.Rows.Add();
                     Report_DGV[0, Report_DGV.Rows.Count-1].Value = SystemArgs.UnLoadSpecific.ExecutorMails[i][j].Number;
@@ -46,7 +46,7 @@ namespace SZMK.Desktop.Views.KB
             bool flag = true;
             for(int i = 0; i < SystemArgs.UnLoadSpecific.ExecutorMails.Count(); i++)
             {
-                for(int j = 0; j < SystemArgs.UnLoadSpecific.ExecutorMails[i].GetSpecific().Count(); j++)
+                for(int j = 0; j < SystemArgs.UnLoadSpecific.ExecutorMails[i].GetSpecifics().Count(); j++)
                 {
                     if (!SystemArgs.UnLoadSpecific.ExecutorMails[i][j].Finded)
                     {
@@ -75,7 +75,7 @@ namespace SZMK.Desktop.Views.KB
         {
             try
             {
-                SystemArgs.ServerMail.SendMail();
+                SystemArgs.ServerMail.SendMail(false);
                 MessageBox.Show("Сообщение успешно отправлено", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception E)

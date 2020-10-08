@@ -22,6 +22,8 @@ namespace SZMK.Desktop.Services.Setting
         private String _TestUser;
         private bool _SSL;
 
+        private String _EmailGeneralConstructor;
+
         public ServerMail()
         {
             if (CheckFile())
@@ -34,6 +36,18 @@ namespace SZMK.Desktop.Services.Setting
             else
             {
                 throw new Exception("Файл подключения к почтовому серверу не найден");
+            }
+
+            if(CheckFileEmailGeneralConstructor())
+            {
+                if (!GetEmailGeneralConstructor())
+                {
+                    throw new Exception("Ошибка при получении параметров почты главного конструктора");
+                }
+            }
+            else
+            {
+                throw new Exception("Файл почты главного конструктора не найден");
             }
         }
 
@@ -145,6 +159,7 @@ namespace SZMK.Desktop.Services.Setting
                 }
             }
         }
+
         public String TestUser
         {
             get
@@ -156,6 +171,21 @@ namespace SZMK.Desktop.Services.Setting
                 if (!String.IsNullOrEmpty(value))
                 {
                     _TestUser = value;
+                }
+            }
+        }
+
+        public String EmailGeneralConstructor
+        {
+            get
+            {
+                return _EmailGeneralConstructor;
+            }
+            set
+            {
+                if (!String.IsNullOrEmpty(value))
+                {
+                    _EmailGeneralConstructor = value;
                 }
             }
         }
@@ -219,7 +249,7 @@ namespace SZMK.Desktop.Services.Setting
                     sw.WriteLine(_Login);
                     sw.WriteLine(_TestUser);
 
-                    if(_SSL)
+                    if (_SSL)
                     {
                         sw.WriteLine("true");
                     }
@@ -239,9 +269,65 @@ namespace SZMK.Desktop.Services.Setting
             }
         }
 
+        public bool GetEmailGeneralConstructor()
+        {
+            try
+            {
+                if (!File.Exists(SystemArgs.Path.EmailGeneralConstructorPath))
+                {
+                    throw new Exception();
+                }
+
+                using (StreamReader sr = new StreamReader(File.Open(SystemArgs.Path.EmailGeneralConstructorPath, FileMode.Open)))
+                {
+                    _EmailGeneralConstructor = sr.ReadLine();
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool SetEmailGeneralConstructor()
+        {
+            try
+            {
+                String Dir = SystemArgs.Path.GetDirectory(SystemArgs.Path.EmailGeneralConstructorPath);
+
+                if (!Directory.Exists(Dir))
+                {
+                    Directory.CreateDirectory(Dir);
+                }
+
+                using (StreamWriter sw = new StreamWriter(File.Open(SystemArgs.Path.EmailGeneralConstructorPath, FileMode.Create)))
+                {
+                    sw.WriteLine(_EmailGeneralConstructor);
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public bool CheckFile()
         {
             if (!File.Exists(SystemArgs.Path.MainConnectServerMails))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool CheckFileEmailGeneralConstructor()
+        {
+            if (!File.Exists(SystemArgs.Path.EmailGeneralConstructorPath))
             {
                 return false;
             }
@@ -270,7 +356,8 @@ namespace SZMK.Desktop.Services.Setting
                 return false;
             }
         }
-        public void SendMail()
+
+        public void SendMail(bool SendGeneralConstructor)
         {
             try
             {
@@ -280,12 +367,12 @@ namespace SZMK.Desktop.Services.Setting
                 {
                     for(int i = 0; i < SystemArgs.UnLoadSpecific.ExecutorMails.Count(); i++) 
                     {
-                        if (SystemArgs.UnLoadSpecific.ExecutorMails[i].GetSpecific().Where(p => !p.Finded).Count() != 0)
+                        if (SystemArgs.UnLoadSpecific.ExecutorMails[i].GetSpecifics().Where(p => !p.Finded).Count() != 0)
                         {
                             m.To.Clear();
                             for (int j = 0; j < SystemArgs.Mails.Count; j++)
                             {
-                                if (SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor.Equals(SystemArgs.Mails[j].Surname.Trim() + SystemArgs.Mails[j].Name.First() + "." + SystemArgs.Mails[j].MiddleName.First() + "." +
+                                if (SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor.Equals(SystemArgs.Mails[j].Surname.Trim()+ " " + SystemArgs.Mails[j].Name.First() + "." + SystemArgs.Mails[j].MiddleName.First() + "." +
                                     ""))
                                 {
                                     m.To.Add(new MailAddress(SystemArgs.Mails[j].MailAddress));
@@ -295,6 +382,12 @@ namespace SZMK.Desktop.Services.Setting
                             {
                                 throw new Exception($"Email адрес для исполнителя {SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor} не найден");
                             }
+
+                            if (SendGeneralConstructor)
+                            {
+                                m.To.Add(new MailAddress(_EmailGeneralConstructor));
+                            }
+
                             m.Subject = "Деталировка отсутствует от " + DateTime.Now.ToString();
                             m.Body = CreateMessage(SystemArgs.UnLoadSpecific.ExecutorMails[i]);
                             m.IsBodyHtml = true;
@@ -327,7 +420,7 @@ namespace SZMK.Desktop.Services.Setting
                                     $"<td> Фамилия разработчика</td>" +
                                     $"<td> № детали</td>" +
                                     $"</tr>";
-                foreach(var Specifics in Executor.GetSpecific())
+                foreach(var Specifics in Executor.GetSpecifics())
                 {
                     if (!Specifics.Finded)
                     {

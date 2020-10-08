@@ -57,7 +57,7 @@ namespace SZMK.Desktop.Views.Admin.MainSettings
                         }
                     }
 
-                    Mail Temp = new Mail(Index + 1,Dialog.Name_TB.Text, Dialog.MiddleName_TB.Text, Dialog.Surname_TB.Text, DateCreate, Dialog.AddressMail_TB.Text);
+                    Mail Temp = new Mail(Index + 1, Dialog.Name_TB.Text, Dialog.MiddleName_TB.Text, Dialog.Surname_TB.Text, DateCreate, Dialog.AddressMail_TB.Text);
 
                     if (SystemArgs.Request.AddMail(Temp))
                     {
@@ -215,7 +215,7 @@ namespace SZMK.Desktop.Views.Admin.MainSettings
                     Dialog.ID_TB.Text = Temp.ID.ToString();
                     Dialog.AddressMail_TB.Text = Temp.MailAddress;
 
-                    if(Dialog.ShowDialog() == DialogResult.OK)
+                    if (Dialog.ShowDialog() == DialogResult.OK)
                     {
 
                     }
@@ -225,7 +225,7 @@ namespace SZMK.Desktop.Views.Admin.MainSettings
                     throw new Exception("Необходимо выбрать объект");
                 }
             }
-            catch(Exception E)
+            catch (Exception E)
             {
                 MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -235,7 +235,7 @@ namespace SZMK.Desktop.Views.Admin.MainSettings
 
         private void ResetSearch()
         {
-            if(Result != null)
+            if (Result != null)
             {
                 Search_TB.Text = String.Empty;
 
@@ -388,11 +388,6 @@ namespace SZMK.Desktop.Views.Admin.MainSettings
             }
         }
 
-        private void OK_B_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ADSettingsMails_F_FormClosing(object sender, FormClosingEventArgs e)
         {
 
@@ -420,6 +415,27 @@ namespace SZMK.Desktop.Views.Admin.MainSettings
                 }
 
                 MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void GeneralConstructor_B_Click(object sender, EventArgs e)
+        {
+            Settings_GeneralConstructor Dialog = new Settings_GeneralConstructor();
+
+            Dialog.Email_TB.Text = SystemArgs.ServerMail.EmailGeneralConstructor;
+
+            if (Dialog.ShowDialog() == DialogResult.OK)
+            {
+                SystemArgs.ServerMail.EmailGeneralConstructor = Dialog.Email_TB.Text.Trim();
+
+                if (SystemArgs.ServerMail.SetEmailGeneralConstructor())
+                {
+                    MessageBox.Show("Успешное сохранение!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при сохранении", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

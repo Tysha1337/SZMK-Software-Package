@@ -42,53 +42,6 @@ namespace SZMK.Desktop.Views.KB
             }
             EnableButton(false);
         }
-
-        private void CheckedUnloading_TSM_Click(object sender, EventArgs e)
-        {
-            //List<OrderScanSession> Temp = new List<OrderScanSession>();
-            //switch (SystemArgs.SettingsUser.TypeScan)
-            //{
-            //    case 0:
-            //        Temp = SystemArgs.ScannerOrder.GetScanSessions();
-            //        break;
-            //    case 1:
-            //        Temp = SystemArgs.WebcamScanOrder.GetScanSessions();
-            //        break;
-            //    case 2:
-            //        Temp = SystemArgs.ServerMobileAppOrder.GetScanSessions();
-            //        break;
-            //}
-            //if (Temp.Count != 0)
-            //{
-            //    try
-            //    {
-            //        if (SystemArgs.UnLoadSpecific.SearchFileUnloading(Temp.Select(p => p.DataMatrix).ToList()))
-            //        {
-            //            if (SystemArgs.UnLoadSpecific.ExecutorMails.Count != 0)
-            //            {
-            //                KB_ScanUnloadSpecific Dialog = new KB_ScanUnloadSpecific();
-            //                Dialog.ShowDialog();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("При проверки выгрузки не было найдено ни одного совпадения номера заказа с листом", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            }
-            //        }
-            //    }
-            //    catch (Exception E)
-            //    {
-            //        MessageBox.Show("Файл был указан не верно или не хватило прав доступа к файлу", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        SystemArgs.PrintLog(E.ToString());
-            //        return;
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Невозможно проверить выгрузку, нет данных", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    return;
-            //}
-        }
-
         private void CreateAct_TSM_Click(object sender, EventArgs e)
         {
             List<OrderScanSession> Temp = new List<OrderScanSession>();
@@ -239,13 +192,11 @@ namespace SZMK.Desktop.Views.KB
             {
                 Add_B.Enabled = true;
                 CreateAct_TSM.Enabled = true;
-                CheckedUnloading_TSM.Enabled = true;
             }
             else
             {
                 Add_B.Enabled = false;
                 CreateAct_TSM.Enabled = false;
-                CheckedUnloading_TSM.Enabled = false;
             }
         }
     }

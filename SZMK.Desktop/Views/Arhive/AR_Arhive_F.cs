@@ -52,6 +52,8 @@ namespace SZMK.Desktop.Views.Arhive
                 SystemArgs.Excel = new Excel();
                 SystemArgs.Template = new Template();
                 SystemArgs.SelectedColumn = new SelectedColumn();
+                SystemArgs.ServerMail = new ServerMail();
+                SystemArgs.UnLoadSpecific = new UnLoadSpecific();
 
                 ItemsFilter();
                 SelectedColumnDGV();
@@ -182,8 +184,18 @@ namespace SZMK.Desktop.Views.Arhive
                                 {
                                     MessageBox.Show("Ошибка при добавлении в базу данных статуса для: " + SystemArgs.ByteScout[i].DataMatrix, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
+
+                                SystemArgs.UnLoadSpecific.ChekedUnloading(SystemArgs.ByteScout[i].DataMatrix.Split('_')[0], SystemArgs.ByteScout[i].DataMatrix.Split('_')[1], SystemArgs.ByteScout[i].DataMatrix.Split('_')[3]);
                             }
                         }
+
+                        if (SystemArgs.UnLoadSpecific.ExecutorMails.Count != 0)
+                        {
+                            SystemArgs.ServerMail.SendMail(true);
+                        }
+
+                        SystemArgs.UnLoadSpecific.ExecutorMails.Clear();
+
                         if (SystemArgs.ByteScout.GetDecodeSession().Where(p => p.Unique == 1).Count() != 0)
                         {
                             Report.ShowDialog();
@@ -204,6 +216,7 @@ namespace SZMK.Desktop.Views.Arhive
             }
             catch (Exception E)
             {
+                SystemArgs.UnLoadSpecific.ExecutorMails.Clear();
                 SystemArgs.ByteScout.ClearData();
                 SystemArgs.PrintLog(E.ToString());
                 MessageBox.Show(E.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);

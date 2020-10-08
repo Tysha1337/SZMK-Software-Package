@@ -21,6 +21,8 @@ namespace SZMK.Desktop.Services.Setting
 
         private readonly String _MainSettingsPath;
 
+        private readonly String _EmailGeneralConstructorPath;
+
         #endregion
 
         #region Поля основных файлов параметров должностей
@@ -33,7 +35,6 @@ namespace SZMK.Desktop.Services.Setting
 
         private readonly String _UserSettingsPath;
         private readonly String _UserArchivePath;
-        private readonly String _UserModelsPath;
         private readonly String _UserAvtorizationPath;
         private readonly String _UserVisualColumnsPath;
         private readonly String _UserWebCamDevicePath;
@@ -84,11 +85,11 @@ namespace SZMK.Desktop.Services.Setting
 
             _UserSettingsPath = $@"Program\Settings\User\Settings.conf"; //Путь до файла с настройкой конфигурации ПО
             _UserArchivePath = $@"Program\Settings\User\Path\Archive.conf";//Путь к архиву
-            _UserModelsPath = $@"Program\Settings\User\Path\Models.conf"; //Директория выгрузки
             _UserAvtorizationPath = $@"Program\Settings\User\Avtorization.conf";//Путь до сохранненых данных авторизации
             _UserWebCamDevicePath = $@"Program\Settings\User\WebCamDevice.conf";//Путь до выбора девайса с камерой
             _UserScannerPortPath = $@"Program\Settings\User\ScannerPort.conf"; //Путь до файла с настройкой конфигурации ПО
             _UserVisualColumnsPath = $@"Program\Settings\User\ColumnSetting.conf"; //Путь до файла с параметрами отображения столбцов
+            _EmailGeneralConstructorPath = $@"Program\Settings\Main\Email\GeneralConstructor.conf";// Путь до файла с почтой главного конструткора
 
             #endregion
 
@@ -116,6 +117,15 @@ namespace SZMK.Desktop.Services.Setting
                 return _MainConnectDecodePath;
             }
         }
+
+        public String EmailGeneralConstructorPath
+        {
+            get
+            {
+                return _EmailGeneralConstructorPath;
+            }
+        }
+
         public String MainConnectMobilePath
         {
             get
@@ -209,13 +219,6 @@ namespace SZMK.Desktop.Services.Setting
             get
             {
                 return _UserArchivePath;
-            }
-        }
-        public String UserModelsPath
-        {
-            get
-            {
-                return _UserModelsPath;
             }
         }
 

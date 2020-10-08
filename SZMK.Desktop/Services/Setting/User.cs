@@ -11,7 +11,6 @@ namespace SZMK.Desktop.Services.Setting
     public class User
     {
         private String _ArchivePath;
-        private String _ModelsPath;
         private Int32 _TypeScan;
         private Boolean _Hidden;
 
@@ -32,11 +31,6 @@ namespace SZMK.Desktop.Services.Setting
                     throw new Exception();
                 }
 
-                if (!File.Exists(SystemArgs.Path.UserModelsPath))
-                {
-                    throw new Exception();
-                }
-
                 if (!File.Exists(SystemArgs.Path.UserSettingsPath))
                 {
                     throw new Exception();
@@ -45,11 +39,6 @@ namespace SZMK.Desktop.Services.Setting
                 using (StreamReader sr = new StreamReader(File.Open(SystemArgs.Path.UserArhivePath, FileMode.Open)))
                 {
                     _ArchivePath = sr.ReadLine();
-                }
-
-                using (StreamReader sr = new StreamReader(File.Open(SystemArgs.Path.UserModelsPath, FileMode.Open)))
-                {
-                    _ModelsPath = sr.ReadLine();
                 }
 
                 XDocument parameters = XDocument.Load(SystemArgs.Path.UserSettingsPath);
@@ -84,11 +73,6 @@ namespace SZMK.Desktop.Services.Setting
                     sw.WriteLine(_ArchivePath);
                 }
 
-                using (StreamWriter sw = new StreamWriter(File.Open(SystemArgs.Path.UserModelsPath, FileMode.Create)))
-                {
-                    sw.WriteLine(_ModelsPath);
-                }
-
                 XDocument parameters = XDocument.Load(SystemArgs.Path.UserSettingsPath);
 
                 parameters.Element("Program").Element("TypeScan").SetValue(_TypeScan);
@@ -111,11 +95,6 @@ namespace SZMK.Desktop.Services.Setting
                 return false;
             }
 
-            if (!Directory.Exists(_ModelsPath))
-            {
-                return false;
-            }
-
             return true;
         }
 
@@ -131,22 +110,6 @@ namespace SZMK.Desktop.Services.Setting
                 if (!String.IsNullOrEmpty(value))
                 {
                     _ArchivePath = value;
-                }
-            }
-        }
-
-        public String ModelsPath
-        {
-            get
-            {
-                return _ModelsPath;
-            }
-
-            set
-            {
-                if (!String.IsNullOrEmpty(value))
-                {
-                    _ModelsPath = value;
                 }
             }
         }
