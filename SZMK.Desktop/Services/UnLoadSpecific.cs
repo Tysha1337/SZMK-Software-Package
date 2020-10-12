@@ -77,7 +77,7 @@ namespace SZMK.Desktop.Services
             List<Detail> details = SystemArgs.Request.GetDetails(IDOrder);
 
 
-            if (details.Count() > 1)
+            if (details.GroupBy(p => p.Position).Count() > 1 || details.FindAll(p => p.Count > 1).Count > 0)
             {
                 for (int j = 0; j < details.Count; j++)
                 {

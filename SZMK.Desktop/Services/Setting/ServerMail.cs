@@ -372,8 +372,11 @@ namespace SZMK.Desktop.Services.Setting
                             m.To.Clear();
                             for (int j = 0; j < SystemArgs.Mails.Count; j++)
                             {
-                                if (SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor.Equals(SystemArgs.Mails[j].Surname.Trim()+ " " + SystemArgs.Mails[j].Name.First() + "." + SystemArgs.Mails[j].MiddleName.First() + "." +
-                                    ""))
+                                if (SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor.Equals(SystemArgs.Mails[j].Surname.Trim()+ " " + SystemArgs.Mails[j].Name.First() + "." + SystemArgs.Mails[j].MiddleName.First() + "."))
+                                {
+                                    m.To.Add(new MailAddress(SystemArgs.Mails[j].MailAddress));
+                                }
+                                else if(SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor.Equals(SystemArgs.Mails[j].Surname.Trim() + SystemArgs.Mails[j].Name.First() + "." + SystemArgs.Mails[j].MiddleName.First() + "." ))
                                 {
                                     m.To.Add(new MailAddress(SystemArgs.Mails[j].MailAddress));
                                 }
@@ -387,6 +390,8 @@ namespace SZMK.Desktop.Services.Setting
                             {
                                 m.To.Add(new MailAddress(_EmailGeneralConstructor));
                             }
+
+                            m.To.Add(new MailAddress("Agafonov.AE@szmk-nk.com"));
 
                             m.Subject = "Деталировка отсутствует от " + DateTime.Now.ToString();
                             m.Body = CreateMessage(SystemArgs.UnLoadSpecific.ExecutorMails[i]);
