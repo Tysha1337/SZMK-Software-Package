@@ -733,6 +733,8 @@ namespace SZMK.Desktop.Services
                         DistributionStatus(weight, WS, key.Statuses, key.ID);
                     }
 
+                    WS.Cells[12, 7].Value = Weights.FindAll(p=>p.Weight==0).Count;
+
                     int last = WS.Dimension.End.Row;
 
                     WS.Cells["B3:G" + last].Style.Font.Name = "Times New Roman";
@@ -756,18 +758,6 @@ namespace SZMK.Desktop.Services
         {
             for (int i = 0; i < statuses.Count; i++)
             {
-                if (weight == 0)
-                {
-                    if (statuses[i].DateCreate > DateTime.Now.AddDays(-1))
-                    {
-                        WS.Cells[12, 7].Value = Convert.ToInt32(WS.Cells[12, 7].Value) + 1;
-                    }
-                    else if (statuses[i].DateCreate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1))
-                    {
-                        WS.Cells[12, 7].Value = Convert.ToInt32(WS.Cells[12, 7].Value) + 1;
-                    }
-                }
-
                 if (statuses[i].IDStatus != 1)
                 {
                     if (statuses[i].IDStatus == 4 || statuses[i].IDStatus == 5)
