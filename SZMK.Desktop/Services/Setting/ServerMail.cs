@@ -370,26 +370,26 @@ namespace SZMK.Desktop.Services.Setting
                         if (SystemArgs.UnLoadSpecific.ExecutorMails[i].GetSpecifics().Where(p => !p.Finded).Count() != 0)
                         {
                             m.To.Clear();
-                            for (int j = 0; j < SystemArgs.Mails.Count; j++)
-                            {
-                                if (SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor.Equals(SystemArgs.Mails[j].Surname.Trim()+ " " + SystemArgs.Mails[j].Name.First() + "." + SystemArgs.Mails[j].MiddleName.First() + "."))
-                                {
-                                    m.To.Add(new MailAddress(SystemArgs.Mails[j].MailAddress));
-                                }
-                                else if(SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor.Equals(SystemArgs.Mails[j].Surname.Trim() + SystemArgs.Mails[j].Name.First() + "." + SystemArgs.Mails[j].MiddleName.First() + "." ))
-                                {
-                                    m.To.Add(new MailAddress(SystemArgs.Mails[j].MailAddress));
-                                }
-                            }
-                            if (m.To.Count() == 0)
-                            {
-                                throw new Exception($"Email адрес для исполнителя {SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor} не найден");
-                            }
+                            //for (int j = 0; j < SystemArgs.Mails.Count; j++)
+                            //{
+                            //    if (SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor.Equals(SystemArgs.Mails[j].Surname.Trim()+ " " + SystemArgs.Mails[j].Name.First() + "." + SystemArgs.Mails[j].MiddleName.First() + "."))
+                            //    {
+                            //        m.To.Add(new MailAddress(SystemArgs.Mails[j].MailAddress));
+                            //    }
+                            //    else if(SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor.Equals(SystemArgs.Mails[j].Surname.Trim() + SystemArgs.Mails[j].Name.First() + "." + SystemArgs.Mails[j].MiddleName.First() + "." ))
+                            //    {
+                            //        m.To.Add(new MailAddress(SystemArgs.Mails[j].MailAddress));
+                            //    }
+                            //}
+                            //if (m.To.Count() == 0)
+                            //{
+                            //    throw new Exception($"Email адрес для исполнителя {SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor} не найден");
+                            //}
 
-                            if (SendGeneralConstructor)
-                            {
-                                m.To.Add(new MailAddress(_EmailGeneralConstructor));
-                            }
+                            //if (SendGeneralConstructor)
+                            //{
+                            //    m.To.Add(new MailAddress(_EmailGeneralConstructor));
+                            //}
 
                             m.To.Add(new MailAddress("Agafonov.AE@szmk-nk.com"));
 

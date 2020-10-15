@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Products>
+  <Product>SZMK.Desktop</Product>
+  <Product>SZMK.TeklaInteraction</Product>
+  <Product>SZMK.ServerControl</Product>
+  <Product>SZMK.Launcher</Product>
+  <Product>SZMK.LauncherUpdater</Product>
+  <Product>SZMK.ServerUpdater</Product>
+  <Product>asd</Product>
+</Products>

@@ -83,25 +83,7 @@ namespace SZMK.Desktop.Services
                 {
                     if (details[j] != null)
                     {
-                        if (File.Exists(pathModel + @"\Чертежи\Детали PDF\" + "Дет." + details[j].Position + ".pdf"))
-                        {
-                            if (ExecutorMails.Where(p => p.Executor.Equals(Executor)).Count() != 0)
-                            {
-                                foreach (var item in SystemArgs.UnLoadSpecific.ExecutorMails)
-                                {
-                                    if (Executor.Equals(item.Executor))
-                                    {
-                                        item.GetSpecifics().Add(new Specific(Number, List, details[j].Position, true));
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                ExecutorMails.Add(new ExecutorMail(Executor));
-                                ExecutorMails[ExecutorMails.Count() - 1].GetSpecifics().Add(new Specific(Number, List, details[j].Position, true));
-                            }
-                        }
-                        else if (File.Exists(pathModel + @"\Чертежи\" + Number + @"\Детали PDF\" + "Дет." + details[j].Position + ".pdf"))
+                        if (CheckedDetail(pathModel, details[j].Position.ToString(), Number))
                         {
                             if (ExecutorMails.Where(p => p.Executor.Equals(Executor)).Count() != 0)
                             {
@@ -139,6 +121,29 @@ namespace SZMK.Desktop.Services
                         }
                     }
                 }
+            }
+        }
+        private bool CheckedDetail(string pathModel, string Position, string Number)
+        {
+            if (File.Exists(pathModel + @"\Чертежи\Детали PDF\" + "Дет." + Position + ".pdf"))
+            {
+                return true;
+            }
+            else if (File.Exists(pathModel + @"\Чертежи\" + Number + @"\Детали PDF\" + "Дет." + Position + ".pdf"))
+            {
+                return true;
+            }
+            else if (Directory.GetFiles(pathModel + @"\Чертежи\" + Number + @"\Детали PDF", Position + " - Дет.*.pdf", SearchOption.TopDirectoryOnly).Length != 0)
+            {
+                return true;
+            }
+            else if (Directory.GetFiles(pathModel + @"\Чертежи\Детали PDF", Position + " - Дет.*.pdf", SearchOption.TopDirectoryOnly).Length != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
