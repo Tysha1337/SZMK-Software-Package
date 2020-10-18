@@ -733,7 +733,7 @@ namespace SZMK.Desktop.Services
                         DistributionStatus(weight, WS, key.Statuses, key.ID);
                     }
 
-                    WS.Cells[12, 7].Value = Weights.FindAll(p=>p.Weight==0).Count;
+                    WS.Cells[12, 7].Value = Weights.FindAll(p => p.Weight == 0).Count;
 
                     int last = WS.Dimension.End.Row;
 
@@ -756,75 +756,89 @@ namespace SZMK.Desktop.Services
         }
         private void DistributionStatus(double weight, ExcelWorksheet WS, List<StatusOfOrder> statuses, Int64 ID)
         {
-            for (int i = 0; i < statuses.Count; i++)
+            bool NeedCheck = true;
+
+            for(int i = 0; i < statuses.Count; i++)
             {
-                if (statuses[i].IDStatus != 1)
+                if (SystemArgs.Users.Find(p=>p.ID==statuses[i].IDUser).Surname=="Агафонов")
                 {
-                    if (statuses[i].IDStatus == 4 || statuses[i].IDStatus == 5)
+                    NeedCheck = false;
+                    break;
+                }
+            }
+
+            if (NeedCheck)
+            {
+                for (int i = 0; i < statuses.Count; i++)
+                {
+                    if (statuses[i].IDStatus != 1)
                     {
-                        if (statuses[i].DateCreate > DateTime.Now.AddDays(-1))
+                        if (statuses[i].IDStatus == 4 || statuses[i].IDStatus == 5)
                         {
-                            WS.Cells[5, 4].Value = Convert.ToDouble(WS.Cells[5, 4].Value) + weight;
-                            WS.Cells[5, 5].Value = Convert.ToInt32(WS.Cells[5, 5].Value) + 1;
+                            if (statuses[i].DateCreate > DateTime.Now.AddDays(-1))
+                            {
+                                WS.Cells[5, 4].Value = Convert.ToDouble(WS.Cells[5, 4].Value) + weight;
+                                WS.Cells[5, 5].Value = Convert.ToInt32(WS.Cells[5, 5].Value) + 1;
+                            }
+                            if (statuses[i].DateCreate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1))
+                            {
+                                WS.Cells[5, 6].Value = Convert.ToDouble(WS.Cells[5, 6].Value) + weight;
+                                WS.Cells[5, 7].Value = Convert.ToInt32(WS.Cells[5, 7].Value) + 1;
+                            }
                         }
-                        if (statuses[i].DateCreate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1))
+                        else
                         {
-                            WS.Cells[5, 6].Value = Convert.ToDouble(WS.Cells[5, 6].Value) + weight;
-                            WS.Cells[5, 7].Value = Convert.ToInt32(WS.Cells[5, 7].Value) + 1;
-                        }
-                    }
-                    else
-                    {
-                        switch (statuses[i].IDStatus)
-                        {
-                            case 2:
-                                if (statuses[i].DateCreate > DateTime.Now.AddDays(-1))
-                                {
-                                    WS.Cells[3, 4].Value = Convert.ToDouble(WS.Cells[3, 4].Value) + weight;
-                                    WS.Cells[3, 5].Value = Convert.ToInt32(WS.Cells[3, 5].Value) + 1;
-                                }
-                                if (statuses[i].DateCreate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1))
-                                {
-                                    WS.Cells[3, 6].Value = Convert.ToDouble(WS.Cells[3, 6].Value) + weight;
-                                    WS.Cells[3, 7].Value = Convert.ToInt32(WS.Cells[3, 7].Value) + 1;
-                                }
-                                break;
-                            case 3:
-                                if (statuses[i].DateCreate > DateTime.Now.AddDays(-1))
-                                {
-                                    WS.Cells[4, 4].Value = Convert.ToDouble(WS.Cells[4, 4].Value) + weight;
-                                    WS.Cells[4, 5].Value = Convert.ToInt32(WS.Cells[4, 5].Value) + 1;
-                                }
-                                if (statuses.Last().DateCreate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1))
-                                {
-                                    WS.Cells[4, 6].Value = Convert.ToDouble(WS.Cells[4, 6].Value) + weight;
-                                    WS.Cells[4, 7].Value = Convert.ToInt32(WS.Cells[4, 7].Value) + 1;
-                                }
-                                break;
-                            case 6:
-                                if (statuses[i].DateCreate > DateTime.Now.AddDays(-1))
-                                {
-                                    WS.Cells[5, 4].Value = Convert.ToDouble(WS.Cells[5, 4].Value) + weight;
-                                    WS.Cells[5, 5].Value = Convert.ToInt32(WS.Cells[5, 5].Value) + 1;
-                                }
-                                if (statuses.Last().DateCreate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1))
-                                {
-                                    WS.Cells[5, 6].Value = Convert.ToDouble(WS.Cells[5, 6].Value) + weight;
-                                    WS.Cells[5, 7].Value = Convert.ToInt32(WS.Cells[5, 7].Value) + 1;
-                                }
-                                break;
-                            case 7:
-                                if (statuses[i].DateCreate > DateTime.Now.AddDays(-1))
-                                {
-                                    WS.Cells[6, 4].Value = Convert.ToDouble(WS.Cells[6, 4].Value) + weight;
-                                    WS.Cells[6, 5].Value = Convert.ToInt32(WS.Cells[6, 5].Value) + 1;
-                                }
-                                if (statuses[i].DateCreate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1))
-                                {
-                                    WS.Cells[6, 6].Value = Convert.ToDouble(WS.Cells[6, 6].Value) + weight;
-                                    WS.Cells[6, 7].Value = Convert.ToInt32(WS.Cells[6, 7].Value) + 1;
-                                }
-                                break;
+                            switch (statuses[i].IDStatus)
+                            {
+                                case 2:
+                                    if (statuses[i].DateCreate > DateTime.Now.AddDays(-1))
+                                    {
+                                        WS.Cells[3, 4].Value = Convert.ToDouble(WS.Cells[3, 4].Value) + weight;
+                                        WS.Cells[3, 5].Value = Convert.ToInt32(WS.Cells[3, 5].Value) + 1;
+                                    }
+                                    if (statuses[i].DateCreate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1))
+                                    {
+                                        WS.Cells[3, 6].Value = Convert.ToDouble(WS.Cells[3, 6].Value) + weight;
+                                        WS.Cells[3, 7].Value = Convert.ToInt32(WS.Cells[3, 7].Value) + 1;
+                                    }
+                                    break;
+                                case 3:
+                                    if (statuses[i].DateCreate > DateTime.Now.AddDays(-1))
+                                    {
+                                        WS.Cells[4, 4].Value = Convert.ToDouble(WS.Cells[4, 4].Value) + weight;
+                                        WS.Cells[4, 5].Value = Convert.ToInt32(WS.Cells[4, 5].Value) + 1;
+                                    }
+                                    if (statuses.Last().DateCreate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1))
+                                    {
+                                        WS.Cells[4, 6].Value = Convert.ToDouble(WS.Cells[4, 6].Value) + weight;
+                                        WS.Cells[4, 7].Value = Convert.ToInt32(WS.Cells[4, 7].Value) + 1;
+                                    }
+                                    break;
+                                case 6:
+                                    if (statuses[i].DateCreate > DateTime.Now.AddDays(-1))
+                                    {
+                                        WS.Cells[5, 4].Value = Convert.ToDouble(WS.Cells[5, 4].Value) + weight;
+                                        WS.Cells[5, 5].Value = Convert.ToInt32(WS.Cells[5, 5].Value) + 1;
+                                    }
+                                    if (statuses.Last().DateCreate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1))
+                                    {
+                                        WS.Cells[5, 6].Value = Convert.ToDouble(WS.Cells[5, 6].Value) + weight;
+                                        WS.Cells[5, 7].Value = Convert.ToInt32(WS.Cells[5, 7].Value) + 1;
+                                    }
+                                    break;
+                                case 7:
+                                    if (statuses[i].DateCreate > DateTime.Now.AddDays(-1))
+                                    {
+                                        WS.Cells[6, 4].Value = Convert.ToDouble(WS.Cells[6, 4].Value) + weight;
+                                        WS.Cells[6, 5].Value = Convert.ToInt32(WS.Cells[6, 5].Value) + 1;
+                                    }
+                                    if (statuses[i].DateCreate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1))
+                                    {
+                                        WS.Cells[6, 6].Value = Convert.ToDouble(WS.Cells[6, 6].Value) + weight;
+                                        WS.Cells[6, 7].Value = Convert.ToInt32(WS.Cells[6, 7].Value) + 1;
+                                    }
+                                    break;
+                            }
                         }
                     }
                 }

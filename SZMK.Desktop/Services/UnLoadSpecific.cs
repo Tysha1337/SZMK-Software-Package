@@ -125,23 +125,30 @@ namespace SZMK.Desktop.Services
         }
         private bool CheckedDetail(string pathModel, string Position, string Number)
         {
-            if (File.Exists(pathModel + @"\Чертежи\Детали PDF\" + "Дет." + Position + ".pdf"))
+            try
             {
-                return true;
+                if (File.Exists(pathModel + @"\Чертежи\Детали PDF\" + "Дет." + Position + ".pdf"))
+                {
+                    return true;
+                }
+                else if (File.Exists(pathModel + @"\Чертежи\" + Number + @"\Детали PDF\" + "Дет." + Position + ".pdf"))
+                {
+                    return true;
+                }
+                else if (Directory.GetFiles(pathModel + @"\Чертежи\" + Number + @"\Детали PDF", Position + " - Дет.*.pdf", SearchOption.TopDirectoryOnly).Length != 0)
+                {
+                    return true;
+                }
+                else if (Directory.GetFiles(pathModel + @"\Чертежи\Детали PDF", Position + " - Дет.*.pdf", SearchOption.TopDirectoryOnly).Length != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else if (File.Exists(pathModel + @"\Чертежи\" + Number + @"\Детали PDF\" + "Дет." + Position + ".pdf"))
-            {
-                return true;
-            }
-            else if (Directory.GetFiles(pathModel + @"\Чертежи\" + Number + @"\Детали PDF", Position + " - Дет.*.pdf", SearchOption.TopDirectoryOnly).Length != 0)
-            {
-                return true;
-            }
-            else if (Directory.GetFiles(pathModel + @"\Чертежи\Детали PDF", Position + " - Дет.*.pdf", SearchOption.TopDirectoryOnly).Length != 0)
-            {
-                return true;
-            }
-            else
+            catch
             {
                 return false;
             }
