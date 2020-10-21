@@ -1449,26 +1449,36 @@ namespace SZMK.Desktop.Views.KB
                 ParseXML parseXML = new ParseXML();
                 await Task.Run(() => parseXML.Start(FileName, ModelPath, Notify));
 
-                KB_AddXML Dialog = new KB_AddXML();
-
-                Dialog.Data_TV.Nodes.AddRange(parseXML.TreeNodes.ToArray());
-                Dialog.Count_TB.Text = parseXML.Orders.Count.ToString();
-
                 Notify.Hide();
 
-                if (Dialog.ShowDialog() == DialogResult.OK)
+                if (parseXML.ErrorOrders.Count != 0)
                 {
-                    Notify.Show();
+                    ReportErrors report = new ReportErrors();
+                    report.Report_DGV.AutoGenerateColumns = false;
+                    report.Report_DGV.DataSource = parseXML.ErrorOrders;
 
-                    await Task.Run(() => parseXML.CheckedData());
+                    report.ShowDialog();
+                }
 
-                    await Task.Run(() => AddXMLData(parseXML.OrderScanSession, Notify));
+                if (parseXML.Orders.Count > 0)
+                {
+                    KB_AddXML Dialog = new KB_AddXML();
+
+                    Dialog.Data_TV.Nodes.AddRange(parseXML.TreeNodes.ToArray());
+                    Dialog.Count_TB.Text = parseXML.Orders.Count.ToString();
+
+                    if (Dialog.ShowDialog() == DialogResult.OK)
+                    {
+                        Notify.Show();
+
+                        await Task.Run(() => parseXML.CheckedData());
+
+                        await Task.Run(() => AddXMLData(parseXML.OrderScanSession, Notify));
+                    }
                 }
             }
             catch (Exception Ex)
             {
-
-
                 SystemArgs.PrintLog(Ex.ToString());
                 MessageBox.Show(Ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

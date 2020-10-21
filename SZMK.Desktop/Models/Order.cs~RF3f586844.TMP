@@ -147,7 +147,7 @@ namespace SZMK.Desktop.Models
 
             _Finished = Finished;
         }
-        public Order(string Number, string List, string Mark, string Executor, string Lenght, string Weight, string CountMarks)
+        public Order(string Number, string List, string Mark, string Executor, string Lenght, string Weight, string CountMarkss)
         {
             string Error = "";
             try
@@ -198,8 +198,8 @@ namespace SZMK.Desktop.Models
                 Error = "Вес чертежа должна быть целым или вещественным числом";
                 _Weight = Convert.ToDouble(Weight.Replace(" ", "").Replace(".", ","));
 
-                Error = "Количество марок чертежа должно быть целым или вещественным числом";
-                _CountMarks = Convert.ToInt32(CountMarks.Replace(" ", ""));
+                Error = "Вес чертежа должна быть целым или вещественным числом";
+                _Weight = Convert.ToDouble(Weight.Replace(" ", "").Replace(".", ","));
             }
             catch
             {
@@ -527,20 +527,7 @@ namespace SZMK.Desktop.Models
             }
         }
 
-        public int CountMarks 
-        {
-            get
-            {
-                return _CountMarks;
-            }
-            set
-            {
-                if (value > 0)
-                {
-                    _CountMarks = value;
-                }
-            }
-        }
+        public int CountMarks { get; set; }
 
         public String SearchString() => $"{ToString()}_{ExecutorWork}_{_Status.Name}_{_BlankOrder}_{_DateCreate}_{_User.Name}_{_User.MiddleName}_{_User.Surname}_{SystemArgs.StatusOfOrders.Where(p => p.IDOrder == _ID && p.IDStatus == _Status.ID).Select(p => p.DateCreate)}";
 

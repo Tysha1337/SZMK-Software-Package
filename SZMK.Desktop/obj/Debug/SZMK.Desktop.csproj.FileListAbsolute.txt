@@ -352,3 +352,4 @@ C:\Users\kirill.gubanov\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZM
 C:\Users\kirill.gubanov\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.csproj.CopyComplete
 C:\Users\kirill.gubanov\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.exe
 C:\Users\kirill.gubanov\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.pdb
+C:\Users\kirill.gubanov\Desktop\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.Views.Shared.ReportErrors.resources

@@ -1,0 +1,107 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SZMK.Desktop.ViewModel
+{
+    public class DetailViewModel
+    {
+        private long _ID;
+        private long _Position;
+        private long _Count;
+        private string _Profile;
+        private double _Width;
+        private double _Lenght;
+        private double _Weight;
+        private double _SubtotalWeight;
+        private string _MarkSteel;
+        private string _Discription;
+        private string _Machining;
+        private string _MethodOfPaintingRAL;
+        private double _PaintingArea;
+
+        public DetailViewModel(string Position, string Count, string Profile, string Width, string Lenght, string Weight, string SubtotalWeight, string MarkSteel, string Discription, string Machining, string MethodOfPaintingRAL, string PaintingArea)
+        {
+            string Error = "";
+            try
+            {
+                Error = "Позиция детали должна быть целым числом";
+                _Position = Convert.ToInt32(Position.Replace(" ", ""));
+
+                Error = "Количество деталей должно быть целым числом";
+                _Count = Convert.ToInt32(Count.Replace(" ", ""));
+
+                if (String.IsNullOrEmpty(Profile))
+                {
+                    Error = "Не заполнен профиль детали";
+                    throw new Exception(Error);
+                }
+                else
+                {
+                    _Profile = Profile.Replace(" ", "");
+                }
+
+                Error = "Высота детали должна быть целым или вещественным числом";
+                _Width = Convert.ToDouble(Width.Replace(" ", "").Replace(".", ","));
+
+                Error = "Длина детали должна быть целым или вещественным числом";
+                _Lenght = Convert.ToDouble(Lenght.Replace(" ", "").Replace(".", ","));
+
+                Error = "Вес детали должна быть целым или вещественным числом";
+                _Weight = Convert.ToDouble(Weight.Replace(" ", "").Replace(".", ","));
+
+                Error = "Итоговый вес детали должна быть целым или вещественным числом";
+                _SubtotalWeight = Convert.ToDouble(SubtotalWeight.Replace(" ", "").Replace(".", ","));
+
+                if (String.IsNullOrEmpty(_MarkSteel))
+                {
+                    Error = "Не заполнена марка стали детали";
+                    throw new Exception(Error);
+                }
+                else
+                {
+                    _MarkSteel = MarkSteel.Replace(" ", "");
+                }
+
+                _Discription = Discription.Replace(" ", "");
+
+                _Machining = Machining.Replace(" ", "");
+
+                _MethodOfPaintingRAL = MethodOfPaintingRAL.Replace(" ", "");
+
+                Error = "Площадь покраски детали должна быть целым или вещественным числом";
+                _PaintingArea = Convert.ToDouble(PaintingArea.Replace(" ", "").Replace(".", ","));
+            }
+            catch
+            {
+                throw new Exception(Error);
+            }
+        }
+
+        public long ID 
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+
+            }
+        }
+        public long Position { get; set; }
+        public long Count { get; set; }
+        public string Profile { get; set; }
+        public double Width { get; set; }
+        public double Lenght { get; set; }
+        public double Weight { get; set; }
+        public double SubtotalWeight { get; set; }
+        public string MarkSteel { get; set; }
+        public string Discription { get; set; }
+        public string Machining { get; set; }
+        public string MethodOfPaintingRAL { get; set; }
+        public double PaintingArea { get; set; }
+    }
+}

@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BindingModels\OrdersGetting.cs" />
+    <Compile Include="BindingModels\StringErrorBindingModels.cs" />
     <Compile Include="Models\TypeAdd.cs" />
     <Compile Include="Services\Scan\BaseScanBlankOrder.cs" />
     <Compile Include="Services\Scan\BaseScanOrder.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Services\Setting\Program.cs" />
     <Compile Include="Services\Setting\User.cs" />
     <Compile Include="Services\Sleep.cs" />
+    <Compile Include="ViewModel\DetailViewModel.cs" />
     <Compile Include="Views\Admin\MainSettings\Settings_GeneralConstructor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -642,6 +644,12 @@
     <Compile Include="Views\Admin\MainSettings\Settings_Mails.Designer.cs">
       <DependentUpon>Settings_Mails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Shared\ReportErrors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\ReportErrors.Designer.cs">
+      <DependentUpon>ReportErrors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shared\Settings_MobileApp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -911,6 +919,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin\MainSettings\Settings_Mails.resx">
       <DependentUpon>Settings_Mails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\ReportErrors.resx">
+      <DependentUpon>ReportErrors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Shared\Settings_MobileApp.resx">
       <DependentUpon>Settings_MobileApp.cs</DependentUpon>

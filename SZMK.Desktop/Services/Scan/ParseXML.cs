@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using SZMK.Desktop.BindingModels;
 using SZMK.Desktop.Models;
+using SZMK.Desktop.ViewModel;
 using SZMK.Desktop.Views.Shared;
 using SZMK.Desktop.Views.Shared.Interfaces;
 
@@ -16,6 +17,7 @@ namespace SZMK.Desktop.Services.Scan
     {
         private INotifyProcess notify;
         public List<Order> Orders { get; set; }
+        public List<StringErrorBindingModels> ErrorOrders { get; set; }
         public List<TreeNode> TreeNodes { get; set; }
         public List<OrderScanSession> OrderScanSession { get; set; }
         public void Start(string FileName, string ModelPath, INotifyProcess notify)
@@ -33,9 +35,9 @@ namespace SZMK.Desktop.Services.Scan
                 notify.Notify(0, "Создание объектов успешно завершено");
 
                 Model Model = GetModel(ModelPath);
-                List<Order> IterOrders = GetOrders(FileName, Model);
-                Orders.AddRange(IterOrders);
-                TreeNodes.Add(GetTreeNodeModel(Model, IterOrders));
+                Orders = GetOrders(FileName, Model);
+
+                TreeNodes.Add(GetTreeNodeModel(Model, Orders));
             }
             catch (Exception Ex)
             {
@@ -62,7 +64,8 @@ namespace SZMK.Desktop.Services.Scan
         {
             try
             {
-                List<Order> orders = new List<Order>();
+                List<Order> SucsessfulOrders = new List<Order>();
+                ErrorOrders = new List<StringErrorBindingModels>();
 
                 XDocument doc = XDocument.Load(FileName);
 
@@ -71,26 +74,68 @@ namespace SZMK.Desktop.Services.Scan
                 int CountDrawing = doc.Element("Export").Elements("Сборка").Count();
 
                 notify.SetMaximum(CountDrawing);
+                string Number = "";
+                string List = "";
+                string Mark = "";
+                string Executor = "";
+                string Lenght = "";
+                string Weight = "";
+                string CountMarks = "";
+                string Error = "";
 
                 foreach (var assembly in doc.Element("Export").Elements("Сборка"))
                 {
                     notify.Notify(CountIter, $"Обработка {CountIter} чертежа из {CountDrawing}");
 
-                    string Number = assembly.Element("Заказ").Value.Replace(" ", "");
-                    string List = assembly.Element("Лист").Value.Replace(" ", "");
-                    string Mark = assembly.Element("Марка").Value.Replace(" ", "");
-                    string Executor = assembly.Element("Разработчик_чертежа").Value.Replace(" ", "");
-                    string Lenght = assembly.Element("Деталь").Element("Г.М_длина").Value.Replace(" ", "");
-                    string Weight = assembly.Element("Масса_итого").Value.Replace(" ", "");
+                    try
+                    {
+                        Error = "Заказ";
+                        Number = assembly.Element("Заказ").Value;
+                        Error = "Лист";
+                        List = assembly.Element("Лист").Value;
+                        Error = "Марка";
+                        Mark = assembly.Element("Марка").Value;
+                        Error = "Разработчик_чертежа";
+                        Executor = assembly.Element("Разработчик_чертежа").Value;
+                        Error = "Г.М_длина";
+                        Lenght = assembly.Element("Деталь").Element("Г.М_длина").Value;
+                        Error = "Масса_итого";
+                        Weight = assembly.Element("Масса_итого").Value;
+                        Error = "Кол_во_марок";
+                        CountMarks = assembly.Element("Кол_во_марок").Value;
 
-                    orders.Add(new Order(0, DateTime.Now, Number, Executor, "Исполнитель не определен", List, Mark, Convert.ToDouble(Lenght.Replace(".", ",")), Convert.ToDouble(Weight.Replace(".", ",")), null, DateTime.Now, null, Model, null, null, false, false));
+                        Order CheckedOrder = new Order(Number, List, Mark, Executor, Lenght, Weight, CountMarks);
 
-                    orders[orders.Count - 1].CountMarks = Convert.ToInt32(assembly.Element("Кол_во_марок").Value.Replace(" ", ""));
+                        GetDetails(CheckedOrder.Details, assembly);
 
-                    GetDetails(orders[orders.Count - 1].Details, assembly);
+                        SucsessfulOrders.Add(new Order(0, 
+                            DateTime.Now, 
+                            CheckedOrder.Number, 
+                            CheckedOrder.Executor,
+                            "Исполнитель не определен",
+                            CheckedOrder.List,
+                            CheckedOrder.Mark,
+                            CheckedOrder.Lenght, 
+                            CheckedOrder.Weight,
+                            null, DateTime.Now,
+                            null,
+                            Model, 
+                            null, 
+                            null,
+                            false,
+                            false));
+                    }
+                    catch (NullReferenceException Ex)
+                    {
+                        ErrorOrders.Add(new StringErrorBindingModels { Data = $"В отчете чертеж под номером: {CountIter}", Error = $"Отсутвует поле {Error}" });
+                    }
+                    catch (Exception Ex)
+                    {
+                        ErrorOrders.Add(new StringErrorBindingModels { Data = $"Номер заказа:{Number.Trim()}, Лист:{List.Trim()}", Error = Ex.Message });
+                    }
                 }
 
-                return orders;
+                return SucsessfulOrders;
             }
             catch (Exception Ex)
             {
@@ -99,98 +144,107 @@ namespace SZMK.Desktop.Services.Scan
         }
         private void GetDetails(List<Detail> details, XElement assembly)
         {
+            string Error = "";
+
             try
             {
                 foreach (var detail in assembly.Elements("Деталь"))
                 {
-                    long Position = Convert.ToInt32(detail.Element("Позиция_детали").Value.Replace(" ", ""));
-                    long Count = Convert.ToInt32(detail.Element("Кол_во_деталей").Value.Replace(" ", ""));
-                    string Profile = GetProfile(detail.Element("Профиль").Value.Replace(" ", ""), detail);
-                    double Width = Convert.ToDouble(detail.Element("Ширина").Value.Replace(" ", "").Replace(".", ","));
-                    double Lenght = Convert.ToDouble(detail.Element("Длина").Value.Replace(" ", "").Replace(".", ","));
-                    double Weight = Convert.ToDouble(detail.Element("Масса1шт").Value.Replace(" ", "").Replace(".", ","));
-                    double SubTotalWeight = Convert.ToDouble(detail.Element("Масса_всех").Value.Replace(" ", "").Replace(".", ","));
-                    string MarkSteel = detail.Element("Марка_стали").Value.Replace(" ", "");
-                    string Discription = detail.Element("Примечание").Value.Replace(" ", "");
-                    string Machining = detail.Element("Мех.обр").Value.Replace(" ", "");
-                    string MethodOfPaintingRAL = detail.Element("Способ_покраски_RAL").Value.Replace(" ", "");
-                    double PaintingArea = Convert.ToDouble(detail.Element("Площадь_покраски").Value.Replace(" ", "").Replace(".", ","));
+                    Error = "Позиция_детали";
+                    string Position = detail.Element("Позиция_детали").Value;
 
-                    details.Add(new Detail { Position = Position, Count = Count, Profile = Profile, Width = Width, Lenght = Lenght, Weight = Weight, SubtotalWeight = SubTotalWeight, MarkSteel = MarkSteel, Discription = Discription, Machining = Machining, MethodOfPaintingRAL = MethodOfPaintingRAL, PaintingArea = PaintingArea });
+                    Error = "Кол_во_деталей";
+                    string Count = detail.Element("Кол_во_деталей").Value;
+
+                    Error = "Профиль";
+                    string Profile = detail.Element("Профиль").Value;
+
+                    Error = "Ширина";
+                    string Width = detail.Element("Ширина").Value;
+
+                    Error = "Длина";
+                    string Lenght = detail.Element("Длина").Value;
+
+                    Error = "Масса1шт";
+                    string Weight = detail.Element("Масса1шт").Value;
+
+                    Error = "HEIGHT";
+                    string Height = detail.Element("HEIGHT").Value;
+
+                    Error = "DIAMETER";
+                    string Diameter = detail.Element("DIAMETER").Value;
+
+                    Error = "Масса_всех";
+                    string SubtotalWeight = detail.Element("Масса_всех").Value;
+
+                    Error = "Марка_стали";
+                    string MarkSteel = detail.Element("Марка_стали").Value;
+
+                    Error = "Примечание";
+                    string Discription = detail.Element("Примечание").Value;
+
+                    Error = "Мех.обр";
+                    string Machining = detail.Element("Мех.обр").Value;
+
+                    Error = "Способ_покраски_RAL";
+                    string MethodOfPaintingRAL = detail.Element("Способ_покраски_RAL").Value;
+
+                    Error = "Площадь_покраски";
+                    string PaintingArea = detail.Element("Площадь_покраски").Value;
+
+                    Error = "GOST_NAME";
+                    string GostName = detail.Element("GOST_NAME").Value;
+
+                    Error = "FLANGE_THICKNESS_1";
+                    string FlangeThickness = detail.Element("FLANGE_THICKNESS_1").Value;
+
+                    Error = "PLATE_THICKNESS";
+                    string PlateThickness = detail.Element("PLATE_THICKNESS").Value;
+
+                    DetailViewModel detailViewModel = new DetailViewModel(
+                        Position,
+                        Count,
+                        Profile,
+                        Width,
+                        Lenght,
+                        Weight,
+                        Height,
+                        Diameter,
+                        SubtotalWeight,
+                        MarkSteel,
+                        Discription,
+                        Machining,
+                        MethodOfPaintingRAL,
+                        PaintingArea,
+                        GostName,
+                        FlangeThickness,
+                        PlateThickness
+                        );
+
+                    details.Add(new Detail
+                    {
+                        Position = detailViewModel.Position,
+                        Count = detailViewModel.Count,
+                        Profile = detailViewModel.Profile,
+                        Width = detailViewModel.Width,
+                        Lenght = detailViewModel.Lenght,
+                        Weight = detailViewModel.Weight,
+                        SubtotalWeight = detailViewModel.SubTotalWeight,
+                        MarkSteel = detailViewModel.MarkSteel,
+                        Discription = detailViewModel.Discription,
+                        Machining = detailViewModel.Machining,
+                        MethodOfPaintingRAL = detailViewModel.MethodOfPaintiongRAL,
+                        PaintingArea = detailViewModel.PaintingArea
+                    });
                 }
+            }
+            catch (NullReferenceException Ex)
+            {
+                throw new Exception($"В детали Отсутвует поле: {Error}");
             }
             catch (Exception Ex)
             {
                 throw new Exception(Ex.Message, Ex);
-            }
-        }
-        private string GetProfile(string Profile, XElement detail)
-        {
-            try
-            {
-                int Index = -1;
-                string GostName = detail.Element("GOST_NAME").Value.Replace(" ", "");
-
-                String[] Arguments = new String[] { "PL", "Утеплит", "Риф", "Сетка 50/50х2.5 В=1800", "ПВ", "ГОСТ 8509-93", "ГОСТ 8510-93", "PD", "Профиль(кв.)", "Профиль", "*" };
-                for (int i = 0; i < Arguments.Length; i++)
-                {
-                    if (Arguments[i].IndexOf("ГОСТ") == -1)
-                    {
-                        if (Profile.IndexOf(Arguments[i]) != -1)
-                        {
-                            Index = i;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        if (GostName.IndexOf(Arguments[i]) != -1)
-                        {
-                            Index = i;
-                            break;
-                        }
-                    }
-                }
-                switch (Index)
-                {
-                    case 0:
-                        int var4 = Convert.ToInt32(Profile.Substring(2, Profile.IndexOf("x") - 2));
-                        int var5 = Convert.ToInt32(Profile.Substring(1 + Profile.IndexOf("x"), Profile.Length - Profile.IndexOf("x") - 1));
-
-                        if (var4 > var5)
-                        {
-                            return "-" + var5.ToString();
-                        }
-                        else
-                        {
-                            return "-" + var4.ToString();
-                        }
-                    case 1:
-                        return detail.Element("Марка_стали").Value;
-                    case 2:
-                        return detail.Element("Марка_стали").Value;
-                    case 3:
-                        return "Сетка 50/50х2.5 В=1800";
-                    case 4:
-                        return detail.Element("Марка_стали").Value;
-                    case 5:
-                        return $"L{detail.Element("WIDTH").Value.Replace(" ", "")}x{detail.Element("FLANGE_THICKNESS_1").Value.Replace(" ", "")}";
-                    case 6:
-                        return $"L{detail.Element("WIDTH").Value.Replace(" ", "")}x{detail.Element("WIDTH").Value.Replace(" ", "")}x{detail.Element("FLANGE_THICKNESS_1").Value.Replace(" ", "")}";
-                    case 7:
-                        return $"Труба {detail.Element("DIAMETER").Value.Replace(" ", "")}x{detail.Element("PLATE_THICKNESS").Value.Replace(" ", "")}";
-                    case 8:
-                        return $"Тр.кв.{detail.Element("HEIGHT").Value.Replace(" ", "")}x{detail.Element("PLATE_THICKNESS").Value.Replace(" ", "")}";
-                    case 9:
-                        return $"Тр.пр.{detail.Element("HEIGHT").Value.Replace(" ", "")}x{detail.Element("HEIGHT").Value.Replace(" ", "")}x{detail.Element("PLATE_THICKNESS").Value.Replace(" ", "")}";
-                    case 10:
-                        return Profile.Replace("*", "x");
-                }
-                return Profile;
-            }
-            catch
-            {
-                return Profile;
             }
         }
         private TreeNode GetTreeNodeModel(Model Model, List<Order> IterOrders)
