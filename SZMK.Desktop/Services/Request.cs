@@ -1633,8 +1633,8 @@ namespace SZMK.Desktop.Services
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"INSERT INTO public.\"Detail\"(\"Position\",\"Count\",\"Profile\",\"Width\",\"Lenght\",\"Weight\",\"SubtotalWeight\",\"MarkSteel\",\"Discription\",\"Machining\", \"MethodOfPaintingRAL\", \"PaintingArea\") " +
-                        $"VALUES('{Detail.Position}','{Detail.Count}','{Detail.Profile}','{Detail.Width}','{Detail.Lenght}','{Detail.Weight}','{Detail.SubtotalWeight}','{Detail.MarkSteel}','{Detail.Discription}','{Detail.Machining}', '{Detail.MethodOfPaintingRAL}', '{Detail.PaintingArea}'); ", Connect))
+                    using (var Command = new NpgsqlCommand($"INSERT INTO public.\"Detail\"(\"Position\",\"Count\",\"Profile\",\"Width\",\"Lenght\",\"Weight\",\"Height\",\"Diameter\",\"SubtotalWeight\",\"MarkSteel\",\"Discription\",\"Machining\", \"MethodOfPaintingRAL\", \"PaintingArea\",\"GostName\",\"FlangeThickness\",\"PlateThickness\") " +
+                        $"VALUES('{Detail.Position}','{Detail.Count}','{Detail.Profile}','{Detail.Width}','{Detail.Lenght}','{Detail.Weight}','{Detail.Height}','{Detail.Diameter}','{Detail.SubtotalWeight}','{Detail.MarkSteel}','{Detail.Discription}','{Detail.Machining}', '{Detail.MethodOfPaintingRAL}', '{Detail.PaintingArea}','{Detail.GostName}','{Detail.FlangeThickness}','{Detail.PlateThickness}'); ", Connect))
                     {
                         Command.ExecuteNonQuery();
                     }
@@ -1702,7 +1702,25 @@ namespace SZMK.Desktop.Services
                             {
                                 while (Reader.Read())
                                 {
-                                    details.Add(new Detail { ID = Reader.GetInt64(0), Position = !Reader.IsDBNull(1) ? Reader.GetInt64(1) : -1, Count = !Reader.IsDBNull(2) ? Reader.GetInt64(2) : -1, Profile = Reader.GetString(3), Width = !Reader.IsDBNull(4) ? Convert.ToDouble(Reader.GetString(4)) : -1, Lenght = !Reader.IsDBNull(5) ? Convert.ToDouble(Reader.GetString(5)) : -1, Weight = !Reader.IsDBNull(6) ? Convert.ToDouble(Reader.GetString(6)) : -1, SubtotalWeight = Convert.ToDouble(Reader.GetString(7)), MarkSteel = Reader.GetString(8), Discription = !Reader.IsDBNull(9) ? Reader.GetString(9) : "", Machining = !Reader.IsDBNull(10) ? Reader.GetString(10) : "", MethodOfPaintingRAL = !Reader.IsDBNull(11) ? Reader.GetString(11) : "", PaintingArea = !Reader.IsDBNull(12) ? Convert.ToDouble(Reader.GetString(12)) : -1 });
+                                    details.Add(new Detail { ID = Reader.GetInt64(0),
+                                        Position = !Reader.IsDBNull(1) ? Reader.GetInt64(1) : -1,
+                                        Count = !Reader.IsDBNull(2) ? Reader.GetInt64(2) : -1,
+                                        Profile = Reader.GetString(3),
+                                        Width = !Reader.IsDBNull(4) ? Convert.ToDouble(Reader.GetString(4)) : -1,
+                                        Lenght = !Reader.IsDBNull(5) ? Convert.ToDouble(Reader.GetString(5)) : -1,
+                                        Weight = !Reader.IsDBNull(6) ? Convert.ToDouble(Reader.GetString(6)) : -1,
+                                        Height = !Reader.IsDBNull(7) ? Convert.ToDouble(Reader.GetString(7)) : -1,
+                                        Diameter = !Reader.IsDBNull(8) ? Reader.GetString(8) : "",
+                                        SubtotalWeight = Convert.ToDouble(Reader.GetString(9)),
+                                        MarkSteel = Reader.GetString(10),
+                                        Discription = !Reader.IsDBNull(11) ? Reader.GetString(11) : "",
+                                        Machining = !Reader.IsDBNull(12) ? Reader.GetString(12) : "",
+                                        MethodOfPaintingRAL = !Reader.IsDBNull(13) ? Reader.GetString(13) : "",
+                                        PaintingArea = !Reader.IsDBNull(14) ? Convert.ToDouble(Reader.GetString(14)) : -1,
+                                        GostName = !Reader.IsDBNull(15) ? Reader.GetString(15) : "",
+                                        FlangeThickness = !Reader.IsDBNull(16) ? Reader.GetString(16) : "",
+                                        PlateThickness = !Reader.IsDBNull(17) ? Reader.GetString(17) : ""
+                                    });
                                 }
                             }
                         }

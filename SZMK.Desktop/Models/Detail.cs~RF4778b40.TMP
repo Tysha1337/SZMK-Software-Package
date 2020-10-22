@@ -24,7 +24,7 @@ namespace SZMK.Desktop.Models
         public string MethodOfPaintingRAL { get; set; }
         public double PaintingArea { get; set; }
         public string GostName { get; set; }
-        public string FlangeThickness { get; set; }
-        public string PlateThickness { get; set; }
+        public string FlangeThickness { get;set }
+        public string PlateThickness { get;set }
     }
 }

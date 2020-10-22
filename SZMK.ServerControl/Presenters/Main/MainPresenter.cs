@@ -26,7 +26,10 @@ namespace SZMK.ServerControl.Presenters.Main
 
         private void SettingsServer()
         {
-            Controller.Run<ServerSettingPresenter>();
+            if (Controller.RunDialog<ServerSettingPresenter>()==System.Windows.Forms.DialogResult.OK)
+            {
+                throw new Exception();
+            }
         }
     }
 }

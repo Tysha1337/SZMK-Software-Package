@@ -66,5 +66,10 @@ namespace SZMK.ServerControl.Views.Main
         {
             SettingsServer?.Invoke();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

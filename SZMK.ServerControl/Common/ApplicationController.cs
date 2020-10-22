@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SZMK.ServerControl.Common
 {
@@ -45,6 +46,15 @@ namespace SZMK.ServerControl.Common
             var presenter = _container.Resolve<TPresenter>();
             presenter.Run();
         }
+        public DialogResult RunDialog<TPresenter>() where TPresenter : class, IPresenter
+        {
+            if (!_container.IsRegistered<TPresenter>())
+                _container.Register<TPresenter>();
+
+            var presenter = _container.Resolve<TPresenter>();
+
+            return presenter.RunDialog();
+        }
 
         public void Run<TPresenter, TArgumnent>(TArgumnent argumnent) where TPresenter : class, IPresenter<TArgumnent>
         {
@@ -53,6 +63,14 @@ namespace SZMK.ServerControl.Common
 
             var presenter = _container.Resolve<TPresenter>();
             presenter.Run(argumnent);
+        }
+        public DialogResult RunDialog<TPresenter, TArgumnent>(TArgumnent argumnent) where TPresenter : class, IPresenter<TArgumnent>
+        {
+            if (!_container.IsRegistered<TPresenter>())
+                _container.Register<TPresenter>();
+
+            var presenter = _container.Resolve<TPresenter>();
+            return presenter.RunDialog(argumnent);
         }
     }
 }

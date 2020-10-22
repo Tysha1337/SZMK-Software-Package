@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindingModels\StringErrorBindingModel.cs" />
     <Compile Include="Models\DataBase.cs" />
     <Compile Include="Models\Detail.cs" />
     <Compile Include="Models\Drawing.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Services\Login.cs" />
     <Compile Include="Services\MailLogger.cs" />
     <Compile Include="Services\Request.cs" />
+    <Compile Include="ViewModels\DetailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -112,5 +114,6 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

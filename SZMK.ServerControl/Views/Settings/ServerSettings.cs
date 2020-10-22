@@ -38,6 +38,8 @@ namespace SZMK.ServerControl.Views.Settings
         private void ServerSettings_Load(object sender, EventArgs e)
         {
             LoadSettings?.Invoke();
+
+            INotifyPropertyChanged
         }
     }
 }

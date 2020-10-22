@@ -172,6 +172,12 @@
     <Compile Include="Views\Main\Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Main\ReportErrors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Main\ReportErrors.Designer.cs">
+      <DependentUpon>ReportErrors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Main\Update.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main\ReportErrors.resx">
+      <DependentUpon>ReportErrors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>

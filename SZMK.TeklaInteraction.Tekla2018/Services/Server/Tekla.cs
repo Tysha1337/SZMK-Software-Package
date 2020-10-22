@@ -4,11 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using SZMK.TeklaInteraction.Shared.BindingModels;
 using SZMK.TeklaInteraction.Shared.Services;
+using SZMK.TeklaInteraction.Shared.ViewModels;
 using SZMK.TeklaInteraction.Tekla2018.Services.Server.Interfaces;
 using SZMK.TeklaInteraction.Tekla2018.Views.Shared.Interfaces;
 using Tekla.Structures.Drawing;
 using Tekla.Structures.Model;
+using Tekla_Interaction.Tekla2018.Views.Main;
 using ModelObject = Tekla.Structures.Model.ModelObject;
 
 namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
@@ -31,6 +34,7 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
 
         Shared.Models.Model Model;
         public List<Shared.Models.Drawing> Drawings;
+        public List<StringErrorBindingModel> Errors;
 
         public bool CheckConnect()
         {
@@ -55,6 +59,8 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                 logger.Info("Чертежи успешно получены");
 
                 Drawings = new List<Shared.Models.Drawing>();
+
+                Errors = new List<StringErrorBindingModel>();
 
                 while (SelectedDrawings.MoveNext())
                 {
@@ -86,7 +92,7 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                         assembly.GetReportProperty("CUSTOM.Zakaz", ref Number);
                         assembly.GetReportProperty("CUSTOM.Drw_SheetRev", ref List);
                         logger.Error(E.ToString());
-                        MessageBox.Show("Ошибка в чертеже:" + Environment.NewLine + "Заказ " + Number + Environment.NewLine + "Лист " + List + Environment.NewLine + "Проверьте его параметры" + Environment.NewLine + "Пояснение ошибки: " + E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Errors.Add(new StringErrorBindingModel { Data = $"Заказ: {Number}, Лист: {List}", Error = E.Message });
                     }
                 }
 
@@ -96,6 +102,15 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                 Model = new Shared.Models.Model { DateCreate = DateTime.Now, Path = modelInfo.ModelPath, Drawings = Drawings };
 
                 notify.Close();
+
+                if (Errors.Count > 0)
+                {
+                    ReportErrors Report = new ReportErrors();
+                    Report.Report_DGV.AutoGenerateColumns = false;
+                    Report.Report_DGV.DataSource = Errors;
+
+                    Report.ShowDialog();
+                }
 
                 if (Model.Drawings.Count() > 0)
                 {
@@ -135,6 +150,8 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
         }
         private void AddsSecondariesDrawingObjectsToTreeNode(Assembly assembly, List<SZMK.TeklaInteraction.Shared.Models.Detail> Details)
         {
+            string Error = "Ошибка написания позиции детали";
+
             try
             {
                 ArrayList secondaries = assembly.GetSecondaries();
@@ -146,14 +163,13 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                     ModelObject modelObject = secondaries[i] as ModelObject;
 
                     modelObject.GetReportProperty("PART_POS", ref _position);
+                    long CountDetail = 0;
 
-                    int CountDetail = 0;
-
-                    if (Details.Where(p => p.Position == _position).Count() > 0)
+                    if (Details.Where(p => p.Position == Convert.ToInt64(_position)).Count() > 0)
                     {
-                        CountDetail = Details.Where(p => p.Position == _position).FirstOrDefault().Count;
+                        CountDetail = Details.Where(p => p.Position == Convert.ToInt64(_position)).FirstOrDefault().Count;
 
-                        Details.RemoveAll(p => p.Position == _position);
+                        Details.RemoveAll(p => p.Position == Convert.ToInt64(_position));
                     }
 
                     Details.Add(GetDetailAttribute(modelObject, CountDetail + 1));
@@ -161,33 +177,39 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
             }
             catch (Exception E)
             {
-                throw new Exception(E.Message, E);
+                throw new Exception(Error, E);
             }
         }
-        private Shared.Models.Detail GetDetailAttribute(ModelObject modelObject, Int32 CountDetail)
+        private Shared.Models.Detail GetDetailAttribute(ModelObject modelObject, Int64 CountDetail)
         {
             try
             {
                 string _position = "";
                 string _profile = "";
-                double _width = 0;
-                double _lenght = 0;
-                double _weight = 0;
-                double _subTotalWeight = 0;
+                string _width = "";
+                string _lenght = "";
+                string _weight = "";
+                string _height = "";
+                string _diameter = "";
                 string _markSteel = "";
                 string _discription = "";
-                double _gmlenght = 0;
-                double _gmwidth = 0;
-                double _gmheight = 0;
+                string _gmlenght = "";
+                string _gmwidth = "";
+                string _gmheight = "";
                 string _machining = "";
                 string _methodOfPaintingRAL = "";
-                double _paintingArea = 0;
+                string _paintingArea = "";
+                string _gostName = "";
+                string _flangeThickness = "";
+                string _plateThickness = "";
 
                 modelObject.GetReportProperty("PART_POS", ref _position);
-                _profile = GetProfile(modelObject);
+                modelObject.GetReportProperty("PROFILE", ref _profile);
                 modelObject.GetReportProperty("WIDTH", ref _width);
                 modelObject.GetReportProperty("LENGTH", ref _lenght);
                 modelObject.GetReportProperty("CUSTOM.SZ_PartWeight", ref _weight);
+                modelObject.GetReportProperty("PROFILE.HEIGHT", ref _height);
+                modelObject.GetReportProperty("PROFILE.DIAMETER", ref _diameter);
                 modelObject.GetReportProperty("MATERIAL", ref _markSteel);
                 _discription = GetDiscriptrion(modelObject);
                 modelObject.GetReportProperty("ASSEMBLY.LENGTH", ref _gmlenght);
@@ -196,9 +218,35 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                 _machining = GetMachining(modelObject);
                 _methodOfPaintingRAL = GetMethodOfPainting(modelObject);
                 modelObject.GetReportProperty("ASSEMBLY.AREA", ref _paintingArea);
-                _subTotalWeight = CountDetail * _weight;
+                modelObject.GetReportProperty("PROFILE.GOST_NAME", ref _gostName);
+                modelObject.GetReportProperty("PROFILE.FLANGE_THICKNESS_1", ref _flangeThickness);
+                modelObject.GetReportProperty("PROFILE.PLATE_THICKNESS", ref _plateThickness);
 
-                return new Shared.Models.Detail { Position = _position, Profile = _profile, Width = Convert.ToDouble(_width.ToString("F2")), Lenght = Convert.ToDouble(_lenght.ToString("F2")), Weight = Convert.ToDouble(_weight.ToString("F2")), SubtotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), MarkSteel = _markSteel.Replace(" ",""), Discription = _discription, GMlenght = Convert.ToDouble(_gmlenght.ToString("F2")), GMwidth = Convert.ToDouble(_gmwidth.ToString("F2")), GMheight = Convert.ToDouble(_gmheight.ToString("F2")), Machining = _machining, MethodOfpPaintingRAL = _methodOfPaintingRAL, PaintingArea = Convert.ToDouble((_paintingArea / 1000000).ToString("F2")), Count = CountDetail };
+                DetailViewModel detailViewModel = new DetailViewModel(_position, CountDetail.ToString(), _profile, _width, _lenght, _weight, _height, _diameter, _markSteel, _discription, _gmlenght, _gmwidth, _gmheight, _machining, _methodOfPaintingRAL, _paintingArea, _gostName, _flangeThickness, _plateThickness);
+
+                return new Shared.Models.Detail
+                {
+                    Position = detailViewModel.Position,
+                    Count = CountDetail,
+                    Profile = detailViewModel.Profile,
+                    Width = Convert.ToDouble(detailViewModel.Width.ToString("F2")),
+                    Lenght = Convert.ToDouble(detailViewModel.Lenght.ToString("F2")),
+                    Weight = Convert.ToDouble(detailViewModel.Weight.ToString("F2")),
+                    Height = Convert.ToDouble(detailViewModel.Height.ToString("F2")),
+                    Diameter = detailViewModel.Diameter,
+                    SubtotalWeight = Convert.ToDouble(detailViewModel.SubTotalWeight.ToString("F2")),
+                    MarkSteel = detailViewModel.MarkSteel,
+                    Discription = detailViewModel.Discription,
+                    GMlenght = Convert.ToDouble(detailViewModel.GMLenght.ToString("F2")),
+                    GMwidth = Convert.ToDouble(detailViewModel.GMWidth.ToString("F2")),
+                    GMheight = Convert.ToDouble(detailViewModel.GMHeight.ToString("F2")),
+                    Machining = detailViewModel.Machining,
+                    MethodOfPaintingRAL = detailViewModel.MethodOfPaintiongRAL,
+                    PaintingArea = Convert.ToDouble((detailViewModel.PaintingArea / 1000000).ToString("F2")),
+                    GostName = detailViewModel.GostName,
+                    FlangeThickness = detailViewModel.FlangeThickness,
+                    PlateThickness = detailViewModel.PlateThickness
+                };
             }
             catch (Exception E)
             {
@@ -220,7 +268,7 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                 int _countMark = 0;
                 double _subTotalWeight = 0;
                 double _subTotallenght = 0;
-                int _countDetail = 0;
+                long _countDetail = 0;
 
                 assembly.GetReportProperty("LENGTH", ref _subTotallenght);
 
@@ -279,7 +327,7 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
 
                 _countDetail = Details.Sum(p => p.Count);
 
-                Drawings.Add(new Shared.Models.Drawing { Assembly = _assembly, Order = _order.Replace(" ",""), Place = _place, List = _list, Mark = _mark, Executor = _executor, WeightMark = Convert.ToDouble(_weightMark.ToString("F2")), CountMark = _countMark, SubTotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), SubTotalLenght = Convert.ToDouble(_subTotallenght.ToString("F2")), CountDetail = _countDetail, Details = Details });
+                Drawings.Add(new Shared.Models.Drawing { Assembly = _assembly, Order = _order.Replace(" ", ""), Place = _place, List = _list, Mark = _mark, Executor = _executor, WeightMark = Convert.ToDouble(_weightMark.ToString("F2")), CountMark = _countMark, SubTotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), SubTotalLenght = Convert.ToDouble(_subTotallenght.ToString("F2")), CountDetail = _countDetail, Details = Details });
 
                 return true;
             }
@@ -362,112 +410,6 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
             catch (Exception E)
             {
                 throw new Exception(E.Message, E);
-            }
-        }
-        private String GetProfile(ModelObject modelObject)
-        {
-            string Profile = "";
-            modelObject.GetReportProperty("PROFILE", ref Profile);
-            try
-            {
-                string StringAnswer = "";
-                double DoubleAnswer = 0;
-                int IntAnswer = 0;
-
-                int Index = -1;
-                string GostName = "";
-
-                modelObject.GetReportProperty("PROFILE.GOST_NAME", ref GostName);
-
-                String[] Arguments = new String[] { "PL", "Утеплит", "Риф", "Сетка 50/50х2.5 В=1800", "ПВ", "ГОСТ 8509-93", "ГОСТ 8510-93", "PD", "Профиль(кв.)", "Профиль", "*" };
-                for (int i = 0; i < Arguments.Length; i++)
-                {
-                    if (Arguments[i].IndexOf("ГОСТ") == -1)
-                    {
-                        if (Profile.IndexOf(Arguments[i]) != -1)
-                        {
-                            Index = i;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        if (GostName.IndexOf(Arguments[i]) != -1)
-                        {
-                            Index = i;
-                            break;
-                        }
-                    }
-                }
-                switch (Index)
-                {
-                    case 0:
-                        Double var4 = 0;
-                        Double var5 = 0;
-                        Profile = Profile.Replace(".", ",");
-                        var4 = Convert.ToDouble(Profile.Substring(2, Profile.IndexOf("*") - 2));
-                        var5 = Convert.ToDouble(Profile.Substring(1 + Profile.IndexOf("*"), Profile.Length - Profile.IndexOf("*") - 1));
-                        if (var4 > var5)
-                        {
-                            return "-" + var5.ToString();
-                        }
-                        else
-                        {
-                            return "-" + var4.ToString();
-                        }
-                    case 1:
-                        modelObject.GetReportProperty("MATERIAL", ref StringAnswer);
-                        return StringAnswer;
-                    case 2:
-                        modelObject.GetReportProperty("MATERIAL", ref StringAnswer);
-                        return StringAnswer;
-                    case 3:
-                        return "Сетка 50/50х2.5 В=1800";
-                    case 4:
-                        modelObject.GetReportProperty("MATERIAL", ref StringAnswer);
-                        return StringAnswer;
-                    case 5:
-                        modelObject.GetReportProperty("PROFILE.WIDTH", ref DoubleAnswer);
-                        StringAnswer = "L" + DoubleAnswer.ToString("F0") + "x";
-                        modelObject.GetReportProperty("PROFILE.FLANGE_THICKNESS_1", ref DoubleAnswer);
-                        StringAnswer += DoubleAnswer.ToString("F0");
-                        return StringAnswer;
-                    case 6:
-                        modelObject.GetReportProperty("PROFILE.WIDTH", ref DoubleAnswer);
-                        StringAnswer = "L" + DoubleAnswer.ToString("F0") + "x";
-                        modelObject.GetReportProperty("PROFILE.WIDTH", ref DoubleAnswer);
-                        StringAnswer += DoubleAnswer.ToString("F0") + "x";
-                        modelObject.GetReportProperty("PROFILE.FLANGE_THICKNESS_1", ref DoubleAnswer);
-                        StringAnswer += DoubleAnswer.ToString("F0");
-                        return StringAnswer;
-                    case 7:
-                        modelObject.GetReportProperty("PROFILE.DIAMETER", ref IntAnswer);
-                        modelObject.GetReportProperty("PROFILE.PLATE_THICKNESS", ref DoubleAnswer);
-                        StringAnswer = "Труба " + IntAnswer + "x" + DoubleAnswer.ToString("F2");
-                        return StringAnswer;
-                    case 8:
-                        modelObject.GetReportProperty("PROFILE.HEIGHT", ref DoubleAnswer);
-                        StringAnswer = "Тр.кв." + DoubleAnswer.ToString("F2");
-                        modelObject.GetReportProperty("PROFILE.PLATE_THICKNESS", ref DoubleAnswer);
-                        StringAnswer +="x" + DoubleAnswer.ToString("F2");
-                        return StringAnswer;
-                    case 9:
-                        modelObject.GetReportProperty("PROFILE.HEIGHT", ref DoubleAnswer);
-                        StringAnswer = "Тр.пр." + DoubleAnswer.ToString("F2") + "x";
-                        modelObject.GetReportProperty("PROFILE.HEIGHT", ref DoubleAnswer);
-                        StringAnswer += DoubleAnswer.ToString("F2");
-                        modelObject.GetReportProperty("PROFILE.PLATE_THICKNESS", ref DoubleAnswer);
-                        StringAnswer += "x" + DoubleAnswer.ToString("F2");
-                        return StringAnswer;
-                    case 10:
-                        StringAnswer = Profile.Replace("*", "x");
-                        return StringAnswer;
-                }
-                return Profile;
-            }
-            catch
-            {
-                return Profile;
             }
         }
         private String GetDiscriptrion(ModelObject modelObject)

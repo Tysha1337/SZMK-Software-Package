@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SZMK.ServerControl.Common
 {
@@ -23,6 +24,11 @@ where TView : IView
         {
             View.Show();
         }
+
+        public DialogResult RunDialog()
+        {
+            return View.ShowDialog();
+        }
     }
 
     public abstract class BasePresener<TView, TArg> : IPresenter<TArg>
@@ -38,5 +44,7 @@ where TView : IView
         }
 
         public abstract void Run(TArg argument);
+
+        public abstract DialogResult RunDialog(TArg argument);
     }
 }
