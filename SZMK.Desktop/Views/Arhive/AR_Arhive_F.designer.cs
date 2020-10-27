@@ -82,6 +82,7 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.CanceledOrder_TSB = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ViewSelected_B = new System.Windows.Forms.Button();
             this.Executor_TB = new System.Windows.Forms.TextBox();
             this.DateCreate_TB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -474,6 +475,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.72589F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.78173F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.49239F));
+            this.tableLayoutPanel2.Controls.Add(this.ViewSelected_B, 0, 17);
             this.tableLayoutPanel2.Controls.Add(this.Executor_TB, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.DateCreate_TB, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
@@ -493,7 +495,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.label14, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.ExecutorWork_TB, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.RefreshStatus_B, 0, 18);
+            this.tableLayoutPanel2.Controls.Add(this.RefreshStatus_B, 0, 19);
             this.tableLayoutPanel2.Controls.Add(this.SelectedOrder_TB, 0, 16);
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 15);
             this.tableLayoutPanel2.Controls.Add(this.CountOrder_TB, 2, 16);
@@ -525,11 +527,30 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(394, 699);
             this.tableLayoutPanel2.TabIndex = 25;
+            // 
+            // ViewSelected_B
+            // 
+            this.ViewSelected_B.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.tableLayoutPanel2.SetColumnSpan(this.ViewSelected_B, 3);
+            this.ViewSelected_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ViewSelected_B.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(223)))), ((int)(((byte)(253)))));
+            this.ViewSelected_B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(217)))), ((int)(((byte)(254)))));
+            this.ViewSelected_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
+            this.ViewSelected_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewSelected_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.ViewSelected_B.Location = new System.Drawing.Point(3, 539);
+            this.ViewSelected_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
+            this.ViewSelected_B.Name = "ViewSelected_B";
+            this.ViewSelected_B.Size = new System.Drawing.Size(386, 33);
+            this.ViewSelected_B.TabIndex = 68;
+            this.ViewSelected_B.Text = "Отобразить выбранное";
+            this.ViewSelected_B.UseVisualStyleBackColor = false;
+            this.ViewSelected_B.Click += new System.EventHandler(this.ViewSelected_B_Click);
             // 
             // Executor_TB
             // 
@@ -774,7 +795,7 @@
             this.RefreshStatus_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
             this.RefreshStatus_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RefreshStatus_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.RefreshStatus_B.Location = new System.Drawing.Point(3, 539);
+            this.RefreshStatus_B.Location = new System.Drawing.Point(3, 659);
             this.RefreshStatus_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
             this.RefreshStatus_B.Name = "RefreshStatus_B";
             this.RefreshStatus_B.Size = new System.Drawing.Size(386, 33);
@@ -1288,5 +1309,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Finished;
         private System.Windows.Forms.ToolStripMenuItem CompleteStatusReport_TSM;
+        public System.Windows.Forms.Button ViewSelected_B;
     }
 }

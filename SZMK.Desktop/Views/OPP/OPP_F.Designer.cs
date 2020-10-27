@@ -47,6 +47,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OPP_F));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.добавлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MoveToWorkShop_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.AddOrder_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.ChangeOrder_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteOrder_TSM = new System.Windows.Forms.ToolStripMenuItem();
@@ -129,7 +130,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.Finished_TB = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.MoveToWorkShop_TSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.ViewSelected_B = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -162,24 +163,31 @@
             this.добавлениеToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.добавлениеToolStripMenuItem.Text = "Добавление";
             // 
+            // MoveToWorkShop_TSM
+            // 
+            this.MoveToWorkShop_TSM.Name = "MoveToWorkShop_TSM";
+            this.MoveToWorkShop_TSM.Size = new System.Drawing.Size(164, 22);
+            this.MoveToWorkShop_TSM.Text = "Перенести в цех";
+            this.MoveToWorkShop_TSM.Click += new System.EventHandler(this.MoveToWorkShop_TSM_Click);
+            // 
             // AddOrder_TSM
             // 
             this.AddOrder_TSM.Name = "AddOrder_TSM";
-            this.AddOrder_TSM.Size = new System.Drawing.Size(180, 22);
+            this.AddOrder_TSM.Size = new System.Drawing.Size(164, 22);
             this.AddOrder_TSM.Text = "Сканировать";
             this.AddOrder_TSM.Click += new System.EventHandler(this.AddOrder_TSM_Click);
             // 
             // ChangeOrder_TSM
             // 
             this.ChangeOrder_TSM.Name = "ChangeOrder_TSM";
-            this.ChangeOrder_TSM.Size = new System.Drawing.Size(180, 22);
+            this.ChangeOrder_TSM.Size = new System.Drawing.Size(164, 22);
             this.ChangeOrder_TSM.Text = "Изменить";
             this.ChangeOrder_TSM.Click += new System.EventHandler(this.ChangeOrder_TSM_Click);
             // 
             // DeleteOrder_TSM
             // 
             this.DeleteOrder_TSM.Name = "DeleteOrder_TSM";
-            this.DeleteOrder_TSM.Size = new System.Drawing.Size(180, 22);
+            this.DeleteOrder_TSM.Size = new System.Drawing.Size(164, 22);
             this.DeleteOrder_TSM.Text = "Удалить";
             this.DeleteOrder_TSM.Click += new System.EventHandler(this.DeleteOrder_TSM_Click);
             // 
@@ -707,9 +715,10 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.72589F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.72588F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.78173F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.49239F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.49238F));
+            this.tableLayoutPanel2.Controls.Add(this.ViewSelected_B, 0, 17);
             this.tableLayoutPanel2.Controls.Add(this.Executor_TB, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.DateCreate_TB, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
@@ -729,7 +738,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.label14, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.ExecutorWork_TB, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.RefreshStatus_B, 0, 18);
+            this.tableLayoutPanel2.Controls.Add(this.RefreshStatus_B, 0, 19);
             this.tableLayoutPanel2.Controls.Add(this.SelectedOrder_TB, 0, 16);
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 15);
             this.tableLayoutPanel2.Controls.Add(this.CountOrder_TB, 2, 16);
@@ -761,9 +770,9 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(394, 699);
             this.tableLayoutPanel2.TabIndex = 24;
             // 
@@ -1010,7 +1019,7 @@
             this.RefreshStatus_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
             this.RefreshStatus_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RefreshStatus_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.RefreshStatus_B.Location = new System.Drawing.Point(3, 539);
+            this.RefreshStatus_B.Location = new System.Drawing.Point(3, 659);
             this.RefreshStatus_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
             this.RefreshStatus_B.Name = "RefreshStatus_B";
             this.RefreshStatus_B.Size = new System.Drawing.Size(386, 33);
@@ -1161,12 +1170,24 @@
             this.label16.TabIndex = 67;
             this.label16.Text = "Завершен";
             // 
-            // MoveToWorkShop_TSM
+            // ViewSelected_B
             // 
-            this.MoveToWorkShop_TSM.Name = "MoveToWorkShop_TSM";
-            this.MoveToWorkShop_TSM.Size = new System.Drawing.Size(180, 22);
-            this.MoveToWorkShop_TSM.Text = "Перенести в цех";
-            this.MoveToWorkShop_TSM.Click += new System.EventHandler(this.MoveToWorkShop_TSM_Click);
+            this.ViewSelected_B.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.tableLayoutPanel2.SetColumnSpan(this.ViewSelected_B, 3);
+            this.ViewSelected_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ViewSelected_B.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(223)))), ((int)(((byte)(253)))));
+            this.ViewSelected_B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(217)))), ((int)(((byte)(254)))));
+            this.ViewSelected_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
+            this.ViewSelected_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewSelected_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.ViewSelected_B.Location = new System.Drawing.Point(3, 539);
+            this.ViewSelected_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
+            this.ViewSelected_B.Name = "ViewSelected_B";
+            this.ViewSelected_B.Size = new System.Drawing.Size(386, 33);
+            this.ViewSelected_B.TabIndex = 68;
+            this.ViewSelected_B.Text = "Отобразить выбранное";
+            this.ViewSelected_B.UseVisualStyleBackColor = false;
+            this.ViewSelected_B.Click += new System.EventHandler(this.ViewSelected_B_Click);
             // 
             // OPP_F
             // 
@@ -1285,5 +1306,6 @@
         private System.Windows.Forms.ToolStripMenuItem SettingScanner_TSM;
         private System.Windows.Forms.ToolStripMenuItem CompleteStatusReport_TSM;
         private System.Windows.Forms.ToolStripMenuItem MoveToWorkShop_TSM;
+        public System.Windows.Forms.Button ViewSelected_B;
     }
 }

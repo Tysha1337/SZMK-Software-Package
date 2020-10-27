@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SZMK.TeklaInteraction.Tekla2018.Properties {
+namespace Tekla_Interaction.Tekla2018.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

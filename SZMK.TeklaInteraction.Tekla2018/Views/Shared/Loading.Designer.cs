@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::SZMK.TeklaInteraction.Tekla2018.Properties.Resources.Обработка;
+            this.BackgroundImage = global::Tekla_Interaction.Tekla2018.Properties.Resources.Обработка;
             this.ClientSize = new System.Drawing.Size(379, 62);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;

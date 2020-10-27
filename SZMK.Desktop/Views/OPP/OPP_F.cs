@@ -1487,5 +1487,18 @@ namespace SZMK.Desktop.Views.OPP
                 MessageBox.Show(E.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void ViewSelected_B_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Display(new OperationsDisplayDrawings().ViewSeletedDrawing(ref Order_DGV));
+            }
+            catch (Exception ex)
+            {
+                SystemArgs.PrintLog(ex.ToString());
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

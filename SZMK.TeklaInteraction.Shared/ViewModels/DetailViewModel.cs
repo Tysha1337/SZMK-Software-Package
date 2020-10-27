@@ -78,15 +78,15 @@ namespace SZMK.TeklaInteraction.Shared.ViewModels
 
                 _PaintingArea = PaintingArea;
 
-                //if (String.IsNullOrEmpty(GostName))
-                //{
-                //    Error = $"Позиция {_Position}: Не заполнен гост стали детали";
-                //    throw new Exception();
-                //}
-                //else
-                //{
-                    _GostName = GostName.Replace(" ", "");
-                //}
+                if (String.IsNullOrEmpty(GostName))
+                {
+                    Error = $"Позиция {_Position}: Не заполнен гост стали детали";
+                    throw new Exception();
+                }
+                else
+                {
+                    _GostName = MarkSteel.Replace(" ", "");
+                }
 
                 _FlangeThickness = FlangeThickness.Replace(" ", "");
                 _PlateThickness = PlateThickness.Replace(" ", "");
