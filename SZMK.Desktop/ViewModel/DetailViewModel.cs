@@ -404,15 +404,15 @@ namespace SZMK.Desktop.ViewModel
                     case 4:
                         return _MarkSteel;
                     case 5:
-                        return $"L{_Width}x{_FlangeThickness}";
+                        return $"L{_Width.ToString("F2").TrimEnd('0', ',')}x{_FlangeThickness}";
                     case 6:
-                        return $"L{_Width}x{_Width}x{_FlangeThickness}";
+                        return $"L{_Width.ToString("F2").TrimEnd('0', ',')}x{_Width.ToString("F2").TrimEnd('0', ',')}x{_FlangeThickness}";
                     case 7:
                         return $"Труба {_Diameter}x{_PlateThickness}";
                     case 8:
-                        return $"Тр.кв.{_Height}x{_PlateThickness}";
+                        return $"Тр.кв.{_Height.ToString("F2").TrimEnd('0', ',')}x{_PlateThickness}";
                     case 9:
-                        return $"Тр.пр.{_Height}x{_Height}x{_PlateThickness}";
+                        return $"Тр.пр.{_Height.ToString("F2").TrimEnd('0', ',')}x{_Height.ToString("F2").TrimEnd('0', ',')}x{_PlateThickness}";
                     case 10:
                         return Profile.Replace("*", "x");
                 }

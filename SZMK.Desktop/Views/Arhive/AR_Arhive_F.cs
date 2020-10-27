@@ -191,7 +191,7 @@ namespace SZMK.Desktop.Views.Arhive
 
                         if (SystemArgs.UnLoadSpecific.ExecutorMails.Count != 0)
                         {
-                            SystemArgs.ServerMail.SendMail(true);
+                            SystemArgs.ServerMail.SendMail(true, SystemArgs.User.StatusesUser[0].Name);
                         }
 
                         SystemArgs.UnLoadSpecific.ExecutorMails.Clear();

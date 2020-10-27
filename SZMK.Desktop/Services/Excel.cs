@@ -676,7 +676,15 @@ namespace SZMK.Desktop.Services
                             rowCntReport = WS.Dimension.End.Row;
                             WS.Cells[rowCntReport + 1, 2].Value = GroupByOrder[i].Mark;
                             WS.Cells[rowCntReport + 1, 3].Value = GroupByOrder[i].Profile[j].Key;
-                            WS.Cells[rowCntReport + 1, 4].Value = GroupByOrder[i].Profile[j].Sum(p => p.SubtotalWeight);
+                            if(!String.IsNullOrEmpty(GroupByOrder[i].Profile[j].Select(p => p.GostName).FirstOrDefault()))
+                            {
+                                WS.Cells[rowCntReport + 1, 4].Value = GroupByOrder[i].Profile[j].Select(p => p.GostName).First();
+                            }
+                            else
+                            {
+                                WS.Cells[rowCntReport + 1, 4].Value = "Гост не найден";
+                            }
+                            WS.Cells[rowCntReport + 1, 5].Value = GroupByOrder[i].Profile[j].Sum(p => p.SubtotalWeight);
                         }
                     }
 
@@ -684,20 +692,20 @@ namespace SZMK.Desktop.Services
 
                     int last = WS.Dimension.End.Row;
 
-                    WS.Cells[last + 1, 3].Value = "Итого";
-                    WS.Cells[last + 1, 4].Value = details.Sum(p => p.SubtotalWeight);
+                    WS.Cells[last + 1, 4].Value = "Итого";
+                    WS.Cells[last + 1, 5].Value = details.Sum(p => p.SubtotalWeight);
 
                     last = WS.Dimension.End.Row;
 
-                    WS.Cells["B2:D" + last].Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                    WS.Cells["B2:D" + last].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                    WS.Cells["B2:D" + last].Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                    WS.Cells["B2:D" + last].Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    WS.Cells["B2:E" + last].Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    WS.Cells["B2:E" + last].Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    WS.Cells["B2:E" + last].Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    WS.Cells["B2:E" + last].Style.Border.Right.Style = ExcelBorderStyle.Thin;
 
-                    WS.Cells["B2:D" + last].Style.Font.Name = "Times New Roman";
-                    WS.Cells["B2:D" + last].Style.Font.Size = 14;
-                    WS.Cells["B2:D" + last].AutoFitColumns();
-                    WS.Cells["B2:D" + last].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    WS.Cells["B2:E" + last].Style.Font.Name = "Times New Roman";
+                    WS.Cells["B2:E" + last].Style.Font.Size = 14;
+                    WS.Cells["B2:E" + last].AutoFitColumns();
+                    WS.Cells["B2:E" + last].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
                     WB.Save();
                 }

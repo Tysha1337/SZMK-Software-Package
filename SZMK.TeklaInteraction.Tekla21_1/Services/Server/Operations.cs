@@ -233,7 +233,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                     detail.Nodes.Add("Г.М. ширина: " + model.Drawings[i].Details[j].GMwidth);
                     detail.Nodes.Add("Г.М. высота: " + model.Drawings[i].Details[j].GMheight);
                     detail.Nodes.Add("Мех. обр.: " + model.Drawings[i].Details[j].Machining);
-                    detail.Nodes.Add("Способ покраски RAL: " + model.Drawings[i].Details[j].MethodOfpPaintingRAL);
+                    detail.Nodes.Add("Способ покраски RAL: " + model.Drawings[i].Details[j].MethodOfPaintingRAL);
                     detail.Nodes.Add("Площадь покраски: " + model.Drawings[i].Details[j].PaintingArea);
 
                     details.Nodes.Add(detail);
@@ -309,7 +309,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                                 {
                                     for (int j = 0; j < Session[i].Drawing.Details.Count; j++)
                                     {
-                                        Session[i].Drawing.Details[j].Id = request.GetAutoIDDetail() + 1;
+                                        Session[i].Drawing.Details[j].ID = request.GetAutoIDDetail() + 1;
 
                                         request.InsertDetail(Session[i].Drawing.Details[j]);
                                         request.InsertAddDetail(Session[i].Drawing, Session[i].Drawing.Details[j]);

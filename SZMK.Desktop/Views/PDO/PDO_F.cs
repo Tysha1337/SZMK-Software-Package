@@ -327,7 +327,7 @@ namespace SZMK.Desktop.Views.PDO
 
                             if (SystemArgs.UnLoadSpecific.ExecutorMails.Count != 0)
                             {
-                                SystemArgs.ServerMail.SendMail(true);
+                                SystemArgs.ServerMail.SendMail(true, TempStatus.Name);
                             }
 
                             SystemArgs.UnLoadSpecific.ExecutorMails.Clear();

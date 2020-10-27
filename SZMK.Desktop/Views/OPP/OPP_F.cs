@@ -265,14 +265,7 @@ namespace SZMK.Desktop.Views.OPP
                             {
                                 if (NumberAndList.Finded == 1)
                                 {
-                                    if (SystemArgs.Request.InsertStatus(NumberAndList.Number, NumberAndList.List, TempStatus.ID, SystemArgs.User))
-                                    {
-                                        if (!SystemArgs.Request.FinishedOrder(true, SystemArgs.Request.GetIDOrder(NumberAndList.Number, NumberAndList.List)))
-                                        {
-                                            MessageBox.Show("Ошибка завершения чертежа" + ScanSession[i].QRBlankOrder, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                        }
-                                    }
-                                    else
+                                    if (!SystemArgs.Request.InsertStatus(NumberAndList.Number, NumberAndList.List, TempStatus.ID, SystemArgs.User))
                                     {
                                         MessageBox.Show("Ошибка добавления в базу данных, обновление статуса " + ScanSession[i].QRBlankOrder + " не будет произведено", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     }
@@ -285,7 +278,7 @@ namespace SZMK.Desktop.Views.OPP
 
                     if (SystemArgs.UnLoadSpecific.ExecutorMails.Count != 0)
                     {
-                        SystemArgs.ServerMail.SendMail(true);
+                        SystemArgs.ServerMail.SendMail(true, SystemArgs.User.StatusesUser[0].Name);
                     }
 
                     SystemArgs.UnLoadSpecific.ExecutorMails.Clear();
@@ -738,6 +731,7 @@ namespace SZMK.Desktop.Views.OPP
         {
             if (Enable)
             {
+                MoveToWorkShop_TSM.Visible = true;
                 ChangeOrder_TSB.Visible = true;
                 DeleteOrder_TSB.Visible = true;
                 ChangeOrder_TSM.Visible = true;
@@ -746,6 +740,7 @@ namespace SZMK.Desktop.Views.OPP
             }
             else
             {
+                MoveToWorkShop_TSM.Visible = false;
                 ChangeOrder_TSB.Visible = false;
                 DeleteOrder_TSB.Visible = false;
                 ChangeOrder_TSM.Visible = false;
@@ -847,6 +842,7 @@ namespace SZMK.Desktop.Views.OPP
         }
         private void LockedButtonForLoadData(bool flag)
         {
+            MoveToWorkShop_TSM.Enabled = flag;
             AddOrder_TSB.Enabled = flag;
             AddOrder_TSM.Enabled = flag;
             ChangeOrder_TSB.Enabled = flag;
@@ -1447,6 +1443,49 @@ namespace SZMK.Desktop.Views.OPP
         private async Task<Boolean> ReportCompleteStatuses(String filename)
         {
             return await Task.Run(() => SystemArgs.Excel.ReportCompleteStatuses(filename));
+        }
+
+        private void MoveToWorkShop_TSM_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Order> OrdersMovings = new List<Order>();
+                if (Order_DGV.CurrentCell != null && Order_DGV.CurrentCell.RowIndex >= 0)
+                {
+                    for (int i = 0; i < Order_DGV.SelectedRows.Count; i++)
+                    {
+                        OrdersMovings.Add((Order)(View[Order_DGV.SelectedRows[i].Index]));
+                    }
+                }
+                else
+                {
+                    throw new Exception("Необходимо выбрать чертежи");
+                }
+
+                if (MessageBox.Show("Вы уверены в переносе чертежей в Цех заготовки?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    for (int i = 0; i < OrdersMovings.Count; i++)
+                    {
+
+                        if (!SystemArgs.Request.InsertStatus(OrdersMovings[i].Number, OrdersMovings[i].List, 8, SystemArgs.User))
+                        {
+                            MessageBox.Show("Ошибка добавления в базу данных, обновление статуса " + OrdersMovings[i].Number + "_" + OrdersMovings[i].List + " не будет произведено", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                    }
+
+                    SystemArgs.UnLoadSpecific.ExecutorMails.Clear();
+
+                    MessageBox.Show("Успешный перенос чертежей!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    RefreshOrderAsync(FilterCB_TSB.SelectedIndex);
+                }
+            }
+            catch (Exception E)
+            {
+                SystemArgs.PrintLog(E.ToString());
+                MessageBox.Show(E.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

@@ -16,3 +16,14 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.exe
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.pdb
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\NLog.config
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\SZMK.LauncherUpdater.exe.config
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\SZMK.LauncherUpdater.exe
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\SZMK.LauncherUpdater.pdb
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\NLog.dll
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.LauncherUpdater\bin\Debug\NLog.xml
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.csproj.CopyComplete
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.exe
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.LauncherUpdater\obj\Debug\SZMK.LauncherUpdater.pdb

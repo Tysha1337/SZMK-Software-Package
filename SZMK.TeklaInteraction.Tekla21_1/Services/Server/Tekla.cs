@@ -77,7 +77,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                             if (!ChechedDate(assembly))
                             {
                                 assembly.GetReportProperty("CUSTOM.Zakaz", ref Number);
-                                MessageBox.Show("Не заполнено поле \"Дата\" в чертеже: " + Number + " " + SelectedDrawings.Current.Mark, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                Errors.Add(new StringErrorBindingModel { Data = $"Заказ: {Number}, Марка: {SelectedDrawings.Current.Mark}", Error = "Не заполнено поле \"Дата\""});
                                 continue;
                             }
 
@@ -186,19 +186,19 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
             {
                 string _position = "";
                 string _profile = "";
-                string _width = "";
-                string _lenght = "";
-                string _weight = "";
-                string _height = "";
+                double _width = 0;
+                double _lenght = 0;
+                double _weight = 0;
+                double _height = 0;
                 string _diameter = "";
                 string _markSteel = "";
                 string _discription = "";
-                string _gmlenght = "";
-                string _gmwidth = "";
-                string _gmheight = "";
+                double _gmlenght = 0;
+                double _gmwidth = 0;
+                double _gmheight = 0;
                 string _machining = "";
                 string _methodOfPaintingRAL = "";
-                string _paintingArea = "";
+                double _paintingArea = 0;
                 string _gostName = "";
                 string _flangeThickness = "";
                 string _plateThickness = "";

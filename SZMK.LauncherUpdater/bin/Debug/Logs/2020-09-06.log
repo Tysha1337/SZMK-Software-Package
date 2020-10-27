@@ -1,9 +1,0 @@
-[2020-09-06 00:45:57.0886] [INFO] Проверка подключения к серверу обновления и выполняемых процессов
-[2020-09-06 00:45:57.1410] [ERROR] System.Exception: Выдано исключение типа "System.Exception". ---> System.Exception: Выдано исключение типа "System.Exception".
-   в SZMK.LauncherUpdater.BaseProgram.GetParametersConnect() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\BaseProgram.cs:строка 24
-   --- Конец трассировки внутреннего стека исключений ---
-   в SZMK.LauncherUpdater.BaseProgram.GetParametersConnect() в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\BaseProgram.cs:строка 37
-   в SZMK.LauncherUpdater.Program.Main(String[] args) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 28
-[2020-09-06 00:47:14.4328] [INFO] Проверка подключения к серверу обновления и выполняемых процессов
-[2020-09-06 00:47:15.5144] [ERROR] System.Exception: Ошибка подключения к серверу обновления
-   в SZMK.LauncherUpdater.Program.Main(String[] args) в C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.LauncherUpdater\Program.cs:строка 55

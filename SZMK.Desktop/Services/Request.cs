@@ -1696,13 +1696,14 @@ namespace SZMK.Desktop.Services
                     }
                     for (int i = 0; i < IDDetails.Count; i++)
                     {
-                        using (var Command = new NpgsqlCommand($"SELECT \"ID\",\"Position\",\"Count\", \"Profile\",\"Width\",\"Lenght\",\"Weight\", \"SubtotalWeight\", \"MarkSteel\",\"Discription\",\"Machining\",\"MethodOfPaintingRAL\",\"PaintingArea\" FROM public.\"Detail\" WHERE \"ID\"='{IDDetails[i]}';", Connect))
+                        using (var Command = new NpgsqlCommand($"SELECT \"ID\",\"Position\",\"Count\", \"Profile\",\"Width\",\"Lenght\",\"Weight\",\"Height\",\"Diameter\", \"SubtotalWeight\", \"MarkSteel\",\"Discription\",\"Machining\",\"MethodOfPaintingRAL\",\"PaintingArea\",\"GostName\",\"FlangeThickness\",\"PlateThickness\" FROM public.\"Detail\" WHERE \"ID\"='{IDDetails[i]}';", Connect))
                         {
                             using (var Reader = Command.ExecuteReader())
                             {
                                 while (Reader.Read())
                                 {
-                                    details.Add(new Detail { ID = Reader.GetInt64(0),
+                                    details.Add(new Detail 
+                                    {   ID = Reader.GetInt64(0),
                                         Position = !Reader.IsDBNull(1) ? Reader.GetInt64(1) : -1,
                                         Count = !Reader.IsDBNull(2) ? Reader.GetInt64(2) : -1,
                                         Profile = Reader.GetString(3),

@@ -129,6 +129,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.Finished_TB = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.MoveToWorkShop_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -153,6 +154,7 @@
             // добавлениеToolStripMenuItem
             // 
             this.добавлениеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MoveToWorkShop_TSM,
             this.AddOrder_TSM,
             this.ChangeOrder_TSM,
             this.DeleteOrder_TSM});
@@ -163,21 +165,21 @@
             // AddOrder_TSM
             // 
             this.AddOrder_TSM.Name = "AddOrder_TSM";
-            this.AddOrder_TSM.Size = new System.Drawing.Size(145, 22);
+            this.AddOrder_TSM.Size = new System.Drawing.Size(180, 22);
             this.AddOrder_TSM.Text = "Сканировать";
             this.AddOrder_TSM.Click += new System.EventHandler(this.AddOrder_TSM_Click);
             // 
             // ChangeOrder_TSM
             // 
             this.ChangeOrder_TSM.Name = "ChangeOrder_TSM";
-            this.ChangeOrder_TSM.Size = new System.Drawing.Size(145, 22);
+            this.ChangeOrder_TSM.Size = new System.Drawing.Size(180, 22);
             this.ChangeOrder_TSM.Text = "Изменить";
             this.ChangeOrder_TSM.Click += new System.EventHandler(this.ChangeOrder_TSM_Click);
             // 
             // DeleteOrder_TSM
             // 
             this.DeleteOrder_TSM.Name = "DeleteOrder_TSM";
-            this.DeleteOrder_TSM.Size = new System.Drawing.Size(145, 22);
+            this.DeleteOrder_TSM.Size = new System.Drawing.Size(180, 22);
             this.DeleteOrder_TSM.Text = "Удалить";
             this.DeleteOrder_TSM.Click += new System.EventHandler(this.DeleteOrder_TSM_Click);
             // 
@@ -1159,6 +1161,13 @@
             this.label16.TabIndex = 67;
             this.label16.Text = "Завершен";
             // 
+            // MoveToWorkShop_TSM
+            // 
+            this.MoveToWorkShop_TSM.Name = "MoveToWorkShop_TSM";
+            this.MoveToWorkShop_TSM.Size = new System.Drawing.Size(180, 22);
+            this.MoveToWorkShop_TSM.Text = "Перенести в цех";
+            this.MoveToWorkShop_TSM.Click += new System.EventHandler(this.MoveToWorkShop_TSM_Click);
+            // 
             // OPP_F
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1275,5 +1284,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Finished;
         private System.Windows.Forms.ToolStripMenuItem SettingScanner_TSM;
         private System.Windows.Forms.ToolStripMenuItem CompleteStatusReport_TSM;
+        private System.Windows.Forms.ToolStripMenuItem MoveToWorkShop_TSM;
     }
 }

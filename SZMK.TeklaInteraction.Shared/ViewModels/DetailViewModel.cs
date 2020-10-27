@@ -31,7 +31,7 @@ namespace SZMK.TeklaInteraction.Shared.ViewModels
         private string _PlateThickness;
 
 
-        public DetailViewModel(string Position, string Count, string Profile, string Width, string Lenght, string Weight, string Height, string Diameter, string MarkSteel, string Discription, string GMLenght, string GMWidth, string GMHeight, string Machining, string MethodOfPaintingRAL, string PaintingArea, string GostName, string FlangeThickness, string PlateThickness)
+        public DetailViewModel(string Position, string Count, string Profile, double Width, double Lenght, double Weight, double Height, string Diameter, string MarkSteel, string Discription, double GMLenght, double GMWidth, double GMHeight, string Machining, string MethodOfPaintingRAL, double PaintingArea, string GostName, string FlangeThickness, string PlateThickness)
         {
             string Error = "";
             try
@@ -42,17 +42,13 @@ namespace SZMK.TeklaInteraction.Shared.ViewModels
                 Error = $"Позиция {_Position}: Количество деталей должно быть целым числом";
                 _Count = Convert.ToInt32(Count.Replace(" ", ""));
 
-                Error = $"Позиция {_Position}: Высота детали должна быть целым или вещественным числом";
-                _Width = Convert.ToDouble(Width.Replace(" ", "").Replace(".", ","));
+                _Width = Width;
 
-                Error = $"Позиция {_Position}: Длина детали должна быть целым или вещественным числом";
-                _Lenght = Convert.ToDouble(Lenght.Replace(" ", "").Replace(".", ","));
+                _Lenght = Lenght;
 
-                Error = $"Позиция {_Position}: Вес детали должна быть целым или вещественным числом";
-                _Weight = Convert.ToDouble(Weight.Replace(" ", "").Replace(".", ","));
+                _Weight = Weight;
 
-                Error = $"Позиция {_Position}: Вес детали должна быть целым или вещественным числом";
-                _Height = Convert.ToDouble(Height.Replace(" ", "").Replace(".", ","));
+                _Height = Height;
 
                 _Diameter = Diameter.Replace(" ", "");
 
@@ -70,21 +66,17 @@ namespace SZMK.TeklaInteraction.Shared.ViewModels
 
                 _Discription = Discription.Replace(" ", "");
 
-                Error = $"Позиция {_Position}: Общая длина детали должно быть целым или вещественным числом";
-                _GMlenght = Convert.ToDouble(GMLenght.Replace(" ", "").Replace(".", ","));
+                _GMlenght = GMLenght;
 
-                Error = $"Позиция {_Position}: Общая ширина детали должно быть целым или вещественным числом";
-                _GMwidth = Convert.ToDouble(GMHeight.Replace(" ", "").Replace(".", ","));
+                _GMwidth = GMHeight;
 
-                Error = $"Позиция {_Position}: Общая высота детали должно быть целым или вещественным числом";
-                _GMheight = Convert.ToDouble(GMHeight.Replace(" ", "").Replace(".", ","));
+                _GMheight = GMHeight;
 
                 _Machining = Machining.Replace(" ", "");
 
                 _MethodOfPaintingRAL = MethodOfPaintingRAL.Replace(" ", "");
 
-                Error = $"Позиция {_Position}: Площадь покраски детали должна быть целым или вещественным числом";
-                _PaintingArea = Convert.ToDouble(PaintingArea.Replace(" ", "").Replace(".", ","));
+                _PaintingArea = PaintingArea;
 
                 if (String.IsNullOrEmpty(GostName))
                 {
@@ -457,15 +449,15 @@ namespace SZMK.TeklaInteraction.Shared.ViewModels
                     case 4:
                         return _MarkSteel;
                     case 5:
-                        return $"L{_Width}x{_FlangeThickness}";
+                        return $"L{_Width.ToString("F2").TrimEnd('0',',')}x{_FlangeThickness}";
                     case 6:
-                        return $"L{_Width}x{_Width}x{_FlangeThickness}";
+                        return $"L{_Width.ToString("F2").TrimEnd('0', ',')}x{_Width.ToString("F2").TrimEnd('0', ',')}x{_FlangeThickness}";
                     case 7:
                         return $"Труба {_Diameter}x{_PlateThickness}";
                     case 8:
-                        return $"Тр.кв.{_Height}x{_PlateThickness}";
+                        return $"Тр.кв.{_Height.ToString("F2").TrimEnd('0', ',')}x{_PlateThickness}";
                     case 9:
-                        return $"Тр.пр.{_Height}x{_Height}x{_PlateThickness}";
+                        return $"Тр.пр.{_Height.ToString("F2").TrimEnd('0', ',')}x{_Height.ToString("F2").TrimEnd('0', ',')}x{_PlateThickness}";
                     case 10:
                         return Profile.Replace("*", "x");
                 }

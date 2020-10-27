@@ -38,7 +38,7 @@ namespace SZMK.Desktop.Services.Setting
                 throw new Exception("Файл подключения к почтовому серверу не найден");
             }
 
-            if(CheckFileEmailGeneralConstructor())
+            if (CheckFileEmailGeneralConstructor())
             {
                 if (!GetEmailGeneralConstructor())
                 {
@@ -209,7 +209,7 @@ namespace SZMK.Desktop.Services.Setting
                     _TestUser = sr.ReadLine();
                     String SSL = sr.ReadLine();
 
-                    if(SSL.ToLower() == "true")
+                    if (SSL.ToLower() == "true")
                     {
                         _SSL = true;
                     }
@@ -335,7 +335,7 @@ namespace SZMK.Desktop.Services.Setting
             return true;
         }
 
-        public bool CheckConnect(String Email,String Name,String Server,Int32 Port,String Login,String Password,String TestUser)
+        public bool CheckConnect(String Email, String Name, String Server, Int32 Port, String Login, String Password, String TestUser)
         {
             try
             {
@@ -357,7 +357,7 @@ namespace SZMK.Desktop.Services.Setting
             }
         }
 
-        public void SendMail(bool SendGeneralConstructor)
+        public void SendMail(bool SendGeneralConstructor, string Status)
         {
             try
             {
@@ -365,7 +365,7 @@ namespace SZMK.Desktop.Services.Setting
                 m.From = new MailAddress(NameWho, Name);
                 if (SystemArgs.Mails.Count != 0)
                 {
-                    for(int i = 0; i < SystemArgs.UnLoadSpecific.ExecutorMails.Count(); i++) 
+                    for (int i = 0; i < SystemArgs.UnLoadSpecific.ExecutorMails.Count(); i++)
                     {
                         if (SystemArgs.UnLoadSpecific.ExecutorMails[i].GetSpecifics().Where(p => !p.Finded).Count() != 0)
                         {
@@ -394,7 +394,7 @@ namespace SZMK.Desktop.Services.Setting
                             m.To.Add(new MailAddress("Agafonov.AE@szmk-nk.com"));
 
                             m.Subject = "Деталировка отсутствует от " + DateTime.Now.ToString();
-                            m.Body = CreateMessage(SystemArgs.UnLoadSpecific.ExecutorMails[i]);
+                            m.Body = CreateMessage(SystemArgs.UnLoadSpecific.ExecutorMails[i], Status);
                             m.IsBodyHtml = true;
                             SmtpClient smtp = new SmtpClient(SMTP, Convert.ToInt32(Port));
                             smtp.Credentials = new NetworkCredential(Login, Password);
@@ -402,30 +402,32 @@ namespace SZMK.Desktop.Services.Setting
                             smtp.Send(m);
                         }
                     }
-                    
+
                 }
                 else
                 {
                     throw new Exception("Отсутсвуют адреса для отправки");
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
-        public String CreateMessage(UnLoadSpecific.ExecutorMail Executor)
+        public String CreateMessage(UnLoadSpecific.ExecutorMail Executor, string Status)
         {
             try
             {
-                String Message = $"<table border=\"1\">" +
+
+
+                String Message = $"<h3>{Status}<h3><table border=\"1\">" +
                                     $"<tr>" +
                                     $"<td> № заказа</td>" +
                                     $"<td> № листа</td>" +
                                     $"<td> Фамилия разработчика</td>" +
                                     $"<td> № детали</td>" +
                                     $"</tr>";
-                foreach(var Specifics in Executor.GetSpecifics())
+                foreach (var Specifics in Executor.GetSpecifics())
                 {
                     if (!Specifics.Finded)
                     {
@@ -440,7 +442,7 @@ namespace SZMK.Desktop.Services.Setting
                 Message += $"</table>";
                 return Message;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }

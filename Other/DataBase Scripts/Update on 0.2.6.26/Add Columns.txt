@@ -1,0 +1,14 @@
+ALTER TABLE public."Detail"
+    ADD COLUMN "Height" character varying;
+
+ALTER TABLE public."Detail"
+    ADD COLUMN "Diameter" character varying;
+
+ALTER TABLE public."Detail"
+    ADD COLUMN "GostName" character varying;
+
+ALTER TABLE public."Detail"
+    ADD COLUMN "FlangeThickness" character varying;
+
+ALTER TABLE public."Detail"
+    ADD COLUMN "PlateThickness" character varying;

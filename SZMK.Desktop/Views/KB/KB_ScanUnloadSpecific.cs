@@ -22,12 +22,12 @@ namespace SZMK.Desktop.Views.KB
             Report_DGV.AutoGenerateColumns = false;
             Report_DGV.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             Report_DGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            for(int i = 0; i < SystemArgs.UnLoadSpecific.ExecutorMails.Count(); i++)
+            for (int i = 0; i < SystemArgs.UnLoadSpecific.ExecutorMails.Count(); i++)
             {
                 for (int j = 0; j < SystemArgs.UnLoadSpecific.ExecutorMails[i].GetSpecifics().Count(); j++)
                 {
                     Report_DGV.Rows.Add();
-                    Report_DGV[0, Report_DGV.Rows.Count-1].Value = SystemArgs.UnLoadSpecific.ExecutorMails[i][j].Number;
+                    Report_DGV[0, Report_DGV.Rows.Count - 1].Value = SystemArgs.UnLoadSpecific.ExecutorMails[i][j].Number;
                     Report_DGV[1, Report_DGV.Rows.Count - 1].Value = SystemArgs.UnLoadSpecific.ExecutorMails[i][j].List;
                     Report_DGV[2, Report_DGV.Rows.Count - 1].Value = SystemArgs.UnLoadSpecific.ExecutorMails[i].Executor;
                     Report_DGV[3, Report_DGV.Rows.Count - 1].Value = SystemArgs.UnLoadSpecific.ExecutorMails[i][j].NumberSpecific;
@@ -44,9 +44,9 @@ namespace SZMK.Desktop.Views.KB
                 }
             }
             bool flag = true;
-            for(int i = 0; i < SystemArgs.UnLoadSpecific.ExecutorMails.Count(); i++)
+            for (int i = 0; i < SystemArgs.UnLoadSpecific.ExecutorMails.Count(); i++)
             {
-                for(int j = 0; j < SystemArgs.UnLoadSpecific.ExecutorMails[i].GetSpecifics().Count(); j++)
+                for (int j = 0; j < SystemArgs.UnLoadSpecific.ExecutorMails[i].GetSpecifics().Count(); j++)
                 {
                     if (!SystemArgs.UnLoadSpecific.ExecutorMails[i][j].Finded)
                     {
@@ -54,7 +54,7 @@ namespace SZMK.Desktop.Views.KB
                     }
                 }
             }
-            if (SystemArgs.UnLoadSpecific.ExecutorMails.Count() == 0||flag)
+            if (SystemArgs.UnLoadSpecific.ExecutorMails.Count() == 0 || flag)
             {
                 Send_B.Enabled = false;
             }
@@ -75,10 +75,10 @@ namespace SZMK.Desktop.Views.KB
         {
             try
             {
-                SystemArgs.ServerMail.SendMail(false);
+                SystemArgs.ServerMail.SendMail(false, SystemArgs.User.StatusesUser[0].Name);
                 MessageBox.Show("Сообщение успешно отправлено", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception E)
+            catch (Exception E)
             {
                 MessageBox.Show(E.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
