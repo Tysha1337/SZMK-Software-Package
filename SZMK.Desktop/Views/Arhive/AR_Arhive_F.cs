@@ -32,7 +32,6 @@ namespace SZMK.Desktop.Views.Arhive
 
         BindingListView<Order> View;
         private bool UsedSearch = false;
-
         private void ARArhive_F_Load(object sender, EventArgs e)
         {
             try
@@ -391,7 +390,6 @@ namespace SZMK.Desktop.Views.Arhive
                 return false;
             }
         }
-
         private void Display(List<Order> List)
         {
             try
@@ -547,7 +545,6 @@ namespace SZMK.Desktop.Views.Arhive
                         SystemArgs.PrintLog("Количество объектов по параметрам поиска 0");
                         return false;
                     }
-
                     return true;
                 }
                 else
@@ -572,7 +569,6 @@ namespace SZMK.Desktop.Views.Arhive
             {
                 SystemArgs.Orders.Clear();
             }
-
             Search_TSTB.Text = String.Empty;
 
             RefreshOrderAsync(FilterCB_TSB.SelectedIndex);
@@ -759,7 +755,6 @@ namespace SZMK.Desktop.Views.Arhive
                 SelectionReport_TSM.Enabled = false;
             }
         }
-
         private void Selection(Order Temp, bool flag)
         {
             if (flag)
@@ -818,7 +813,6 @@ namespace SZMK.Desktop.Views.Arhive
             }
 
         }
-
         private async void RefreshOrderAsync(int ForViews)
         {
             ForLongOperations_F Dialog = new ForLongOperations_F();
@@ -957,7 +951,7 @@ namespace SZMK.Desktop.Views.Arhive
             {
                 if (Order_DGV.CurrentCell.RowIndex >= 0 && Order_DGV.SelectedRows.Count >= 0)
                 {
-                    if (MessageBox.Show("Изменить статус аннулирования чертежа(ей)?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    if (MessageBox.Show("Изменить статус аннулирования чертежа(эй)?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                     {
                         for (int i = 0; i < Order_DGV.SelectedRows.Count; i++)
                         {
@@ -1460,19 +1454,6 @@ namespace SZMK.Desktop.Views.Arhive
         private async Task<Boolean> ReportCompleteStatuses(String filename)
         {
             return await Task.Run(() => SystemArgs.Excel.ReportCompleteStatuses(filename));
-        }
-
-        private void ViewSelected_B_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Display(new OperationsDisplayDrawings().ViewSeletedDrawing(ref Order_DGV));
-            }
-            catch(Exception ex)
-            {
-                SystemArgs.PrintLog(ex.ToString());
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }

@@ -7,7 +7,7 @@
     <ProjectGuid>{0B59DF42-22B4-4561-BA89-8F6F4EFDC052}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tekla_Interaction.Domain</RootNamespace>
+    <RootNamespace>SZMK.TeklaInteraction.Shared</RootNamespace>
     <AssemblyName>SZMK.TeklaInteraction.Shared</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

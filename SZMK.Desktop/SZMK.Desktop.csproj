@@ -120,7 +120,6 @@
     <Compile Include="BindingModels\OrdersGetting.cs" />
     <Compile Include="BindingModels\StringErrorBindingModels.cs" />
     <Compile Include="Models\TypeAdd.cs" />
-    <Compile Include="Services\OperationsDisplayDrawings.cs" />
     <Compile Include="Services\Scan\BaseScanBlankOrder.cs" />
     <Compile Include="Services\Scan\BaseScanOrder.cs" />
     <Compile Include="Services\Scan\ScannerBlankOrder.cs" />
@@ -979,24 +978,6 @@
     <Content Include="Resources\icons8-создать-новый-40.png" />
     <None Include="Resources\icons8-создать-новый-401.png" />
   </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="AcroPDFLib">
-      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="AxAcroPDFLib">
-      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

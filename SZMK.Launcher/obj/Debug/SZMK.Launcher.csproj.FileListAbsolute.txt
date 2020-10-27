@@ -11,3 +11,17 @@ C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launch
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.csproj.CopyComplete
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.exe
 C:\Users\thedr\Desktop\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.pdb
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\bin\Debug\NLog.config
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\bin\Debug\SZMK.Launcher.exe.config
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\bin\Debug\SZMK.Launcher.exe
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\bin\Debug\SZMK.Launcher.pdb
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\bin\Debug\NLog.dll
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\bin\Debug\NLog.xml
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.Views.Main.resources
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.Properties.Resources.resources
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.csproj.GenerateResource.cache
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.csproj.CopyComplete
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.exe
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Launcher\obj\Debug\SZMK.Launcher.pdb

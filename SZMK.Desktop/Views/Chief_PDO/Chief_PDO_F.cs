@@ -1224,23 +1224,9 @@ namespace SZMK.Desktop.Views.Chief_PDO
                 MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private async Task<Boolean> ReportCompleteStatuses(String filename)
         {
             return await Task.Run(() => SystemArgs.Excel.ReportCompleteStatuses(filename));
-        }
-
-        private void ViewSelected_B_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Display(new OperationsDisplayDrawings().ViewSeletedDrawing(ref Order_DGV));
-            }
-            catch (Exception ex)
-            {
-                SystemArgs.PrintLog(ex.ToString());
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }

@@ -34,3 +34,11 @@ C:\Users\kirill.gubanov\Desktop\SZMK-Software-Package\SZMK.ServerControl\obj\Deb
 C:\Users\kirill.gubanov\Desktop\SZMK-Software-Package\SZMK.ServerControl\obj\Debug\SZMK.ServerControl.csproj.CopyComplete
 C:\Users\kirill.gubanov\Desktop\SZMK-Software-Package\SZMK.ServerControl\obj\Debug\SZMK.ServerControl.exe
 C:\Users\kirill.gubanov\Desktop\SZMK-Software-Package\SZMK.ServerControl\obj\Debug\SZMK.ServerControl.pdb
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.ServerControl\obj\Debug\SZMK.ServerControl.csprojAssemblyReference.cache
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.ServerControl\obj\Debug\SZMK.ServerControl.Properties.Resources.resources
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.ServerControl\obj\Debug\SZMK.ServerControl.Views.Main.Main.resources
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.ServerControl\obj\Debug\SZMK.ServerControl.Views.Settings.ServerSettings.resources
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.ServerControl\obj\Debug\SZMK.ServerControl.csproj.GenerateResource.cache
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.ServerControl\obj\Debug\SZMK.ServerControl.csproj.CoreCompileInputs.cache
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.ServerControl\obj\Debug\SZMK.ServerControl.exe
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.ServerControl\obj\Debug\SZMK.ServerControl.pdb

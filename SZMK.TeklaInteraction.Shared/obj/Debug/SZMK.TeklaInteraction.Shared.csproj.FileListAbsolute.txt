@@ -54,7 +54,6 @@ C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\System.Text.Json.xml
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\bin\Debug\System.ValueTuple.xml
-C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\obj\Debug\SZMK.TeklaInteraction.Shared.csprojAssemblyReference.cache
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\obj\Debug\SZMK.TeklaInteraction.Shared.csproj.CoreCompileInputs.cache
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\obj\Debug\SZMK.TeklaInteraction.Shared.csproj.CopyComplete
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.TeklaInteraction.Shared\obj\Debug\SZMK.TeklaInteraction.Shared.dll
