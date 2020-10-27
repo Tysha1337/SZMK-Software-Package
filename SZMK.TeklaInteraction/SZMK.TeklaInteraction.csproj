@@ -76,10 +76,8 @@
     <Compile Include="LightInjectAdapter.cs" />
     <Compile Include="Presenters\ChangePassword.cs" />
     <Compile Include="Presenters\Main.cs" />
-    <Compile Include="Services\Checked2017.cs" />
     <Compile Include="Services\Checked2018.cs" />
     <Compile Include="Services\Checked21_1.cs" />
-    <Compile Include="Services\Interfaces\IChecked2017.cs" />
     <Compile Include="Services\Interfaces\IChecked2018.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

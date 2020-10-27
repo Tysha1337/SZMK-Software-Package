@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{02723234-D227-465B-B8E2-5EB8C3E32D05}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SZMK.TeklaInteraction.Tekla2018</RootNamespace>
+    <RootNamespace>Tekla_Interaction.Tekla2018</RootNamespace>
     <AssemblyName>SZMK.TeklaInteraction.Tekla2018</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

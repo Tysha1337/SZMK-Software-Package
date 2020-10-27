@@ -22,7 +22,6 @@ namespace SZMK.TeklaInteraction.Presenters
         private readonly IMailLogger maillogger;
         private readonly ILogin login;
         private readonly IHash hash;
-        private readonly IChecked2017 checked2017;
         private readonly IChecked2018 checked2018;
         private readonly IChecked21_1 checked21_1;
         private readonly IOperations operations;
@@ -35,7 +34,7 @@ namespace SZMK.TeklaInteraction.Presenters
         const string pathRegistryKeyStartup = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
         const string applicationName = "Tekla_Interaction";
 
-        public Main(IApplicationController controller, IMain view, ISleep sleep, IMailLogger maillogger, ILogin login, IHash hash, IChecked2017 checked2017, IChecked2018 checked2018, IChecked21_1 checked21_1, IOperations operations) : base(controller, view)
+        public Main(IApplicationController controller, IMain view, ISleep sleep, IMailLogger maillogger, ILogin login, IHash hash, IChecked2018 checked2018, IChecked21_1 checked21_1, IOperations operations) : base(controller, view)
         {
             try
             {
@@ -43,7 +42,6 @@ namespace SZMK.TeklaInteraction.Presenters
                 this.maillogger = maillogger;
                 this.login = login;
                 this.hash = hash;
-                this.checked2017 = checked2017;
                 this.checked2018 = checked2018;
                 this.checked21_1 = checked21_1;
                 this.operations = operations;
@@ -57,14 +55,11 @@ namespace SZMK.TeklaInteraction.Presenters
                 View.SaveSettings += () => SaveSettingsAsync();
                 View.StoppedChecker += () => checked2018.Stopped();
                 View.StoppedChecker += () => checked21_1.Stopped();
-                View.StoppedChecker += () => checked2017.Stopped();
                 checked2018.Load += (string message) => LoadOperation(message);
                 checked21_1.Load += (string message) => LoadOperation(message);
-                checked2017.Load += (string message) => LoadOperation(message);
                 View.ResetAll += () => ResetAll();
                 View.Reset21_1 += () => Reset21_1();
                 View.Reset2018 += () => Reset2018();
-                View.Reset2017 += () => Reset2017();
 
                 logger.Info("Инициализация котроллера взаимодействия с Tekla успешна");
             }
@@ -164,10 +159,8 @@ namespace SZMK.TeklaInteraction.Presenters
         private void RestartChecked()
         {
             checked2018.Stopped();
-            checked2017.Stopped();
             checked21_1.Stopped();
             checked2018.Start();
-            checked2017.Start();
             checked21_1.Start();
         }
         #endregion
@@ -356,7 +349,6 @@ namespace SZMK.TeklaInteraction.Presenters
         {
             checked21_1.Reset();
             checked2018.Reset();
-            checked2017.Reset();
         }
         public void Reset21_1()
         {
@@ -365,10 +357,6 @@ namespace SZMK.TeklaInteraction.Presenters
         public void Reset2018()
         {
             checked2018.Reset();
-        }
-        public void Reset2017()
-        {
-            checked2017.Reset();
         }
         #endregion
     }

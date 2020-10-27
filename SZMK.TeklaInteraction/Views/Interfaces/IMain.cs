@@ -14,7 +14,6 @@ namespace SZMK.TeklaInteraction.Views.Interfaces
         event Action ResetAll;
         event Action Reset21_1;
         event Action Reset2018;
-        event Action Reset2017;
 
         string Email { get; set; }
         string UserName { get; set; }
