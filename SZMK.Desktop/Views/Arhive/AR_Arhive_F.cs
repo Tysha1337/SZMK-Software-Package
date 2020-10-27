@@ -20,6 +20,8 @@ using SZMK.Desktop.Views.Chief_PDO;
 using SZMK.Desktop.Views.Admin;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime;
 using SZMK.Desktop.BindingModels;
+using SZMK.Desktop.Services.DataGridView;
+using SZMK.Desktop.Services.DataGridView.Sort;
 
 namespace SZMK.Desktop.Views.Arhive
 {
@@ -30,7 +32,8 @@ namespace SZMK.Desktop.Views.Arhive
             InitializeComponent();
         }
 
-        BindingListView<Order> View;
+        SortableBindingList<Order> View;
+
         private bool UsedSearch = false;
 
         private void ARArhive_F_Load(object sender, EventArgs e)
@@ -42,7 +45,7 @@ namespace SZMK.Desktop.Views.Arhive
                 Order_DGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 SetDoubleBuffered(Order_DGV);
 
-                View = new BindingListView<Order>(new List<Order>());
+                View = new SortableBindingList<Order>(new List<Order>());
 
                 SystemArgs.ByteScout = new ByteScout();
                 SystemArgs.MobileApplication = new MobileApplication();
@@ -404,8 +407,8 @@ namespace SZMK.Desktop.Views.Arhive
 
                     if (Index >= 0)
                     {
-                        View.DataSource = null;
-                        View.DataSource = List;
+                        View = null;
+                        View = new SortableBindingList<Order>(List);
 
                         Order_DGV.DataSource = View;
 
@@ -746,8 +749,8 @@ namespace SZMK.Desktop.Views.Arhive
                 ChangeOrder_TSM.Visible = true;
                 DeleteOrder_TSM.Visible = true;
                 CanceledOrder_TSB.Visible = true;
-                SelectionReport_TSM.Enabled = true;
-
+                SelectionReport_TSM.Visible = true;
+                ViewSelected_B.Visible = true;
             }
             else
             {
@@ -756,7 +759,8 @@ namespace SZMK.Desktop.Views.Arhive
                 ChangeOrder_TSM.Visible = false;
                 DeleteOrder_TSM.Visible = false;
                 CanceledOrder_TSB.Visible = false;
-                SelectionReport_TSM.Enabled = false;
+                SelectionReport_TSM.Visible = false;
+                ViewSelected_B.Visible = false;
             }
         }
 
@@ -853,6 +857,7 @@ namespace SZMK.Desktop.Views.Arhive
             Time_Week_Report_TSM.Enabled = flag;
             Time_Month_Report_TSM.Enabled = flag;
             Time_SelectionDate_Report_TSM.Enabled = flag;
+            ViewSelected_B.Enabled = flag;
         }
         private void RefreshOrder(int ForViews, ForLongOperations_F Dialog)
         {
@@ -1466,9 +1471,38 @@ namespace SZMK.Desktop.Views.Arhive
         {
             try
             {
-                Display(new OperationsDisplayDrawings().ViewSeletedDrawing(ref Order_DGV));
+                SystemArgs.Orders = new OperationsDisplayDrawings().ViewSeletedDrawing(ref Order_DGV);
+
+                Display(SystemArgs.Orders);
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                SystemArgs.PrintLog(ex.ToString());
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Order_DGV_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                if (Order_DGV.Columns[e.ColumnIndex] == Order_DGV.Columns["List"])
+                {
+                    ListFieldSort listFieldSort = new ListFieldSort();
+
+                    if (listFieldSort.IsSort)
+                    {
+                        Display(listFieldSort.SortAsc(View).ToList());
+                    }
+                    else
+                    {
+                        Display(listFieldSort.SortDesc(View).ToList());
+                    }
+
+                    listFieldSort.IsSort = !listFieldSort.IsSort;
+                }
+            }
+            catch (Exception ex)
             {
                 SystemArgs.PrintLog(ex.ToString());
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);

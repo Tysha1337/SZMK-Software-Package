@@ -120,6 +120,9 @@
     <Compile Include="BindingModels\OrdersGetting.cs" />
     <Compile Include="BindingModels\StringErrorBindingModels.cs" />
     <Compile Include="Models\TypeAdd.cs" />
+    <Compile Include="Services\DataGridView\PropertyComparer.cs" />
+    <Compile Include="Services\DataGridView\SortableBindingList.cs" />
+    <Compile Include="Services\DataGridView\Sort\ListFieldSort.cs" />
     <Compile Include="Services\OperationsDisplayDrawings.cs" />
     <Compile Include="Services\Scan\BaseScanBlankOrder.cs" />
     <Compile Include="Services\Scan\BaseScanOrder.cs" />

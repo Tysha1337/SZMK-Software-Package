@@ -11,7 +11,7 @@ namespace SZMK.Desktop.Services
 {
     public class OperationsDisplayDrawings
     {
-        public List<Order> ViewSeletedDrawing(ref DataGridView dataGridView)
+        public List<Order> ViewSeletedDrawing(ref System.Windows.Forms.DataGridView dataGridView)
         {
             try
             {
@@ -24,7 +24,9 @@ namespace SZMK.Desktop.Services
 
                 for (int i = 0; i < dataGridView.SelectedRows.Count; i++)
                 {
-                    Order order = dataGridView.SelectedRows[i].DataBoundItem as Order;
+                    DataGridViewRow selectedRow = dataGridView.SelectedRows[i];
+
+                    Order order = (Order)selectedRow.DataBoundItem ;
 
                     if (order != null)
                     {

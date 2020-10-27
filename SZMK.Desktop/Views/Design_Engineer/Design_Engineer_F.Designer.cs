@@ -78,6 +78,7 @@
             this.FilterCB_TSB = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ViewSelected_B = new System.Windows.Forms.Button();
             this.Executor_TB = new System.Windows.Forms.TextBox();
             this.DateCreate_TB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -130,7 +131,6 @@
             this.Meny_Tray = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Open_NT = new System.Windows.Forms.ToolStripMenuItem();
             this.Exit_NT = new System.Windows.Forms.ToolStripMenuItem();
-            this.ViewSelected_B = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -486,6 +486,25 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(394, 699);
             this.tableLayoutPanel2.TabIndex = 26;
+            // 
+            // ViewSelected_B
+            // 
+            this.ViewSelected_B.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.tableLayoutPanel2.SetColumnSpan(this.ViewSelected_B, 3);
+            this.ViewSelected_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ViewSelected_B.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(223)))), ((int)(((byte)(253)))));
+            this.ViewSelected_B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(217)))), ((int)(((byte)(254)))));
+            this.ViewSelected_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
+            this.ViewSelected_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewSelected_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.ViewSelected_B.Location = new System.Drawing.Point(3, 539);
+            this.ViewSelected_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
+            this.ViewSelected_B.Name = "ViewSelected_B";
+            this.ViewSelected_B.Size = new System.Drawing.Size(386, 33);
+            this.ViewSelected_B.TabIndex = 68;
+            this.ViewSelected_B.Text = "Отобразить выбранное";
+            this.ViewSelected_B.UseVisualStyleBackColor = false;
+            this.ViewSelected_B.Click += new System.EventHandler(this.ViewSelected_B_Click);
             // 
             // Executor_TB
             // 
@@ -940,6 +959,7 @@
             this.Order_DGV.TabIndex = 2;
             this.Order_DGV.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.Order_DGV_CellFormatting);
             this.Order_DGV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Order_DGV_CellMouseDoubleClick);
+            this.Order_DGV.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Order_DGV_ColumnHeaderMouseClick);
             this.Order_DGV.SelectionChanged += new System.EventHandler(this.Order_DGV_SelectionChanged);
             this.Order_DGV.Sorted += new System.EventHandler(this.Order_DGV_Sorted);
             // 
@@ -1159,25 +1179,6 @@
             this.Exit_NT.Size = new System.Drawing.Size(121, 22);
             this.Exit_NT.Text = "Выход";
             this.Exit_NT.Click += new System.EventHandler(this.Exit_NT_Click);
-            // 
-            // ViewSelected_B
-            // 
-            this.ViewSelected_B.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.tableLayoutPanel2.SetColumnSpan(this.ViewSelected_B, 3);
-            this.ViewSelected_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ViewSelected_B.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(223)))), ((int)(((byte)(253)))));
-            this.ViewSelected_B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(217)))), ((int)(((byte)(254)))));
-            this.ViewSelected_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
-            this.ViewSelected_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ViewSelected_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.ViewSelected_B.Location = new System.Drawing.Point(3, 539);
-            this.ViewSelected_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
-            this.ViewSelected_B.Name = "ViewSelected_B";
-            this.ViewSelected_B.Size = new System.Drawing.Size(386, 33);
-            this.ViewSelected_B.TabIndex = 68;
-            this.ViewSelected_B.Text = "Отобразить выбранное";
-            this.ViewSelected_B.UseVisualStyleBackColor = false;
-            this.ViewSelected_B.Click += new System.EventHandler(this.ViewSelected_B_Click);
             // 
             // Design_Engineer_F
             // 

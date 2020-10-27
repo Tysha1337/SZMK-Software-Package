@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,13 +8,13 @@ using System.Threading.Tasks;
 namespace SZMK.Desktop.Models
 {
     /*Данный класс описывает справочник статусов, в котором содержится id, id должности к которой он принадлежит, а также наименование самого статуса*/
-    public class Status
+    public class Status : IComparable<Status>
     {
         private Int64 _ID;
         private Int64 _IDPosition;
         private String _Name;
 
-        public Status(Int64 ID,Int64 IDPosition, String Name)
+        public Status(Int64 ID, Int64 IDPosition, String Name)
         {
             _ID = ID;
 
@@ -46,7 +47,7 @@ namespace SZMK.Desktop.Models
             }
             set
             {
-                    _ID = value;
+                _ID = value;
             }
         }
 
@@ -83,6 +84,15 @@ namespace SZMK.Desktop.Models
         public override string ToString()
         {
             return _Name;
+        }
+
+
+        public int CompareTo(Status status)
+        {
+            if (status != null)
+                return this.Name.CompareTo(status.Name);
+            else
+                throw new Exception("Невозможно сравнить два объекта");
         }
     }
 }

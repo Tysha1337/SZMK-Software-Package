@@ -91,6 +91,7 @@
             this.Finished = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ViewSelected_B = new System.Windows.Forms.Button();
             this.Executor_TB = new System.Windows.Forms.TextBox();
             this.DateCreate_TB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -110,7 +111,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.ExecutorWork_TB = new System.Windows.Forms.TextBox();
-            this.RefreshStatus_B = new System.Windows.Forms.Button();
             this.SelectedOrder_TB = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.CountOrder_TB = new System.Windows.Forms.TextBox();
@@ -121,7 +121,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.Finished_TB = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.ViewSelected_B = new System.Windows.Forms.Button();
+            this.RefreshStatus_B = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -443,6 +443,7 @@
             this.Order_DGV.TabIndex = 2;
             this.Order_DGV.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.Order_DGV_CellFormatting);
             this.Order_DGV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Order_DGV_CellMouseDoubleClick);
+            this.Order_DGV.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Order_DGV_ColumnHeaderMouseClick);
             this.Order_DGV.SelectionChanged += new System.EventHandler(this.Order_DGV_SelectionChanged);
             // 
             // DataMatrix
@@ -693,6 +694,25 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(394, 699);
             this.tableLayoutPanel2.TabIndex = 26;
             // 
+            // ViewSelected_B
+            // 
+            this.ViewSelected_B.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.tableLayoutPanel2.SetColumnSpan(this.ViewSelected_B, 3);
+            this.ViewSelected_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ViewSelected_B.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(223)))), ((int)(((byte)(253)))));
+            this.ViewSelected_B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(217)))), ((int)(((byte)(254)))));
+            this.ViewSelected_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
+            this.ViewSelected_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewSelected_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.ViewSelected_B.Location = new System.Drawing.Point(3, 539);
+            this.ViewSelected_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
+            this.ViewSelected_B.Name = "ViewSelected_B";
+            this.ViewSelected_B.Size = new System.Drawing.Size(386, 33);
+            this.ViewSelected_B.TabIndex = 68;
+            this.ViewSelected_B.Text = "Отобразить выбранное";
+            this.ViewSelected_B.UseVisualStyleBackColor = false;
+            this.ViewSelected_B.Click += new System.EventHandler(this.ViewSelected_B_Click);
+            // 
             // Executor_TB
             // 
             this.Executor_TB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
@@ -926,25 +946,6 @@
             this.ExecutorWork_TB.TabIndex = 63;
             this.ExecutorWork_TB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // RefreshStatus_B
-            // 
-            this.RefreshStatus_B.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.tableLayoutPanel2.SetColumnSpan(this.RefreshStatus_B, 3);
-            this.RefreshStatus_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RefreshStatus_B.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(223)))), ((int)(((byte)(253)))));
-            this.RefreshStatus_B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(217)))), ((int)(((byte)(254)))));
-            this.RefreshStatus_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
-            this.RefreshStatus_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RefreshStatus_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.RefreshStatus_B.Location = new System.Drawing.Point(3, 659);
-            this.RefreshStatus_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
-            this.RefreshStatus_B.Name = "RefreshStatus_B";
-            this.RefreshStatus_B.Size = new System.Drawing.Size(386, 33);
-            this.RefreshStatus_B.TabIndex = 57;
-            this.RefreshStatus_B.Text = "Обновить информацию";
-            this.RefreshStatus_B.UseVisualStyleBackColor = false;
-            this.RefreshStatus_B.Click += new System.EventHandler(this.RefreshStatus_B_Click);
-            // 
             // SelectedOrder_TB
             // 
             this.SelectedOrder_TB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
@@ -1087,24 +1088,24 @@
             this.label16.TabIndex = 67;
             this.label16.Text = "Завершен";
             // 
-            // ViewSelected_B
+            // RefreshStatus_B
             // 
-            this.ViewSelected_B.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-            this.tableLayoutPanel2.SetColumnSpan(this.ViewSelected_B, 3);
-            this.ViewSelected_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ViewSelected_B.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(223)))), ((int)(((byte)(253)))));
-            this.ViewSelected_B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(217)))), ((int)(((byte)(254)))));
-            this.ViewSelected_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
-            this.ViewSelected_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ViewSelected_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.ViewSelected_B.Location = new System.Drawing.Point(3, 539);
-            this.ViewSelected_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
-            this.ViewSelected_B.Name = "ViewSelected_B";
-            this.ViewSelected_B.Size = new System.Drawing.Size(386, 33);
-            this.ViewSelected_B.TabIndex = 68;
-            this.ViewSelected_B.Text = "Отобразить выбранное";
-            this.ViewSelected_B.UseVisualStyleBackColor = false;
-            this.ViewSelected_B.Click += new System.EventHandler(this.ViewSelected_B_Click);
+            this.RefreshStatus_B.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.tableLayoutPanel2.SetColumnSpan(this.RefreshStatus_B, 3);
+            this.RefreshStatus_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RefreshStatus_B.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(223)))), ((int)(((byte)(253)))));
+            this.RefreshStatus_B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(217)))), ((int)(((byte)(254)))));
+            this.RefreshStatus_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
+            this.RefreshStatus_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RefreshStatus_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.RefreshStatus_B.Location = new System.Drawing.Point(3, 659);
+            this.RefreshStatus_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
+            this.RefreshStatus_B.Name = "RefreshStatus_B";
+            this.RefreshStatus_B.Size = new System.Drawing.Size(386, 33);
+            this.RefreshStatus_B.TabIndex = 57;
+            this.RefreshStatus_B.Text = "Обновить информацию";
+            this.RefreshStatus_B.UseVisualStyleBackColor = false;
+            this.RefreshStatus_B.Click += new System.EventHandler(this.RefreshStatus_B_Click);
             // 
             // Chief_PDO_F
             // 
