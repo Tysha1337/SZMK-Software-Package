@@ -46,16 +46,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.StatusServer_TB = new System.Windows.Forms.TextBox();
             this.StartServer_B = new System.Windows.Forms.Button();
-            this.StopServer_B = new System.Windows.Forms.Button();
-            this.Add_B = new System.Windows.Forms.Button();
             this.Change_B = new System.Windows.Forms.Button();
             this.Delete_B = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.Add_B = new System.Windows.Forms.Button();
+            this.StopServer_B = new System.Windows.Forms.Button();
             this.Tray = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Open_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.Exit_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.CheckerStatus_T = new System.Windows.Forms.Timer(this.components);
+            this.AddAutoRun_TSM = new System.Windows.Forms.ToolStripMenuItem();
             this.Main_MS.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Versions_DGV)).BeginInit();
@@ -79,7 +80,8 @@
             // 
             this.основныеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Products_TSM,
-            this.Server_TSM});
+            this.Server_TSM,
+            this.AddAutoRun_TSM});
             this.основныеToolStripMenuItem.Name = "основныеToolStripMenuItem";
             this.основныеToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.основныеToolStripMenuItem.Text = "Основные";
@@ -87,14 +89,14 @@
             // Products_TSM
             // 
             this.Products_TSM.Name = "Products_TSM";
-            this.Products_TSM.Size = new System.Drawing.Size(141, 22);
+            this.Products_TSM.Size = new System.Drawing.Size(245, 22);
             this.Products_TSM.Text = "Продукты";
             this.Products_TSM.Click += new System.EventHandler(this.Products_TSM_Click);
             // 
             // Server_TSM
             // 
             this.Server_TSM.Name = "Server_TSM";
-            this.Server_TSM.Size = new System.Drawing.Size(141, 22);
+            this.Server_TSM.Size = new System.Drawing.Size(245, 22);
             this.Server_TSM.Text = "Сервер";
             this.Server_TSM.Click += new System.EventHandler(this.Server_TSM_Click);
             // 
@@ -271,37 +273,6 @@
             this.StartServer_B.UseVisualStyleBackColor = false;
             this.StartServer_B.Click += new System.EventHandler(this.StartServer_B_Click);
             // 
-            // StopServer_B
-            // 
-            this.StopServer_B.BackColor = System.Drawing.Color.NavajoWhite;
-            this.StopServer_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StopServer_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StopServer_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.StopServer_B.Location = new System.Drawing.Point(189, 517);
-            this.StopServer_B.Margin = new System.Windows.Forms.Padding(5);
-            this.StopServer_B.Name = "StopServer_B";
-            this.StopServer_B.Size = new System.Drawing.Size(169, 30);
-            this.StopServer_B.TabIndex = 8;
-            this.StopServer_B.Text = "Остановка";
-            this.StopServer_B.UseVisualStyleBackColor = false;
-            this.StopServer_B.Click += new System.EventHandler(this.StopServer_B_Click);
-            // 
-            // Add_B
-            // 
-            this.Add_B.BackColor = System.Drawing.Color.NavajoWhite;
-            this.tableLayoutPanel1.SetColumnSpan(this.Add_B, 3);
-            this.Add_B.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Add_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Add_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Add_B.Location = new System.Drawing.Point(5, 352);
-            this.Add_B.Margin = new System.Windows.Forms.Padding(5);
-            this.Add_B.Name = "Add_B";
-            this.Add_B.Size = new System.Drawing.Size(353, 30);
-            this.Add_B.TabIndex = 2;
-            this.Add_B.Text = "Добавить";
-            this.Add_B.UseVisualStyleBackColor = false;
-            this.Add_B.Click += new System.EventHandler(this.Add_B_Click);
-            // 
             // Change_B
             // 
             this.Change_B.BackColor = System.Drawing.Color.NavajoWhite;
@@ -351,6 +322,37 @@
             this.label4.Text = "Сервер";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Add_B
+            // 
+            this.Add_B.BackColor = System.Drawing.Color.NavajoWhite;
+            this.tableLayoutPanel1.SetColumnSpan(this.Add_B, 3);
+            this.Add_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Add_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Add_B.Location = new System.Drawing.Point(5, 352);
+            this.Add_B.Margin = new System.Windows.Forms.Padding(5);
+            this.Add_B.Name = "Add_B";
+            this.Add_B.Size = new System.Drawing.Size(353, 30);
+            this.Add_B.TabIndex = 2;
+            this.Add_B.Text = "Добавить";
+            this.Add_B.UseVisualStyleBackColor = false;
+            this.Add_B.Click += new System.EventHandler(this.Add_B_Click);
+            // 
+            // StopServer_B
+            // 
+            this.StopServer_B.BackColor = System.Drawing.Color.NavajoWhite;
+            this.StopServer_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StopServer_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StopServer_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.StopServer_B.Location = new System.Drawing.Point(189, 517);
+            this.StopServer_B.Margin = new System.Windows.Forms.Padding(5);
+            this.StopServer_B.Name = "StopServer_B";
+            this.StopServer_B.Size = new System.Drawing.Size(169, 30);
+            this.StopServer_B.TabIndex = 8;
+            this.StopServer_B.Text = "Остановка";
+            this.StopServer_B.UseVisualStyleBackColor = false;
+            this.StopServer_B.Click += new System.EventHandler(this.StopServer_B_Click);
+            // 
             // Tray
             // 
             this.Tray.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
@@ -389,6 +391,13 @@
             // 
             this.CheckerStatus_T.Interval = 1000;
             this.CheckerStatus_T.Tick += new System.EventHandler(this.CheckerStatus_T_Tick);
+            // 
+            // AddAutoRun_TSM
+            // 
+            this.AddAutoRun_TSM.Name = "AddAutoRun_TSM";
+            this.AddAutoRun_TSM.Size = new System.Drawing.Size(245, 22);
+            this.AddAutoRun_TSM.Text = "Добавить в автозагрузку";
+            this.AddAutoRun_TSM.Click += new System.EventHandler(this.AddAutoRun_TSM_Click);
             // 
             // Main
             // 
@@ -446,6 +455,7 @@
         private System.Windows.Forms.TextBox StatusServer_TB;
         private System.Windows.Forms.Timer CheckerStatus_T;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem AddAutoRun_TSM;
     }
 }
 

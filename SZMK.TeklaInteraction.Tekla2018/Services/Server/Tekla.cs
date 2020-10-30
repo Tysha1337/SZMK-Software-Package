@@ -2,7 +2,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Management;
 using System.Windows.Forms;
 using SZMK.TeklaInteraction.Shared.BindingModels;
 using SZMK.TeklaInteraction.Shared.Services;
@@ -99,7 +101,24 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                 logger.Info("Чертежи добавлены");
 
                 ModelInfo modelInfo = model.GetInfo();
-                Model = new Shared.Models.Model { DateCreate = DateTime.Now, Path = modelInfo.ModelPath, Drawings = Drawings };
+                string ModelPath = modelInfo.ModelPath;
+
+                if (ModelPath.Substring(0, 2) != @"\\")
+                {
+                    using (var managementObject = new ManagementObject())
+                    {
+                        managementObject.Path = new ManagementPath($"Win32_LogicalDisk='{ModelPath.Substring(0, 2)}'");
+                        var driveType = (DriveType)(uint)managementObject["DriveType"];
+                        var networkPath = Convert.ToString(managementObject["ProviderName"]);
+
+                        ModelPath = networkPath + ModelPath.Remove(0, 2);
+                    }
+                }
+
+                ModelPath = ModelPath.Replace("tekla-fs", "10.0.7.249");
+
+                Model = new Shared.Models.Model { DateCreate = DateTime.Now, Path = ModelPath, Drawings = Drawings };
+
 
                 notify.Close();
 

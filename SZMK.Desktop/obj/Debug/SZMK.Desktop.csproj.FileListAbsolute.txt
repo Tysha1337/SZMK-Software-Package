@@ -758,3 +758,4 @@ C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\obj\Debug\SZMK.
 C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\obj\Debug\SZMK.Desktop.csproj.CopyComplete
 C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\obj\Debug\SZMK.Desktop.exe
 C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\obj\Debug\SZMK.Desktop.pdb
+C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.csproj.ResolveComReference.cache

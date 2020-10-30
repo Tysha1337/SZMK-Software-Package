@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿using Microsoft.Win32;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,10 @@ namespace SZMK.ServerUpdater.Views
         private Services.Server Server;
 
         private BindingList<string> Products;
+
+        const string pathRegistryKeyStartup = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
+        const string applicationName = "SZMK.ServerUpdater";
+        String value = "";
 
         public Main()
         {
@@ -143,6 +148,15 @@ namespace SZMK.ServerUpdater.Views
                 logger.Info("Запуск сервера успешно выполнен");
 
                 ShowProducts();
+
+                using (RegistryKey registryKeyStartup = Registry.CurrentUser.OpenSubKey(pathRegistryKeyStartup, true))
+                {
+                    value = (String)registryKeyStartup.GetValue("SZMK.ServerUpdater");
+                }
+                if (!String.IsNullOrEmpty(value))
+                {
+                    AddAutoRun_TSM.Text = "Удалить из автозагрузки";
+                }
             }
             catch (Exception Ex)
             {
@@ -322,6 +336,35 @@ namespace SZMK.ServerUpdater.Views
             catch (Exception Ex)
             {
                 Error(Ex);
+            }
+        }
+
+        private void AddAutoRun_TSM_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(value))
+                {
+                    using (RegistryKey registryKeyStartup = Registry.CurrentUser.OpenSubKey(pathRegistryKeyStartup, true))
+                    {
+                        registryKeyStartup.DeleteValue(applicationName, false);
+                    }
+                    value = "";
+                    AddAutoRun_TSM.Text = "Добавить в автозагрузку";
+                }
+                else
+                {
+                    using (RegistryKey registryKeyStartup = Registry.CurrentUser.OpenSubKey(pathRegistryKeyStartup, true))
+                    {
+                        registryKeyStartup.SetValue(applicationName, Application.ExecutablePath);
+                    }
+                    value = "SZMK.ServerUpdater";
+                    AddAutoRun_TSM.Text = "Удалить из автозагрузки";
+                }
+            }
+            catch (Exception E)
+            {
+                Error(E);
             }
         }
     }

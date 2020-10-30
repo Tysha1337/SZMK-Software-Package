@@ -2,7 +2,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Management;
 using System.Windows.Forms;
 using SZMK.TeklaInteraction.Shared.BindingModels;
 using SZMK.TeklaInteraction.Shared.Services;
@@ -77,7 +79,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                             if (!ChechedDate(assembly))
                             {
                                 assembly.GetReportProperty("CUSTOM.Zakaz", ref Number);
-                                Errors.Add(new StringErrorBindingModel { Data = $"Заказ: {Number}, Марка: {SelectedDrawings.Current.Mark}", Error = "Не заполнено поле \"Дата\""});
+                                Errors.Add(new StringErrorBindingModel { Data = $"Заказ: {Number}, Марка: {SelectedDrawings.Current.Mark}", Error = "Не заполнено поле \"Дата\"" });
                                 continue;
                             }
 
@@ -99,7 +101,24 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                 logger.Info("Чертежи добавлены");
 
                 ModelInfo modelInfo = model.GetInfo();
-                Model = new Shared.Models.Model { DateCreate = DateTime.Now, Path = modelInfo.ModelPath, Drawings = Drawings };
+
+                string ModelPath = modelInfo.ModelPath;
+
+                if (ModelPath.Substring(0, 2) != @"\\")
+                {
+                    using (var managementObject = new ManagementObject())
+                    {
+                        managementObject.Path = new ManagementPath($"Win32_LogicalDisk='{ModelPath.Substring(0, 2)}'");
+                        var driveType = (DriveType)(uint)managementObject["DriveType"];
+                        var networkPath = Convert.ToString(managementObject["ProviderName"]);
+
+                        ModelPath = networkPath + ModelPath.Remove(0, 2);
+                    }
+                }
+
+                ModelPath = ModelPath.Replace("tekla-fs", "10.0.7.249");
+
+                Model = new Shared.Models.Model { DateCreate = DateTime.Now, Path = ModelPath, Drawings = Drawings };
 
                 notify.Close();
 
@@ -326,7 +345,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
 
                 _countDetail = Details.Sum(p => p.Count);
 
-                Drawings.Add(new Shared.Models.Drawing { Assembly = _assembly, Order = _order.Replace(" ",""), Place = _place, List = _list, Mark = _mark, Executor = _executor, WeightMark = Convert.ToDouble(_weightMark.ToString("F2")), CountMark = _countMark, SubTotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), SubTotalLenght = Convert.ToDouble(_subTotallenght.ToString("F2")), CountDetail = _countDetail, Details = Details });
+                Drawings.Add(new Shared.Models.Drawing { Assembly = _assembly, Order = _order.Replace(" ", ""), Place = _place, List = _list, Mark = _mark, Executor = _executor, WeightMark = Convert.ToDouble(_weightMark.ToString("F2")), CountMark = _countMark, SubTotalWeight = Convert.ToDouble(_subTotalWeight.ToString("F2")), SubTotalLenght = Convert.ToDouble(_subTotallenght.ToString("F2")), CountDetail = _countDetail, Details = Details });
 
                 return true;
             }
