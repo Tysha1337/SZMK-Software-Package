@@ -1,0 +1,234 @@
+27.10.2020 10:42:28 : Дешифрование пароля успешно завершено
+27.10.2020 12:20:10 : Дешифрование пароля успешно завершено
+27.10.2020 12:20:18 : Хеш-последовательность успешно получена
+27.10.2020 12:20:18 : Хеш-последовательность успешно получена
+27.10.2020 12:20:18 : Дешифрование пароля успешно завершено
+27.10.2020 12:20:21 : System.Exception: В коллекции выделенных элементов DataGridView получен объект null ---> System.Exception: В коллекции выделенных элементов DataGridView получен объект null
+   в SZMK.Desktop.Services.OperationsDisplayDrawings.ViewSeletedDrawing(DataGridView& dataGridView) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\OperationsDisplayDrawings.cs:строка 36
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.Desktop.Services.OperationsDisplayDrawings.ViewSeletedDrawing(DataGridView& dataGridView) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\OperationsDisplayDrawings.cs:строка 44
+   в SZMK.Desktop.Views.KB.KB_F.ViewSelected_B_Click(Object sender, EventArgs e) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Views\KB\KB_F.cs:строка 1666
+27.10.2020 12:20:57 : Дешифрование пароля успешно завершено
+27.10.2020 12:21:07 : Хеш-последовательность успешно получена
+27.10.2020 12:21:07 : Хеш-последовательность успешно получена
+27.10.2020 12:21:07 : Дешифрование пароля успешно завершено
+27.10.2020 12:22:56 : Дешифрование пароля успешно завершено
+27.10.2020 12:23:07 : Хеш-последовательность успешно получена
+27.10.2020 12:23:07 : Хеш-последовательность успешно получена
+27.10.2020 12:23:07 : Дешифрование пароля успешно завершено
+27.10.2020 12:23:15 : System.Exception: В коллекции выделенных элементов DataGridView получен объект null ---> System.Exception: В коллекции выделенных элементов DataGridView получен объект null
+   в SZMK.Desktop.Services.OperationsDisplayDrawings.ViewSeletedDrawing(DataGridView& dataGridView) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\OperationsDisplayDrawings.cs:строка 36
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.Desktop.Services.OperationsDisplayDrawings.ViewSeletedDrawing(DataGridView& dataGridView) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\OperationsDisplayDrawings.cs:строка 44
+   в SZMK.Desktop.Views.KB.KB_F.ViewSelected_B_Click(Object sender, EventArgs e) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Views\KB\KB_F.cs:строка 1666
+27.10.2020 12:26:41 : Дешифрование пароля успешно завершено
+27.10.2020 12:26:48 : Хеш-последовательность успешно получена
+27.10.2020 12:26:48 : Хеш-последовательность успешно получена
+27.10.2020 12:26:48 : Дешифрование пароля успешно завершено
+27.10.2020 12:26:51 : System.Exception: Не удалось привести тип объекта "Equin.ApplicationFramework.ObjectView`1[SZMK.Desktop.Models.Order]" к типу "SZMK.Desktop.Models.Order". ---> System.InvalidCastException: Не удалось привести тип объекта "Equin.ApplicationFramework.ObjectView`1[SZMK.Desktop.Models.Order]" к типу "SZMK.Desktop.Models.Order".
+   в SZMK.Desktop.Services.OperationsDisplayDrawings.ViewSeletedDrawing(DataGridView& dataGridView) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\OperationsDisplayDrawings.cs:строка 27
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.Desktop.Services.OperationsDisplayDrawings.ViewSeletedDrawing(DataGridView& dataGridView) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\OperationsDisplayDrawings.cs:строка 44
+   в SZMK.Desktop.Views.KB.KB_F.ViewSelected_B_Click(Object sender, EventArgs e) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Views\KB\KB_F.cs:строка 1666
+27.10.2020 12:34:31 : Дешифрование пароля успешно завершено
+27.10.2020 12:34:42 : Хеш-последовательность успешно получена
+27.10.2020 12:34:42 : Хеш-последовательность успешно получена
+27.10.2020 12:34:42 : Дешифрование пароля успешно завершено
+27.10.2020 12:48:13 : Дешифрование пароля успешно завершено
+27.10.2020 12:48:35 : Хеш-последовательность успешно получена
+27.10.2020 12:48:35 : Хеш-последовательность успешно получена
+27.10.2020 12:48:35 : Дешифрование пароля успешно завершено
+27.10.2020 12:48:52 : System.Exception: В коллекции выделенных элементов DataGridView получен объект null ---> System.Exception: В коллекции выделенных элементов DataGridView получен объект null
+   в SZMK.Desktop.Services.OperationsDisplayDrawings.ViewSeletedDrawing(DataGridView& dataGridView) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\OperationsDisplayDrawings.cs:строка 37
+   --- Конец трассировки внутреннего стека исключений ---
+   в SZMK.Desktop.Services.OperationsDisplayDrawings.ViewSeletedDrawing(DataGridView& dataGridView) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\OperationsDisplayDrawings.cs:строка 45
+   в SZMK.Desktop.Views.KB.KB_F.ViewSelected_B_Click(Object sender, EventArgs e) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Views\KB\KB_F.cs:строка 1669
+27.10.2020 12:58:08 : Дешифрование пароля успешно завершено
+27.10.2020 12:58:19 : Хеш-последовательность успешно получена
+27.10.2020 12:58:19 : Хеш-последовательность успешно получена
+27.10.2020 12:58:19 : Дешифрование пароля успешно завершено
+27.10.2020 13:00:14 : Дешифрование пароля успешно завершено
+27.10.2020 13:00:25 : Хеш-последовательность успешно получена
+27.10.2020 13:00:25 : Хеш-последовательность успешно получена
+27.10.2020 13:00:25 : Дешифрование пароля успешно завершено
+27.10.2020 13:02:13 : Дешифрование пароля успешно завершено
+27.10.2020 13:02:21 : Хеш-последовательность успешно получена
+27.10.2020 13:02:21 : Хеш-последовательность успешно получена
+27.10.2020 13:02:21 : Дешифрование пароля успешно завершено
+27.10.2020 13:09:56 : Дешифрование пароля успешно завершено
+27.10.2020 13:10:10 : Хеш-последовательность успешно получена
+27.10.2020 13:10:10 : Хеш-последовательность успешно получена
+27.10.2020 13:10:10 : Дешифрование пароля успешно завершено
+27.10.2020 13:13:17 : Дешифрование пароля успешно завершено
+27.10.2020 13:13:23 : Хеш-последовательность успешно получена
+27.10.2020 13:13:23 : Хеш-последовательность успешно получена
+27.10.2020 13:13:23 : Дешифрование пароля успешно завершено
+27.10.2020 13:14:26 : Дешифрование пароля успешно завершено
+27.10.2020 13:14:32 : Хеш-последовательность успешно получена
+27.10.2020 13:14:32 : Хеш-последовательность успешно получена
+27.10.2020 13:14:32 : Дешифрование пароля успешно завершено
+27.10.2020 13:17:43 : Дешифрование пароля успешно завершено
+27.10.2020 13:17:57 : Хеш-последовательность успешно получена
+27.10.2020 13:17:57 : Хеш-последовательность успешно получена
+27.10.2020 13:17:57 : Дешифрование пароля успешно завершено
+27.10.2020 13:25:12 : Дешифрование пароля успешно завершено
+27.10.2020 13:25:22 : Хеш-последовательность успешно получена
+27.10.2020 13:25:22 : Хеш-последовательность успешно получена
+27.10.2020 13:25:22 : Дешифрование пароля успешно завершено
+27.10.2020 13:28:03 : Дешифрование пароля успешно завершено
+27.10.2020 13:28:10 : Хеш-последовательность успешно получена
+27.10.2020 13:28:10 : Хеш-последовательность успешно получена
+27.10.2020 13:28:10 : Дешифрование пароля успешно завершено
+27.10.2020 13:31:25 : Дешифрование пароля успешно завершено
+27.10.2020 13:31:32 : Хеш-последовательность успешно получена
+27.10.2020 13:31:32 : Хеш-последовательность успешно получена
+27.10.2020 13:31:32 : Дешифрование пароля успешно завершено
+27.10.2020 13:34:37 : Дешифрование пароля успешно завершено
+27.10.2020 13:34:44 : Хеш-последовательность успешно получена
+27.10.2020 13:34:44 : Хеш-последовательность успешно получена
+27.10.2020 13:34:44 : Дешифрование пароля успешно завершено
+27.10.2020 14:46:04 : Дешифрование пароля успешно завершено
+27.10.2020 14:46:11 : Хеш-последовательность успешно получена
+27.10.2020 14:46:11 : Хеш-последовательность успешно получена
+27.10.2020 14:46:11 : Дешифрование пароля успешно завершено
+27.10.2020 15:03:35 : Дешифрование пароля успешно завершено
+27.10.2020 15:03:47 : Хеш-последовательность успешно получена
+27.10.2020 15:03:47 : Хеш-последовательность успешно получена
+27.10.2020 15:03:47 : Дешифрование пароля успешно завершено
+27.10.2020 15:04:49 : Дешифрование пароля успешно завершено
+27.10.2020 15:04:58 : Хеш-последовательность успешно получена
+27.10.2020 15:04:58 : Хеш-последовательность успешно получена
+27.10.2020 15:04:58 : Дешифрование пароля успешно завершено
+27.10.2020 15:07:37 : Дешифрование пароля успешно завершено
+27.10.2020 15:08:09 : Дешифрование пароля успешно завершено
+27.10.2020 15:08:14 : Хеш-последовательность успешно получена
+27.10.2020 15:08:14 : Хеш-последовательность успешно получена
+27.10.2020 15:08:14 : Дешифрование пароля успешно завершено
+27.10.2020 15:13:36 : Дешифрование пароля успешно завершено
+27.10.2020 15:13:57 : Хеш-последовательность успешно получена
+27.10.2020 15:13:57 : Хеш-последовательность успешно получена
+27.10.2020 15:13:57 : Дешифрование пароля успешно завершено
+27.10.2020 15:15:29 : Дешифрование пароля успешно завершено
+27.10.2020 15:15:36 : Хеш-последовательность успешно получена
+27.10.2020 15:15:36 : Хеш-последовательность успешно получена
+27.10.2020 15:15:36 : Дешифрование пароля успешно завершено
+27.10.2020 15:16:39 : System.FormatException: Входная строка имела неверный формат.
+   в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Convert.ToDouble(String value)
+   в SZMK.Desktop.Services.DataGridView.Sort.ListFieldSort.<>c.<SortAsc>b__4_0(Order p) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\DataGridView\Sort\ListFieldSort.cs:строка 25
+   в System.Linq.EnumerableSorter`2.ComputeKeys(TElement[] elements, Int32 count)
+   в System.Linq.EnumerableSorter`1.Sort(TElement[] elements, Int32 count)
+   в System.Linq.OrderedEnumerable`1.<GetEnumerator>d__1.MoveNext()
+   в System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   в System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   в SZMK.Desktop.Views.KB.KB_F.Order_DGV_ColumnHeaderMouseClick(Object sender, DataGridViewCellMouseEventArgs e) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Views\KB\KB_F.cs:строка 1692
+27.10.2020 15:16:45 : System.FormatException: Входная строка имела неверный формат.
+   в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Convert.ToDouble(String value)
+   в SZMK.Desktop.Services.DataGridView.Sort.ListFieldSort.<>c.<SortAsc>b__4_0(Order p) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\DataGridView\Sort\ListFieldSort.cs:строка 25
+   в System.Linq.EnumerableSorter`2.ComputeKeys(TElement[] elements, Int32 count)
+   в System.Linq.EnumerableSorter`1.Sort(TElement[] elements, Int32 count)
+   в System.Linq.OrderedEnumerable`1.<GetEnumerator>d__1.MoveNext()
+   в System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   в System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   в SZMK.Desktop.Views.KB.KB_F.Order_DGV_ColumnHeaderMouseClick(Object sender, DataGridViewCellMouseEventArgs e) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Views\KB\KB_F.cs:строка 1692
+27.10.2020 15:16:48 : System.FormatException: Входная строка имела неверный формат.
+   в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Convert.ToDouble(String value)
+   в SZMK.Desktop.Services.DataGridView.Sort.ListFieldSort.<>c.<SortAsc>b__4_0(Order p) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\DataGridView\Sort\ListFieldSort.cs:строка 25
+   в System.Linq.EnumerableSorter`2.ComputeKeys(TElement[] elements, Int32 count)
+   в System.Linq.EnumerableSorter`1.Sort(TElement[] elements, Int32 count)
+   в System.Linq.OrderedEnumerable`1.<GetEnumerator>d__1.MoveNext()
+   в System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   в System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   в SZMK.Desktop.Views.KB.KB_F.Order_DGV_ColumnHeaderMouseClick(Object sender, DataGridViewCellMouseEventArgs e) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Views\KB\KB_F.cs:строка 1692
+27.10.2020 15:16:50 : System.FormatException: Входная строка имела неверный формат.
+   в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Convert.ToDouble(String value)
+   в SZMK.Desktop.Services.DataGridView.Sort.ListFieldSort.<>c.<SortAsc>b__4_0(Order p) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\DataGridView\Sort\ListFieldSort.cs:строка 25
+   в System.Linq.EnumerableSorter`2.ComputeKeys(TElement[] elements, Int32 count)
+   в System.Linq.EnumerableSorter`1.Sort(TElement[] elements, Int32 count)
+   в System.Linq.OrderedEnumerable`1.<GetEnumerator>d__1.MoveNext()
+   в System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   в System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   в SZMK.Desktop.Views.KB.KB_F.Order_DGV_ColumnHeaderMouseClick(Object sender, DataGridViewCellMouseEventArgs e) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Views\KB\KB_F.cs:строка 1692
+27.10.2020 15:16:54 : System.FormatException: Входная строка имела неверный формат.
+   в System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Convert.ToDouble(String value)
+   в SZMK.Desktop.Services.DataGridView.Sort.ListFieldSort.<>c.<SortAsc>b__4_0(Order p) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Services\DataGridView\Sort\ListFieldSort.cs:строка 25
+   в System.Linq.EnumerableSorter`2.ComputeKeys(TElement[] elements, Int32 count)
+   в System.Linq.EnumerableSorter`1.Sort(TElement[] elements, Int32 count)
+   в System.Linq.OrderedEnumerable`1.<GetEnumerator>d__1.MoveNext()
+   в System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   в System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   в SZMK.Desktop.Views.KB.KB_F.Order_DGV_ColumnHeaderMouseClick(Object sender, DataGridViewCellMouseEventArgs e) в C:\Users\thedr\Desktop\SZMK-Software-Package-master\SZMK.Desktop\Views\KB\KB_F.cs:строка 1692
+27.10.2020 15:17:30 : Дешифрование пароля успешно завершено
+27.10.2020 15:17:38 : Хеш-последовательность успешно получена
+27.10.2020 15:17:38 : Хеш-последовательность успешно получена
+27.10.2020 15:17:39 : Дешифрование пароля успешно завершено
+27.10.2020 15:18:30 : Дешифрование пароля успешно завершено
+27.10.2020 15:18:37 : Хеш-последовательность успешно получена
+27.10.2020 15:18:37 : Хеш-последовательность успешно получена
+27.10.2020 15:18:37 : Дешифрование пароля успешно завершено
+27.10.2020 15:23:50 : Дешифрование пароля успешно завершено
+27.10.2020 15:23:57 : Хеш-последовательность успешно получена
+27.10.2020 15:23:57 : Хеш-последовательность успешно получена
+27.10.2020 15:23:57 : Дешифрование пароля успешно завершено
+27.10.2020 15:36:44 : Дешифрование пароля успешно завершено
+27.10.2020 15:36:55 : Хеш-последовательность успешно получена
+27.10.2020 15:36:55 : Хеш-последовательность успешно получена
+27.10.2020 15:36:55 : Дешифрование пароля успешно завершено
+27.10.2020 16:12:30 : Дешифрование пароля успешно завершено
+27.10.2020 16:12:54 : Хеш-последовательность успешно получена
+27.10.2020 16:12:54 : Хеш-последовательность успешно получена
+27.10.2020 16:12:54 : Дешифрование пароля успешно завершено
+27.10.2020 16:13:46 : Дешифрование пароля успешно завершено
+27.10.2020 16:15:17 : Хеш-последовательность успешно получена
+27.10.2020 16:15:17 : Хеш-последовательность успешно получена
+27.10.2020 16:15:18 : Дешифрование пароля успешно завершено
+27.10.2020 16:15:49 : Дешифрование пароля успешно завершено
+27.10.2020 16:15:56 : Хеш-последовательность успешно получена
+27.10.2020 16:15:56 : Хеш-последовательность успешно получена
+27.10.2020 16:36:37 : Дешифрование пароля успешно завершено
+27.10.2020 16:36:45 : Хеш-последовательность успешно получена
+27.10.2020 16:36:45 : Хеш-последовательность успешно получена
+27.10.2020 16:36:45 : Дешифрование пароля успешно завершено
+27.10.2020 16:44:01 : Дешифрование пароля успешно завершено
+27.10.2020 16:44:09 : Хеш-последовательность успешно получена
+27.10.2020 16:44:09 : Хеш-последовательность успешно получена
+27.10.2020 16:44:10 : Дешифрование пароля успешно завершено
+27.10.2020 16:53:23 : Дешифрование пароля успешно завершено
+27.10.2020 16:53:29 : Хеш-последовательность успешно получена
+27.10.2020 16:53:29 : Хеш-последовательность успешно получена
+27.10.2020 16:53:29 : Дешифрование пароля успешно завершено
+27.10.2020 16:55:12 : Дешифрование пароля успешно завершено
+27.10.2020 16:55:35 : Дешифрование пароля успешно завершено
+27.10.2020 16:56:59 : Дешифрование пароля успешно завершено
+27.10.2020 17:01:02 : Дешифрование пароля успешно завершено
+27.10.2020 17:01:11 : Хеш-последовательность успешно получена
+27.10.2020 17:01:11 : Хеш-последовательность успешно получена
+27.10.2020 17:01:11 : Дешифрование пароля успешно завершено
+27.10.2020 17:04:23 : Дешифрование пароля успешно завершено
+27.10.2020 17:04:30 : Хеш-последовательность успешно получена
+27.10.2020 17:04:30 : Хеш-последовательность успешно получена
+27.10.2020 17:04:30 : Дешифрование пароля успешно завершено
+27.10.2020 17:05:30 : Дешифрование пароля успешно завершено
+27.10.2020 17:05:36 : Хеш-последовательность успешно получена
+27.10.2020 17:05:36 : Хеш-последовательность успешно получена
+27.10.2020 17:05:36 : Дешифрование пароля успешно завершено
+27.10.2020 17:07:46 : Дешифрование пароля успешно завершено
+27.10.2020 17:08:00 : Хеш-последовательность успешно получена
+27.10.2020 17:08:00 : Хеш-последовательность успешно получена
+27.10.2020 17:08:00 : Дешифрование пароля успешно завершено
+27.10.2020 17:15:05 : Дешифрование пароля успешно завершено
+27.10.2020 17:17:19 : Дешифрование пароля успешно завершено
+27.10.2020 17:17:38 : Хеш-последовательность успешно получена
+27.10.2020 17:17:38 : Хеш-последовательность успешно получена
+27.10.2020 17:17:38 : Дешифрование пароля успешно завершено
+27.10.2020 17:18:07 : Дешифрование пароля успешно завершено
+27.10.2020 17:18:13 : Хеш-последовательность успешно получена
+27.10.2020 17:18:13 : Хеш-последовательность успешно получена
+27.10.2020 17:30:07 : Дешифрование пароля успешно завершено
+27.10.2020 17:30:13 : Хеш-последовательность успешно получена
+27.10.2020 17:30:13 : Хеш-последовательность успешно получена
+27.10.2020 17:30:13 : Дешифрование пароля успешно завершено

@@ -84,6 +84,7 @@
             this.CanceledOrder_TSB = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ViewSelected_B = new System.Windows.Forms.Button();
             this.Executor_TB = new System.Windows.Forms.TextBox();
             this.DateCreate_TB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -116,6 +117,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Order_DGV = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.DataMatrix = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,7 +133,6 @@
             this.Cancelled = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Finished = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -491,9 +492,10 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.72589F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.72588F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.78173F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.49239F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.49238F));
+            this.tableLayoutPanel2.Controls.Add(this.ViewSelected_B, 0, 17);
             this.tableLayoutPanel2.Controls.Add(this.Executor_TB, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.DateCreate_TB, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
@@ -513,7 +515,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.label14, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.ExecutorWork_TB, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.RefreshStatus_B, 0, 18);
+            this.tableLayoutPanel2.Controls.Add(this.RefreshStatus_B, 0, 19);
             this.tableLayoutPanel2.Controls.Add(this.SelectedOrder_TB, 0, 16);
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 15);
             this.tableLayoutPanel2.Controls.Add(this.CountOrder_TB, 2, 16);
@@ -545,11 +547,30 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(394, 699);
             this.tableLayoutPanel2.TabIndex = 25;
+            // 
+            // ViewSelected_B
+            // 
+            this.ViewSelected_B.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+            this.tableLayoutPanel2.SetColumnSpan(this.ViewSelected_B, 3);
+            this.ViewSelected_B.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ViewSelected_B.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(223)))), ((int)(((byte)(253)))));
+            this.ViewSelected_B.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(217)))), ((int)(((byte)(254)))));
+            this.ViewSelected_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
+            this.ViewSelected_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewSelected_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.ViewSelected_B.Location = new System.Drawing.Point(3, 539);
+            this.ViewSelected_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
+            this.ViewSelected_B.Name = "ViewSelected_B";
+            this.ViewSelected_B.Size = new System.Drawing.Size(386, 33);
+            this.ViewSelected_B.TabIndex = 68;
+            this.ViewSelected_B.Text = "Отобразить выбранное";
+            this.ViewSelected_B.UseVisualStyleBackColor = false;
+            this.ViewSelected_B.Click += new System.EventHandler(this.ViewSelected_B_Click);
             // 
             // Executor_TB
             // 
@@ -794,7 +815,7 @@
             this.RefreshStatus_B.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(237)))), ((int)(((byte)(253)))));
             this.RefreshStatus_B.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RefreshStatus_B.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.RefreshStatus_B.Location = new System.Drawing.Point(3, 539);
+            this.RefreshStatus_B.Location = new System.Drawing.Point(3, 659);
             this.RefreshStatus_B.Margin = new System.Windows.Forms.Padding(3, 7, 5, 7);
             this.RefreshStatus_B.Name = "RefreshStatus_B";
             this.RefreshStatus_B.Size = new System.Drawing.Size(386, 33);
@@ -1000,12 +1021,28 @@
             this.Order_DGV.Name = "Order_DGV";
             this.Order_DGV.ReadOnly = true;
             this.Order_DGV.RowHeadersVisible = false;
+            this.Order_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Order_DGV.Size = new System.Drawing.Size(882, 639);
             this.Order_DGV.TabIndex = 2;
             this.Order_DGV.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.Order_DGV_CellFormatting);
             this.Order_DGV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Order_DGV_CellMouseDoubleClick);
+            this.Order_DGV.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Order_DGV_ColumnHeaderMouseClick);
             this.Order_DGV.SelectionChanged += new System.EventHandler(this.Order_DGV_SelectionChanged);
             this.Order_DGV.Sorted += new System.EventHandler(this.Order_DGV_Sorted);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(228)))), ((int)(((byte)(213)))));
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label1.Location = new System.Drawing.Point(5, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 10, 3, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(882, 35);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Список чертежей";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DataMatrix
             // 
@@ -1069,6 +1106,7 @@
             this.List.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.List.DataPropertyName = "List";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = null;
             this.List.DefaultCellStyle = dataGridViewCellStyle7;
             this.List.FillWeight = 10F;
             this.List.HeaderText = "Лист";
@@ -1175,20 +1213,6 @@
             this.Finished.Name = "Finished";
             this.Finished.ReadOnly = true;
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(228)))), ((int)(((byte)(213)))));
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label1.Location = new System.Drawing.Point(5, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 10, 3, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(882, 35);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Список чертежей";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // KB_F
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1290,6 +1314,10 @@
         private System.Windows.Forms.ToolStripMenuItem SettingConfig_TSM;
         private System.Windows.Forms.ToolStripMenuItem SettingMobileApplication_TSM;
         private System.Windows.Forms.ToolStripMenuItem Steel_TSM;
+        private System.Windows.Forms.ToolStripMenuItem SettingScanner_TSM;
+        private System.Windows.Forms.ToolStripMenuItem XML_TSM;
+        private System.Windows.Forms.ToolStripMenuItem CompleteStatusReport_TSM;
+        public System.Windows.Forms.Button ViewSelected_B;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataMatrix;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateCreate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
@@ -1305,8 +1333,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cancelled;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Finished;
-        private System.Windows.Forms.ToolStripMenuItem SettingScanner_TSM;
-        private System.Windows.Forms.ToolStripMenuItem XML_TSM;
-        private System.Windows.Forms.ToolStripMenuItem CompleteStatusReport_TSM;
     }
 }

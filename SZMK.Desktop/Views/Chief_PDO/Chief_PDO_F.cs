@@ -15,6 +15,8 @@ using System.Windows.Forms;
 using SZMK.Desktop.BindingModels;
 using SZMK.Desktop.Models;
 using SZMK.Desktop.Services;
+using SZMK.Desktop.Services.DataGridView;
+using SZMK.Desktop.Services.DataGridView.Sort;
 using SZMK.Desktop.Services.Setting;
 using SZMK.Desktop.Views.Shared;
 
@@ -27,7 +29,8 @@ namespace SZMK.Desktop.Views.Chief_PDO
             InitializeComponent();
         }
 
-        BindingListView<Order> View;
+        SortableBindingList<Order> View;
+
         private bool UsedSearch = false;
         private void Chief_PDO_F_Load(object sender, EventArgs e)
         {
@@ -38,7 +41,7 @@ namespace SZMK.Desktop.Views.Chief_PDO
                 Order_DGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 SetDoubleBuffered(Order_DGV);
 
-                View = new BindingListView<Order>(new List<Order>());
+                View = new SortableBindingList<Order>(new List<Order>());
 
                 SystemArgs.Orders = new List<Order>();
                 SystemArgs.BlankOrders = new List<BlankOrder>();
@@ -453,8 +456,8 @@ namespace SZMK.Desktop.Views.Chief_PDO
             {
                 Order_DGV.Invoke((MethodInvoker)delegate ()
                 {
-                    View.DataSource = null;
-                    View.DataSource = Orders;
+                    View = null;
+                    View = new SortableBindingList<Order>(Orders);
 
                     Order_DGV.DataSource = View;
 
@@ -484,6 +487,7 @@ namespace SZMK.Desktop.Views.Chief_PDO
             Time_Week_Report_TSM.Enabled = flag;
             Time_Month_Report_TSM.Enabled = flag;
             Time_SelectionDate_Report_TSM.Enabled = flag;
+            ViewSelected_B.Enabled = flag;
         }
 
         private void RefreshOrder(int ForViews, ForLongOperations_F Dialog)
@@ -766,8 +770,8 @@ namespace SZMK.Desktop.Views.Chief_PDO
 
                     if (Index >= 0)
                     {
-                        View.DataSource = null;
-                        View.DataSource = List;
+                        View = null;
+                        View = new SortableBindingList<Order>(List);
 
                         Order_DGV.DataSource = View;
 
@@ -798,14 +802,16 @@ namespace SZMK.Desktop.Views.Chief_PDO
                 ChangeOrder_TSB.Visible = true;
                 DeleteOrder_TSB.Visible = true;
                 CanceledOrder_TSB.Visible = true;
-                SelectionReport_TSM.Enabled = true;
+                SelectionReport_TSM.Visible = true;
+                ViewSelected_B.Visible = true;
             }
             else
             {
                 ChangeOrder_TSB.Visible = false;
                 DeleteOrder_TSB.Visible = false;
                 CanceledOrder_TSB.Visible = false;
-                SelectionReport_TSM.Enabled = false;
+                SelectionReport_TSM.Visible = false;
+                ViewSelected_B.Visible = false;
             }
         }
 
@@ -1224,9 +1230,52 @@ namespace SZMK.Desktop.Views.Chief_PDO
                 MessageBox.Show(E.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private async Task<Boolean> ReportCompleteStatuses(String filename)
         {
             return await Task.Run(() => SystemArgs.Excel.ReportCompleteStatuses(filename));
+        }
+
+        private void ViewSelected_B_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SystemArgs.Orders = new OperationsDisplayDrawings().ViewSeletedDrawing(ref Order_DGV);
+
+                Display(SystemArgs.Orders);
+            }
+            catch (Exception ex)
+            {
+                SystemArgs.PrintLog(ex.ToString());
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Order_DGV_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                if (Order_DGV.Columns[e.ColumnIndex] == Order_DGV.Columns["List"])
+                {
+                    ListFieldSort listFieldSort = new ListFieldSort();
+
+                    if (listFieldSort.IsSort)
+                    {
+                        Display(listFieldSort.SortAsc(View).ToList());
+                    }
+                    else
+                    {
+                        Display(listFieldSort.SortDesc(View).ToList());
+                    }
+
+                    listFieldSort.IsSort = !listFieldSort.IsSort;
+                }
+            }
+            catch (Exception ex)
+            {
+                SystemArgs.PrintLog(ex.ToString());
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
