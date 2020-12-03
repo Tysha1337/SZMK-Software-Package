@@ -166,7 +166,7 @@
             this.label3.Text = "Стало";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // KB_ScanUpdateOrder_F
+            // ALL_UpdateOrder_F
             // 
             this.AcceptButton = this.OK_B;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,9 +180,10 @@
             this.MaximumSize = new System.Drawing.Size(731, 218);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(731, 218);
-            this.Name = "KB_ScanUpdateOrder_F";
+            this.Name = "ALL_UpdateOrder_F";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Обновление чертежа";
+            this.Load += new System.EventHandler(this.ALL_UpdateOrder_F_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

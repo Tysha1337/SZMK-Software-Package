@@ -61,6 +61,8 @@ namespace SZMK.Desktop.Views.Arhive
                     {
                         Status_TB.AppendText($"Файл" + Environment.NewLine + SystemArgs.Path.GetFileName(FileName) + Environment.NewLine + "обрабатывается, пожалуйста подождите..." + Environment.NewLine);
                         Status_TB.AppendText($">{i + 1}|{CountFile}<" + Environment.NewLine);
+                        SystemArgs.PrintLog($"Файл" + SystemArgs.Path.GetFileName(FileName) + "обрабатывается, пожалуйста подождите...");
+                        SystemArgs.PrintLog($">{i + 1}|{CountFile}<");
                     });
 
                     FileNames.Add(FileName);
@@ -72,6 +74,8 @@ namespace SZMK.Desktop.Views.Arhive
                 {
                     Status_TB.AppendText($"ОБРАБОТКА ЗАВЕРШЕНА!" + Environment.NewLine);
                     Status_TB.AppendText($">{i}|{CountFile}<" + Environment.NewLine);
+                    SystemArgs.PrintLog($"ОБРАБОТКА ЗАВЕРШЕНА!");
+                    SystemArgs.PrintLog($">{i}|{CountFile}<");
                 });
                 Change_B.Invoke((MethodInvoker)delegate ()
                 {
@@ -96,12 +100,14 @@ namespace SZMK.Desktop.Views.Arhive
                     });
                 }
             }
-            catch(InvalidOperationException)
+            catch(InvalidOperationException Ex)
             {
+                SystemArgs.PrintLog(Ex.ToString());
                 return;
             }
-            catch
+            catch(Exception Ex)
             {
+                SystemArgs.PrintLog(Ex.ToString());
                 Add_B.Invoke((MethodInvoker)delegate ()
                 {
                     Add_B.Enabled = true;
@@ -155,6 +161,7 @@ namespace SZMK.Desktop.Views.Arhive
             Status_TB.Invoke((MethodInvoker)delegate ()
             {
                 Status_TB.AppendText($"Файл {SystemArgs.Path.GetFileName(Path)} неправильный формат DataMatrix" + Environment.NewLine);
+                SystemArgs.PrintLog($"Файл {SystemArgs.Path.GetFileName(Path)} неправильный формат DataMatrix");
                 FailFileNames.Add(SystemArgs.Path.GetFileName(Path));
                 FileNames.Remove(Path);
                 FailCount++;
@@ -165,6 +172,7 @@ namespace SZMK.Desktop.Views.Arhive
                 Status_TB.Invoke((MethodInvoker)delegate ()
                 {
                     Status_TB.AppendText($"Получены данные" + Environment.NewLine + DecodeSession[DecodeSession.Count - 1].DataMatrix + Environment.NewLine);
+                    SystemArgs.PrintLog($"Получены данные" + DecodeSession[DecodeSession.Count - 1].DataMatrix);
                 });
                 Scan_DGV.Invoke((MethodInvoker)delegate ()
                 {

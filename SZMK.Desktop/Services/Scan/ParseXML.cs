@@ -90,40 +90,25 @@ namespace SZMK.Desktop.Services.Scan
                     try
                     {
                         Error = "Заказ";
-                        Number = assembly.Element("Заказ").Value;
+                        Number = assembly.Element("Заказ").Value.Replace(" ", "");
                         Error = "Лист";
-                        List = assembly.Element("Лист").Value;
+                        List = assembly.Element("Лист").Value.Replace(" ", "");
                         Error = "Марка";
-                        Mark = assembly.Element("Марка").Value;
+                        Mark = assembly.Element("Марка").Value.Replace(" ", "");
                         Error = "Разработчик_чертежа";
-                        Executor = assembly.Element("Разработчик_чертежа").Value;
+                        Executor = assembly.Element("Разработчик_чертежа").Value.Replace(" ", "");
                         Error = "Г.М_длина";
-                        Lenght = assembly.Element("Деталь").Element("Г.М_длина").Value;
+                        Lenght = assembly.Element("Деталь").Element("Г.М_длина").Value.Replace(" ", "");
                         Error = "Масса_итого";
-                        Weight = assembly.Element("Масса_итого").Value;
+                        Weight = assembly.Element("Масса_итого").Value.Replace(" ", "");
                         Error = "Кол_во_марок";
-                        CountMarks = assembly.Element("Кол_во_марок").Value;
+                        CountMarks = assembly.Element("Кол_во_марок").Value.Replace(" ", "");
 
-                        Order CheckedOrder = new Order(Number, List, Mark, Executor, Lenght, Weight, CountMarks);
+                        Order CheckedOrder = new Order(0, DateTime.Now, Number, Executor, "Исполнитель не определен", List, Mark, Lenght, Weight, null, DateTime.Now, null, Model, null, null, false, false, CountMarks, new List<Detail>());
 
                         GetDetails(CheckedOrder.Details, assembly);
 
-                        SucsessfulOrders.Add(new Order(0, 
-                            DateTime.Now, 
-                            CheckedOrder.Number, 
-                            CheckedOrder.Executor,
-                            "Исполнитель не определен",
-                            CheckedOrder.List,
-                            CheckedOrder.Mark,
-                            CheckedOrder.Lenght, 
-                            CheckedOrder.Weight,
-                            null, DateTime.Now,
-                            null,
-                            Model, 
-                            null, 
-                            null,
-                            false,
-                            false));
+                        SucsessfulOrders.Add(CheckedOrder);
                     }
                     catch (NullReferenceException Ex)
                     {
@@ -229,12 +214,17 @@ namespace SZMK.Desktop.Services.Scan
                         Width = detailViewModel.Width,
                         Lenght = detailViewModel.Lenght,
                         Weight = detailViewModel.Weight,
+                        Height = detailViewModel.Height,
+                        Diameter = detailViewModel.Diameter,
                         SubtotalWeight = detailViewModel.SubTotalWeight,
                         MarkSteel = detailViewModel.MarkSteel,
                         Discription = detailViewModel.Discription,
                         Machining = detailViewModel.Machining,
                         MethodOfPaintingRAL = detailViewModel.MethodOfPaintiongRAL,
-                        PaintingArea = detailViewModel.PaintingArea
+                        PaintingArea = detailViewModel.PaintingArea,
+                        GostName = detailViewModel.GostName,
+                        FlangeThickness = detailViewModel.FlangeThickness,
+                        PlateThickness = detailViewModel.PlateThickness
                     });
                 }
             }
@@ -347,7 +337,7 @@ namespace SZMK.Desktop.Services.Scan
                 {
                     notify.Notify(i, $"Проверка {i + 1} чертежа из {Orders.Count}");
 
-                    SetResult(Orders[i], OrderScanSession);
+                    SetResult(Orders[i], OrderScanSession, true);
                 }
             }
             catch (Exception Ex)

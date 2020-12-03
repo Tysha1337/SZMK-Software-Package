@@ -633,6 +633,11 @@ namespace SZMK.Desktop.Views.KB
 
                     Load.Close();
 
+                    if (!Dialog.Cancelled_CB.Checked)
+                    {
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => !p.Canceled).ToList();
+                    }
+
                     SystemArgs.Orders.ToList();
 
                     if (Dialog.DateEnable_CB.Checked && Dialog.Status_CB.SelectedIndex != 0)
@@ -1484,6 +1489,8 @@ namespace SZMK.Desktop.Views.KB
                         await Task.Run(() => parseXML.CheckedData());
 
                         await Task.Run(() => AddXMLData(parseXML.OrderScanSession, Notify));
+
+                        RefreshOrderAsync(FilterCB_TSB.SelectedIndex);
                     }
                 }
             }
@@ -1570,6 +1577,19 @@ namespace SZMK.Desktop.Views.KB
                         else if (Session[i].Unique == 2)
                         {
                             Session[i].Discription = $"В заказе {Session[i].Order.Number}, номер листа {Session[i].Order.List} уже существует.";
+                        }
+                        else if (Session[i].Unique == 3)
+                        {
+                            Session[i].Order.ExecutorWork = "Исполнитель не определен";
+                            Session[i].Order.Canceled = false;
+                            Session[i].Order.Finished = false;
+                            Session[i].Order.ID = SystemArgs.Request.GetIDOrder(Session[i].Order.Number, Session[i].Order.List);
+                            Session[i].Order.Status = SystemArgs.Statuses.Where(p=>p.ID==1).First();
+                            Session[i].Order.User = SystemArgs.User;
+                            if (!SystemArgs.Request.UpdateOrder(Session[i].Order)| !SystemArgs.Request.DownGradeStatus(Session[i].Order))
+                            {
+                                throw new Exception("Ошибка обновления чертежа");
+                            }
                         }
                     }
                     catch (Exception E)

@@ -9,7 +9,7 @@ namespace SZMK.TeklaInteraction.Shared.ViewModels
     public class DetailViewModel
     {
         private long _ID;
-        private long _Position;
+        private string _Position;
         private long _Count;
         private string _Profile;
         private double _Width;
@@ -36,8 +36,15 @@ namespace SZMK.TeklaInteraction.Shared.ViewModels
             string Error = "";
             try
             {
-                Error = $"Позиция {Position.Trim()} детали должна быть целым числом";
-                _Position = Convert.ToInt32(Position.Replace(" ", ""));
+                if (String.IsNullOrEmpty(Position))
+                {
+                    Error = $"Не заполнена позиция детали";
+                    throw new Exception();
+                }
+                else
+                {
+                    _Position = Position.Replace(" ", "");
+                }
 
                 Error = $"Позиция {_Position}: Количество деталей должно быть целым числом";
                 _Count = Convert.ToInt32(Count.Replace(" ", ""));
@@ -78,15 +85,7 @@ namespace SZMK.TeklaInteraction.Shared.ViewModels
 
                 _PaintingArea = PaintingArea;
 
-                //if (String.IsNullOrEmpty(GostName))
-                //{
-                //    Error = $"Позиция {_Position}: Не заполнен гост стали детали";
-                //    throw new Exception();
-                //}
-                //else
-                //{
-                    _GostName = GostName.Replace(" ", "");
-                //}
+                _GostName = GostName.Replace(" ", "");
 
                 _FlangeThickness = FlangeThickness.Replace(" ", "");
                 _PlateThickness = PlateThickness.Replace(" ", "");
@@ -122,7 +121,7 @@ namespace SZMK.TeklaInteraction.Shared.ViewModels
                 }
             }
         }
-        public long Position
+        public string Position
         {
             get
             {
@@ -449,7 +448,7 @@ namespace SZMK.TeklaInteraction.Shared.ViewModels
                     case 4:
                         return _MarkSteel;
                     case 5:
-                        return $"L{_Width.ToString("F2").TrimEnd('0',',')}x{_FlangeThickness}";
+                        return $"L{_Width.ToString("F2").TrimEnd('0', ',')}x{_FlangeThickness}";
                     case 6:
                         return $"L{_Width.ToString("F2").TrimEnd('0', ',')}x{_Width.ToString("F2").TrimEnd('0', ',')}x{_FlangeThickness}";
                     case 7:

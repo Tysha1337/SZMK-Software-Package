@@ -431,6 +431,11 @@ namespace SZMK.Desktop.Views.Design_Engineer
 
                     Load.Close();
 
+                    if (!Dialog.Cancelled_CB.Checked)
+                    {
+                        SystemArgs.Orders = SystemArgs.Orders.Where(p => !p.Canceled).ToList();
+                    }
+
                     if (Dialog.DateEnable_CB.Checked && Dialog.Status_CB.SelectedIndex != 0)
                     {
                         Status Status = (Status)Dialog.Status_CB.SelectedItem;

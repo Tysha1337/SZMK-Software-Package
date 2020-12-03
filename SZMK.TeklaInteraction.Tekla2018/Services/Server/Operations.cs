@@ -50,14 +50,20 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
 
                 for (int i = 0; i < Model.Drawings.Count; i++)
                 {
-                    String ReplaceMark = "";
+                    if (Model.Drawings.FindAll(p => p.List == Model.Drawings[i].List && p.Order == Model.Drawings[i].Order).Count > 1)
+                    {
+                        session.Add(new SessionAdded { Drawing = Model.Drawings[i], Unique = 0, Discription = $"В заказе {Model.Drawings[i].Order}, лист {Model.Drawings[i].List} уже существует" });
+                        continue;
+                    }
+
+                    String ReplaceMark = Model.Drawings[i].Mark;
 
                     String[] ExistingCharaterEnglish = new String[] { "A", "a", "B", "C", "c", "E", "e", "H", "K", "M", "O", "o", "P", "p", "T" };
                     String[] ExistingCharaterRussia = new String[] { "А", "а", "В", "С", "с", "Е", "е", "Н", "К", "М", "О", "о", "Р", "р", "Т" };
 
                     for (int j = 0; j < ExistingCharaterRussia.Length; j++)
                     {
-                        ReplaceMark = Model.Drawings[i].Mark.Replace(ExistingCharaterRussia[j], ExistingCharaterEnglish[j]);
+                        ReplaceMark = ReplaceMark.Replace(ExistingCharaterRussia[j], ExistingCharaterEnglish[j]);
                     }
 
                     try
@@ -92,7 +98,7 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
 
                     Model.Drawings[i].Model = Model;
 
-                    Int32 IndexException = request.CheckedDrawing(Model.Drawings[i].Order, Model.Drawings[i].List, Model.Drawings[i].Mark);
+                    Int32 IndexException = request.CheckedDrawing(Model.Drawings[i]);
 
                     switch (IndexException)
                     {
@@ -329,6 +335,7 @@ namespace SZMK.TeklaInteraction.Tekla2018.Services.Server
                         else if (Session[i].Unique == 1)
                         {
                             request.UpdateDrawing(Session[i].Drawing);
+                            request.DownGradeStatus(Session[i].Drawing, user);
                         }
                     }
                     catch (Exception E)

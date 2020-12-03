@@ -16,5 +16,11 @@ namespace SZMK.Desktop.Views.Shared
         {
             InitializeComponent();
         }
+
+        private void ALL_UpdateOrder_F_Load(object sender, EventArgs e)
+        {
+            this.TopLevel = true;
+            this.TopMost = true;
+        }
     }
 }

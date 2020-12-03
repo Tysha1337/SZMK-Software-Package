@@ -3,7 +3,7 @@
     public class Detail
     {
         public long ID { get; set; }
-        public long Position { get; set; }
+        public string Position { get; set; }
         public long Count { get; set; }
         public string Profile { get; set; }
         public double Width { get; set; }

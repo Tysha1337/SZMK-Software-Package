@@ -390,9 +390,7 @@ namespace SZMK.Desktop.Services.Setting
                             //{
                             //    m.To.Add(new MailAddress(_EmailGeneralConstructor));
                             //}
-
                             m.To.Add(new MailAddress("Agafonov.AE@szmk-nk.com"));
-
                             m.Subject = "Деталировка отсутствует от " + DateTime.Now.ToString();
                             m.Body = CreateMessage(SystemArgs.UnLoadSpecific.ExecutorMails[i], Status);
                             m.IsBodyHtml = true;
@@ -426,6 +424,7 @@ namespace SZMK.Desktop.Services.Setting
                                     $"<td> № листа</td>" +
                                     $"<td> Фамилия разработчика</td>" +
                                     $"<td> № детали</td>" +
+                                    $"<td> Путь папки с деталями</td>" +
                                     $"</tr>";
                 foreach (var Specifics in Executor.GetSpecifics())
                 {
@@ -436,6 +435,7 @@ namespace SZMK.Desktop.Services.Setting
                                     $"<td> {Specifics.List.ToString()}</td>" +
                                     $"<td> {Executor.Executor}</td>" +
                                     $"<td> {Specifics.NumberSpecific.ToString()}</td>" +
+                                    $"<td> <a href=\"{Specifics.PathDetails}\">{Specifics.PathDetails}</a> </td>" +
                                     $"</tr>";
                     }
                 }

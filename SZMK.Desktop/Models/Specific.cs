@@ -11,9 +11,10 @@ namespace SZMK.Desktop.Models
     {
         private String _Number;
         private String _List;
-        private Int64 _NumberSpecific;
+        private string _NumberSpecific;
+        private string _PathDetails;
         private Boolean _Finded;
-        public Specific(String Number, String List, Int64 NumberSpecific, Boolean Finded)
+        public Specific(String Number, String List, string NumberSpecific, string PathDetails, Boolean Finded)
         {
             if (!String.IsNullOrEmpty(Number))
             {
@@ -31,13 +32,21 @@ namespace SZMK.Desktop.Models
             {
                 throw new Exception("Номер листа заказа меньше 0");
             }
-            if (NumberSpecific >= 0)
+            if (!String.IsNullOrEmpty(NumberSpecific))
             {
                 _NumberSpecific = NumberSpecific;
             }
             else
             {
-                throw new Exception("Номер детали меньше 0");
+                throw new Exception("Номер детали не заполнен");
+            }
+            if (!String.IsNullOrEmpty(PathDetails))
+            {
+                _PathDetails = PathDetails;
+            }
+            else
+            {
+                throw new Exception("Путь до деталей не заполнен");
             }
             _Finded = Finded;
         }
@@ -69,7 +78,7 @@ namespace SZMK.Desktop.Models
                 }
             }
         }
-        public Int64 NumberSpecific
+        public string NumberSpecific
         {
             get
             {
@@ -77,9 +86,23 @@ namespace SZMK.Desktop.Models
             }
             set
             {
-                if (value >= 0)
+                if (!String.IsNullOrEmpty(value))
                 {
                     _NumberSpecific = value;
+                }
+            }
+        }
+        public string PathDetails
+        {
+            get
+            {
+                return _PathDetails;
+            }
+            set
+            {
+                if (!String.IsNullOrEmpty(value))
+                {
+                    _PathDetails = value;
                 }
             }
         }

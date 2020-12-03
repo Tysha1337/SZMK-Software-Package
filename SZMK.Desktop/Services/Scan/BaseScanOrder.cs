@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SZMK.Desktop.BindingModels;
 using SZMK.Desktop.Models;
+using SZMK.Desktop.Views.Shared;
 
 namespace SZMK.Desktop.Services.Scan
 {
     public class BaseScanOrder
     {
-        public bool SetResult(Order Order, List<OrderScanSession> Orders)
+        public bool SetResult(Order Order, List<OrderScanSession> Orders, bool XML)
         {
             try
             {
@@ -68,7 +69,7 @@ namespace SZMK.Desktop.Services.Scan
                         return true;
                     }
 
-                    Int32 IndexException = SystemArgs.Request.CheckedNumberAndList(Order.Number, Order.List);
+                    Int32 IndexException = SystemArgs.Request.CheckedNumberAndList(Order, XML);
 
                     switch (IndexException)
                     {
@@ -90,6 +91,21 @@ namespace SZMK.Desktop.Services.Scan
                             break;
                         case 3:
                             Orders.Add(new OrderScanSession(Order, 2, "-"));
+                            break;
+                        case 4:
+                            ALL_UpdateOrder_F Update = new ALL_UpdateOrder_F();
+
+                            Update.NewOrder_TB.Text = Order.ToString();
+                            Update.OldOrder_TB.Text = SystemArgs.Request.GetOrder(Order.List, Order.Number).ToString();
+
+                            if (Update.ShowDialog() == DialogResult.OK)
+                            {
+                                Orders.Add(new OrderScanSession(Order, 3, "-"));
+                            }
+                            else
+                            {
+                                Orders.Add(new OrderScanSession(Order, 0, $"В заказе {Order.Number}, номер листа {Order.List} уже существует."));
+                            }
                             break;
                         default:
                             Orders.Add(new OrderScanSession(Order, 0, "Ошибка добавления чертежа"));

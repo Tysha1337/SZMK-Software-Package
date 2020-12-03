@@ -33,7 +33,7 @@ namespace SZMK.Desktop.Models
         private Boolean _Finished;
 
 
-        public Order(Int64 ID, DateTime DateCreate, String Number, String Executor, String ExecutorWork, String List, String Mark, Double Lenght, Double Weight, Status Status, DateTime StatusDate, TypeAdd TypeAdd,Model Model, User User, BlankOrder BlankOrder, Boolean Canceled, Boolean Finished)
+        public Order(Int64 ID, DateTime DateCreate, String Number, String Executor, String ExecutorWork, String List, String Mark, Double Lenght, Double Weight, Status Status, DateTime StatusDate, TypeAdd TypeAdd, Model Model, User User, BlankOrder BlankOrder, Boolean Canceled, Boolean Finished)
         {
             if (ID >= 0)
             {
@@ -111,13 +111,13 @@ namespace SZMK.Desktop.Models
                 throw new Exception("Значение веса меньше 0");
             }
 
-            if (TypeAdd!=null)
+            if (TypeAdd != null)
             {
                 _TypeAdd = TypeAdd;
             }
             else
             {
-                _TypeAdd = new TypeAdd { ID = 0,Discriprion="Не определен" };
+                _TypeAdd = new TypeAdd { ID = 0, Discriprion = "Не определен" };
             }
 
             if (Model != null)
@@ -148,11 +148,26 @@ namespace SZMK.Desktop.Models
 
             _Finished = Finished;
         }
-        public Order(string Number, string List, string Mark, string Executor, string Lenght, string Weight, string CountMarks)
+        public Order(Int64 ID, DateTime DateCreate, String Number, String Executor, String ExecutorWork, String List, String Mark, String Lenght, String Weight, Status Status, DateTime StatusDate, TypeAdd TypeAdd, Model Model, User User, BlankOrder BlankOrder, Boolean Canceled, Boolean Finished, String CountMarks, List<Detail> Details)
         {
             string Error = "";
             try
             {
+                if (ID >= 0)
+                {
+                    _ID = ID;
+                }
+
+                if (DateCreate != null)
+                {
+                    _DateCreate = DateCreate;
+                }
+                else
+                {
+                    Error = "Пустое значение Даты добавления";
+                    throw new Exception();
+                }
+
                 if (!String.IsNullOrEmpty(Number))
                 {
                     _Number = Number;
@@ -192,6 +207,15 @@ namespace SZMK.Desktop.Models
                     Error = "Пустое значение Исполнителя";
                     throw new Exception();
                 }
+                if (!String.IsNullOrEmpty(ExecutorWork))
+                {
+                    _ExecutorWork = ExecutorWork;
+                }
+                else 
+                { 
+                    Error = "Пустое значение Исполнителя работ";
+                    throw new Exception();
+                }
 
                 Error = "Длина чертежа должна быть целым или вещественным числом";
                 _Lenght = Convert.ToDouble(Lenght.Replace(" ", "").Replace(".", ","));
@@ -201,14 +225,77 @@ namespace SZMK.Desktop.Models
 
                 Error = "Количество марок чертежа должно быть целым или вещественным числом";
                 _CountMarks = Convert.ToInt32(CountMarks.Replace(" ", ""));
+
+                _Status = Status;
+
+                if (StatusDate != null)
+                {
+                    _StatusDate = StatusDate;
+                }
+                else
+                {
+                    Error = "Пустое значение даты присвоения статуса";
+                    throw new Exception();
+                }
+                if (TypeAdd != null)
+                {
+                    _TypeAdd = TypeAdd;
+                }
+                else
+                {
+                    _TypeAdd = new TypeAdd { ID = 0, Discriprion = "Не определен" };
+                }
+
+                if (Model != null)
+                {
+                    _Model = Model;
+                }
+                else
+                {
+                    _Model = new Model { ID = 0, DateCreate = DateTime.Now, Path = "Путь не определен" };
+                }
+
+                _User = User;
+                _BlankOrder = BlankOrder;
+                _Canceled = Canceled;
+                _Finished = Finished;
+                _Details = Details;
             }
             catch
             {
                 throw new Exception(Error);
             }
         }
+        public Order(Order Order)
+        {
+            try
+            {
+                _DateCreate = Order.DateCreate;
+                _Number = Order.Number;
+                _Executor = Order.Executor;
+                _ExecutorWork = Order.ExecutorWork;
+                _List = Order.List;
+                _Mark = Order.Mark;
+                _Lenght = Order.Lenght;
+                _Weight = Order.Weight;
+                _Status = Order.Status;
+                _StatusDate = Order.StatusDate;
+                _TypeAdd = Order.TypeAdd;
+                _Model = Order.Model;
+                _User = Order.User;
+                _BlankOrder = Order.BlankOrder;
+                _Finished = Order.Finished;
+                _Canceled = Order.Canceled;
+                _CountMarks = Order.CountMarks;
+                _Details = Details;
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message, Ex);
+            }
+        }
 
-        public Order() : this(-1, DateTime.Now, "Нет номера заказа", "Нет исполнителя", "Нет исполнителя работ", "Нет листа", "Нет марки", -1, -1, null, DateTime.Now,null,null, null, null, false, false) { }
+        public Order() : this(-1, DateTime.Now, "Нет номера заказа", "Нет исполнителя", "Нет исполнителя работ", "Нет листа", "Нет марки", -1, -1, null, DateTime.Now, null, null, null, null, false, false) { }
 
         public Int64 ID
         {
@@ -382,7 +469,7 @@ namespace SZMK.Desktop.Models
             }
             set
             {
-                if (value!=null)
+                if (value != null)
                 {
                     _TypeAdd = value;
                 }
@@ -528,7 +615,7 @@ namespace SZMK.Desktop.Models
             }
         }
 
-        public int CountMarks 
+        public int CountMarks
         {
             get
             {

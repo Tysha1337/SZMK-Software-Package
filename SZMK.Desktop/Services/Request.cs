@@ -1322,17 +1322,17 @@ namespace SZMK.Desktop.Services
                 return false;
             }
         }
-        public Int32 CheckedNumberAndList(String Number, String List)
+        public Int32 CheckedNumberAndList(Order order, bool XML)
         {
             try
             {
                 int flag = -1;
-                String[] Temp = List.Split('и');
+                String[] Temp = order.List.Split('и');
                 using (var Connect = new NpgsqlConnection(_ConnectString))
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"List\" = '{List}' AND \"Number\"='{Number}';", Connect))
+                    using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"List\" = '{order.List}' AND \"Number\"='{order.Number}';", Connect))
                     {
                         using (var Reader = Command.ExecuteReader())
                         {
@@ -1342,7 +1342,7 @@ namespace SZMK.Desktop.Services
                                 {
                                     if (Temp.Length != 1)
                                     {
-                                        if (CheckedFirstCancelledOrder(Number, Temp[0]))
+                                        if (CheckedFirstCancelledOrder(order.Number, Temp[0]))
                                         {
                                             if (MessageBox.Show("Заменяемый чертеж отсутсвует. Добавить новый?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                                             {
@@ -1359,7 +1359,11 @@ namespace SZMK.Desktop.Services
                                         flag = 0;
                                     }
                                 }
-                                else if ((CheckedStatusOrderDB(Number, List) != -1) && (CheckedStatusOrderDB(Number, List) == SystemArgs.User.StatusesUser.First().ID - 1))
+                                else if (CheckedDataMatrixUpdate(order) && XML)
+                                {
+                                    flag = 4;
+                                }
+                                else if ((CheckedStatusOrderDB(order.Number, order.List) != -1) && (CheckedStatusOrderDB(order.Number, order.List) == SystemArgs.User.StatusesUser.First().ID - 1))
                                 {
                                     flag = 3;
                                 }
@@ -1381,64 +1385,28 @@ namespace SZMK.Desktop.Services
                 return -1;
             }
         }
-        public Int32 CheckedOrderDE(String Number, String List, String DataMatrix)
+        private bool CheckedDataMatrixUpdate(Order order)
         {
-            try
+            bool flag = false;
+            using (var Connect = new NpgsqlConnection(_ConnectString))
             {
-                int flag = -1;
-                String[] Temp = List.Split('и');
-                using (var Connect = new NpgsqlConnection(_ConnectString))
+                Connect.Open();
+                using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"Number\"='{order.Number}' AND \"List\"='{order.List}' AND \"Mark\"='{order.Mark}' AND \"Executor\"='{order.Executor}' AND \"Lenght\"='{order.Lenght}' AND \"Weight\"='{order.Weight}';", Connect))
                 {
-                    Connect.Open();
-
-                    using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"List\" = '{List}' AND \"Number\"='{Number}';", Connect))
+                    using (var Reader = Command.ExecuteReader())
                     {
-                        using (var Reader = Command.ExecuteReader())
+                        while (Reader.Read())
                         {
-                            while (Reader.Read())
+                            if (Reader.GetInt64(0) == 0)
                             {
-                                if (Reader.GetInt64(0) == 0)
-                                {
-                                    if (Temp.Length != 1)
-                                    {
-                                        if (CheckedFirstCancelledOrder(Number, Temp[0]))
-                                        {
-                                            if (MessageBox.Show("Заменяемый чертеж отсутсвует. Добавить новый?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-                                            {
-                                                flag = 2;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            flag = 2;
-                                        }
-                                    }
-                                    else
-                                    {
-                                        flag = 0;
-                                    }
-                                }
-                                else if (CheckedDataMatrixUpdate(DataMatrix))
-                                {
-                                    flag = 3;
-                                }
-                                else
-                                {
-                                    flag = 1;
-                                }
+                                flag = true;
                             }
                         }
                     }
-
-                    Connect.Close();
                 }
-                return flag;
+                Connect.Close();
             }
-            catch (Exception E)
-            {
-                SystemArgs.PrintLog(E.ToString());
-                return -1;
-            }
+            return flag;
         }
         private bool CheckedFirstCancelledOrder(String Number, String List)
         {
@@ -1462,49 +1430,6 @@ namespace SZMK.Desktop.Services
                 Connect.Close();
             }
             return flag;
-        }
-        private bool CheckedDataMatrixUpdate(String DataMatrix)
-        {
-            bool flag = false;
-            using (var Connect = new NpgsqlConnection(_ConnectString))
-            {
-                Connect.Open();
-                using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"DataMatrix\"='{DataMatrix}';", Connect))
-                {
-                    using (var Reader = Command.ExecuteReader())
-                    {
-                        while (Reader.Read())
-                        {
-                            if (Reader.GetInt64(0) == 0)
-                            {
-                                flag = true;
-                            }
-                        }
-                    }
-                }
-                Connect.Close();
-            }
-            return flag;
-        }
-        public String GetDataMatrix(String Number, String List)
-        {
-            String DataMatrix = "";
-            using (var Connect = new NpgsqlConnection(_ConnectString))
-            {
-                Connect.Open();
-                using (var Command = new NpgsqlCommand($"SELECT \"DataMatrix\" FROM public.\"Orders\" WHERE  \"Number\"='{Number}' AND \"List\" = '{List}';", Connect))
-                {
-                    using (var Reader = Command.ExecuteReader())
-                    {
-                        while (Reader.Read())
-                        {
-                            DataMatrix = Reader.GetString(0);
-                        }
-                    }
-                }
-                Connect.Close();
-            }
-            return DataMatrix;
         }
         public bool CheckedNumberAndMark(String Number, String Mark)
         {
@@ -1702,15 +1627,16 @@ namespace SZMK.Desktop.Services
                             {
                                 while (Reader.Read())
                                 {
-                                    details.Add(new Detail 
-                                    {   ID = Reader.GetInt64(0),
-                                        Position = !Reader.IsDBNull(1) ? Reader.GetInt64(1) : -1,
+                                    details.Add(new Detail
+                                    {
+                                        ID = Reader.GetInt64(0),
+                                        Position = !Reader.IsDBNull(1) ? Reader.GetString(1) : "",
                                         Count = !Reader.IsDBNull(2) ? Reader.GetInt64(2) : -1,
                                         Profile = Reader.GetString(3),
                                         Width = !Reader.IsDBNull(4) ? Convert.ToDouble(Reader.GetString(4)) : -1,
                                         Lenght = !Reader.IsDBNull(5) ? Convert.ToDouble(Reader.GetString(5)) : -1,
                                         Weight = !Reader.IsDBNull(6) ? Convert.ToDouble(Reader.GetString(6)) : -1,
-                                        Height = !Reader.IsDBNull(7) ? Convert.ToDouble(Reader.GetString(7)) : -1,
+                                        Height = !Reader.IsDBNull(7) ? Reader.GetString(7) : "",
                                         Diameter = !Reader.IsDBNull(8) ? Reader.GetString(8) : "",
                                         SubtotalWeight = Convert.ToDouble(Reader.GetString(9)),
                                         MarkSteel = Reader.GetString(10),

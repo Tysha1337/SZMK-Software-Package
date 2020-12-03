@@ -64,7 +64,7 @@ namespace SZMK.Desktop.Services.Scan
         }
         private void Server_DataReceived(object sender, SimpleTCP.Message e)
         {
-            if (SetResult(FormingOrder(e.MessageString), _Orders))
+            if (SetResult(FormingOrder(e.MessageString), _Orders, false))
             {
                 Load?.Invoke(_Orders);
             }

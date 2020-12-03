@@ -9,13 +9,13 @@ namespace SZMK.Desktop.Models
     public class Detail
     {
         public long ID { get; set; }
-        public long Position { get; set; }
+        public string Position { get; set; }
         public long Count { get; set; }
         public string Profile { get; set; }
         public double Width { get; set; }
         public double Lenght { get; set; }
         public double Weight { get; set; }
-        public double Height { get; set; }
+        public string Height { get; set; }
         public string Diameter { get; set; }
         public double SubtotalWeight { get; set; }
         public string MarkSteel { get; set; }

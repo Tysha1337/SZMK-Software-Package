@@ -184,11 +184,11 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                     modelObject.GetReportProperty("PART_POS", ref _position);
                     long CountDetail = 0;
 
-                    if (Details.Where(p => p.Position == Convert.ToInt64(_position)).Count() > 0)
+                    if (Details.Where(p => p.Position == _position).Count() > 0)
                     {
-                        CountDetail = Details.Where(p => p.Position == Convert.ToInt64(_position)).FirstOrDefault().Count;
+                        CountDetail = Details.Where(p => p.Position == _position).FirstOrDefault().Count;
 
-                        Details.RemoveAll(p => p.Position == Convert.ToInt64(_position));
+                        Details.RemoveAll(p => p.Position == _position);
                     }
 
                     Details.Add(GetDetailAttribute(modelObject, CountDetail + 1));
@@ -327,8 +327,15 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
                 }
                 else
                 {
-                    _executor = _executor.Replace(" ", "");
-                    _executor = _executor.Insert(_executor.IndexOf('.') - 1, " ");
+                    try
+                    {
+                        _executor = _executor.Replace(" ", "");
+                        _executor = _executor.Insert(_executor.IndexOf('.') - 1, " ");
+                    }
+                    catch
+                    {
+                        throw new Exception($"Исполнитель указан не по шаблону, Шаблон: Иванов И.И.");
+                    }
                 }
 
                 assembly.GetReportProperty("CUSTOM.SZ_AssWeight", ref _weightMark);
@@ -394,7 +401,7 @@ namespace SZMK.TeklaInteraction.Tekla21_1.Services.Server
             try
             {
                 int firstNum = Convert.ToInt32(order.Substring(0, order.IndexOf('(')));
-                int secondNum = Convert.ToInt32(order.Substring(order.IndexOf('(') + 1, order.IndexOf(')') - order.IndexOf('(') - 1));
+                string secondNum = order.Substring(order.IndexOf('(') + 1, order.IndexOf(')') - order.IndexOf('(') - 1);
 
                 string lastNum = order.Remove(0, order.IndexOf(')') + 1);
 

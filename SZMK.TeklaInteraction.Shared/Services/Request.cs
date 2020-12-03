@@ -246,17 +246,17 @@ namespace SZMK.TeklaInteraction.Shared.Services
                 throw new Exception(E.Message, E);
             }
         }
-        public Int32 CheckedDrawing(String Number, String List, String Mark)
+        public Int32 CheckedDrawing(Drawing Drawing)
         {
             try
             {
                 int flag = -1;
-                String[] Temp = List.Split('и');
+                String[] Temp = Drawing.List.Split('и');
                 using (var Connect = new NpgsqlConnection(db.ToString()))
                 {
                     Connect.Open();
 
-                    using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"List\" = '{List}' AND \"Number\"='{Number}';", Connect))
+                    using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"List\" = '{Drawing.List}' AND \"Number\"='{Drawing.Order}';", Connect))
                     {
                         using (var Reader = Command.ExecuteReader())
                         {
@@ -266,7 +266,7 @@ namespace SZMK.TeklaInteraction.Shared.Services
                                 {
                                     if (Temp.Length != 1)
                                     {
-                                        if (CheckedFirstCancelledOrder(Number, Temp[0]))
+                                        if (CheckedFirstCancelledOrder(Drawing.Order, Temp[0]))
                                         {
                                             if (MessageBox.Show("Заменяемый чертеж отсутсвует. Добавить новый?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                                             {
@@ -283,7 +283,7 @@ namespace SZMK.TeklaInteraction.Shared.Services
                                         flag = 0;
                                     }
                                 }
-                                else if (CheckedDataMatrixUpdate(Number, List, Mark))
+                                else if (CheckedDataMatrixUpdate(Drawing))
                                 {
                                     flag = 3;
                                 }
@@ -327,13 +327,13 @@ namespace SZMK.TeklaInteraction.Shared.Services
             }
             return flag;
         }
-        private bool CheckedDataMatrixUpdate(string Order, string List, string Mark)
+        private bool CheckedDataMatrixUpdate(Drawing Drawing)
         {
             bool flag = false;
             using (var Connect = new NpgsqlConnection(db.ToString()))
             {
                 Connect.Open();
-                using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"Number\"='{Order}' AND \"List\"='{List}' AND \"Mark\"='{Mark}';", Connect))
+                using (var Command = new NpgsqlCommand($"SELECT COUNT(\"ID\") FROM public.\"Orders\" WHERE \"Number\"='{Drawing.Order}' AND \"List\"='{Drawing.List}' AND \"Mark\"='{Drawing.Mark}' AND \"Executor\"='{Drawing.Executor}' AND \"Lenght\"='{Drawing.SubTotalLenght}' AND \"Weight\"='{Drawing.SubTotalWeight}';", Connect))
                 {
                     using (var Reader = Command.ExecuteReader())
                     {
@@ -544,6 +544,35 @@ namespace SZMK.TeklaInteraction.Shared.Services
                         Command.ExecuteNonQuery();
                     }
 
+                    Connect.Close();
+                }
+
+                return true;
+            }
+            catch (Exception E)
+            {
+                throw new Exception(E.Message, E);
+            }
+        }
+        public bool DownGradeStatus(Drawing Drawing, User User)
+        {
+            try
+            {
+                Int64 ID = GetIDDrawing(Drawing.Order, Drawing.List);
+
+                using (var Connect = new NpgsqlConnection(db.ToString()))
+                {
+                    Connect.Open();
+
+                    using (var Command = new NpgsqlCommand($"DELETE FROM public.\"AddStatus\" WHERE \"ID_Order\"='{ID}' AND \"ID_Status\">='{1}';", Connect))
+                    {
+                        Command.ExecuteNonQuery();
+                    }
+
+                    using (var Command = new NpgsqlCommand($"INSERT INTO public.\"AddStatus\" (\"DateCreate\", \"ID_Status\", \"ID_Order\", \"ID_User\") VALUES('{DateTime.Now}', '{1}', '{ID}', '{User.ID}'); ", Connect))
+                    {
+                        Command.ExecuteNonQuery();
+                    }
                     Connect.Close();
                 }
 

@@ -9,13 +9,13 @@ namespace SZMK.Desktop.ViewModel
     public class DetailViewModel
     {
         private long _ID;
-        private long _Position;
+        private string _Position;
         private long _Count;
         private string _Profile;
         private double _Width;
         private double _Lenght;
         private double _Weight;
-        private double _Height;
+        private string _Height;
         private string _Diameter;
         private double _SubtotalWeight;
         private string _MarkSteel;
@@ -33,8 +33,15 @@ namespace SZMK.Desktop.ViewModel
             string Error = "";
             try
             {
-                Error = $"Позиция {Position.Trim()} детали должна быть целым числом";
-                _Position = Convert.ToInt32(Position.Replace(" ", ""));
+                if (String.IsNullOrEmpty(Position))
+                {
+                    Error = $"Не заполнена позиция детали";
+                    throw new Exception();
+                }
+                else
+                {
+                    _Position = Position.Replace(" ", "");
+                }
 
                 Error = $"Позиция {_Position}: Количество деталей должно быть целым числом";
                 _Count = Convert.ToInt32(Count.Replace(" ", ""));
@@ -48,10 +55,9 @@ namespace SZMK.Desktop.ViewModel
                 Error = $"Позиция {_Position}: Вес детали должна быть целым или вещественным числом";
                 _Weight = Convert.ToDouble(Weight.Replace(" ", "").Replace(".", ","));
 
-                Error = $"Позиция {_Position}: Вес детали должна быть целым или вещественным числом";
-                _Height = Convert.ToDouble(Height.Replace(" ", "").Replace(".", ","));
+                _Height = Height.Replace(" ", "").Replace(".", ",");
 
-                _Diameter = Diameter.Replace(" ", "");
+                _Diameter = Diameter.Replace(" ", "").Replace(".", ",");
 
                 Error = $"Позиция {_Position}: Итоговый вес детали должна быть целым или вещественным числом";
                 _SubtotalWeight = Convert.ToDouble(SubtotalWeight.Replace(" ", "").Replace(".", ","));
@@ -119,7 +125,7 @@ namespace SZMK.Desktop.ViewModel
                 }
             }
         }
-        public long Position
+        public string Position
         {
             get
             {
@@ -200,7 +206,7 @@ namespace SZMK.Desktop.ViewModel
                 }
             }
         }
-        public double Height
+        public string Height
         {
             get
             {
@@ -208,7 +214,7 @@ namespace SZMK.Desktop.ViewModel
             }
             set
             {
-                if (value > 0)
+                if (!String.IsNullOrEmpty(value))
                 {
                     _Height = value;
                 }
@@ -410,9 +416,9 @@ namespace SZMK.Desktop.ViewModel
                     case 7:
                         return $"Труба {_Diameter}x{_PlateThickness}";
                     case 8:
-                        return $"Тр.кв.{_Height.ToString("F2").TrimEnd('0', ',')}x{_PlateThickness}";
+                        return $"Тр.кв.{_Height}x{_PlateThickness}";
                     case 9:
-                        return $"Тр.пр.{_Height.ToString("F2").TrimEnd('0', ',')}x{_Height.ToString("F2").TrimEnd('0', ',')}x{_PlateThickness}";
+                        return $"Тр.пр.{_Height}x{_Height}x{_PlateThickness}";
                     case 10:
                         return Profile.Replace("*", "x");
                 }

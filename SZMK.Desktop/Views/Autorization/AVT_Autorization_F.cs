@@ -263,7 +263,7 @@ namespace SZMK.Desktop.Views.Autorization
                 SystemArgs.Request.GetAllUsers();
 
                 Users.Add(new Models.User(-1, "Не выбрано", "Нет отчества", "Нет фамилии", DateTime.Now, 1, new List<Mail>(), "Не выбрано", "Нет хеша", true));
-                Users.AddRange(SystemArgs.Users);
+                Users.AddRange(SystemArgs.Users.OrderBy(p=>p.Login));
                 Login_CB.DataSource = Users;
                 AutoLoginAsync();
             }

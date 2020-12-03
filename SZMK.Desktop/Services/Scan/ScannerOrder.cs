@@ -14,7 +14,6 @@ namespace SZMK.Desktop.Services.Scan
     {
         protected bool connect;
         protected SerialPort port;
-
         private String Port;
         delegate void SetStringDelegate(String parameter);
         public delegate void LoadData(List<OrderScanSession> ScanSession);
@@ -83,7 +82,7 @@ namespace SZMK.Desktop.Services.Scan
                 code = code.Replace("\u001d", "и");
             }
 
-            if (SetResult(FormingOrder(code), _Orders))
+            if (SetResult(FormingOrder(code), _Orders, false))
             {
                 LoadResult?.Invoke(_Orders);
             }

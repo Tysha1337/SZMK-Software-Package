@@ -396,7 +396,6 @@ C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Desktop\bin\Debug\zxing.
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Desktop\bin\Debug\zxing.xml
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Desktop\bin\Debug\zxing.presentation.pdb
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Desktop\bin\Debug\zxing.presentation.xml
-C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.csprojAssemblyReference.cache
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.Views.Admin.MainSettings.Settings_GeneralConstructor.resources
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.Views.Admin.PositionSettings.Settings_KB.resources
 C:\Users\thedr\Desktop\Works\SZMK-Software-Package\SZMK.Desktop\obj\Debug\SZMK.Desktop.Views.KB.KB_AddXML.resources
